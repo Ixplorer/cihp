@@ -1612,28 +1612,6 @@
       </div>
     </div>
 
-    <!-- Floating Slider Controls Bar -->
-    <div class="slider-controls-bar">
-      <div class="container">
-        <div class="slider-controls-inner">
-          <div class="slider-dots">
-            <button class="slider-dot-btn active" onclick="manualSlide(0)" aria-label="Slide 1"></button>
-            <button class="slider-dot-btn" onclick="manualSlide(1)" aria-label="Slide 2"></button>
-            <button class="slider-dot-btn" onclick="manualSlide(2)" aria-label="Slide 3"></button>
-            <button class="slider-dot-btn" onclick="manualSlide(3)" aria-label="Slide 4"></button>
-            <button class="slider-dot-btn" onclick="manualSlide(4)" aria-label="Slide 5"></button>
-          </div>
-
-          <div class="slider-counter" id="slideCounter">01 / 05</div>
-
-          <div class="slider-arrows">
-            <button class="slider-arrow-btn" onclick="prevSlideManual()" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="slider-arrow-btn" onclick="nextSlideManual()" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </header>
 
 
@@ -2364,48 +2342,16 @@
       }
     }
 
-    // Full-Screen Storytelling Banner Slider Engine
+    // Pure Automatic Full-Screen Storytelling Banner Slider Engine
     let currentHeroSlide = 0;
     const heroSlides = document.querySelectorAll('.hero-slide');
-    const heroDots = document.querySelectorAll('.slider-dot-btn');
-    const heroCounter = document.getElementById('slideCounter');
-    let heroTimer = setInterval(autoAdvanceSlide, 6500);
 
-    function displayHeroSlide(idx) {
-      if (!heroSlides.length) return;
-      heroSlides.forEach(s => s.classList.remove('active'));
-      heroDots.forEach(d => d.classList.remove('active'));
-
-      currentHeroSlide = (idx + heroSlides.length) % heroSlides.length;
-      heroSlides[currentHeroSlide].classList.add('active');
-      if (heroDots[currentHeroSlide]) {
-        heroDots[currentHeroSlide].classList.add('active');
-      }
-      if (heroCounter) {
-        heroCounter.textContent = `0${currentHeroSlide + 1} / 0${heroSlides.length}`;
-      }
-    }
-
-    function autoAdvanceSlide() {
-      displayHeroSlide(currentHeroSlide + 1);
-    }
-
-    function manualSlide(idx) {
-      clearInterval(heroTimer);
-      displayHeroSlide(idx);
-      heroTimer = setInterval(autoAdvanceSlide, 6500);
-    }
-
-    function nextSlideManual() {
-      clearInterval(heroTimer);
-      displayHeroSlide(currentHeroSlide + 1);
-      heroTimer = setInterval(autoAdvanceSlide, 6500);
-    }
-
-    function prevSlideManual() {
-      clearInterval(heroTimer);
-      displayHeroSlide(currentHeroSlide - 1);
-      heroTimer = setInterval(autoAdvanceSlide, 6500);
+    if (heroSlides.length > 0) {
+      setInterval(function() {
+        heroSlides[currentHeroSlide].classList.remove('active');
+        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+        heroSlides[currentHeroSlide].classList.add('active');
+      }, 6000);
     }
   </script>
 </body>
