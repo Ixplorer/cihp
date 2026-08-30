@@ -465,64 +465,91 @@
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
-    }
-
-    /* ==========================================================================
-       3. DONOR & STRATEGIC PARTNER TRUST BANNER
+    }    /* ==========================================================================
+       3. DONOR & STRATEGIC PARTNER MOVING MARQUEE (NEAR FOOTER)
        ========================================================================== */
-    .partner-trust-section {
+    .partner-marquee-section {
       background: #ffffff;
-      padding: 40px 0;
+      padding: 50px 0;
+      border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
     }
 
-    .trust-header {
+    .partner-marquee-header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
-    .trust-header p {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--text-light);
+    .partner-marquee-header h4 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--primary-blue);
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      font-family: 'JetBrains Mono', monospace;
     }
 
-    .trust-logos-grid {
+    .partner-marquee-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 36px 48px;
+      overflow: hidden;
+      user-select: none;
+      mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
     }
 
-    .trust-logo-item {
+    .partner-marquee-track {
       display: flex;
       align-items: center;
-      gap: 10px;
-      opacity: 0.85;
-      transition: opacity 0.3s ease;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--primary-blue-dark);
+      gap: 24px;
+      animation: marqueeScroll 26s linear infinite;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .trust-logo-item:hover {
-      opacity: 1;
+    .partner-marquee-container:hover .partner-marquee-track {
+      animation-play-state: paused;
     }
 
-    .trust-logo-icon {
-      width: 36px;
-      height: 36px;
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .partner-logo-pill {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 12px 26px;
       border-radius: 8px;
-      background: var(--secondary-green-light);
-      color: var(--secondary-green);
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #0f172a;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    .partner-logo-pill:hover {
+      border-color: #297b47;
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(41, 123, 71, 0.15);
+    }
+
+    .partner-logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 6px;
+      background: #e8f5ed;
+      color: #297b47;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    } 1rem;
     }
 
     /* ==========================================================================
@@ -1485,36 +1512,7 @@
     </div>
   </header>
 
-  <!-- ==================== 3. DONOR & STRATEGIC PARTNER TRUST BANNER ==================== -->
-  <section class="partner-trust-section">
-    <div class="container">
-      <div class="trust-header">
-        <p>Trusted by Global Funding Agencies, Governments & Research Partners</p>
-      </div>
-      <div class="trust-logos-grid">
-        <div class="trust-logo-item">
-          <div class="trust-logo-icon"><i class="fa-solid fa-building-columns"></i></div>
-          <span>PEPFAR / CDC</span>
-        </div>
-        <div class="trust-logo-item">
-          <div class="trust-logo-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
-          <span>USAID</span>
-        </div>
-        <div class="trust-logo-item">
-          <div class="trust-logo-icon"><i class="fa-solid fa-globe"></i></div>
-          <span>The Global Fund</span>
-        </div>
-        <div class="trust-logo-item">
-          <div class="trust-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
-          <span>Federal Ministry of Health (FMOH)</span>
-        </div>
-        <div class="trust-logo-item">
-          <div class="trust-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
-          <span>World Health Organization (WHO)</span>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <main>
 
@@ -1746,7 +1744,7 @@
               <ul class="project-meta-list">
                 <li><strong>Timeframe:</strong> 2020 – 2025</li>
                 <li><strong>Scope:</strong> Community TB screening & diagnostic network</li>
-                <li><strong>Evidence Source:</strong> USAID Local Organizations Dashboard</li>
+                <li><strong>Evidence Source:</strong> Donor & Multilateral Technical Dashboard</li>
               </ul>
             </div>
             <a href="#gateway" class="btn-secondary" style="width: 100%; justify-content: center;">View Project Context <i class="fa-solid fa-file-pdf"></i></a>
@@ -1899,6 +1897,77 @@
           </div>
         </div>
 
+      </div>
+    <!-- ==================== 9.5 DONOR & PARTNER MOVING MARQUEE ==================== -->
+    <section class="partner-marquee-section">
+      <div class="container" style="max-width: 100%; padding: 0;">
+        <div class="partner-marquee-header">
+          <h4>Trusted by Global Donors, Multilateral Agencies & Strategic Partners</h4>
+        </div>
+
+        <div class="partner-marquee-container">
+          <div class="partner-marquee-track">
+            <!-- Set 1 -->
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
+              <span>PEPFAR / CDC</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
+              <span>European Union (EU)</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
+              <span>GAVI (The Vaccine Alliance)</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+              <span>Bill & Melinda Gates Foundation</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
+              <span>The Global Fund</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
+              <span>World Health Organization (WHO)</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
+              <span>Federal Ministry of Health (FMOH)</span>
+            </div>
+
+            <!-- Set 2 (Duplicate for Continuous Loop) -->
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
+              <span>PEPFAR / CDC</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
+              <span>European Union (EU)</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
+              <span>GAVI (The Vaccine Alliance)</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+              <span>Bill & Melinda Gates Foundation</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
+              <span>The Global Fund</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
+              <span>World Health Organization (WHO)</span>
+            </div>
+            <div class="partner-logo-pill">
+              <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
+              <span>Federal Ministry of Health (FMOH)</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
