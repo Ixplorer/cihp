@@ -317,154 +317,199 @@
        2. HERO SECTION
        ========================================================================== */
     .hero-section {
-      padding: 90px 0 100px;
+    /* ==========================================================================
+       2. FULL-SCREEN HERO STORYTELLING SLIDER
+       ========================================================================== */
+    .hero-slider-section {
       position: relative;
-      background-color: #f4f7f9;
-      background-image:
-        linear-gradient(rgba(30, 51, 136, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(30, 51, 136, 0.04) 1px, transparent 1px);
-      background-size: 40px 40px;
-      border-bottom: 1px solid var(--border-color);
+      width: 100%;
+      min-height: calc(100vh - 78px);
+      display: flex;
+      align-items: center;
       overflow: hidden;
+      background: #0f172a;
+      color: #ffffff;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 50px;
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.8s ease-in-out;
+      pointer-events: none;
+      z-index: 1;
+      display: flex;
       align-items: center;
     }
 
-    .hero-eyebrow {
+    .hero-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .hero-slide-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6) contrast(1.1);
+      transform: scale(1.06);
+      transition: transform 7.5s ease-out;
+    }
+
+    .hero-slide.active .hero-slide-bg {
+      transform: scale(1);
+    }
+
+    .hero-slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 51, 136, 0.75) 50%, rgba(15, 23, 42, 0.88) 100%);
+      z-index: 2;
+    }
+
+    .hero-slide-content {
+      position: relative;
+      z-index: 3;
+      max-width: 880px;
+      padding: 60px 0 100px;
+    }
+
+    .hero-slide-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(30, 51, 136, 0.08);
-      border: 1px solid rgba(30, 51, 136, 0.2);
-      color: var(--primary-blue);
-      padding: 6px 16px;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #38bdf8;
+      padding: 6px 18px;
       border-radius: 50px;
       font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .hero-title {
-      font-size: clamp(2.5rem, 5.2vw, 4.2rem);
-      font-weight: 900;
-      color: var(--primary-blue-dark);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
       margin-bottom: 24px;
     }
 
-    .hero-title .accent-green {
-      color: var(--secondary-green);
+    .hero-slide-title {
+      font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
     }
 
-    .hero-intro {
-      font-size: 1.15rem;
-      color: var(--text-muted);
+    .hero-slide-title .accent-emerald {
+      color: #4ade80;
+    }
+
+    .hero-slide-desc {
+      font-size: 1.2rem;
+      color: #e2e8f0;
       line-height: 1.75;
       margin-bottom: 36px;
+      max-width: 760px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
     }
 
-    .hero-cta-group {
+    .hero-slide-cta-group {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
       align-items: center;
-      margin-bottom: 40px;
     }
 
-    .hero-visual-card {
-      position: relative;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border-color);
-      background: #ffffff;
-    }
-
-    .hero-visual-card img {
-      width: 100%;
-      height: 380px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-visual-overlay {
+    /* Floating Slider Controls Bar */
+    .slider-controls-bar {
       position: absolute;
-      bottom: 0;
+      bottom: 40px;
       left: 0;
-      right: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.9) 100%);
-      padding: 24px;
-      color: #ffffff;
+      width: 100%;
+      z-index: 10;
+      pointer-events: auto;
     }
 
-    .hero-visual-tag {
-      background: var(--secondary-green);
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 3px 10px;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 8px;
+    .slider-controls-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      padding: 12px 28px;
     }
 
-    /* Live Impact Ticker Grid */
-    .impact-ticker-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 24px;
+    .slider-dots {
+      display: flex;
+      gap: 12px;
+      align-items: center;
     }
 
-    .ticker-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-left: 4px solid var(--primary-blue);
-      padding: 16px 20px;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
+    .slider-dot-btn {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .ticker-card.accent-emerald {
-      border-left-color: var(--secondary-green);
+    .slider-dot-btn.active {
+      background: #4ade80;
+      transform: scale(1.3);
+      box-shadow: 0 0 12px #4ade80;
     }
 
-    .ticker-card.accent-ochre {
-      border-left-color: var(--accent-ochre);
-    }
-
-    .ticker-number {
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--primary-blue-dark);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .ticker-card.accent-emerald .ticker-number {
-      color: var(--secondary-green);
-    }
-
-    .ticker-card.accent-ochre .ticker-number {
-      color: var(--accent-ochre);
-    }
-
-    .ticker-label {
-      font-size: 0.82rem;
+    .slider-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      color: #ffffff;
+      letter-spacing: 0.1em;
+    }
+
+    .slider-arrows {
+      display: flex;
+      gap: 12px;
+    }
+
+    .slider-arrow-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .slider-arrow-btn:hover {
+      background: #297b47;
+      border-color: #4ade80;
+      transform: scale(1.08);
     }    /* ==========================================================================
        3. DONOR & STRATEGIC PARTNER MOVING MARQUEE (NEAR FOOTER)
        ========================================================================== */
@@ -1450,66 +1495,146 @@
     </ul>
   </nav>
 
-  <!-- ==================== 2. HERO SECTION ==================== -->
-  <header id="home" class="hero-section">
-    <div class="container">
-      <div class="hero-grid">
-        
-        <div class="hero-text-col">
-          <div class="hero-eyebrow" data-aos="fade-down">
-            <i class="fa-solid fa-earth-africa"></i> Indigenous Leadership | Pan-African Ambition
+  <!-- ==================== 2. FULL-SCREEN STORYTELLING HERO BANNER ==================== -->
+  <header id="home" class="hero-slider-section">
+    
+    <!-- Slide 1: Pan-African Vision -->
+    <div class="hero-slide active">
+      <img src="img/HEADER.png" alt="CIHP Pan-African Vision" class="hero-slide-bg" />
+      <div class="hero-slide-overlay"></div>
+      <div class="container">
+        <div class="hero-slide-content">
+          <div class="hero-slide-eyebrow">
+            <i class="fa-solid fa-earth-africa"></i> Story 01 | Pan-African Horizon
           </div>
-          
-          <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-            Engineered for <span class="accent-green">Pan-African</span> Health Impact.
+          <h1 class="hero-slide-title">
+            Engineered for <span class="accent-emerald">Pan-African</span> Health Impact.
           </h1>
-
-          <p class="hero-intro" data-aos="fade-up" data-aos-delay="200">
-            Centre for Integrated Health Programs (CIHP) is a premier indigenous non-profit organization promoting equitable, evidence-based public health solutions across 20 states in Nigeria, with a strategic ambition to establish physical footholds across 5 African nations.
+          <p class="hero-slide-desc">
+            Evolving from ICAP Columbia in 2010 into a premier indigenous non-profit delivering evidence-based public health solutions across 20 Nigerian states and expanding into 5 Pan-African strategic footholds.
           </p>
-
-          <div class="hero-cta-group" data-aos="fade-up" data-aos-delay="300">
-            <a href="#about" class="btn-primary">
-              Explore Our Strategic Horizon <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a href="#gateway" class="btn-secondary">
-              Open Procurement & Careers
-            </a>
-          </div>
-
-          <div class="impact-ticker-grid" data-aos="fade-up" data-aos-delay="400">
-            <div class="ticker-card accent-emerald">
-              <div class="ticker-number mono">11M+</div>
-              <div class="ticker-label">Lives Reached with Care</div>
-            </div>
-            <div class="ticker-card">
-              <div class="ticker-number mono">20</div>
-              <div class="ticker-label">Nigerian States Covered</div>
-            </div>
-            <div class="ticker-card">
-              <div class="ticker-number mono">15+</div>
-              <div class="ticker-label">Years Public Health Mastery</div>
-            </div>
-            <div class="ticker-card accent-ochre">
-              <div class="ticker-number mono">5</div>
-              <div class="ticker-label">Pan-African Target Hubs</div>
-            </div>
+          <div class="hero-slide-cta-group">
+            <a href="#about" class="btn-emerald">Explore Our Ambition <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="about.html" class="btn-secondary" style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Our 15-Year History</a>
           </div>
         </div>
-
-        <div class="hero-visual-col" data-aos="fade-left" data-aos-delay="200">
-          <div class="hero-visual-card">
-            <img src="img/Reachout.png" alt="CIHP Healthcare Workers Delivering Community Impact" />
-            <div class="hero-visual-overlay">
-              <span class="hero-visual-tag">Public Health Excellence</span>
-              <h4 style="font-weight: 800; font-size: 1.1rem;">Strengthening Health Systems That Endure</h4>
-              <p style="font-size: 0.88rem; color: #e2e8f0; margin-top: 4px;">Delivering high-quality, people-centered health interventions transparently and sustainably.</p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
+
+    <!-- Slide 2: Women in Public Health Leadership -->
+    <div class="hero-slide">
+      <img src="img/IMG_0994.JPG" alt="CIHP WiPHLA Initiative" class="hero-slide-bg" />
+      <div class="hero-slide-overlay"></div>
+      <div class="container">
+        <div class="hero-slide-content">
+          <div class="hero-slide-eyebrow">
+            <i class="fa-solid fa-user-nurse"></i> Story 02 | Leadership & Gender Equity
+          </div>
+          <h1 class="hero-slide-title">
+            Empowering Women to Lead Sustainable <span class="accent-emerald">Health Systems</span>.
+          </h1>
+          <p class="hero-slide-desc">
+            Championing executive mentorship, clinical capacity development, and gender dialogues through the WiPHLA initiative to empower female public health leaders across Africa.
+          </p>
+          <div class="hero-slide-cta-group">
+            <a href="#news" class="btn-emerald">Read WiPHLA Story <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#leadership" class="btn-secondary" style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Executive Roster</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Epidemic Control & Diagnostic Networks -->
+    <div class="hero-slide">
+      <img src="img/iris.JPG" alt="CIHP IRIS Project Epidemic Control" class="hero-slide-bg" />
+      <div class="hero-slide-overlay"></div>
+      <div class="container">
+        <div class="hero-slide-content">
+          <div class="hero-slide-eyebrow">
+            <i class="fa-solid fa-microscope"></i> Story 03 | Epidemic Control & Diagnostics
+          </div>
+          <h1 class="hero-slide-title">
+            Pioneering HIV & Tuberculosis <span class="accent-emerald">Epidemic Control</span>.
+          </h1>
+          <p class="hero-slide-desc">
+            Sustaining viral suppression, deploying AI-assisted digital mobile X-ray screenings, and strengthening laboratory diagnostic networks across state health facilities.
+          </p>
+          <div class="hero-slide-cta-group">
+            <a href="#impact" class="btn-emerald">View Active Projects <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-secondary" style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Procurement & RFPs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Group Antenatal Care (G-ANC) -->
+    <div class="hero-slide">
+      <img src="img/GANC.jpg" alt="CIHP Group Antenatal Care" class="hero-slide-bg" />
+      <div class="hero-slide-overlay"></div>
+      <div class="container">
+        <div class="hero-slide-content">
+          <div class="hero-slide-eyebrow">
+            <i class="fa-solid fa-baby"></i> Story 04 | Maternal & Child Health
+          </div>
+          <h1 class="hero-slide-title">
+            Saving Mothers & Infants Through <span class="accent-emerald">Group Antenatal Mentorship</span>.
+          </h1>
+          <p class="hero-slide-desc">
+            Combining group antenatal consultations, peer support circles, and community PMTCT interventions to dramatically improve survival and health outcomes for mothers and infants.
+          </p>
+          <div class="hero-slide-cta-group">
+            <a href="#what-we-do" class="btn-emerald">Explore MCH Services <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="about.html#leadership" class="btn-secondary" style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Our Values</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: Youth & Economic Empowerment -->
+    <div class="hero-slide">
+      <img src="img/Reachout.png" alt="CIHP Youth Empowerment" class="hero-slide-bg" />
+      <div class="hero-slide-overlay"></div>
+      <div class="container">
+        <div class="hero-slide-content">
+          <div class="hero-slide-eyebrow">
+            <i class="fa-solid fa-graduation-cap"></i> Story 05 | Youth Empowerment
+          </div>
+          <h1 class="hero-slide-title">
+            Unlocking Potential & <span class="accent-emerald">Economic Independence</span>.
+          </h1>
+          <p class="hero-slide-desc">
+            Empowering adolescents and young women through economic hub initiatives, vocational skills training, financial literacy, and community support networks.
+          </p>
+          <div class="hero-slide-cta-group">
+            <a href="#impact" class="btn-emerald">Read AYP Story <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-secondary" style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Join Talent Network</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Slider Controls Bar -->
+    <div class="slider-controls-bar">
+      <div class="container">
+        <div class="slider-controls-inner">
+          <div class="slider-dots">
+            <button class="slider-dot-btn active" onclick="manualSlide(0)" aria-label="Slide 1"></button>
+            <button class="slider-dot-btn" onclick="manualSlide(1)" aria-label="Slide 2"></button>
+            <button class="slider-dot-btn" onclick="manualSlide(2)" aria-label="Slide 3"></button>
+            <button class="slider-dot-btn" onclick="manualSlide(3)" aria-label="Slide 4"></button>
+            <button class="slider-dot-btn" onclick="manualSlide(4)" aria-label="Slide 5"></button>
+          </div>
+
+          <div class="slider-counter" id="slideCounter">01 / 05</div>
+
+          <div class="slider-arrows">
+            <button class="slider-arrow-btn" onclick="prevSlideManual()" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-arrow-btn" onclick="nextSlideManual()" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </header>
 
 
@@ -2238,6 +2363,50 @@
         btns[2].classList.add('active');
         document.getElementById('tabPartnership').classList.add('active');
       }
+    }
+
+    // Full-Screen Storytelling Banner Slider Engine
+    let currentHeroSlide = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.slider-dot-btn');
+    const heroCounter = document.getElementById('slideCounter');
+    let heroTimer = setInterval(autoAdvanceSlide, 6500);
+
+    function displayHeroSlide(idx) {
+      if (!heroSlides.length) return;
+      heroSlides.forEach(s => s.classList.remove('active'));
+      heroDots.forEach(d => d.classList.remove('active'));
+
+      currentHeroSlide = (idx + heroSlides.length) % heroSlides.length;
+      heroSlides[currentHeroSlide].classList.add('active');
+      if (heroDots[currentHeroSlide]) {
+        heroDots[currentHeroSlide].classList.add('active');
+      }
+      if (heroCounter) {
+        heroCounter.textContent = `0${currentHeroSlide + 1} / 0${heroSlides.length}`;
+      }
+    }
+
+    function autoAdvanceSlide() {
+      displayHeroSlide(currentHeroSlide + 1);
+    }
+
+    function manualSlide(idx) {
+      clearInterval(heroTimer);
+      displayHeroSlide(idx);
+      heroTimer = setInterval(autoAdvanceSlide, 6500);
+    }
+
+    function nextSlideManual() {
+      clearInterval(heroTimer);
+      displayHeroSlide(currentHeroSlide + 1);
+      heroTimer = setInterval(autoAdvanceSlide, 6500);
+    }
+
+    function prevSlideManual() {
+      clearInterval(heroTimer);
+      displayHeroSlide(currentHeroSlide - 1);
+      heroTimer = setInterval(autoAdvanceSlide, 6500);
     }
   </script>
 </body>
