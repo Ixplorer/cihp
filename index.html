@@ -511,8 +511,90 @@
     }
 
     /* ==========================================================================
-       3. DONOR & STRATEGIC PARTNER MOVING MARQUEE (NEAR FOOTER)
+       HERO IMPACT STATS BAR (WITH SMOOTH COUNTERS)
        ========================================================================== */
+    .hero-stats-banner-section {
+      background-color: #f8fafc;
+      background-image:
+        linear-gradient(rgba(30, 51, 136, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 51, 136, 0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .stats-banner-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .stat-banner-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-left: 5px solid #297b47;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-banner-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+    }
+
+    .stat-banner-card.accent-blue {
+      border-left-color: #1e3388;
+    }
+
+    .stat-banner-card.accent-navy {
+      border-left-color: #0f172a;
+    }
+
+    .stat-banner-card.accent-amber {
+      border-left-color: #d97706;
+    }
+
+    .stat-banner-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 10px;
+      color: #297b47;
+    }
+
+    .stat-banner-card.accent-blue .stat-banner-number,
+    .stat-banner-card.accent-navy .stat-banner-number {
+      color: #0f172a;
+    }
+
+    .stat-banner-card.accent-amber .stat-banner-number {
+      color: #d97706;
+    }
+
+    .stat-banner-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 992px) {
+      .stats-banner-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .stats-banner-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     .partner-marquee-section {
       background: #ffffff;
       padding: 50px 0;
@@ -1614,6 +1696,35 @@
 
   </header>
 
+  <!-- ==================== HERO IMPACT STATS BAR ==================== -->
+  <section class="hero-stats-banner-section">
+    <div class="container">
+      <div class="stats-banner-grid" data-aos="fade-up">
+        
+        <div class="stat-banner-card">
+          <div class="stat-banner-number"><span class="counter-val" data-target="11" data-suffix="M+">0M+</span></div>
+          <div class="stat-banner-label">LIVES REACHED WITH CARE</div>
+        </div>
+
+        <div class="stat-banner-card accent-blue">
+          <div class="stat-banner-number"><span class="counter-val" data-target="20" data-suffix="">0</span></div>
+          <div class="stat-banner-label">NIGERIAN STATES COVERED</div>
+        </div>
+
+        <div class="stat-banner-card accent-navy">
+          <div class="stat-banner-number"><span class="counter-val" data-target="15" data-suffix="+">0+</span></div>
+          <div class="stat-banner-label">YEARS LEADERSHIP MASTERY</div>
+        </div>
+
+        <div class="stat-banner-card accent-amber">
+          <div class="stat-banner-number"><span class="counter-val" data-target="5" data-suffix="">0</span></div>
+          <div class="stat-banner-label">PAN-AFRICAN TARGET HUBS</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 
 
   <main>
@@ -2352,6 +2463,52 @@
         currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
         heroSlides[currentHeroSlide].classList.add('active');
       }, 6000);
+    }
+
+    // Smooth Counter Animation on Viewport Entry
+    let hasCounted = false;
+    const statsSection = document.querySelector('.hero-stats-banner-section');
+
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter-val');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const suffix = counter.getAttribute('data-suffix') || '';
+        let start = 0;
+        const duration = 2200; // 2.2 seconds smooth counting
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+          const elapsedTime = currentTime - startTime;
+          const progress = Math.min(elapsedTime / duration, 1);
+          // Ease-out cubic function for smooth slowing count
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          const currentVal = Math.floor(easeProgress * target);
+
+          counter.textContent = currentVal + suffix;
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target + suffix;
+          }
+        }
+
+        requestAnimationFrame(updateCounter);
+      });
+    }
+
+    if (statsSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasCounted) {
+            hasCounted = true;
+            animateCounters();
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(statsSection);
     }
   </script>
 </body>
