@@ -1,0 +1,293 @@
+<?php
+/**
+ * CIHP HR Admin Portal Gateway & Gatekeeper Login
+ * Centre for Integrated Health Programs (CIHP)
+ */
+session_start();
+
+// If already logged in, redirect straight to HR Dashboard
+if (isset($_SESSION['hr_authenticated']) && $_SESSION['hr_authenticated'] === true) {
+    header("Location: hr_dashboard.php");
+    exit();
+}
+
+$errorMessage = '';
+$successMessage = '';
+
+if (isset($_GET['error']) && $_GET['error'] === 'unauthorized') {
+    $errorMessage = 'Access Denied: Please log in with authorized CIHP HR Directorate credentials.';
+}
+if (isset($_GET['logged_out']) && $_GET['logged_out'] === '1') {
+    $successMessage = 'You have successfully signed out of the HR Admin Portal.';
+}
+
+// Allowed HR Admin Accounts
+$validAccounts = [
+    'hr.admin@cihpng.org' => [
+        'password' => 'CIHP@Recruitment2026!',
+        'name' => 'HR Recruitment Directorate',
+        'role' => 'Super HR Admin'
+    ],
+    'recruitment@cihpng.org' => [
+        'password' => 'CIHP2026#Jobs',
+        'name' => 'Talent Acquisition Team',
+        'role' => 'Recruitment Officer'
+    ]
+];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = strtolower(trim($_POST['email'] ?? ''));
+    $password = $_POST['password'] ?? '';
+
+    if (isset($validAccounts[$email]) && $validAccounts[$email]['password'] === $password) {
+        $_SESSION['hr_authenticated'] = true;
+        $_SESSION['hr_email'] = $email;
+        $_SESSION['hr_name'] = $validAccounts[$email]['name'];
+        $_SESSION['hr_role'] = $validAccounts[$email]['role'];
+        $_SESSION['login_time'] = time();
+
+        header("Location: hr_dashboard.php");
+        exit();
+    } else {
+        $errorMessage = 'Invalid HR email address or security key. Please verify your credentials.';
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Admin Portal Login — Centre for Integrated Health Programs (CIHP)</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-blue: #1e3388;
+      --primary-blue-dark: #0f172a;
+      --secondary-green: #297b47;
+      --secondary-green-light: #e8f5ed;
+      --accent-ochre: #d97706;
+      --bg-deep: #090f2a;
+      --border-color: rgba(255, 255, 255, 0.12);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top right, #1e3388, #090f2a 80%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .login-header {
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-box { display: flex; align-items: center; gap: 14px; text-decoration: none; color: #ffffff; }
+    .brand-box img { height: 44px; background: #ffffff; padding: 4px 10px; border-radius: 6px; }
+
+    .login-container {
+      max-width: 460px;
+      width: 100%;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .login-card {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 40px 36px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+    }
+
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(41, 123, 71, 0.2);
+      border: 1px solid var(--secondary-green);
+      color: #4ade80;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .login-title { font-size: 1.6rem; font-weight: 900; margin-bottom: 6px; }
+    .login-subtitle { font-size: 0.88rem; color: #94a3b8; margin-bottom: 28px; line-height: 1.5; }
+
+    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; font-size: 0.82rem; font-weight: 700; color: #cbd5e1; margin-bottom: 8px; }
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 0.92rem;
+      transition: all 0.3s ease;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #38bdf8;
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+    }
+
+    .btn-login {
+      width: 100%;
+      background: linear-gradient(135deg, var(--secondary-green), #15803d);
+      color: #ffffff;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-top: 10px;
+    }
+    .btn-login:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(41, 123, 71, 0.4);
+    }
+
+    .alert {
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .alert-danger { background: rgba(225, 29, 72, 0.2); border: 1px solid #f43f5e; color: #fecdd3; }
+    .alert-success { background: rgba(41, 123, 71, 0.2); border: 1px solid #22c55e; color: #bbf7d0; }
+
+    .demo-credentials-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+    .demo-credentials-box strong { color: #ffffff; }
+
+    .quick-fill-btn {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      display: inline-block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="login-header">
+    <a href="careers.html" class="brand-box">
+      <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo" />
+      <div>
+        <div style="font-weight: 900; font-size: 1.1rem; line-height: 1.2;">CIHP HR Gateway</div>
+        <div style="font-size: 0.75rem; color: #94a3b8;" class="mono">Recruitment Directorate</div>
+      </div>
+    </a>
+    <a href="careers.html" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 700;"><i class="fa-solid fa-arrow-left"></i> Public Careers Site</a>
+  </header>
+
+  <main class="login-container">
+    <div class="login-card">
+
+      <div class="security-badge mono">
+        <i class="fa-solid fa-lock"></i> RESTRICTED HR ACCESS ONLY
+      </div>
+
+      <h1 class="login-title">Sign In to Dashboard</h1>
+      <p class="login-subtitle">Authenticate with your CIHP Human Resources credentials to manage job vacancies, review candidates, and process shortlisting.</p>
+
+      <?php if (!empty($errorMessage)): ?>
+        <div class="alert alert-danger">
+          <i class="fa-solid fa-triangle-exclamation"></i> <?php echo htmlspecialchars($errorMessage); ?>
+        </div>
+      <?php endif; ?>
+
+      <?php if (!empty($successMessage)): ?>
+        <div class="alert alert-success">
+          <i class="fa-solid fa-circle-check"></i> <?php echo htmlspecialchars($successMessage); ?>
+        </div>
+      <?php endif; ?>
+
+      <form method="POST" action="hr_login.php">
+        <div class="form-group">
+          <label class="form-label">Official HR Email Address *</label>
+          <input type="email" name="email" id="inputEmail" required class="form-input" placeholder="e.g. hr.admin@cihpng.org" autocomplete="email" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Security Key / Password *</label>
+          <input type="password" name="password" id="inputPassword" required class="form-input" placeholder="••••••••••••••••" />
+        </div>
+
+        <button type="submit" class="btn-login">
+          <i class="fa-solid fa-shield-halved"></i> Authenticate & Enter Dashboard
+        </button>
+      </form>
+
+    
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; <?php echo date('Y'); ?> Centre for Integrated Health Programs (CIHP). All Rights Reserved. Gatekeeper v2.6.
+  </footer>
+
+  <script>
+    function autoFillDemo() {
+      document.getElementById('inputEmail').value = 'hr.admin@cihpng.org';
+      document.getElementById('inputPassword').value = 'CIHP@Recruitment2026!';
+    }
+  </script>
+</body>
+
+</html>

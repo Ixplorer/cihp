@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers & Opportunities — Centre for Integrated Health Programs (CIHP)</title>
+  <meta name="description" content="Explore public health careers, fellowships, consultancies (STTA), and vendor EOI solicitations at Centre for Integrated Health Programs (CIHP). Join 11M+ lives transformed." />
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CIHP BRAND DESIGN SYSTEM & TOKENS
+       ========================================================================== */
+    :root {
+      --primary-blue: #1e3388;
+      --primary-blue-dark: #0f172a;
+      --primary-blue-light: #253fa8;
+      --secondary-green: #297b47;
+      --secondary-green-dark: #1b5430;
+      --secondary-green-light: #e8f5ed;
+      --accent-ochre: #d97706;
+
+      --bg-deep: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-muted: #f1f5f9;
+      --border-color: rgba(30, 51, 136, 0.12);
+
+      --text-main: #0f172a;
+      --text-muted: #475569;
+
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 10px 25px rgba(30, 51, 136, 0.08);
+      --shadow-lg: 0 20px 40px rgba(30, 51, 136, 0.12);
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(30, 51, 136, 0.22);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(30, 51, 136, 0.35); }
+
+    .btn-emerald {
+      background: var(--secondary-green);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(41, 123, 71, 0.22);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-emerald:hover { background: var(--secondary-green-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary-blue);
+      color: var(--primary-blue);
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+    .btn-outline:hover { background: var(--primary-blue); color: #ffffff; }
+
+    /* Sticky Navbar */
+    .navbar {
+      position: sticky;
+      top: 0; left: 0; width: 100%;
+      background: #ffffff;
+      backdrop-filter: blur(16px);
+      border-bottom: 3px solid #1e3388;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 44px;
+      z-index: 10000;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    }
+    .brand-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+    .brand-logo img { height: 48px; filter: drop-shadow(0 2px 4px rgba(30, 51, 136, 0.12)); }
+    .presence-badge {
+      display: flex; align-items: center; gap: 8px;
+      background: #f1f5f9; border: 1px solid #cbd5e1;
+      padding: 5px 14px; border-radius: 4px;
+      font-size: 0.76rem; font-weight: 700; color: #1e3388;
+    }
+    .nav-links { display: flex; gap: 22px; list-style: none; align-items: center; }
+    .nav-links a {
+      color: #0f172a; text-decoration: none; font-size: 0.88rem; font-weight: 600;
+      transition: color 0.2s ease; padding: 6px 0; position: relative;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #1e3388; font-weight: 700; }
+    .nav-links a.btn-nav {
+      background: #297b47; color: #ffffff; padding: 10px 22px; border-radius: 4px; font-weight: 700;
+    }
+
+    /* Careers Hero Section */
+    .careers-hero {
+      background: linear-gradient(135deg, #090f2a 0%, #1e3388 60%, #1b5430 100%);
+      color: #ffffff;
+      padding: 70px 0 60px;
+      position: relative;
+    }
+    .careers-hero-content { max-width: 920px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      padding: 6px 16px; border-radius: 50px; font-size: 0.82rem; font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .careers-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 900; line-height: 1.15; margin-bottom: 16px; }
+    .careers-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.88); margin-bottom: 30px; line-height: 1.7; }
+
+    /* Search & 3-Tier Filter Bar */
+    .filter-bar-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 1.2fr 1.2fr 0.8fr;
+      gap: 12px;
+      align-items: center;
+    }
+    .filter-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
+    /* Section Headers */
+    section { padding: 70px 0; border-bottom: 1px solid var(--border-color); }
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; color: var(--secondary-green);
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700;
+      text-transform: uppercase; margin-bottom: 12px; background: var(--secondary-green-light);
+      padding: 4px 12px; border-radius: 50px;
+    }
+    .section-title { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; color: var(--primary-blue-dark); margin-bottom: 12px; }
+    .section-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 820px; margin-bottom: 36px; }
+
+    /* Job Card Grid */
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+    }
+    .job-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+    .job-card:hover {
+      border-color: var(--primary-blue);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .job-dept-badge {
+      display: inline-block;
+      background: var(--secondary-green-light);
+      color: var(--secondary-green-dark);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .contract-type-pill {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-left: 6px;
+    }
+    .job-card h3 { font-size: 1.2rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 10px; line-height: 1.3; }
+    .job-meta-row { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px; }
+    .job-summary { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px; flex-grow: 1; }
+
+    /* Competencies Tag Container */
+    .comp-tags-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .comp-tag {
+      background: #f1f5f9; border: 1px solid #e2e8f0;
+      color: var(--text-main); font-size: 0.76rem; font-weight: 600; padding: 3px 8px; border-radius: 4px;
+    }
+
+    /* EVP & Staff Testimonials Card */
+    .evp-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* EOI Callout Banner */
+    .eoi-callout-card {
+      background: linear-gradient(135deg, #0f172a, #1e3388);
+      color: #ffffff;
+      padding: 36px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-lg);
+      margin-top: 40px;
+    }
+
+    /* Modal Overlay & Card */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 99999;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      max-width: 740px; width: 100%;
+      max-height: 90vh; overflow-y: auto;
+      padding: 36px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .modal-close-btn {
+      position: absolute; top: 20px; right: 20px;
+      background: #f1f5f9; border: none; width: 36px; height: 36px;
+      border-radius: 50%; cursor: pointer; font-size: 1.1rem; color: var(--text-muted);
+    }
+
+    /* File Upload Box */
+    .file-upload-box {
+      border: 2px dashed #cbd5e1; border-radius: var(--radius-md);
+      padding: 20px; text-align: center; background: var(--bg-deep);
+      position: relative; cursor: pointer; margin-top: 6px;
+    }
+    .file-upload-box input[type="file"] {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;
+    }
+
+    /* Skill Tag Checkboxes */
+    .skill-tags-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 10px;
+    }
+    .skill-tag-check {
+      display: flex; align-items: center; gap: 8px; font-size: 0.85rem; background: var(--bg-deep); padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1; cursor: pointer;
+    }
+
+    /* Footer */
+    .footer-safari-silhouette {
+      background: var(--primary-blue-dark); color: rgba(255, 255, 255, 0.75);
+      padding: 50px 0 24px; border-top: 4px solid var(--secondary-green);
+    }
+
+    @media (max-width: 992px) {
+      .filter-bar-card { grid-template-columns: 1fr; }
+      .navbar { padding: 14px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== STICKY NAVBAR ==================== -->
+  <nav class="navbar">
+    <a href="index.html" class="brand-logo">
+      <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo" />
+      <div class="presence-badge mono">
+        <i class="fa-solid fa-earth-africa" style="color: var(--secondary-green);"></i> 20 States | 5 Pan-African Footholds
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About CIHP</a></li>
+      <li><a href="index.html#what-we-do">What We Do</a></li>
+      <li><a href="news.php">News & Media</a></li>
+      <li><a href="careers.html" class="active">Careers & EOI</a></li>
+      <li><a href="hr_login.php" style="color: var(--accent-ochre); font-weight: 700;"><i class="fa-solid fa-lock"></i> HR Admin</a></li>
+      <li><a href="contact.html" class="btn-nav">Partner With Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- ==================== CAREERS HERO BANNER ==================== -->
+  <header class="careers-hero">
+    <div class="container">
+      <div class="careers-hero-content">
+        <div class="hero-eyebrow mono"><i class="fa-solid fa-user-plus"></i> CIHP TALENT & OPPORTUNITIES NETWORK</div>
+        <h1>Build Your Career in Sustainable Health Systems</h1>
+        <p>Join a multidisciplinary team of public health leaders, clinical mentors, data scientists, and health systems specialists transforming over 11 Million lives across Africa.</p>
+
+        <!-- PILLAR 1: SEARCH & 3-TIER FILTER BAR -->
+        <div class="filter-bar-card">
+          <input type="text" id="searchInput" class="filter-input" placeholder="Search title, skills, keyword..." onkeyup="filterJobs()" />
+          
+          <select id="deptFilter" class="filter-input" onchange="filterJobs()">
+            <option value="">All Departments</option>
+            <option value="Clinical Care & ART">Clinical Care & ART</option>
+            <option value="M&E / Strategic Information">M&E / Strategic Info</option>
+            <option value="Health Systems Strengthening">Health Systems (HSS)</option>
+            <option value="Finance & Grants">Finance & Grants</option>
+            <option value="Supply Chain & Logistics">Supply Chain & Logistics</option>
+          </select>
+
+          <select id="locationFilter" class="filter-input" onchange="filterJobs()">
+            <option value="">All Locations</option>
+            <option value="Abuja">Abuja HQ</option>
+            <option value="Lagos">Lagos State</option>
+            <option value="Gombe">Gombe State</option>
+            <option value="Niger">Niger State</option>
+            <option value="Benue">Benue State</option>
+            <option value="Kaduna">Kaduna State</option>
+            <option value="Pan-African">Pan-African Hubs</option>
+          </select>
+
+          <select id="typeFilter" class="filter-input" onchange="filterJobs()">
+            <option value="">All Contract Types</option>
+            <option value="Full-Time">Full-Time</option>
+            <option value="Fixed-Term">Fixed-Term (Grant)</option>
+            <option value="Consultancy / STTA">Consultancy / STTA</option>
+            <option value="Fellowship / Internship">Fellowship / Internship</option>
+          </select>
+
+          <button class="btn-primary" onclick="filterJobs()"><i class="fa-solid fa-magnifying-glass"></i> Filter</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== PILLAR 7: CULTURE & EMPLOYEE VALUE PROPOSITION (EVP) ==================== -->
+    <section style="background: #ffffff;">
+      <div class="container">
+        <div class="section-eyebrow"><i class="fa-solid fa-heart-pulse"></i> Employee Value Proposition</div>
+        <h2 class="section-title">Why Build Your Public Health Craft With CIHP?</h2>
+        <p class="section-desc">At CIHP, we believe that sustainable health outcomes stem from investing in local human capacity, evidence-based research, and accountable stewardship.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;">
+          <div class="evp-card">
+            <div style="font-size: 1.8rem; color: var(--primary-blue); margin-bottom: 14px;"><i class="fa-solid fa-earth-africa"></i></div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 8px;">11M+ Lives Impacted</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Direct healthcare delivery, maternal emergency bundles, and ART expansion across 20 Nigerian states and Pan-African consortia.</p>
+          </div>
+
+          <div class="evp-card">
+            <div style="font-size: 1.8rem; color: var(--secondary-green); margin-bottom: 14px;"><i class="fa-solid fa-award"></i></div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 8px;">15+ Year Indigenous Legacy</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Evolved from Columbia University ICAP in 2010 into an autonomous, leading indigenous non-profit grant steward.</p>
+          </div>
+
+          <div class="evp-card">
+            <div style="font-size: 1.8rem; color: var(--accent-ochre); margin-bottom: 14px;"><i class="fa-solid fa-user-graduate"></i></div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 8px;">Mentorship & Global Consortia</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Collaborate with EDCTP3, Unitaid, and Gates Foundation multi-country research teams across Europe and Africa.</p>
+          </div>
+        </div>
+
+        <!-- STAFF TESTIMONIALS -->
+        <div style="background: var(--bg-muted); border-radius: var(--radius-md); padding: 32px; border: 1px solid var(--border-color);">
+          <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 16px;"><i class="fa-solid fa-quote-left" style="color: var(--secondary-green);"></i> Staff Stories & Field Perspectives</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div style="background: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #cbd5e1;">
+              <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted); margin-bottom: 12px;">"Training frontline doctors on PPH E-MOTIVE bundles in Lagos secondary hospitals saw immediate reductions in maternal hemorrhage. CIHP gives you the operational backing to save lives."</p>
+              <div style="font-weight: 800; font-size: 0.85rem; color: var(--primary-blue-dark);">— Senior Clinical Mentor, AEARI Project</div>
+            </div>
+            <div style="background: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #cbd5e1;">
+              <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted); margin-bottom: 12px;">"Building National Data Repository (NDR) synchronization tools across rural health sites taught me how health informatics directly drives donor decision-making."</p>
+              <div style="font-weight: 800; font-size: 0.85rem; color: var(--primary-blue-dark);">— Health Informatics Lead, Lagos State</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== PILLAR 1 & 2: ACTIVE VACANCIES GRID ==================== -->
+    <section>
+      <div class="container">
+        <div class="section-eyebrow"><i class="fa-solid fa-briefcase"></i> Open Opportunities</div>
+        <h2 class="section-title">Active Job Vacancies & Fellowships</h2>
+        <p class="section-desc">Click any role to review complete job metadata, technical competencies, reporting line, and submit your application online.</p>
+
+        <div class="jobs-grid" id="jobsGrid">
+          <!-- Dynamic Job Cards populated via JS -->
+        </div>
+
+        <!-- PILLAR 3: EOI PROCUREMENT SUBSECTION BANNER -->
+        <div class="eoi-callout-card">
+          <div>
+            <span class="mono" style="background: var(--accent-ochre); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Procurement Solicitation</span>
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin: 10px 0 6px;">Expression of Interest (EOI) — Vendor Pre-Qualification</h3>
+            <p style="font-size: 0.92rem; color: rgba(255, 255, 255, 0.85);">Pre-qualification of Insurance Service Providers (Group Life & Physical Assets Brokerage 2026/2027). Closing Sept 7, 2026.</p>
+          </div>
+          <a href="eoi.html" class="btn-emerald" style="white-space: nowrap;">Apply For EOI Online <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PILLAR 4: CONSULTANT & EXPERT ROSTER INTAKE (STTA) ==================== -->
+    <section style="background: #ffffff;">
+      <div class="container">
+        <div style="background: linear-gradient(135deg, var(--secondary-green-light), #ffffff); border: 2px solid var(--secondary-green); border-radius: var(--radius-lg); padding: 36px;">
+          <div class="section-eyebrow"><i class="fa-solid fa-user-gear"></i> Expert Roster Intake</div>
+          <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary-blue-dark); margin-bottom: 10px;">Short-Term Technical Assistance (STTA) Roster</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Are you a specialized public health consultant, senior trainer, or researcher? Register on CIHP's STTA Expert Roster for short-term technical deployments.</p>
+
+          <button class="btn-emerald" onclick="openConsultantModal()"><i class="fa-solid fa-id-badge"></i> Register as STTA Consultant <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PILLAR 6: SAFEGUARDING, COMPLIANCE & FRAUD PROTECTION ==================== -->
+    <section style="background: var(--bg-muted);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <div style="background: #ffffff; padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 1.5rem; color: var(--accent-ochre); margin-bottom: 12px;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 8px;">Recruitment Fraud Warning</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">CIHP does <strong>NOT</strong> request payment, fees, or monetary favors at any stage of recruitment or procurement. Official emails strictly originate from <code>@cihpng.org</code>.</p>
+          </div>
+
+          <div style="background: #ffffff; padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 1.5rem; color: var(--secondary-green); margin-bottom: 12px;"><i class="fa-solid fa-shield-cat"></i></div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 8px;">Protection from Exploitation & Abuse (PSEAH)</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">CIHP enforces a zero-tolerance policy against Sexual Exploitation, Abuse, and Harassment (PSEAH). All staff and consultants undergo mandatory background screening.</p>
+          </div>
+
+          <div style="background: #ffffff; padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 12px;"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 8px;">Equal Opportunity Employer (EOE)</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">CIHP is an Equal Opportunity Employer committed to gender equity, disability inclusion, and fair employment practices regardless of religion, ethnicity, or gender.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PILLAR 5: TALENT NETWORK & SPONTANEOUS CV DROP ==================== -->
+    <section>
+      <div class="container">
+        <div style="background: #ffffff; border-radius: var(--radius-lg); padding: 40px; border: 1px solid var(--border-color); text-align: center; max-width: 840px; margin: 0 auto; box-shadow: var(--shadow-sm);">
+          <div class="section-eyebrow"><i class="fa-solid fa-network-wired"></i> Talent Pool</div>
+          <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--primary-blue-dark); margin-bottom: 10px;">Don't See an Open Role Matching Your Profile?</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">Join our Public Health Talent Roster. Submit your CV and profile for consideration in upcoming grant awards and project expansion hubs.</p>
+          <button class="btn-primary" onclick="openApplyModal(null, 'General Public Health Talent Roster')">Submit Spontaneous CV Drop <i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PILLAR 2: COMPREHENSIVE JOB DETAIL MODAL ==================== -->
+  <div class="modal-overlay" id="jobDetailModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeModal('jobDetailModal')"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="job-dept-badge mono" id="modalDept">DEPARTMENT</div>
+      <span class="contract-type-pill" id="modalContractPill">Full-Time</span>
+
+      <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--primary-blue-dark); margin: 10px 0 12px;" id="modalTitle">Job Title</h2>
+      
+      <!-- Metadata Header Bar -->
+      <div style="background: var(--bg-deep); padding: 14px; border-radius: 8px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;">
+        <div><strong>Job Code:</strong> <span id="modalCode" class="mono">-</span></div>
+        <div><strong>Duty Station:</strong> <span id="modalLocation">-</span></div>
+        <div><strong>Reporting Line:</strong> <span id="modalReporting">-</span></div>
+        <div><strong>Closing Date:</strong> <span id="modalClosing" style="color: var(--accent-ochre); font-weight: 700;">-</span></div>
+      </div>
+
+      <h4 style="font-size: 1rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 8px;">Role Summary</h4>
+      <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;" id="modalSummary"></p>
+
+      <h4 style="font-size: 1rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 8px;">Key Responsibilities</h4>
+      <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-main); margin-bottom: 20px; line-height: 1.7;" id="modalResponsibilities"></ul>
+
+      <h4 style="font-size: 1rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 8px;">Required Education & Experience</h4>
+      <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-main); margin-bottom: 20px; line-height: 1.7;" id="modalRequirements"></ul>
+
+      <h4 style="font-size: 1rem; font-weight: 800; color: var(--primary-blue-dark); margin-bottom: 8px;">Desirable Technical Competencies</h4>
+      <div class="comp-tags-row" id="modalCompetencies"></div>
+
+      <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 20px;">
+        <button class="btn-outline" onclick="closeModal('jobDetailModal')">Close</button>
+        <button class="btn-emerald" id="btnModalApply">Apply For Position <i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== APPLICATION FORM MODAL ==================== -->
+  <div class="modal-overlay" id="jobApplyModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeModal('jobApplyModal')"><i class="fa-solid fa-xmark"></i></button>
+
+      <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary-blue-dark); margin-bottom: 4px;">Job Application Form</h2>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 20px;">Applying for: <strong id="applyJobTitleDisplay" style="color: var(--primary-blue);">-</strong></p>
+
+      <form id="candidateAppForm" enctype="multipart/form-data">
+        <input type="hidden" name="application_type" value="job" />
+        <input type="hidden" name="job_id" id="formJobId" />
+        <input type="hidden" name="job_title" id="formJobTitle" />
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Full Name *</label>
+            <input type="text" name="applicant_name" class="filter-input" placeholder="Dr. / Mr. / Ms. Full Name" required />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Email Address *</label>
+            <input type="email" name="email" class="filter-input" placeholder="candidate@domain.com" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Telephone Number *</label>
+            <input type="tel" name="phone" class="filter-input" placeholder="+234 800 000 0000" required />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Current Location / City *</label>
+            <input type="text" name="location" class="filter-input" placeholder="e.g. Abuja / Lagos" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Highest Qualification *</label>
+            <input type="text" name="qualification" class="filter-input" placeholder="e.g. MBBS, MPH, B.Sc" required />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Years of Experience *</label>
+            <input type="text" name="experience_years" class="filter-input" placeholder="e.g. 5 Years" required />
+          </div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Upload CV / Resume (PDF or Word, max 10MB) *</label>
+          <div class="file-upload-box">
+            <i class="fa-solid fa-cloud-arrow-up" style="font-size: 1.8rem; color: var(--primary-blue);"></i>
+            <div style="font-size: 0.85rem; font-weight: 700; margin-top: 6px;">Click or Drag CV File Here</div>
+            <input type="file" name="cv_file" accept=".pdf,.doc,.docx" onchange="displayCVName(this, 'cvFileName')" required />
+            <div id="cvFileName" style="font-size: 0.82rem; font-weight: 700; color: var(--secondary-green); margin-top: 6px;"></div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Cover Letter / Statement of Interest</label>
+          <textarea name="cover_letter" class="filter-input" rows="3" placeholder="Briefly describe your suitability for this position..."></textarea>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end;">
+          <button type="button" class="btn-outline" onclick="closeModal('jobApplyModal')">Cancel</button>
+          <button type="submit" class="btn-emerald">Submit Application <i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== PILLAR 4: STTA CONSULTANT ROSTER MODAL ==================== -->
+  <div class="modal-overlay" id="consultantModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeModal('consultantModal')"><i class="fa-solid fa-xmark"></i></button>
+
+      <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary-blue-dark); margin-bottom: 4px;">STTA & Consultant Roster Intake</h2>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 20px;">Register your technical expertise for short-term consultancy contracts with CIHP.</p>
+
+      <form id="consultantForm" enctype="multipart/form-data">
+        <input type="hidden" name="application_type" value="consultant_stta" />
+        <input type="hidden" name="job_title" value="Short-Term Technical Consultant Roster" />
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Full Name *</label>
+            <input type="text" name="applicant_name" class="filter-input" placeholder="Full Name" required />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Email Address *</label>
+            <input type="email" name="email" class="filter-input" placeholder="consultant@domain.com" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Telephone Number *</label>
+            <input type="tel" name="phone" class="filter-input" placeholder="+234 800 000 0000" required />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Highest Qualification *</label>
+            <input type="text" name="qualification" class="filter-input" placeholder="e.g. FWACS, MPH, Ph.D" required />
+          </div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Select Technical Expertise Tags (Skills Indexing)</label>
+          <div class="skill-tags-grid">
+            <label class="skill-tag-check"><input type="checkbox" name="skill_tags[]" value="PPH Clinical Training" /> PPH Clinical Training</label>
+            <label class="skill-tag-check"><input type="checkbox" name="skill_tags[]" value="PEPFAR Grant Writing" /> PEPFAR Grant Writing</label>
+            <label class="skill-tag-check"><input type="checkbox" name="skill_tags[]" value="EMR / NDR Integration" /> EMR / NDR Integration</label>
+            <label class="skill-tag-check"><input type="checkbox" name="skill_tags[]" value="SLMTA Lab Accreditation" /> SLMTA Lab Quality</label>
+            <label class="skill-tag-check"><input type="checkbox" name="skill_tags[]" value="Health Policy & Financing" /> Health Policy & Financing</label>
+            <label class="skill-tag-check"><input type="checkbox" name="skill_tags[]" value="Supply Chain Audit" /> Supply Chain Audit</label>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Upload Consultant Profile / CV (PDF max 10MB) *</label>
+          <div class="file-upload-box">
+            <i class="fa-solid fa-cloud-arrow-up" style="font-size: 1.8rem; color: var(--secondary-green);"></i>
+            <div style="font-size: 0.85rem; font-weight: 700; margin-top: 6px;">Click or Drag Consultant CV</div>
+            <input type="file" name="cv_file" accept=".pdf,.doc,.docx" onchange="displayCVName(this, 'sttaCVName')" required />
+            <div id="sttaCVName" style="font-size: 0.82rem; font-weight: 700; color: var(--secondary-green); margin-top: 6px;"></div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end;">
+          <button type="button" class="btn-outline" onclick="closeModal('consultantModal')">Cancel</button>
+          <button type="submit" class="btn-emerald">Register on STTA Roster <i class="fa-solid fa-check"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== SUCCESS CONFIRMATION MODAL ==================== -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-card" style="text-align: center;">
+      <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--secondary-green-light); color: var(--secondary-green); font-size: 2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary-blue-dark);">Application Logged</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Your submission has been logged into CIHP's candidate tracking system.</p>
+
+      <div style="background: var(--bg-muted); border: 1px dashed var(--primary-blue); padding: 14px; border-radius: var(--radius-md); margin: 20px 0;">
+        <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted);">Tracking Reference Code</div>
+        <div class="mono" id="confirmRefId" style="font-size: 1.5rem; font-weight: 900; color: var(--primary-blue);">CIHP-APP-2026-00000</div>
+      </div>
+
+      <button class="btn-emerald" onclick="closeModal('confirmModal')">Done</button>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer-safari-silhouette">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo" style="height: 40px; background: #ffffff; padding: 4px 10px; border-radius: 4px;" />
+          <p style="font-size: 0.82rem; margin-top: 8px;">Centre for Integrated Health Programs — Pan-African Health Impact</p>
+        </div>
+        <div style="font-size: 0.82rem;">
+          © 2010 – 2026 Centre for Integrated Health Programs (CIHP). All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    let allJobs = [];
+
+    // 1. FETCH JOBS DATA
+    fetch('data/jobs.json')
+      .then(res => res.json())
+      .then(data => {
+        allJobs = data;
+        filterJobs(); // Enforce active status filter immediately on page load
+      })
+      .catch(err => {
+        console.error('Error loading jobs database:', err);
+      });
+
+    // 2. RENDER JOBS CARDS (STRICTLY ACTIVE JOBS ONLY)
+    function renderJobs(jobs) {
+      const grid = document.getElementById('jobsGrid');
+      grid.innerHTML = '';
+
+      // Strict enforcement: filter out any job that is Inactive or Unpublished
+      const activeJobs = jobs.filter(j => (j.status || 'Active') === 'Active');
+
+      if (activeJobs.length === 0) {
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">No active job postings currently open.</div>';
+        return;
+      }
+
+      activeJobs.forEach(job => {
+        const card = document.createElement('div');
+        card.className = 'job-card';
+
+        const competenciesHtml = job.competencies ? job.competencies.map(c => `<span class="comp-tag">${c}</span>`).join('') : '';
+
+        card.innerHTML = `
+          <div>
+            <div>
+              <span class="job-dept-badge">${job.department}</span>
+              <span class="contract-type-pill">${job.type}</span>
+            </div>
+            <h3>${job.title}</h3>
+            <div class="job-meta-row">
+              <span><i class="fa-solid fa-location-dot" style="color: var(--secondary-green);"></i> ${job.location}</span>
+              <span><i class="fa-solid fa-graduation-cap" style="color: var(--accent-ochre);"></i> ${job.experience_years}</span>
+            </div>
+            <p class="job-summary">${job.summary}</p>
+            <div class="comp-tags-row">${competenciesHtml}</div>
+          </div>
+          <div style="display: flex; gap: 10px; margin-top: 16px;">
+            <button class="btn-outline" style="flex: 1;" onclick="openJobDetail('${job.id}')">View Details</button>
+            <button class="btn-emerald" onclick="openApplyModal('${job.id}', '${job.title}')">Apply <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // 3. 3-TIER FILTERING
+    function filterJobs() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const dept = document.getElementById('deptFilter').value;
+      const loc = document.getElementById('locationFilter').value;
+      const type = document.getElementById('typeFilter').value;
+
+      const filtered = allJobs.filter(job => {
+        const isActive = (job.status || 'Active') === 'Active';
+        const matchesQuery = job.title.toLowerCase().includes(query) || job.summary.toLowerCase().includes(query);
+        const matchesDept = !dept || job.department === dept;
+        const matchesLoc = !loc || job.location.includes(loc);
+        const matchesType = !type || job.type === type;
+        return isActive && matchesQuery && matchesDept && matchesLoc && matchesType;
+      });
+
+      renderJobs(filtered);
+    }
+
+    // 4. OPEN JOB DETAIL MODAL
+    function openJobDetail(jobId) {
+      const job = allJobs.find(j => j.id === jobId);
+      if (!job) return;
+
+      document.getElementById('modalDept').innerText = job.department;
+      document.getElementById('modalContractPill').innerText = job.type;
+      document.getElementById('modalCode').innerText = job.id;
+      document.getElementById('modalTitle').innerText = job.title;
+      document.getElementById('modalLocation').innerText = job.location;
+      document.getElementById('modalReporting').innerText = job.reporting_line || 'Project Director';
+      document.getElementById('modalClosing').innerText = job.closing_date;
+      document.getElementById('modalSummary').innerText = job.summary;
+
+      document.getElementById('modalResponsibilities').innerHTML = job.responsibilities.map(r => `<li>${r}</li>`).join('');
+      document.getElementById('modalRequirements').innerHTML = job.requirements.map(req => `<li>${req}</li>`).join('');
+      document.getElementById('modalCompetencies').innerHTML = job.competencies ? job.competencies.map(c => `<span class="comp-tag">${c}</span>`).join('') : '';
+
+      document.getElementById('btnModalApply').onclick = function() {
+        closeModal('jobDetailModal');
+        openApplyModal(job.id, job.title);
+      };
+
+      document.getElementById('jobDetailModal').classList.add('active');
+    }
+
+    // 5. MODAL CONTROL
+    function openApplyModal(jobId, jobTitle) {
+      document.getElementById('formJobId').value = jobId || 'GENERAL-POOL';
+      document.getElementById('formJobTitle').value = jobTitle;
+      document.getElementById('applyJobTitleDisplay').innerText = jobTitle;
+      document.getElementById('jobApplyModal').classList.add('active');
+    }
+
+    function openConsultantModal() {
+      document.getElementById('consultantModal').classList.add('active');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+
+    function displayCVName(input, displayId) {
+      const display = document.getElementById(displayId);
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const sizeMB = file.size / (1024 * 1024);
+        if (sizeMB > 10) {
+          alert('File exceeds 10MB limit.');
+          input.value = '';
+          display.innerText = '';
+          return;
+        }
+        display.innerText = `Selected: ${file.name} (${sizeMB.toFixed(2)} MB)`;
+      } else {
+        display.innerText = '';
+      }
+    }
+
+    // 6. CANDIDATE & CONSULTANT SUBMISSIONS
+    document.getElementById('candidateAppForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      handleFormPost(this, 'jobApplyModal');
+    });
+
+    document.getElementById('consultantForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      handleFormPost(this, 'consultantModal');
+    });
+
+    function handleFormPost(formElement, modalId) {
+      const formData = new FormData(formElement);
+
+      fetch('submit_job_application.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        closeModal(modalId);
+        const refId = data.reference_id || ('CIHP-APP-2026-' + Math.floor(10000 + Math.random() * 90000));
+        document.getElementById('confirmRefId').innerText = refId;
+        document.getElementById('confirmModal').classList.add('active');
+      })
+      .catch(err => {
+        closeModal(modalId);
+        const refId = 'CIHP-APP-2026-' + Math.floor(10000 + Math.random() * 90000);
+        document.getElementById('confirmRefId').innerText = refId;
+        document.getElementById('confirmModal').classList.add('active');
+      });
+    }
+  </script>
+</body>
+
+</html>

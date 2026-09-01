@@ -1,0 +1,121 @@
+[
+    {
+        "id": "JOB-2026-001",
+        "title": "Senior Clinical Care Specialist (HIV\/AIDS & ART)",
+        "department": "Clinical Care & ART",
+        "location": "Abuja HQ",
+        "type": "Full-Time",
+        "reporting_line": "Director of Clinical Services",
+        "closing_date": "September 25, 2026",
+        "experience_years": "7+ Years",
+        "qualification": "MBBS \/ MD (MPH required)",
+        "summary": "Provide senior technical leadership in the expansion of antiretroviral therapy (ART), Advanced HIV Disease (AHD) management, and PMTCT across supported healthcare facilities.",
+        "responsibilities": [
+            "Lead clinical mentorship and capacity building for doctors and nurses across target healthcare facilities.",
+            "Support the implementation of PEPFAR\/CDC clinical guidelines for Advanced HIV Disease (AHD) and PMTCT.",
+            "Analyze facility-level treatment outcomes, viral suppression rates, and design quality improvement projects.",
+            "Collaborate with State Ministries of Health and National AIDS\/STI Control Programs (NASCP)."
+        ],
+        "requirements": [
+            "Bachelor of Medicine, Bachelor of Surgery (MBBS) from a recognized university.",
+            "Master of Public Health (MPH) or equivalent postgraduate qualification.",
+            "Minimum of 7 years post-NYSC clinical experience, with at least 4 years in PEPFAR-funded HIV programs.",
+            "Active registration with the Medical and Dental Council of Nigeria (MDCN)."
+        ],
+        "competencies": [
+            "Advanced HIV Disease (AHD) clinical protocols",
+            "PMTCT & Pediatric ART management",
+            "Clinical Quality Improvement (CQI)",
+            "Public Health Mentorship & Coaching"
+        ],
+        "status": "Inactive"
+    },
+    {
+        "id": "JOB-2026-002",
+        "title": "Strategic Information \/ M&E Officer",
+        "department": "M&E \/ Strategic Information",
+        "location": "Lagos State",
+        "type": "Fixed-Term (Grant-Funded)",
+        "reporting_line": "Senior M&E Manager",
+        "closing_date": "September 20, 2026",
+        "experience_years": "4+ Years",
+        "qualification": "B.Sc \/ M.Sc Health Informatics, Statistics, or Computer Science",
+        "summary": "Manage facility routine data collection, data quality assurance (DQA), NDR synchronization, and reporting into donor portals.",
+        "responsibilities": [
+            "Oversee data entry, validation, and monthly reporting across supported health facility sites.",
+            "Conduct regular Data Quality Assessments (DQA) and routine data auditing.",
+            "Build custom analytical dashboards for program managers using PowerBI or Tableau.",
+            "Troubleshoot Electronic Medical Record (EMR) system synchronization issues at facility sites."
+        ],
+        "requirements": [
+            "Degree in Statistics, Health Informatics, Computer Science, Demography, or Public Health.",
+            "Minimum 4 years experience in health data management, preferably in HIV\/TB or RMNCH programs.",
+            "Proficiency in SQL, Stata\/SPSS, DHIS2, and National Data Repository (NDR) tools."
+        ],
+        "competencies": [
+            "DHIS2 & National Data Repository (NDR)",
+            "Electronic Medical Record (EMR) systems",
+            "Data Quality Auditing (DQA)",
+            "PowerBI \/ Tableau Dashboard Creation"
+        ],
+        "status": "Inactive"
+    },
+    {
+        "id": "JOB-2026-003",
+        "title": "Short-Term Technical Advisor \u2014 PPH E-MOTIVE Clinical Training",
+        "department": "Clinical Care & ART",
+        "location": "Lagos State",
+        "type": "Consultancy \/ STTA",
+        "reporting_line": "AEARI Project Director",
+        "closing_date": "September 15, 2026",
+        "experience_years": "8+ Years",
+        "qualification": "FWACS \/ FMCOG in Obstetrics & Gynaecology or MPH",
+        "summary": "Short-term expert consultant to deliver intensive clinical training on Postpartum Hemorrhage (PPH) E-MOTIVE clinical care bundles across secondary facilities.",
+        "responsibilities": [
+            "Deliver 5-day competency-based clinical masterclasses on PPH E-MOTIVE care bundles to facility doctors and midwives.",
+            "Evaluate baseline vs post-training clinical skills using standardized OSCE checklists.",
+            "Produce a technical consultancy report detailing clinical recommendations for Lagos State Ministry of Health."
+        ],
+        "requirements": [
+            "Fellowship in Obstetrics & Gynaecology (FWACS\/FMCOG) or Senior Obstetrician with MPH.",
+            "At least 8 years experience in maternal health clinical training and PPH bundle scaling.",
+            "Proven track record of publishing or facilitating WHO maternal health guidelines."
+        ],
+        "competencies": [
+            "PPH E-MOTIVE Bundle Implementation",
+            "Obstetric Emergency Training",
+            "OSCE Clinical Skills Evaluation",
+            "Technical Report Writing"
+        ],
+        "status": "Inactive"
+    },
+    {
+        "id": "JOB-2026-004",
+        "title": "Health Systems Strengthening & Policy Fellow",
+        "department": "Health Systems Strengthening",
+        "location": "Gombe State",
+        "type": "Fellowship \/ Internship",
+        "reporting_line": "HSS Director",
+        "closing_date": "October 5, 2026",
+        "experience_years": "1-3 Years",
+        "qualification": "B.Sc Public Health, Health Economics, or Public Policy",
+        "summary": "12-month fellowship supporting state-level health financing policy, basic healthcare provision fund (BHCPF) rollout, and primary healthcare facility accreditation.",
+        "responsibilities": [
+            "Assist in mapping state-level health insurance coverage and BHCPF disbursement metrics.",
+            "Participate in joint supervisory visits with State Primary Health Care Development Agencies.",
+            "Draft policy briefs and technical abstracts on healthcare financing models."
+        ],
+        "requirements": [
+            "Degree in Public Health, Health Economics, Public Policy, or related field.",
+            "Demonstrated passion for health equity, universal health coverage (UHC), and policy formulation.",
+            "Strong research, quantitative analysis, and writing skills."
+        ],
+        "competencies": [
+            "Health Economics & Financing",
+            "Policy Brief Formulation",
+            "BHCPF & UHC Frameworks",
+            "Stakeholder Engagement"
+        ],
+        "status": "Inactive"
+    }
+]

@@ -819,6 +819,7 @@
       <li><a href="index.html#impact">Impact & Projects</a></li>
       <li><a href="about.html#leadership">Leadership</a></li>
       <li><a href="news.php" class="active">News & Media</a></li>
+      <li><a href="careers.html">Careers & EOI</a></li>
       <li><a href="contact.html" class="btn-nav">Partner With Us</a></li>
     </ul>
   </nav>
