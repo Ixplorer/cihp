@@ -2046,15 +2046,16 @@
       width: 100%;
       overflow: hidden;
       position: relative;
-      display: flex;
-      justify-content: center;
-      padding: 50px 0;
+      padding: 60px 0;
     }
 
     .innovations-track {
       display: flex;
       align-items: center;
       gap: 36px;
+      position: relative;
+      left: 50%;
+      width: max-content;
       transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
     }
@@ -4155,17 +4156,15 @@
         }
       });
 
-      // Calculate centering offset
+      // Calculate dead-center positioning offset
       const targetCard = cards[currentInnovIndex];
-      const viewport = track.parentElement;
-      if (!viewport || !targetCard) return;
+      if (!targetCard) return;
 
-      const viewportWidth = viewport.offsetWidth;
-      const cardWidth = targetCard.offsetWidth;
       const cardLeft = targetCard.offsetLeft;
+      const cardWidth = targetCard.offsetWidth;
 
-      // Center calculation: scroll track so target card aligns perfectly with viewport center
-      const centerOffset = (viewportWidth / 2) - (cardLeft + cardWidth / 2);
+      // Because track has left: 50%, shifting track left by (cardLeft + cardWidth / 2) locks target card center at dead-center (50%) of viewport
+      const centerOffset = - (cardLeft + cardWidth / 2);
       track.style.transform = `translateX(${centerOffset}px)`;
     }
 
