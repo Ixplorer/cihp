@@ -1986,89 +1986,198 @@
     }
 
     /* ==========================================================================
-       8. LEADERSHIP & GOVERNANCE GALLERY
+       8. OUR INNOVATIONS & KNOWLEDGE PRODUCTS
        ========================================================================== */
-    .leadership-section {
+    .innovations-section {
       background: var(--bg-surface);
+      padding: 95px 0;
     }
 
-    .team-grid {
+    .innovations-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 28px;
-      margin-top: 36px;
+      margin-top: 45px;
     }
 
-    .team-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
+    .innovation-card {
+      border-radius: 22px;
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
+      background: #ffffff;
+      border: 1px solid rgba(30, 51, 136, 0.1);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
     }
 
-    .team-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
+    .innovation-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 50px rgba(30, 51, 136, 0.15);
+      border-color: rgba(41, 123, 71, 0.3);
     }
 
-    .team-card img {
+    .innovation-card-banner {
+      height: 190px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .innovation-card-banner img {
       width: 100%;
-      height: 280px;
+      height: 100%;
       object-fit: cover;
-      background: var(--bg-muted);
+      transition: transform 0.5s ease;
     }
 
-    .team-card-info {
-      padding: 24px;
+    .innovation-card:hover .innovation-card-banner img {
+      transform: scale(1.08);
     }
 
-    .team-card-info h4 {
-      font-size: 1.2rem;
-      color: var(--primary-blue-dark);
+    .innovation-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.65) 100%);
+    }
+
+    .innovation-badge-floating {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
       font-weight: 800;
-      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .team-card-info p.role {
-      color: var(--secondary-green);
-      font-weight: 700;
-      font-size: 0.88rem;
+    /* Distinct Colorful Badges */
+    .card-badge-ayp {
+      background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+    }
+
+    .card-badge-srt {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    }
+
+    .card-badge-pub {
+      background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+    }
+
+    .card-badge-candid {
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+    }
+
+    .innovation-card-body {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .innovation-header {
       margin-bottom: 12px;
     }
 
-    .team-card-info p.bio {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      line-height: 1.5;
+    .innovation-header h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #1e3388;
+      font-family: 'Outfit', sans-serif;
+      margin-bottom: 4px;
+      line-height: 1.25;
     }
 
-    /* Governance Callout Box */
-    .governance-callout-box {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      border-left: 5px solid var(--accent-ochre);
-      border-radius: var(--radius-md);
-      padding: 28px 32px;
-      margin-top: 50px;
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      box-shadow: var(--shadow-sm);
+    .innovation-subtitle {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #297b47;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0;
     }
 
-    .governance-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background: rgba(217, 119, 6, 0.15);
-      color: var(--accent-ochre);
+    .innovation-desc {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .innovation-tags {
       display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .innov-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #f1f5f9;
+      color: #334155;
+    }
+
+    .innovation-card-btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      flex-shrink: 0;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      color: #ffffff;
+    }
+
+    .btn-ayp {
+      background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);
+    }
+    .btn-ayp:hover {
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-srt {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+    }
+    .btn-srt:hover {
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-pub {
+      background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    }
+    .btn-pub:hover {
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-candid {
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+    }
+    .btn-candid:hover {
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+      transform: translateY(-2px);
     }
 
     .governance-text h4 {
@@ -2405,7 +2514,7 @@
       <li><a href="about.html">About CIHP</a></li>
       <li><a href="#what-we-do">What We Do</a></li>
       <li><a href="#impact">Impact & Projects</a></li>
-      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#innovations">Innovations</a></li>
       <li><a href="news.php">News & Media</a></li>
       <li><a href="careers.html">Careers & EOI</a></li>
       <li><a href="contact.html" class="btn-nav">Partner With Us</a></li>
@@ -3143,64 +3252,137 @@
         </div>
 
       </div>
-    </section>
-
-    <!-- ==================== 8. LEADERSHIP & GOVERNANCE GALLERY ==================== -->
-    <section id="leadership" class="leadership-section">
+       <!-- ==================== 8. OUR INNOVATIONS & KNOWLEDGE PRODUCTS ==================== -->
+    <section id="innovations" class="innovations-section">
       <div class="container">
-        <span class="section-eyebrow"><i class="fa-solid fa-user-shield"></i> Governance & Leadership</span>
-        <h2 class="section-title">Institutional Leadership & Stewardship</h2>
+        <span class="section-eyebrow"><i class="fa-solid fa-lightbulb"></i> Knowledge & Platforms</span>
+        <h2 class="section-title">Our Innovations</h2>
         <p class="section-desc">
-          Guided by an experienced Board of Directors and Executive Management team dedicated to institutional
-          integrity, financial resilience, and public health impact.
+          Pioneering transformative public health platforms, youth empowerment models, research intelligence systems, and executive policy dialogues across Nigeria and Africa.
         </p>
 
-        <div class="team-grid">
-          <!-- Leader Card 1 -->
-          <div class="team-card" data-aos="fade-up">
-            <img src="img/IMG_0994.JPG" alt="CIHP Executive Director / Leadership" />
-            <div class="team-card-info">
-              <h4>Executive Leadership Team</h4>
-              <p class="role">Chief Executive Officer & Directors</p>
-              <p class="bio">Providing strategic oversight, technical excellence, and Pan-African expansion direction
-                for CIHP.</p>
+        <div class="innovations-grid">
+
+          <!-- Card 1: AYP Hubs -->
+          <div class="innovation-card" data-aos="fade-up">
+            <div class="innovation-card-banner">
+              <img src="img/LEOPOD 1.png" alt="AYP Hubs - Adolescent & Young People" loading="lazy" />
+              <div class="innovation-card-overlay"></div>
+              <span class="innovation-badge-floating card-badge-ayp">
+                <i class="fa-solid fa-seedling"></i> Youth Empowerment
+              </span>
+            </div>
+            <div class="innovation-card-body">
+              <div>
+                <div class="innovation-header">
+                  <h3>AYP Hubs</h3>
+                  <p class="innovation-subtitle">Adolescent & Young People Wellness Hubs</p>
+                </div>
+                <p class="innovation-desc">
+                  Safe-space community wellness hubs empowering adolescent girls & young people with health education, HIV prevention, economic self-reliance, and psychosocial support.
+                </p>
+                <div class="innovation-tags">
+                  <span class="innov-tag"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
+                  <span class="innov-tag"><i class="fa-solid fa-person-breastfeeding"></i> SRHR Education</span>
+                  <span class="innov-tag"><span style="color:#e11d48">•</span> Economic Skills</span>
+                </div>
+              </div>
+              <a href="contact.html" class="innovation-card-btn btn-ayp">
+                <span>Explore AYP Hubs</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Leader Card 2 -->
-          <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-            <img src="img/IMG_1003.JPG" alt="CIHP Board of Directors" />
-            <div class="team-card-info">
-              <h4>Board of Directors</h4>
-              <p class="role">Institutional Governance & Stewardship</p>
-              <p class="bio">Distinguished public health leaders overseeing corporate governance, compliance, and
-                strategic growth.</p>
+          <!-- Card 2: SRT -->
+          <div class="innovation-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="innovation-card-banner">
+              <img src="img/Final SDI Report (1).png" alt="SRT - Strategic Research & Translation Platform" loading="lazy" />
+              <div class="innovation-card-overlay"></div>
+              <span class="innovation-badge-floating card-badge-srt">
+                <i class="fa-solid fa-chart-line"></i> Digital Intelligence
+              </span>
+            </div>
+            <div class="innovation-card-body">
+              <div>
+                <div class="innovation-header">
+                  <h3>SRT Platform</h3>
+                  <p class="innovation-subtitle">Strategic Research & Translation System</p>
+                </div>
+                <p class="innovation-desc">
+                  CIHP's cutting-edge strategic surveillance & digital health engine delivering real-time epidemiological dashboards, EMR facility integration, and evidence translation.
+                </p>
+                <div class="innovation-tags">
+                  <span class="innov-tag"><i class="fa-solid fa-database"></i> EMR Analytics</span>
+                  <span class="innov-tag"><i class="fa-solid fa-microchip"></i> Real-time Dashboards</span>
+                  <span class="innov-tag"><span style="color:#0284c7">•</span> Surveillance</span>
+                </div>
+              </div>
+              <a href="contact.html" class="innovation-card-btn btn-srt">
+                <span>Explore SRT Platform</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Leader Card 3 -->
-          <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-            <img src="img/iris.JPG" alt="CIHP Clinical Mentorship Team" />
-            <div class="team-card-info">
-              <h4>Technical Advisory Committee</h4>
-              <p class="role">Clinical & Epidemiological Advisory</p>
-              <p class="bio">Ensuring all program designs conform to WHO, CDC, and Federal Ministry of Health
-                guidelines.</p>
+          <!-- Card 3: Publications -->
+          <div class="innovation-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="innovation-card-banner">
+              <img src="img/Reachout.png" alt="Publications & Research Repository" loading="lazy" />
+              <div class="innovation-card-overlay"></div>
+              <span class="innovation-badge-floating card-badge-pub">
+                <i class="fa-solid fa-book-journal-whills"></i> Research & Evidence
+              </span>
+            </div>
+            <div class="innovation-card-body">
+              <div>
+                <div class="innovation-header">
+                  <h3>Publications</h3>
+                  <p class="innovation-subtitle">Peer-Reviewed Papers & Technical Briefs</p>
+                </div>
+                <p class="innovation-desc">
+                  Scientific journal publications, clinical implementation guidelines, and policy briefs produced by CIHP researchers in global health journals and repositories.
+                </p>
+                <div class="innovation-tags">
+                  <span class="innov-tag"><i class="fa-solid fa-newspaper"></i> Journal Articles</span>
+                  <span class="innov-tag"><i class="fa-solid fa-file-pdf"></i> Clinical Manuals</span>
+                  <span class="innov-tag"><span style="color:#10b981">•</span> Policy Briefs</span>
+                </div>
+              </div>
+              <a href="contact.html" class="innovation-card-btn btn-pub">
+                <span>Access Repository</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
-        </div>
 
-        <!-- Governance Callout Box -->
-        <div class="governance-callout-box">
-          <div class="governance-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <div class="governance-text">
-            <h4>Financial Integrity & Compliance Assurance</h4>
-            <p>
-              CIHP adheres to the highest standards of financial stewardship, audit readiness, and donor reporting. For
-              compliance inquiries, whistleblower reporting, or governance charters, contact our compliance office at
-              <strong>compliance@cihpng.org</strong>.
-            </p>
+          <!-- Card 4: Candid Conversation -->
+          <div class="innovation-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="innovation-card-banner">
+              <img src="img/IMG_0994.JPG" alt="Candid Conversation - Public Health Dialogue" loading="lazy" />
+              <div class="innovation-card-overlay"></div>
+              <span class="innovation-badge-floating card-badge-candid">
+                <i class="fa-solid fa-comments"></i> Policy Dialogue
+              </span>
+            </div>
+            <div class="innovation-card-body">
+              <div>
+                <div class="innovation-header">
+                  <h3>Candid Conversation</h3>
+                  <p class="innovation-subtitle">Public Health Leadership Forum</p>
+                </div>
+                <p class="innovation-desc">
+                  High-impact leadership dialogue platform bringing together public health experts, government stakeholders, advocates, and community voices for transparent solutions.
+                </p>
+                <div class="innovation-tags">
+                  <span class="innov-tag"><i class="fa-solid fa-podcast"></i> Leadership Podcast</span>
+                  <span class="innov-tag"><i class="fa-solid fa-users"></i> Expert Panels</span>
+                  <span class="innov-tag"><span style="color:#7c3aed">•</span> Townhalls</span>
+                </div>
+              </div>
+              <a href="contact.html" class="innovation-card-btn btn-candid">
+                <span>Join Conversation</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
           </div>
+
         </div>
 
       </div>
@@ -3432,7 +3614,7 @@
             <li><a href="about.html">About CIHP</a></li>
             <li><a href="#what-we-do">What We Do</a></li>
             <li><a href="#impact">Impact & Projects</a></li>
-            <li><a href="#leadership">Leadership & Governance</a></li>
+            <li><a href="#innovations">Our Innovations</a></li>
           </ul>
         </div>
 
