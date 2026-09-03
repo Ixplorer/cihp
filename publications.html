@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIHP | Scientific Publications & Research Repository</title>
+  <meta name="description"
+    content="Explore peer-reviewed journal publications, clinical guidelines, and policy briefs produced by CIHP public health researchers and frontline teams across 20 Nigerian states." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & GLOBAL RESET
+       ========================================================================== */
+    :root {
+      --primary-blue: #1e3388;
+      --primary-blue-dark: #0f172a;
+      --secondary-green: #297b47;
+      --secondary-green-dark: #1b532f;
+      --accent-gold: #f59e0b;
+      --bg-surface: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-surface);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      backdrop-filter: blur(16px);
+      border-bottom: 3px solid #1e3388;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 44px;
+      z-index: 10000;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+
+    .brand-logo img {
+      height: 46px;
+      width: auto;
+    }
+
+    .presence-badge {
+      font-size: 0.76rem;
+      font-weight: 700;
+      background: rgba(41, 123, 71, 0.08);
+      color: var(--secondary-green-dark);
+      padding: 5px 12px;
+      border-radius: 50px;
+      border: 1px solid rgba(41, 123, 71, 0.2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-blue);
+    }
+
+    .btn-nav {
+      background: var(--primary-blue);
+      color: #ffffff !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(30, 51, 136, 0.25);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-nav:hover {
+      background: #152566;
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary-blue-dark);
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       HERO BANNER
+       ========================================================================== */
+    .pub-hero-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3388 100%);
+      color: #ffffff;
+      padding: 90px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pub-hero-section::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(41, 123, 71, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .pub-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(41, 123, 71, 0.2);
+      border: 1px solid rgba(41, 123, 71, 0.4);
+      color: #4ade80;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .pub-hero-title {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .pub-hero-desc {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      max-width: 800px;
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       FILTER BAR & REPOSITORY GRID
+       ========================================================================== */
+    .pub-main-section {
+      padding: 70px 0 100px;
+    }
+
+    .filter-category-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-chip {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-chip:hover,
+    .filter-chip.active {
+      background: var(--primary-blue);
+      color: #ffffff;
+      border-color: var(--primary-blue);
+    }
+
+    .pub-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    @media (max-width: 992px) {
+      .pub-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pub-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25 ease, box-shadow 0.25s ease;
+    }
+
+    .pub-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(30, 51, 136, 0.3);
+    }
+
+    .pub-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .type-pill {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+
+    .type-journal { background: #e0f2fe; color: #0284c7; }
+    .type-brief { background: #dcfce7; color: #15803d; }
+    .type-framework { background: #fef3c7; color: #b45309; }
+    .type-tech { background: #f3e8ff; color: #6b21a8; }
+
+    .doi-badge {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .pub-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-blue-dark);
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+
+    .pub-abstract {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .pub-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.85rem;
+    }
+
+    .pub-author-name {
+      color: #475569;
+      font-weight: 700;
+    }
+
+    .btn-download-pdf {
+      background: var(--secondary-green);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-download-pdf:hover {
+      background: var(--secondary-green-dark);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer-section {
+      background: #060a1c;
+      color: #94a3b8;
+      padding: 70px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col ul a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== STICKY EXECUTIVE NAVBAR ==================== -->
+  <nav class="navbar">
+    <a href="index.html" class="brand-logo">
+      <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo" />
+      <div class="presence-badge mono">
+        <i class="fa-solid fa-earth-africa" style="color: var(--secondary-green);"></i> 20 States | 5 Pan-African Footholds
+      </div>
+    </a>
+
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About CIHP</a></li>
+      <li><a href="about.html#leadership">Leadership</a></li>
+      <li><a href="index.html#what-we-do">What We Do</a></li>
+      <li><a href="index.html#impact">Impact & Projects</a></li>
+      <li><a href="publications.html" class="active">Publications</a></li>
+      <li><a href="news.html">News & Media</a></li>
+      <li><a href="careers.html">Careers & EOI</a></li>
+      <li><a href="contact.html" class="btn-nav">Partner With Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- ==================== HERO BANNER SECTION ==================== -->
+  <section class="pub-hero-section">
+    <div class="container">
+      <div class="pub-eyebrow">
+        <i class="fa-solid fa-book-journal-whills"></i> Official CIHP Scientific Repository
+      </div>
+      <h1 class="pub-hero-title">
+        Peer-Reviewed Journals & Technical Briefs
+      </h1>
+      <p class="pub-hero-desc">
+        Explore 15+ years of scientific publications, clinical implementation guidelines, policy monographs, and epidemic control research published by CIHP researchers and global health partners.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== REPOSITORY MAIN SECTION ==================== -->
+  <section class="pub-main-section">
+    <div class="container">
+
+      <!-- Category Filters -->
+      <div class="filter-category-bar">
+        <button class="filter-chip active" onclick="filterPubs('all', this)">All Research Papers</button>
+        <button class="filter-chip" onclick="filterPubs('epidemic', this)">HIV & Epidemic Control</button>
+        <button class="filter-chip" onclick="filterPubs('maternal', this)">Maternal & Child Health</button>
+        <button class="filter-chip" onclick="filterPubs('wiphla', this)">WiPHLA Gender Briefs</button>
+        <button class="filter-chip" onclick="filterPubs('informatics', this)">Health Informatics & SRT</button>
+      </div>
+
+      <!-- Publication Cards Grid -->
+      <div class="pub-cards-grid">
+
+        <!-- Card 1 -->
+        <div class="pub-card" data-category="epidemic">
+          <div>
+            <div class="pub-card-header">
+              <span class="type-pill type-journal"><i class="fa-solid fa-newspaper"></i> Journal Article (2025)</span>
+              <span class="doi-badge mono">DOI: 10.1016/j.glohealth.2025</span>
+            </div>
+            <h2 class="pub-title">Integrated Community PMTCT Models: Sustaining Maternal-Child HIV Transmission Reduction Across 20 Nigerian States</h2>
+            <p class="pub-abstract">
+              This peer-reviewed paper evaluates 15 years of CIHP frontline implementation integrating prevention of mother-to-child HIV transmission into primary healthcare infrastructure across northern and southern Nigerian states.
+            </p>
+          </div>
+          <div class="pub-footer">
+            <span class="pub-author-name"><i class="fa-solid fa-users"></i> Dr. Bolanle Oyeledun, et al.</span>
+            <a href="news.html" class="btn-download-pdf"><i class="fa-solid fa-file-pdf"></i> Download PDF Brief</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="pub-card" data-category="epidemic">
+          <div>
+            <div class="pub-card-header">
+              <span class="type-pill type-brief"><i class="fa-solid fa-file-lines"></i> Technical Brief</span>
+              <span class="doi-badge mono">Ref: CIHP-TB-2025-04</span>
+            </div>
+            <h2 class="pub-title">Scaling AI-Driven Mobile Diagnostic Networks for Community Tuberculosis Active Case Finding</h2>
+            <p class="pub-abstract">
+              Field implementation report on the USAID-funded TB-LON3 project deploying ultra-portable digital X-rays and computer-aided detection (CAD) software in high-density urban and rural LGAs.
+            </p>
+          </div>
+          <div class="pub-footer">
+            <span class="pub-author-name"><i class="fa-solid fa-microchip"></i> CIHP Research & TB-LON3 Team</span>
+            <a href="news.html" class="btn-download-pdf"><i class="fa-solid fa-file-pdf"></i> Download PDF Brief</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="pub-card" data-category="wiphla">
+          <div>
+            <div class="pub-card-header">
+              <span class="type-pill type-framework"><i class="fa-solid fa-award"></i> Policy Framework</span>
+              <span class="doi-badge mono">WiPHLA Monograph Series</span>
+            </div>
+            <h2 class="pub-title">Women in Public Health Leadership in Africa (WiPHLA): Executive Nursing & Mentorship Model</h2>
+            <p class="pub-card-abstract">
+              Operational policy monograph providing clinical mentorship guidelines, gender-transformative dialogue frameworks, and executive leadership pathways for female healthcare workers.
+            </p>
+          </div>
+          <div class="pub-footer">
+            <span class="pub-author-name"><i class="fa-solid fa-user-nurse"></i> WiPHLA Governance Council</span>
+            <a href="news.html" class="btn-download-pdf"><i class="fa-solid fa-file-pdf"></i> Download PDF Brief</a>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="pub-card" data-category="informatics">
+          <div>
+            <div class="pub-card-header">
+              <span class="type-pill type-tech"><i class="fa-solid fa-database"></i> Systems Whitepaper</span>
+              <span class="doi-badge mono">Ref: CIHP-SRT-2024</span>
+            </div>
+            <h2 class="pub-title">The SRT Engine: Interoperable EMR Data Surveillance and Automated Quality Analytics in Resource-Limited Settings</h2>
+            <p class="pub-card-abstract">
+              Technical architectural overview of CIHP’s Strategic Research & Translation engine enabling real-time electronic medical record synchronization across 200+ primary state health facilities.
+            </p>
+          </div>
+          <div class="pub-footer">
+            <span class="pub-author-name"><i class="fa-solid fa-network-wired"></i> CIHP Informatics Directorate</span>
+            <a href="news.html" class="btn-download-pdf"><i class="fa-solid fa-file-pdf"></i> Download PDF Brief</a>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="pub-card" data-category="maternal">
+          <div>
+            <div class="pub-card-header">
+              <span class="type-pill type-brief"><i class="fa-solid fa-file-lines"></i> Monograph (2024)</span>
+              <span class="doi-badge mono">Ref: CIHP-GANC-2024</span>
+            </div>
+            <h2 class="pub-title">Group Antenatal Care (G-ANC) Cohort Models: Transforming Peer Learning and Newborn Outcomes</h2>
+            <p class="pub-card-abstract">
+              Implementation study analyzing patient compliance, maternal satisfaction, and early infant diagnosis (EID) rates under the group antenatal care model in secondary healthcare centers.
+            </p>
+          </div>
+          <div class="pub-footer">
+            <span class="pub-author-name"><i class="fa-solid fa-baby"></i> G-ANC Research Group</span>
+            <a href="news.html" class="btn-download-pdf"><i class="fa-solid fa-file-pdf"></i> Download PDF Brief</a>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="pub-card" data-category="wiphla">
+          <div>
+            <div class="pub-card-header">
+              <span class="type-pill type-framework"><i class="fa-solid fa-award"></i> Executive Report</span>
+              <span class="doi-badge mono">Ref: CIHP-AYP-2025</span>
+            </div>
+            <h2 class="pub-title">Adolescent Girls & Young Women (AGYW) Economic Hubs: Integrated HIV Prevention & Economic Self-Reliance</h2>
+            <p class="pub-card-abstract">
+              Synthesizes structural intervention outcomes connecting vocational training, financial literacy micro-grants, and sexual reproductive health education for youth cohorts.
+            </p>
+          </div>
+          <div class="pub-footer">
+            <span class="pub-author-name"><i class="fa-solid fa-seedling"></i> AYP Directorate</span>
+            <a href="news.html" class="btn-download-pdf"><i class="fa-solid fa-file-pdf"></i> Download PDF Brief</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo" style="height: 42px;" />
+          <p>Centre for Integrated Health Programs (CIHP) is an indigenous non-profit organization dedicated to implementing sustainable public health solutions across Nigeria and Africa.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="news.html">News & Media</a></li>
+            <li><a href="careers.html">Careers & EOI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="index.html#impact">IRIS Project</a></li>
+            <li><a href="index.html#impact">TB-LON3 Project</a></li>
+            <li><a href="index.html#impact">G-ANC Initiative</a></li>
+            <li><a href="index.html#innovations">WiPHLA Platform</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><i class="fa-solid fa-location-dot"></i> Abuja & Lagos, Nigeria</li>
+            <li><i class="fa-solid fa-envelope"></i> info@cihpng.org</li>
+            <li><i class="fa-solid fa-phone"></i> +234 (0) 9 291 8000</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Centre for Integrated Health Programs (CIHP). All Rights Reserved.</p>
+        <p>Engineered for Pan-African Health Impact.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function filterPubs(cat, btn) {
+      document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.pub-card').forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
