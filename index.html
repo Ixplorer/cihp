@@ -1986,40 +1986,125 @@
     }
 
     /* ==========================================================================
-       8. OUR INNOVATIONS & KNOWLEDGE PRODUCTS
+       8. OUR INNOVATIONS & KNOWLEDGE PRODUCTS (FUTURISTIC GLASS SHOWCASE)
        ========================================================================== */
     .innovations-section {
-      background: var(--bg-surface);
-      padding: 95px 0;
+      background: linear-gradient(165deg, #070d19 0%, #0c162c 50%, #121e3d 100%);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .innovations-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 10%;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(41, 123, 71, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .innovations-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      right: 10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(30, 51, 136, 0.28) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .innovations-section .section-eyebrow {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      border-color: rgba(56, 189, 248, 0.25);
+    }
+
+    .innovations-section .section-title {
+      color: #ffffff;
+    }
+
+    .innovations-section .section-desc {
+      color: #94a3b8;
     }
 
     .innovations-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 28px;
-      margin-top: 45px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 50px;
+      position: relative;
+      z-index: 2;
     }
 
     .innovation-card {
-      border-radius: 22px;
+      border-radius: 24px;
       overflow: hidden;
-      background: #ffffff;
-      border: 1px solid rgba(30, 51, 136, 0.1);
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
-      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       position: relative;
     }
 
+    /* Top Glowing Neon Accent Line */
+    .innov-glow-bar {
+      height: 5px;
+      width: 100%;
+      transition: height 0.3s ease;
+    }
+
+    .glow-ayp {
+      background: linear-gradient(90deg, #f43f5e 0%, #fb7185 100%);
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.6);
+    }
+
+    .glow-srt {
+      background: linear-gradient(90deg, #38bdf8 0%, #0284c7 100%);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+    }
+
+    .glow-pub {
+      background: linear-gradient(90deg, #34d399 0%, #059669 100%);
+      box-shadow: 0 0 15px rgba(52, 211, 153, 0.6);
+    }
+
+    .glow-candid {
+      background: linear-gradient(90deg, #c084fc 0%, #7c3aed 100%);
+      box-shadow: 0 0 15px rgba(192, 132, 252, 0.6);
+    }
+
     .innovation-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 50px rgba(30, 51, 136, 0.15);
-      border-color: rgba(41, 123, 71, 0.3);
+      transform: translateY(-10px) scale(1.015);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .innovation-card:hover .glow-ayp {
+      border-color: rgba(244, 63, 94, 0.5);
+      box-shadow: 0 0 25px rgba(244, 63, 94, 0.9);
+    }
+    .innovation-card:hover .glow-srt {
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.9);
+    }
+    .innovation-card:hover .glow-pub {
+      border-color: rgba(52, 211, 153, 0.5);
+      box-shadow: 0 0 25px rgba(52, 211, 153, 0.9);
+    }
+    .innovation-card:hover .glow-candid {
+      border-color: rgba(192, 132, 252, 0.5);
+      box-shadow: 0 0 25px rgba(192, 132, 252, 0.9);
     }
 
     .innovation-card-banner {
-      height: 190px;
+      height: 200px;
       position: relative;
       overflow: hidden;
     }
@@ -2028,17 +2113,17 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .innovation-card:hover .innovation-card-banner img {
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
 
     .innovation-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.65) 100%);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.95) 100%);
     }
 
     .innovation-badge-floating {
@@ -2053,71 +2138,91 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: #ffffff;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    /* Distinct Colorful Badges */
     .card-badge-ayp {
-      background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+      background: rgba(244, 63, 94, 0.85);
+      border: 1px solid rgba(244, 63, 94, 0.4);
     }
 
     .card-badge-srt {
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      background: rgba(2, 132, 199, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.4);
     }
 
     .card-badge-pub {
-      background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+      background: rgba(16, 185, 129, 0.85);
+      border: 1px solid rgba(52, 211, 153, 0.4);
     }
 
     .card-badge-candid {
-      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+      background: rgba(124, 58, 237, 0.85);
+      border: 1px solid rgba(192, 132, 252, 0.4);
     }
 
     .innovation-card-body {
-      padding: 26px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
       justify-content: space-between;
-    }
-
-    .innovation-header {
-      margin-bottom: 12px;
+      position: relative;
     }
 
     .innovation-header h3 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 800;
-      color: #1e3388;
+      color: #ffffff;
       font-family: 'Outfit', sans-serif;
       margin-bottom: 4px;
       line-height: 1.25;
     }
 
     .innovation-subtitle {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: #297b47;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      margin: 0;
+      margin-bottom: 12px;
     }
+
+    .sub-ayp { color: #fb7185; }
+    .sub-srt { color: #38bdf8; }
+    .sub-pub { color: #34d399; }
+    .sub-candid { color: #c084fc; }
 
     .innovation-desc {
       font-size: 0.92rem;
-      color: #475569;
-      line-height: 1.6;
-      margin-bottom: 18px;
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .innovation-metric-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #f8fafc;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 22px;
     }
 
     .innovation-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     .innov-tag {
@@ -2125,58 +2230,61 @@
       font-weight: 700;
       padding: 4px 10px;
       border-radius: 6px;
-      background: #f1f5f9;
-      color: #334155;
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .innovation-card-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       width: 100%;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-weight: 700;
+      padding: 13px 20px;
+      border-radius: 14px;
+      font-weight: 800;
       font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.35s ease;
       color: #ffffff;
     }
 
     .btn-ayp {
-      background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
-      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);
+      background: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);
+      box-shadow: 0 4px 18px rgba(244, 63, 94, 0.35);
     }
     .btn-ayp:hover {
-      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+      box-shadow: 0 8px 25px rgba(244, 63, 94, 0.55);
       transform: translateY(-2px);
     }
 
     .btn-srt {
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+      box-shadow: 0 4px 18px rgba(2, 132, 199, 0.35);
     }
     .btn-srt:hover {
-      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+      box-shadow: 0 8px 25px rgba(2, 132, 199, 0.55);
       transform: translateY(-2px);
     }
 
     .btn-pub {
       background: linear-gradient(135deg, #10b981 0%, #047857 100%);
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
     }
     .btn-pub:hover {
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.55);
       transform: translateY(-2px);
     }
 
     .btn-candid {
       background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
-      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+      box-shadow: 0 4px 18px rgba(124, 58, 237, 0.35);
     }
     .btn-candid:hover {
-      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.55);
       transform: translateY(-2px);
     }
 
@@ -3252,19 +3360,20 @@
         </div>
 
       </div>
-       <!-- ==================== 8. OUR INNOVATIONS & KNOWLEDGE PRODUCTS ==================== -->
+    <!-- ==================== 8. OUR INNOVATIONS & KNOWLEDGE PRODUCTS (FUTURISTIC GLASS SHOWCASE) ==================== -->
     <section id="innovations" class="innovations-section">
       <div class="container">
-        <span class="section-eyebrow"><i class="fa-solid fa-lightbulb"></i> Knowledge & Platforms</span>
-        <h2 class="section-title">Our Innovations</h2>
-        <p class="section-desc">
-          Pioneering transformative public health platforms, youth empowerment models, research intelligence systems, and executive policy dialogues across Nigeria and Africa.
+        <span class="section-eyebrow" data-aos="fade-down"><i class="fa-solid fa-lightbulb"></i> Knowledge & Platforms</span>
+        <h2 class="section-title" data-aos="fade-up">Our Innovations</h2>
+        <p class="section-desc" data-aos="fade-up" data-aos-delay="100">
+          Pioneering transformative public health platforms, youth empowerment models, strategic research systems, and executive policy dialogues across Nigeria and Africa.
         </p>
 
         <div class="innovations-grid">
 
           <!-- Card 1: AYP Hubs -->
-          <div class="innovation-card" data-aos="fade-up">
+          <div class="innovation-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="innov-glow-bar glow-ayp"></div>
             <div class="innovation-card-banner">
               <img src="img/LEOPOD 1.png" alt="AYP Hubs - Adolescent & Young People" loading="lazy" />
               <div class="innovation-card-overlay"></div>
@@ -3276,15 +3385,18 @@
               <div>
                 <div class="innovation-header">
                   <h3>AYP Hubs</h3>
-                  <p class="innovation-subtitle">Adolescent & Young People Wellness Hubs</p>
+                  <p class="innovation-subtitle sub-ayp">Adolescent & Young People Wellness Hubs</p>
                 </div>
                 <p class="innovation-desc">
                   Safe-space community wellness hubs empowering adolescent girls & young people with health education, HIV prevention, economic self-reliance, and psychosocial support.
                 </p>
+                <div class="innovation-metric-box">
+                  <i class="fa-solid fa-bolt" style="color: #fb7185;"></i> 10,000+ Young Lives Empowered
+                </div>
                 <div class="innovation-tags">
                   <span class="innov-tag"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
-                  <span class="innov-tag"><i class="fa-solid fa-person-breastfeeding"></i> SRHR Education</span>
-                  <span class="innov-tag"><span style="color:#e11d48">•</span> Economic Skills</span>
+                  <span class="innov-tag"><i class="fa-solid fa-user-graduate"></i> Life Skills Hub</span>
+                  <span class="innov-tag"><span style="color:#fb7185">•</span> Economic Self-Reliance</span>
                 </div>
               </div>
               <a href="contact.html" class="innovation-card-btn btn-ayp">
@@ -3293,28 +3405,32 @@
             </div>
           </div>
 
-          <!-- Card 2: SRT -->
-          <div class="innovation-card" data-aos="fade-up" data-aos-delay="100">
+          <!-- Card 2: SRT Platform -->
+          <div class="innovation-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="innov-glow-bar glow-srt"></div>
             <div class="innovation-card-banner">
               <img src="img/Final SDI Report (1).png" alt="SRT - Strategic Research & Translation Platform" loading="lazy" />
               <div class="innovation-card-overlay"></div>
               <span class="innovation-badge-floating card-badge-srt">
-                <i class="fa-solid fa-chart-line"></i> Digital Intelligence
+                <i class="fa-solid fa-microchip"></i> Digital Intelligence
               </span>
             </div>
             <div class="innovation-card-body">
               <div>
                 <div class="innovation-header">
                   <h3>SRT Platform</h3>
-                  <p class="innovation-subtitle">Strategic Research & Translation System</p>
+                  <p class="innovation-subtitle sub-srt">Strategic Research & Translation System</p>
                 </div>
                 <p class="innovation-desc">
                   CIHP's cutting-edge strategic surveillance & digital health engine delivering real-time epidemiological dashboards, EMR facility integration, and evidence translation.
                 </p>
+                <div class="innovation-metric-box">
+                  <i class="fa-solid fa-network-wired" style="color: #38bdf8;"></i> 20 States Real-time EMR Sync
+                </div>
                 <div class="innovation-tags">
-                  <span class="innov-tag"><i class="fa-solid fa-database"></i> EMR Analytics</span>
-                  <span class="innov-tag"><i class="fa-solid fa-microchip"></i> Real-time Dashboards</span>
-                  <span class="innov-tag"><span style="color:#0284c7">•</span> Surveillance</span>
+                  <span class="innov-tag"><i class="fa-solid fa-database"></i> EMR Facility Integration</span>
+                  <span class="innov-tag"><i class="fa-solid fa-chart-pie"></i> Real-time Dashboards</span>
+                  <span class="innov-tag"><span style="color:#38bdf8">•</span> Surveillance Engine</span>
                 </div>
               </div>
               <a href="contact.html" class="innovation-card-btn btn-srt">
@@ -3324,7 +3440,8 @@
           </div>
 
           <!-- Card 3: Publications -->
-          <div class="innovation-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="innovation-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="innov-glow-bar glow-pub"></div>
             <div class="innovation-card-banner">
               <img src="img/Reachout.png" alt="Publications & Research Repository" loading="lazy" />
               <div class="innovation-card-overlay"></div>
@@ -3336,15 +3453,18 @@
               <div>
                 <div class="innovation-header">
                   <h3>Publications</h3>
-                  <p class="innovation-subtitle">Peer-Reviewed Papers & Technical Briefs</p>
+                  <p class="innovation-subtitle sub-pub">Peer-Reviewed Papers & Technical Briefs</p>
                 </div>
                 <p class="innovation-desc">
                   Scientific journal publications, clinical implementation guidelines, and policy briefs produced by CIHP researchers in global health journals and repositories.
                 </p>
+                <div class="innovation-metric-box">
+                  <i class="fa-solid fa-award" style="color: #34d399;"></i> 50+ Peer-Reviewed Journals
+                </div>
                 <div class="innovation-tags">
-                  <span class="innov-tag"><i class="fa-solid fa-newspaper"></i> Journal Articles</span>
-                  <span class="innov-tag"><i class="fa-solid fa-file-pdf"></i> Clinical Manuals</span>
-                  <span class="innov-tag"><span style="color:#10b981">•</span> Policy Briefs</span>
+                  <span class="innov-tag"><i class="fa-solid fa-newspaper"></i> Peer-Reviewed Articles</span>
+                  <span class="innov-tag"><i class="fa-solid fa-file-pdf"></i> Clinical Guidelines</span>
+                  <span class="innov-tag"><span style="color:#34d399">•</span> Policy Briefs</span>
                 </div>
               </div>
               <a href="contact.html" class="innovation-card-btn btn-pub">
@@ -3354,27 +3474,31 @@
           </div>
 
           <!-- Card 4: Candid Conversation -->
-          <div class="innovation-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="innovation-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="innov-glow-bar glow-candid"></div>
             <div class="innovation-card-banner">
               <img src="img/IMG_0994.JPG" alt="Candid Conversation - Public Health Dialogue" loading="lazy" />
               <div class="innovation-card-overlay"></div>
               <span class="innovation-badge-floating card-badge-candid">
-                <i class="fa-solid fa-comments"></i> Policy Dialogue
+                <i class="fa-solid fa-comments"></i> Executive Dialogue
               </span>
             </div>
             <div class="innovation-card-body">
               <div>
                 <div class="innovation-header">
                   <h3>Candid Conversation</h3>
-                  <p class="innovation-subtitle">Public Health Leadership Forum</p>
+                  <p class="innovation-subtitle sub-candid">Public Health Leadership Forum</p>
                 </div>
                 <p class="innovation-desc">
                   High-impact leadership dialogue platform bringing together public health experts, government stakeholders, advocates, and community voices for transparent solutions.
                 </p>
+                <div class="innovation-metric-box">
+                  <i class="fa-solid fa-podcast" style="color: #c084fc;"></i> Pan-African Health Policy Forum
+                </div>
                 <div class="innovation-tags">
-                  <span class="innov-tag"><i class="fa-solid fa-podcast"></i> Leadership Podcast</span>
+                  <span class="innov-tag"><i class="fa-solid fa-headphones"></i> Leadership Podcast</span>
                   <span class="innov-tag"><i class="fa-solid fa-users"></i> Expert Panels</span>
-                  <span class="innov-tag"><span style="color:#7c3aed">•</span> Townhalls</span>
+                  <span class="innov-tag"><span style="color:#c084fc">•</span> Townhalls</span>
                 </div>
               </div>
               <a href="contact.html" class="innovation-card-btn btn-candid">
