@@ -175,6 +175,75 @@
     /* ==========================================================================
        NAVBAR (FLOATING PILL GLASSMORPHISM)
        ========================================================================== */
+    /* Executive Top Eyebrow Persona Bar */
+    .top-eyebrow-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 36px;
+      background: #060a1c;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 10001;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+    }
+
+    .top-eyebrow-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 44px;
+    }
+
+    .top-eyebrow-left, .top-eyebrow-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .top-eyebrow-item i {
+      color: var(--secondary-green);
+    }
+
+    .top-eyebrow-divider {
+      color: rgba(255, 255, 255, 0.15);
+    }
+
+    .top-eyebrow-label {
+      font-weight: 700;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.72rem;
+    }
+
+    .top-eyebrow-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .top-eyebrow-link:hover {
+      color: #4ade80;
+    }
+
+    .top-eyebrow-highlight {
+      color: #f59e0b;
+      font-weight: 700;
+    }
+
+    .top-eyebrow-highlight:hover {
+      color: #fbbf24;
+    }
+
     .navbar {
       position: sticky;
       top: 0;
@@ -538,6 +607,24 @@
 </head>
 
 <body>
+
+  <!-- ==================== EXECUTIVE TOP EYEBROW BAR ==================== -->
+  <div class="top-eyebrow-bar">
+    <div class="top-eyebrow-inner">
+      <div class="top-eyebrow-left">
+        <span class="top-eyebrow-item"><i class="fa-solid fa-earth-africa"></i> Indigenous Non-Profit | 20 States | 5 Pan-African Footholds</span>
+        <span class="top-eyebrow-divider">|</span>
+        <span class="top-eyebrow-item"><i class="fa-solid fa-envelope"></i> info@cihpng.org</span>
+      </div>
+      <div class="top-eyebrow-right">
+        <span class="top-eyebrow-label">Portals:</span>
+        <a href="contact.html" class="top-eyebrow-link"><i class="fa-solid fa-handshake"></i> For Donors & Funders</a>
+        <a href="about.html#footprint" class="top-eyebrow-link"><i class="fa-solid fa-building-columns"></i> For Health Ministries</a>
+        <a href="careers.html" class="top-eyebrow-link"><i class="fa-solid fa-briefcase"></i> Careers & EOI</a>
+        <a href="contact.html" class="top-eyebrow-link top-eyebrow-highlight"><i class="fa-solid fa-paper-plane"></i> Contact Us</a>
+      </div>
+    </div>
+  </div>
 
   <!-- ==================== STICKY NAVBAR ==================== -->
   <nav class="navbar">
