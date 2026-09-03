@@ -1705,42 +1705,69 @@
     .project-card {
       flex: 0 0 380px;
       scroll-snap-align: start;
-      background: #ffffff;
-      border: 1px solid rgba(30, 51, 136, 0.12);
-      border-radius: 20px;
-      padding: 20px 20px 24px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      background: linear-gradient(165deg, #0b132b 0%, #0f1a3a 50%, #162456 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      padding: 18px 18px 22px;
+      box-shadow: 0 16px 40px rgba(9, 15, 42, 0.4);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981 0%, #2563eb 100%);
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
     }
 
     .project-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.14);
-      border-color: rgba(41, 123, 71, 0.35);
+      box-shadow: 0 24px 55px rgba(9, 15, 42, 0.6);
+      border-color: rgba(16, 185, 129, 0.45);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
     }
 
     .project-thumb-wrapper {
       position: relative;
       width: 100%;
-      height: 190px;
-      border-radius: 14px;
+      height: 200px;
+      border-radius: 16px;
       overflow: hidden;
-      margin-bottom: 20px;
-      background: #090f2a;
+      margin-bottom: 18px;
+      background: #060b1e;
     }
 
     .project-thumb-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+      filter: brightness(0.9) contrast(1.05);
+    }
+
+    .project-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11, 19, 43, 0.15) 0%, rgba(11, 19, 43, 0.85) 100%);
+      pointer-events: none;
     }
 
     .project-card:hover .project-thumb-img {
       transform: scale(1.08);
+      filter: brightness(1) contrast(1.08);
     }
 
     .project-card .project-status-badge {
@@ -1751,54 +1778,122 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 14px;
+      padding: 6px 14px;
       border-radius: 50px;
       font-size: 0.72rem;
       font-weight: 800;
       font-family: 'JetBrains Mono', monospace;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
     .badge-ongoing {
-      background: rgba(16, 185, 129, 0.9);
+      background: rgba(16, 185, 129, 0.92);
       color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
     }
 
     .badge-completed {
-      background: rgba(30, 51, 136, 0.9);
+      background: rgba(37, 99, 235, 0.92);
       color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+    }
+
+    .project-domain-pill {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      color: #38bdf8;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      backdrop-filter: blur(12px);
     }
 
     .project-card h3 {
       font-size: 1.25rem;
       font-weight: 800;
-      color: var(--primary-blue-dark);
+      color: #ffffff;
       line-height: 1.35;
       margin-bottom: 10px;
       letter-spacing: -0.01em;
+      font-family: 'Outfit', sans-serif;
     }
 
     .project-card p.summary {
-      font-size: 0.92rem;
-      color: var(--text-muted);
+      font-size: 0.9rem;
+      color: #94a3b8;
       line-height: 1.6;
       margin-bottom: 18px;
     }
 
-    .project-meta-list {
-      list-style: none;
-      flex-direction: column;
+    .project-meta-pills {
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
+      margin-bottom: 22px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .project-meta-list li strong {
-      color: var(--text-main);
+    .meta-glass-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .meta-glass-pill i {
+      color: #38bdf8;
+      font-size: 0.75rem;
+    }
+
+    .btn-project-glow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .btn-project-glow:hover {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      color: #ffffff;
+      box-shadow: 0 10px 28px rgba(16, 185, 129, 0.5);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .project-card {
+        flex: 0 0 310px;
+      }
     }
 
     /* ==========================================================================
@@ -2776,17 +2871,19 @@
             <div>
               <div class="project-thumb-wrapper">
                 <img src="img/Reachout.png" alt="REACHOUT Project (EU / EDCTP3)" class="project-thumb-img" />
+                <div class="project-thumb-overlay"></div>
                 <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2025 - 2029)</span>
+                <span class="project-domain-pill"><i class="fa-solid fa-earth-africa"></i> Global Health</span>
               </div>
               <h3>REACHOUT Project (EU / EDCTP3)</h3>
               <p class="summary">Flagship European Union-funded multi-country initiative tackling zero-dose immunization gaps across Nigeria, Kenya, and Rwanda.</p>
-              <ul class="project-meta-list">
-                <li><i class="fa-solid fa-building-columns"></i> <span><strong>Funder:</strong> European Union (EDCTP3), Bocconi, AMREF, Swiss-TPH</span></li>
-                <li><i class="fa-solid fa-earth-africa"></i> <span><strong>Scope:</strong> Multi-country implementation research & behavioral insights</span></li>
-                <li><i class="fa-solid fa-file-contract"></i> <span><strong>Evidence Source:</strong> 2025 CIHP Annual Report / EDCTP3 Charter</span></li>
-              </ul>
+              <div class="project-meta-pills">
+                <span class="meta-glass-pill"><i class="fa-solid fa-building-columns"></i> EU EDCTP3</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-globe"></i> 3 Countries</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-syringe"></i> Zero-Dose Vaccine</span>
+              </div>
             </div>
-            <a href="contact.html" class="btn-project-action">View Project Brief <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
           <!-- Project 2: AEARI (Gates Foundation) -->
@@ -2794,17 +2891,19 @@
             <div>
               <div class="project-thumb-wrapper">
                 <img src="img/AEARI.jpg" alt="AEARI Project (Lagos RMNCH)" class="project-thumb-img" />
+                <div class="project-thumb-overlay"></div>
                 <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2023 - 2026)</span>
+                <span class="project-domain-pill"><i class="fa-solid fa-baby"></i> RMNCH</span>
               </div>
               <h3>AEARI Project (Lagos RMNCH)</h3>
               <p class="summary">Accelerating Expanded Adoption of RMNCH Innovations (PPH E-MOTIVE Bundle, GANC & BEmONC) across 20 Lagos State LGAs.</p>
-              <ul class="project-meta-list">
-                <li><i class="fa-solid fa-hand-holding-heart"></i> <span><strong>Funder & Partners:</strong> Gates Foundation, Lagos MoH & TAConnect</span></li>
-                <li><i class="fa-solid fa-chart-line"></i> <span><strong>Key Metrics:</strong> 400 workers trained, 37% competency gain, 67 PHCs</span></li>
-                <li><i class="fa-solid fa-file-contract"></i> <span><strong>Evidence Source:</strong> Lagos State RMNCH Innovation Evaluation</span></li>
-              </ul>
+              <div class="project-meta-pills">
+                <span class="meta-glass-pill"><i class="fa-solid fa-hand-holding-heart"></i> Gates Foundation</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-chart-line"></i> 67 PHCs</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-user-doctor"></i> 400 Trained</span>
+              </div>
             </div>
-            <a href="contact.html" class="btn-project-action">View Project Brief <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
           <!-- Project 3: IMPAACT4HIV (Unitaid) -->
@@ -2812,17 +2911,19 @@
             <div>
               <div class="project-thumb-wrapper">
                 <img src="img/I4HIV pic.jpeg" alt="IMPAACT4HIV (Pediatric AHD)" class="project-thumb-img" />
+                <div class="project-thumb-overlay"></div>
                 <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2024 - 2027)</span>
+                <span class="project-domain-pill"><i class="fa-solid fa-ribbon"></i> Pediatric HIV</span>
               </div>
               <h3>IMPAACT4HIV (Pediatric AHD)</h3>
-              <p class="summary">Deploying the WHO STOP AIDS Toolkit to diagnose and treat Advanced HIV Disease and TB in children & adolescents across 21 facilities.</p>
-              <ul class="project-meta-list">
-                <li><i class="fa-solid fa-ribbon"></i> <span><strong>Funder & Partners:</strong> Unitaid, FMoH&SW, NASCP, PATA & Aurum</span></li>
-                <li><i class="fa-solid fa-notes-medical"></i> <span><strong>Key Metrics:</strong> 101 CLHIV identified, 100% treatment rate</span></li>
-                <li><i class="fa-solid fa-file-contract"></i> <span><strong>Evidence Source:</strong> Unitaid Pediatric AHD Program Audit</span></li>
-              </ul>
+              <p class="summary">Deploying WHO STOP AIDS Toolkit to diagnose and treat Advanced HIV Disease & TB in children & adolescents across 21 facilities.</p>
+              <div class="project-meta-pills">
+                <span class="meta-glass-pill"><i class="fa-solid fa-shield-virus"></i> Unitaid</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-notes-medical"></i> 21 Facilities</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-award"></i> 100% Tx Rate</span>
+              </div>
             </div>
-            <a href="contact.html" class="btn-project-action">View Project Brief <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
           <!-- Project 4: Accelerating MNCH Innovations -->
@@ -2830,17 +2931,19 @@
             <div>
               <div class="project-thumb-wrapper">
                 <img src="img/Newborn.png" alt="Accelerating MNCH Innovations (Newborn Unit)" class="project-thumb-img" />
+                <div class="project-thumb-overlay"></div>
                 <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2024 - 2027)</span>
+                <span class="project-domain-pill"><i class="fa-solid fa-hospital-user"></i> Newborn Care</span>
               </div>
               <h3>Accelerating MNCH Innovations (Newborn Unit)</h3>
-              <p class="summary">Strengthening national leadership and system readiness for small and sick newborns (SSNs) with the Federal Ministry of Health.</p>
-              <ul class="project-meta-list">
-                <li><i class="fa-solid fa-baby"></i> <span><strong>Funder:</strong> Bill & Melinda Gates Foundation (4th Grant Award)</span></li>
-                <li><i class="fa-solid fa-hospital-user"></i> <span><strong>Scope:</strong> Support to Newborn Unit of FMoH&SW & protocol scale-up</span></li>
-                <li><i class="fa-solid fa-file-contract"></i> <span><strong>Evidence Source:</strong> FMoH&SW Newborn Health Partnership Report</span></li>
-              </ul>
+              <p class="summary">Strengthening national leadership & system readiness for small & sick newborns (SSNs) with the Federal Ministry of Health.</p>
+              <div class="project-meta-pills">
+                <span class="meta-glass-pill"><i class="fa-solid fa-award"></i> BMGF 4th Award</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-building"></i> FMoH&SW</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-book-medical"></i> Protocol Scale</span>
+              </div>
             </div>
-            <a href="contact.html" class="btn-project-action">View Project Brief <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
           <!-- Project 5: IRIS -->
@@ -2848,17 +2951,19 @@
             <div>
               <div class="project-thumb-wrapper">
                 <img src="img/iris.JPG" alt="IRIS Project" class="project-thumb-img" />
+                <div class="project-thumb-overlay"></div>
                 <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2022 - 2027)</span>
+                <span class="project-domain-pill"><i class="fa-solid fa-notes-medical"></i> Clinical Care</span>
               </div>
               <h3>IRIS Project</h3>
-              <p class="summary">Integrated Regional HIV/AIDS Intervention & Care Support across supported states in Nigeria.</p>
-              <ul class="project-meta-list">
-                <li><i class="fa-solid fa-clock"></i> <span><strong>Timeframe:</strong> 2022 – 2027</span></li>
-                <li><i class="fa-solid fa-notes-medical"></i> <span><strong>Scope:</strong> Multi-state clinical care & health systems strengthening</span></li>
-                <li><i class="fa-solid fa-file-contract"></i> <span><strong>Evidence Source:</strong> PEPFAR / CDC Annual Progress Reports</span></li>
-              </ul>
+              <p class="summary">Integrated Regional HIV/AIDS Intervention & Care Support providing comprehensive treatment across supported states.</p>
+              <div class="project-meta-pills">
+                <span class="meta-glass-pill"><i class="fa-solid fa-flag-usa"></i> PEPFAR / CDC</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-map-location-dot"></i> Multi-State</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-hospital"></i> HSS Network</span>
+              </div>
             </div>
-            <a href="contact.html" class="btn-project-action">View Project Context <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
           <!-- Project 6: TB-LON3 -->
@@ -2866,17 +2971,19 @@
             <div>
               <div class="project-thumb-wrapper">
                 <img src="img/TBLON3.jpg" alt="TB-LON3 Project" class="project-thumb-img" />
+                <div class="project-thumb-overlay"></div>
                 <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2020 - 2025)</span>
+                <span class="project-domain-pill"><i class="fa-solid fa-lungs"></i> Tuberculosis</span>
               </div>
               <h3>TB-LON3 Project</h3>
-              <p class="summary">Tuberculosis Local Organizations Network scaling case detection, AI mobile screening, and community response.</p>
-              <ul class="project-meta-list">
-                <li><i class="fa-solid fa-clock"></i> <span><strong>Timeframe:</strong> 2020 – 2025</span></li>
-                <li><i class="fa-solid fa-network-wired"></i> <span><strong>Scope:</strong> Community TB screening & diagnostic network</span></li>
-                <li><i class="fa-solid fa-file-contract"></i> <span><strong>Evidence Source:</strong> Donor & Multilateral Technical Dashboard</span></li>
-              </ul>
+              <p class="summary">Tuberculosis Local Organizations Network scaling case detection, AI mobile screening, and community diagnostics.</p>
+              <div class="project-meta-pills">
+                <span class="meta-glass-pill"><i class="fa-solid fa-network-wired"></i> TB Network</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-microchip"></i> AI Screening</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-users"></i> Community</span>
+              </div>
             </div>
-            <a href="contact.html" class="btn-project-action">View Project Context <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
           <!-- Project 7: G-ANC -->
@@ -2884,17 +2991,19 @@
             <div>
               <div class="project-thumb-wrapper">
                 <img src="img/GANC.jpg" alt="G-ANC Project" class="project-thumb-img" />
+                <div class="project-thumb-overlay"></div>
                 <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2022 - 2025)</span>
+                <span class="project-domain-pill"><i class="fa-solid fa-people-roof"></i> Antenatal Care</span>
               </div>
               <h3>G-ANC Project</h3>
-              <p class="summary">Group Antenatal Care model improving maternal and newborn healthcare outcomes through peer-learning groups.</p>
-              <ul class="project-meta-list">
-                <li><i class="fa-solid fa-clock"></i> <span><strong>Timeframe:</strong> 2022 – 2025</span></li>
-                <li><i class="fa-solid fa-people-roof"></i> <span><strong>Scope:</strong> Maternal health & newborn survival innovation</span></li>
-                <li><i class="fa-solid fa-file-contract"></i> <span><strong>Evidence Source:</strong> Maternal & Reproductive Health Evaluation</span></li>
-              </ul>
+              <p class="summary">Group Antenatal Care model improving maternal and newborn healthcare outcomes through innovative peer-learning cohorts.</p>
+              <div class="project-meta-pills">
+                <span class="meta-glass-pill"><i class="fa-solid fa-heart-pulse"></i> Maternal Health</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-person-breastfeeding"></i> Newborn Survival</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-users-line"></i> Peer Cohorts</span>
+              </div>
             </div>
-            <a href="#gateway" class="btn-project-action">View Project Context <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#gateway" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
           <!-- Project 8: SDI-SI -->
@@ -2902,17 +3011,19 @@
             <div>
               <div class="project-thumb-wrapper">
                 <img src="img/Final SDI Report (1).png" alt="SDI-SI Project" class="project-thumb-img" />
+                <div class="project-thumb-overlay"></div>
                 <span class="project-status-badge badge-completed"><i class="fa-solid fa-circle-check"></i> Completed (2022 - 2023)</span>
+                <span class="project-domain-pill"><i class="fa-solid fa-database"></i> Informatics</span>
               </div>
               <h3>SDI-SI Project</h3>
-              <p class="summary">Strategic Development Initiative focusing on strategic information systems, data analytics & surveillance.</p>
-              <ul class="project-meta-list">
-                <li><i class="fa-solid fa-clock"></i> <span><strong>Timeframe:</strong> 2022 – 2023</span></li>
-                <li><i class="fa-solid fa-database"></i> <span><strong>Scope:</strong> Health informatics & surveillance infrastructure</span></li>
-                <li><i class="fa-solid fa-file-contract"></i> <span><strong>Evidence Source:</strong> Final SDI Closeout Report</span></li>
-              </ul>
+              <p class="summary">Strategic Development Initiative focusing on strategic information systems, EMRs, data analytics & surveillance.</p>
+              <div class="project-meta-pills">
+                <span class="meta-glass-pill"><i class="fa-solid fa-chart-pie"></i> Analytics</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-laptop-medical"></i> EMR Systems</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-file-check"></i> Closeout Done</span>
+              </div>
             </div>
-            <a href="#gateway" class="btn-project-action">View Closeout Report <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#gateway" class="btn-project-glow"><span>Explore Closeout Report</span> <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
           <!-- Project 9: AYP Hub -->
@@ -2920,17 +3031,19 @@
             <div>
               <div class="project-thumb-wrapper">
                 <img src="img/LEOPOD 1.png" alt="AYP Hub & Adolescent Wellness" class="project-thumb-img" />
+                <div class="project-thumb-overlay"></div>
                 <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active</span>
+                <span class="project-domain-pill"><i class="fa-solid fa-user-graduate"></i> Youth Health</span>
               </div>
               <h3>AYP Hub & Adolescent Wellness</h3>
-              <p class="summary">Empowering adolescent girls & young people with health education, HIV prevention, and economic skills.</p>
-              <ul class="project-meta-list">
-                <li><i class="fa-solid fa-clock"></i> <span><strong>Timeframe:</strong> Ongoing Initiative</span></li>
-                <li><i class="fa-solid fa-user-graduate"></i> <span><strong>Scope:</strong> Youth empowerment & community PMTCT</span></li>
-                <li><i class="fa-solid fa-file-contract"></i> <span><strong>Evidence Source:</strong> Youth Wellness Case Study</span></li>
-              </ul>
+              <p class="summary">Empowering adolescent girls & young people with health education, HIV prevention, and economic self-reliance skills.</p>
+              <div class="project-meta-pills">
+                <span class="meta-glass-pill"><i class="fa-solid fa-seedling"></i> Youth Empower</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
+                <span class="meta-glass-pill"><i class="fa-solid fa-hand-holding-hand"></i> Wellness Hub</span>
+              </div>
             </div>
-            <a href="#gateway" class="btn-project-action">View Youth Case Study <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#gateway" class="btn-project-glow"><span>Explore Youth Study</span> <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
         </div>
