@@ -971,120 +971,159 @@
     /* ==========================================================================
        5. INSTITUTIONAL IDENTITY & C-I-H-P VALUES MATRIX
        ========================================================================== */
-    /* Split-Screen Dual Showcase (Vision & Mission) */
-    .mv-grid {
+    /* Option 3: Photographic Backdrop with Floating Glass Cards (Vision & Mission) */
+    .mv-backdrop-banner {
+      position: relative;
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      margin-top: 40px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22);
+      background: #090f2a;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      padding: 50px 36px;
+    }
+
+    .mv-backdrop-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.65) contrast(1.1);
+      transition: transform 8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .mv-backdrop-banner:hover .mv-backdrop-img {
+      transform: scale(1.05);
+    }
+
+    .mv-backdrop-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(30, 51, 136, 0.4) 0%, transparent 70%),
+        linear-gradient(135deg, rgba(9, 15, 42, 0.88) 0%, rgba(15, 23, 42, 0.72) 50%, rgba(9, 15, 42, 0.9) 100%);
+      z-index: 1;
+    }
+
+    .mv-glass-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 32px;
-      margin-top: 40px;
+      width: 100%;
     }
 
-    .mv-showcase-card {
-      position: relative;
+    .mv-glass-card {
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       border-radius: 20px;
-      padding: 44px 36px 48px;
+      padding: 40px 32px;
       color: #ffffff;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.16);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .mv-showcase-card.vision-card {
-      background: linear-gradient(135deg, #090f2a 0%, #1e3388 100%);
-    }
-
-    .mv-showcase-card.mission-card {
-      background: linear-gradient(135deg, #1c455d 0%, #0f2b3c 100%);
-    }
-
-    .mv-showcase-card:hover {
+    .mv-glass-card:hover {
+      background: rgba(15, 23, 42, 0.84);
+      border-color: rgba(74, 222, 128, 0.5);
       transform: translateY(-8px);
-      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.28);
-      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 25px rgba(74, 222, 128, 0.2);
     }
 
-    .mv-header-row {
+    .mv-glass-card.vision-glass {
+      border-top: 4px solid #38bdf8;
+    }
+
+    .mv-glass-card.mission-glass {
+      border-top: 4px solid #4ade80;
+    }
+
+    .mv-glass-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 24px;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
-    .mv-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .mv-glass-tag {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
       font-weight: 800;
-      text-transform: uppercase;
       letter-spacing: 0.08em;
+      text-transform: uppercase;
       padding: 6px 16px;
       border-radius: 50px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
     }
 
-    .mv-tag.vision-tag {
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+    .vision-glass .mv-glass-tag {
+      background: rgba(56, 189, 248, 0.2);
+      border: 1px solid rgba(56, 189, 248, 0.4);
       color: #38bdf8;
     }
 
-    .mv-tag.mission-tag {
-      background: rgba(74, 222, 128, 0.15);
-      border: 1px solid rgba(74, 222, 128, 0.3);
+    .mission-glass .mv-glass-tag {
+      background: rgba(74, 222, 128, 0.2);
+      border: 1px solid rgba(74, 222, 128, 0.4);
       color: #4ade80;
     }
 
-    .mv-icon-badge {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
+    .mv-glass-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
       background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: #ffffff;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .mv-showcase-card h3 {
-      font-size: 2.1rem;
+    .mv-glass-card h3 {
+      font-size: 2rem;
       font-weight: 900;
       color: #ffffff;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
       line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
     }
 
-    .mv-showcase-card p {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.92);
-      line-height: 1.7;
-      margin-bottom: 32px;
+    .mv-glass-card p {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      line-height: 1.65;
+      margin-bottom: 28px;
       font-weight: 400;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     }
 
-    .mv-pillar-pills {
+    .mv-glass-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
-    .mv-pill {
+    .mv-glass-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       padding: 6px 14px;
       border-radius: 50px;
       font-size: 0.82rem;
@@ -1093,15 +1132,23 @@
       transition: all 0.25s ease;
     }
 
-    .mv-pill i {
+    .mv-glass-pill i {
       color: #4ade80;
-      font-size: 0.85rem;
     }
 
-    .mv-showcase-card:hover .mv-pill {
-      background: rgba(255, 255, 255, 0.18);
-      border-color: rgba(255, 255, 255, 0.35);
-      transform: translateY(-2px);
+    .mv-glass-card:hover .mv-glass-pill {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    @media (max-width: 992px) {
+      .mv-glass-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .mv-backdrop-banner {
+        padding: 30px 20px;
+      }
     }
 
     /* Core Values Matrix */
@@ -2179,46 +2226,51 @@
           building resilient healthcare systems.
         </p>
 
-        <!-- Option 1: Split-Screen Dual Showcase (Vision & Mission) -->
-        <div class="mv-grid">
-          <!-- Vision Card -->
-          <div class="mv-showcase-card vision-card" data-aos="fade-right">
-            <div>
-              <div class="mv-header-row">
-                <span class="mv-tag vision-tag"><i class="fa-solid fa-compass"></i> 2030 Horizon</span>
-                <div class="mv-icon-badge"><i class="fa-solid fa-eye"></i></div>
+        <!-- Option 3: Photographic Backdrop with Floating Glass Cards (Vision & Mission) -->
+        <div class="mv-backdrop-banner">
+          <img src="img/HEADER.png" alt="CIHP Public Health Mission Backdrop" class="mv-backdrop-img" />
+          <div class="mv-backdrop-overlay"></div>
+
+          <div class="mv-glass-grid">
+            <!-- Vision Glass Card -->
+            <div class="mv-glass-card vision-glass" data-aos="fade-right">
+              <div>
+                <div class="mv-glass-header">
+                  <span class="mv-glass-tag"><i class="fa-solid fa-compass"></i> 2030 Horizon</span>
+                  <div class="mv-glass-icon"><i class="fa-solid fa-eye"></i></div>
+                </div>
+                <h3>Our Vision</h3>
+                <p>
+                  Audaciously transforming lives through partnership and value creation for healthier communities and a thriving Africa.
+                </p>
               </div>
-              <h3>Our Vision</h3>
-              <p>
-                Audaciously transforming lives through partnership and value creation for healthier communities and a thriving Africa.
-              </p>
-            </div>
 
-            <div class="mv-pillar-pills">
-              <span class="mv-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Audacious Transformation</span>
-              <span class="mv-pill"><i class="fa-solid fa-handshake-simple"></i> Value Creation</span>
-              <span class="mv-pill"><i class="fa-solid fa-earth-africa"></i> Thriving Africa</span>
-            </div>
-          </div>
-
-          <!-- Mission Card -->
-          <div class="mv-showcase-card mission-card" data-aos="fade-left">
-            <div>
-              <div class="mv-header-row">
-                <span class="mv-tag mission-tag"><i class="fa-solid fa-bullseye"></i> Strategic Mandate</span>
-                <div class="mv-icon-badge"><i class="fa-solid fa-crosshairs"></i></div>
+              <div class="mv-glass-pills">
+                <span class="mv-glass-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Audacious Transformation</span>
+                <span class="mv-glass-pill"><i class="fa-solid fa-handshake-simple"></i> Value Creation</span>
+                <span class="mv-glass-pill"><i class="fa-solid fa-earth-africa"></i> Thriving Africa</span>
               </div>
-              <h3>Our Mission</h3>
-              <p>
-                To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred and sustainable health systems, delivered through strategic partnerships.
-              </p>
             </div>
 
-            <div class="mv-pillar-pills">
-              <span class="mv-pill"><i class="fa-solid fa-heart-pulse"></i> Vulnerable Populations</span>
-              <span class="mv-pill"><i class="fa-solid fa-microscope"></i> Cutting-Edge Solutions</span>
-              <span class="mv-pill"><i class="fa-solid fa-hospital-user"></i> Sustainable Systems</span>
-              <span class="mv-pill"><i class="fa-solid fa-link"></i> Strategic Partnerships</span>
+            <!-- Mission Glass Card -->
+            <div class="mv-glass-card mission-glass" data-aos="fade-left">
+              <div>
+                <div class="mv-glass-header">
+                  <span class="mv-glass-tag"><i class="fa-solid fa-bullseye"></i> Strategic Mandate</span>
+                  <div class="mv-glass-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                </div>
+                <h3>Our Mission</h3>
+                <p>
+                  To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred and sustainable health systems, delivered through strategic partnerships.
+                </p>
+              </div>
+
+              <div class="mv-glass-pills">
+                <span class="mv-glass-pill"><i class="fa-solid fa-heart-pulse"></i> Vulnerable Populations</span>
+                <span class="mv-glass-pill"><i class="fa-solid fa-microscope"></i> Cutting-Edge Solutions</span>
+                <span class="mv-glass-pill"><i class="fa-solid fa-hospital-user"></i> Sustainable Systems</span>
+                <span class="mv-glass-pill"><i class="fa-solid fa-link"></i> Strategic Partnerships</span>
+              </div>
             </div>
           </div>
         </div>
