@@ -201,6 +201,213 @@
       line-height: 1.7;
     }
 
+    /* Technical Publications Modal Styling */
+    .publications-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(9, 15, 42, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .publications-modal-overlay.active {
+      display: flex;
+    }
+
+    .publications-modal-container {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      max-width: 960px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(30, 51, 136, 0.2);
+      padding: 40px;
+      position: relative;
+    }
+
+    .pub-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+
+    .pub-modal-eyebrow {
+      color: var(--secondary-green);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .pub-modal-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--primary-blue-dark);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .pub-modal-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .pub-modal-close-btn {
+      background: #f1f5f9;
+      border: none;
+      font-size: 1.8rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .pub-modal-close-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .pub-modal-filter-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .pub-filter-btn {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pub-filter-btn:hover, .pub-filter-btn.active {
+      background: var(--primary-blue);
+      color: #ffffff;
+      border-color: var(--primary-blue);
+    }
+
+    .pub-modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .pub-modal-grid { grid-template-columns: 1fr; }
+      .publications-modal-container { padding: 24px; }
+    }
+
+    .pub-item-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pub-item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(30, 51, 136, 0.08);
+      border-color: rgba(30, 51, 136, 0.3);
+    }
+
+    .pub-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .pub-type-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .tag-journal { background: #e0f2fe; color: #0284c7; }
+    .tag-brief { background: #dcfce7; color: #15803d; }
+    .tag-framework { background: #fef3c7; color: #b45309; }
+    .tag-tech { background: #f3e8ff; color: #6b21a8; }
+
+    .pub-doi {
+      font-size: 0.72rem;
+      color: #94a3b8;
+    }
+
+    .pub-card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-blue-dark);
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .pub-card-abstract {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+
+    .pub-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.8rem;
+    }
+
+    .pub-authors {
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .pub-download-btn {
+      background: var(--secondary-green);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      transition: background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pub-download-btn:hover {
+      background: var(--secondary-green-dark);
+    }
+
     /* ==========================================================================
        1. NAVIGATION BAR (BLENDED OVERLAY & GLASSMORPHISM ON SCROLL)
        ========================================================================== */
