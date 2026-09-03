@@ -3355,10 +3355,140 @@
         display: none;
       }
     }
+
+    /* ---------- System Boot Preloader ---------- */
+    body.locked {
+      overflow: hidden;
+    }
+
+    #system-preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #f4f7f9;
+      background-image:
+        linear-gradient(rgba(30, 51, 136, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 51, 136, 0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    #system-preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .preloader-content {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 0 20px;
+    }
+
+    .preloader-logo {
+      height: 55px;
+      margin-bottom: 30px;
+      animation: pulseLogo 2s infinite ease-in-out;
+    }
+
+    .loading-bar-container {
+      width: 100%;
+      height: 3px;
+      background: rgba(30, 51, 136, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .loading-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background: var(--secondary-green);
+      animation: loadProgress 3s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+    }
+
+    .loading-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--primary-blue);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      animation: blinkText 1.5s infinite;
+    }
+
+    @keyframes pulseLogo {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes loadProgress {
+      0% {
+        width: 0%;
+      }
+
+      40% {
+        width: 45%;
+      }
+
+      70% {
+        width: 80%;
+      }
+
+      100% {
+        width: 100%;
+      }
+    }
+
+    @keyframes blinkText {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
   </style>
 </head>
 
-<body>
+<body class="locked">
+
+  <!-- SYSTEM BOOT PRELOADER -->
+  <div id="system-preloader">
+    <div class="preloader-content">
+      <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo" class="preloader-logo">
+      <div class="loading-bar-container">
+        <div class="loading-bar"></div>
+      </div>
+      <div class="loading-text">Initializing Systems...</div>
+    </div>
+  </div>
 
 <!-- ==================== STICKY NAVBAR ==================== -->
 <nav class="navbar">
@@ -5350,6 +5480,21 @@
 
   </div>
 </div>
+
+<script>
+  // Preloader Logic (from index2.html)
+  window.addEventListener('DOMContentLoaded', () => {
+    const preloader = document.getElementById('system-preloader');
+    const body = document.body;
+
+    const loadingTime = 3000;
+
+    setTimeout(() => {
+      if (preloader) preloader.classList.add('hidden');
+      if (body) body.classList.remove('locked');
+    }, loadingTime);
+  });
+</script>
 </body>
 
 </html>
