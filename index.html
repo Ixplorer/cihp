@@ -971,64 +971,137 @@
     /* ==========================================================================
        5. INSTITUTIONAL IDENTITY & C-I-H-P VALUES MATRIX
        ========================================================================== */
+    /* Split-Screen Dual Showcase (Vision & Mission) */
     .mv-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 28px;
-      margin-top: 30px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 40px;
     }
 
-    .mv-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 40px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
+    .mv-showcase-card {
       position: relative;
+      border-radius: 20px;
+      padding: 44px 36px 48px;
+      color: #ffffff;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.16);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.16);
       overflow: hidden;
-    }
-
-    .mv-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--border-hover);
-    }
-
-    .mv-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--primary-blue), var(--secondary-green));
-    }
-
-    .mv-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      background: rgba(30, 51, 136, 0.08);
-      color: var(--primary-blue);
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mv-showcase-card.vision-card {
+      background: linear-gradient(135deg, #090f2a 0%, #1e3388 100%);
+    }
+
+    .mv-showcase-card.mission-card {
+      background: linear-gradient(135deg, #1c455d 0%, #0f2b3c 100%);
+    }
+
+    .mv-showcase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.28);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .mv-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
       margin-bottom: 24px;
     }
 
-    .mv-card h3 {
-      font-size: 1.45rem;
-      color: var(--primary-blue-dark);
+    .mv-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
       font-weight: 800;
-      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 16px;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
-    .mv-card p {
-      color: var(--text-muted);
-      font-size: 1.02rem;
+    .mv-tag.vision-tag {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+
+    .mv-tag.mission-tag {
+      background: rgba(74, 222, 128, 0.15);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      color: #4ade80;
+    }
+
+    .mv-icon-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .mv-showcase-card h3 {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .mv-showcase-card p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.92);
       line-height: 1.7;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .mv-pillar-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .mv-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #ffffff;
+      transition: all 0.25s ease;
+    }
+
+    .mv-pill i {
+      color: #4ade80;
+      font-size: 0.85rem;
+    }
+
+    .mv-showcase-card:hover .mv-pill {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
     }
 
     /* Core Values Matrix */
@@ -2106,25 +2179,47 @@
           building resilient healthcare systems.
         </p>
 
-        <!-- Vision & Mission Dual Cards -->
+        <!-- Option 1: Split-Screen Dual Showcase (Vision & Mission) -->
         <div class="mv-grid">
-          <div class="mv-card" data-aos="fade-right">
-            <div class="mv-icon"><i class="fa-solid fa-eye"></i></div>
-            <h3>Our Vision</h3>
-            <p>
-              Audaciously transforming lives through partnership and value creation for healthier communities and a
-              thriving Africa
+          <!-- Vision Card -->
+          <div class="mv-showcase-card vision-card" data-aos="fade-right">
+            <div>
+              <div class="mv-header-row">
+                <span class="mv-tag vision-tag"><i class="fa-solid fa-compass"></i> 2030 Horizon</span>
+                <div class="mv-icon-badge"><i class="fa-solid fa-eye"></i></div>
+              </div>
+              <h3>Our Vision</h3>
+              <p>
+                Audaciously transforming lives through partnership and value creation for healthier communities and a thriving Africa.
+              </p>
+            </div>
 
-            </p>
+            <div class="mv-pillar-pills">
+              <span class="mv-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Audacious Transformation</span>
+              <span class="mv-pill"><i class="fa-solid fa-handshake-simple"></i> Value Creation</span>
+              <span class="mv-pill"><i class="fa-solid fa-earth-africa"></i> Thriving Africa</span>
+            </div>
           </div>
 
-          <div class="mv-card" data-aos="fade-left">
-            <div class="mv-icon"><i class="fa-solid fa-bullseye"></i></div>
-            <h3>Our Mission</h3>
-            <p>
-              To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred and
-              sustainable health systems, delivered through strategic partnerships.
-            </p>
+          <!-- Mission Card -->
+          <div class="mv-showcase-card mission-card" data-aos="fade-left">
+            <div>
+              <div class="mv-header-row">
+                <span class="mv-tag mission-tag"><i class="fa-solid fa-bullseye"></i> Strategic Mandate</span>
+                <div class="mv-icon-badge"><i class="fa-solid fa-crosshairs"></i></div>
+              </div>
+              <h3>Our Mission</h3>
+              <p>
+                To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred and sustainable health systems, delivered through strategic partnerships.
+              </p>
+            </div>
+
+            <div class="mv-pillar-pills">
+              <span class="mv-pill"><i class="fa-solid fa-heart-pulse"></i> Vulnerable Populations</span>
+              <span class="mv-pill"><i class="fa-solid fa-microscope"></i> Cutting-Edge Solutions</span>
+              <span class="mv-pill"><i class="fa-solid fa-hospital-user"></i> Sustainable Systems</span>
+              <span class="mv-pill"><i class="fa-solid fa-link"></i> Strategic Partnerships</span>
+            </div>
           </div>
         </div>
 
