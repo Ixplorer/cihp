@@ -1594,305 +1594,248 @@
     /* ==========================================================================
        7. EVIDENCE & IMPACT REPOSITORY (FLAGSHIP PROJECTS)
        ========================================================================== */
+    /* ==========================================================================
+       7. EVIDENCE & IMPACT REPOSITORY (EDITORIAL NUMBERED STACKED LIST)
+       ========================================================================== */
     .impact-projects-section {
-      background: var(--bg-deep);
+      background: var(--bg-surface);
+      padding: 90px 0;
     }
 
-    .impact-controls-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 28px;
+    .impact-split-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
+      align-items: flex-start;
     }
 
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
+    .impact-sidebar-sticky {
+      position: sticky;
+      top: 100px;
     }
 
-    .filter-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--text-light);
+    .editorial-main-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #1e3388;
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
       text-transform: uppercase;
-      margin-right: 8px;
     }
 
-    .filter-btn {
-      padding: 8px 18px;
-      border-radius: 50px;
-      border: 1px solid var(--border-color);
-      background: #ffffff;
+    .editorial-desc {
+      font-size: 1.02rem;
       color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      line-height: 1.7;
+      margin-bottom: 30px;
     }
 
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: var(--secondary-green);
-      color: #ffffff;
-      border-color: var(--secondary-green);
+    .editorial-filter-bar {
+      margin-bottom: 32px;
     }
 
-    .projects-carousel-actions {
+    .filter-pills-group {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
+      margin-top: 12px;
     }
 
-    .project-carousel-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      color: var(--primary-blue-dark);
-      font-size: 1rem;
-      display: flex;
+    .editorial-learn-btn {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
+      gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #1e3388;
+      text-decoration: none;
+      border-bottom: 2px solid #1e3388;
+      padding-bottom: 4px;
       transition: all 0.3s ease;
     }
 
-    .project-carousel-btn:hover {
-      background: var(--secondary-green);
-      border-color: var(--secondary-green);
-      color: #ffffff;
-      transform: scale(1.08);
-      box-shadow: 0 6px 18px rgba(41, 123, 71, 0.3);
+    .editorial-learn-btn:hover {
+      color: #297b47;
+      border-color: #297b47;
+      transform: translateX(4px);
     }
 
-    .projects-carousel-container {
-      position: relative;
-      width: 100%;
-    }
-
-    .projects-grid {
-      display: flex;
-      gap: 28px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      padding: 10px 4px 20px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--secondary-green) rgba(30, 51, 136, 0.08);
-    }
-
-    .projects-grid::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    .projects-grid::-webkit-scrollbar-track {
-      background: rgba(30, 51, 136, 0.06);
-      border-radius: 10px;
-    }
-
-    .projects-grid::-webkit-scrollbar-thumb {
-      background: var(--secondary-green);
-      border-radius: 10px;
-    }
-
-    .project-card {
-      flex: 0 0 380px;
-      scroll-snap-align: start;
-      background: linear-gradient(165deg, #0b132b 0%, #0f1a3a 50%, #162456 100%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 22px;
-      padding: 18px 18px 22px;
-      box-shadow: 0 16px 40px rgba(9, 15, 42, 0.4);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    .impact-rows-container {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
     }
 
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #10b981 0%, #2563eb 100%);
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 55px rgba(9, 15, 42, 0.6);
-      border-color: rgba(16, 185, 129, 0.45);
-    }
-
-    .project-card:hover::before {
-      opacity: 1;
-    }
-
-    .project-thumb-wrapper {
-      position: relative;
-      width: 100%;
-      height: 200px;
-      border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 18px;
-      background: #060b1e;
-    }
-
-    .project-thumb-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
-      filter: brightness(0.9) contrast(1.05);
-    }
-
-    .project-thumb-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(11, 19, 43, 0.15) 0%, rgba(11, 19, 43, 0.85) 100%);
-      pointer-events: none;
-    }
-
-    .project-card:hover .project-thumb-img {
-      transform: scale(1.08);
-      filter: brightness(1) contrast(1.08);
-    }
-
-    .project-card .project-status-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      z-index: 2;
-      display: inline-flex;
+    .editorial-project-row {
+      display: grid;
+      grid-template-columns: 60px 1fr 200px;
+      gap: 24px;
       align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 50px;
-      font-size: 0.72rem;
-      font-weight: 800;
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(30, 51, 136, 0.12);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .editorial-project-row:first-child {
+      border-top: 1px solid rgba(30, 51, 136, 0.12);
+    }
+
+    .editorial-project-row:hover {
+      background: rgba(30, 51, 136, 0.02);
+      padding-left: 12px;
+      padding-right: 12px;
+      border-radius: 16px;
+    }
+
+    .row-num {
       font-family: 'JetBrains Mono', monospace;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #1e3388;
+      opacity: 0.35;
+      line-height: 1;
+      transition: opacity 0.3s ease, color 0.3s ease;
+    }
+
+    .editorial-project-row:hover .row-num {
+      opacity: 1;
+      color: #297b47;
+    }
+
+    .row-text-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .row-header-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .row-header-meta h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #1e3388;
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.25;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .row-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 50px;
     }
 
     .badge-ongoing {
-      background: rgba(16, 185, 129, 0.92);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+      background: rgba(41, 123, 71, 0.12);
+      color: #297b47;
+      border: 1px solid rgba(41, 123, 71, 0.3);
     }
 
     .badge-completed {
-      background: rgba(37, 99, 235, 0.92);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+      background: rgba(30, 51, 136, 0.1);
+      color: #1e3388;
+      border: 1px solid rgba(30, 51, 136, 0.25);
     }
 
-    .project-domain-pill {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      border-radius: 50px;
-      font-size: 0.7rem;
-      font-weight: 800;
-      font-family: 'JetBrains Mono', monospace;
-      color: #38bdf8;
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      backdrop-filter: blur(12px);
-    }
-
-    .project-card h3 {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #ffffff;
-      line-height: 1.35;
-      margin-bottom: 10px;
-      letter-spacing: -0.01em;
-      font-family: 'Outfit', sans-serif;
-    }
-
-    .project-card p.summary {
-      font-size: 0.9rem;
-      color: #94a3b8;
+    .row-summary {
+      font-size: 0.95rem;
+      color: #475569;
       line-height: 1.6;
-      margin-bottom: 18px;
+      margin: 0;
     }
 
-    .project-meta-pills {
+    .row-meta-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 22px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 10px;
+      margin-top: 4px;
     }
 
-    .meta-glass-pill {
+    .meta-tag {
+      font-size: 0.78rem;
+      color: #1e3388;
+      background: #f1f5f9;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: #cbd5e1;
-      background: rgba(255, 255, 255, 0.06);
-      padding: 4px 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .meta-glass-pill i {
-      color: #38bdf8;
+    .meta-tag i {
+      color: #297b47;
       font-size: 0.75rem;
     }
 
-    .btn-project-glow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 12px 18px;
+    .row-thumb-card {
+      width: 200px;
+      height: 125px;
       border-radius: 12px;
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: #ffffff;
-      font-size: 0.88rem;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
-      transition: all 0.3s ease;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(30, 51, 136, 0.1);
+      position: relative;
+      flex-shrink: 0;
     }
 
-    .btn-project-glow:hover {
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
-      color: #ffffff;
-      box-shadow: 0 10px 28px rgba(16, 185, 129, 0.5);
-      transform: translateY(-2px);
+    .row-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .editorial-project-row:hover .row-thumb-img {
+      transform: scale(1.08);
+    }
+
+    @media (max-width: 1024px) {
+      .impact-split-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .impact-sidebar-sticky {
+        position: relative;
+        top: 0;
+      }
+
+      .editorial-project-row {
+        grid-template-columns: 50px 1fr 160px;
+        gap: 16px;
+      }
+
+      .row-thumb-card {
+        width: 160px;
+        height: 110px;
+      }
     }
 
     @media (max-width: 768px) {
-      .project-card {
-        flex: 0 0 310px;
+      .editorial-project-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .row-thumb-card {
+        width: 100%;
+        height: 200px;
       }
     }
 
@@ -2836,217 +2779,206 @@
     <!-- ==================== 7. EVIDENCE & IMPACT REPOSITORY (FLAGSHIP PROJECTS) ==================== -->
     <section id="impact" class="impact-projects-section">
       <div class="container">
-        <span class="section-eyebrow"><i class="fa-solid fa-chart-pie"></i> Flagship Portfolio & Outcomes</span>
-        <h2 class="section-title">Impact and Projects</h2>
-        <p class="section-desc">
-          CIHP presents its public health impact with transparent sources, clear context, and accountable ownership.
-          Explore our active and completed project portfolio.
-        </p>
+        
+        <div class="impact-split-layout">
 
-        <!-- Controls Row: Filter Bar & Carousel Arrow Buttons -->
-        <div class="impact-controls-row">
-          <div class="filter-bar">
-            <span class="filter-label">Filter Portfolio:</span>
-            <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
-            <button class="filter-btn" onclick="filterProjects('ongoing')">Active / Ongoing</button>
-            <button class="filter-btn" onclick="filterProjects('completed')">Completed</button>
-          </div>
+          <!-- Left Column: Sticky Title & Filter Sidebar (Matching Reference Design) -->
+          <div class="impact-sidebar-sticky" data-aos="fade-right">
+            <span class="section-eyebrow"><i class="fa-solid fa-chart-pie"></i> Flagship Portfolio & Outcomes</span>
+            <h2 class="editorial-main-title">EVIDENCE & <br>IMPACT IN <br>ACTION</h2>
+            <p class="editorial-desc">
+              CIHP presents its public health impact with transparent evidence sources, rigorous context, and accountable local ownership across active and completed flagship programs.
+            </p>
 
-          <div class="projects-carousel-actions">
-            <button class="project-carousel-btn" onclick="slideProjectsCarousel('left')" aria-label="Previous Projects">
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button class="project-carousel-btn" onclick="slideProjectsCarousel('right')" aria-label="Next Projects">
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Projects Single-Row Horizontal Carousel Track -->
-        <div class="projects-carousel-container">
-          <div class="projects-grid">
-
-          <!-- Project 1: REACHOUT (EU/EDCTP3) -->
-          <div class="project-card" data-category="ongoing" data-aos="fade-up">
-            <div>
-              <div class="project-thumb-wrapper">
-                <img src="img/Reachout.png" alt="REACHOUT Project (EU / EDCTP3)" class="project-thumb-img" />
-                <div class="project-thumb-overlay"></div>
-                <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2025 - 2029)</span>
-                <span class="project-domain-pill"><i class="fa-solid fa-earth-africa"></i> Global Health</span>
-              </div>
-              <h3>REACHOUT Project (EU / EDCTP3)</h3>
-              <p class="summary">Flagship European Union-funded multi-country initiative tackling zero-dose immunization gaps across Nigeria, Kenya, and Rwanda.</p>
-              <div class="project-meta-pills">
-                <span class="meta-glass-pill"><i class="fa-solid fa-building-columns"></i> EU EDCTP3</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-globe"></i> 3 Countries</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-syringe"></i> Zero-Dose Vaccine</span>
+            <!-- Filter Buttons -->
+            <div class="editorial-filter-bar">
+              <span class="filter-label">Filter Portfolio:</span>
+              <div class="filter-pills-group">
+                <button class="filter-btn active" onclick="filterProjects('all')">All Programs</button>
+                <button class="filter-btn" onclick="filterProjects('ongoing')">Active / Ongoing</button>
+                <button class="filter-btn" onclick="filterProjects('completed')">Completed</button>
               </div>
             </div>
-            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
+
+            <a href="contact.html" class="editorial-learn-btn">Request Full Portfolio Brief <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
-          <!-- Project 2: AEARI (Gates Foundation) -->
-          <div class="project-card" data-category="ongoing" data-aos="fade-up" data-aos-delay="100">
-            <div>
-              <div class="project-thumb-wrapper">
-                <img src="img/AEARI.jpg" alt="AEARI Project (Lagos RMNCH)" class="project-thumb-img" />
-                <div class="project-thumb-overlay"></div>
-                <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2023 - 2026)</span>
-                <span class="project-domain-pill"><i class="fa-solid fa-baby"></i> RMNCH</span>
+          <!-- Right Column: Numbered Editorial Stacked Rows (01 - 09) -->
+          <div class="impact-rows-container">
+
+            <!-- Row 01: REACHOUT -->
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+              <span class="row-num">01</span>
+              <div class="row-text-content">
+                <div class="row-header-meta">
+                  <h3>REACHOUT Project (EU / EDCTP3)</h3>
+                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2025 - 2029)</span>
+                </div>
+                <p class="row-summary">Flagship European Union-funded multi-country initiative tackling zero-dose immunization gaps across Nigeria, Kenya, and Rwanda.</p>
+                <div class="row-meta-tags">
+                  <span class="meta-tag"><i class="fa-solid fa-building-columns"></i> EU EDCTP3 Consortium</span>
+                  <span class="meta-tag"><i class="fa-solid fa-globe"></i> Nigeria, Kenya & Rwanda</span>
+                </div>
               </div>
-              <h3>AEARI Project (Lagos RMNCH)</h3>
-              <p class="summary">Accelerating Expanded Adoption of RMNCH Innovations (PPH E-MOTIVE Bundle, GANC & BEmONC) across 20 Lagos State LGAs.</p>
-              <div class="project-meta-pills">
-                <span class="meta-glass-pill"><i class="fa-solid fa-hand-holding-heart"></i> Gates Foundation</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-chart-line"></i> 67 PHCs</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-user-doctor"></i> 400 Trained</span>
+              <div class="row-thumb-card">
+                <img src="img/Reachout.png" alt="REACHOUT Project" class="row-thumb-img" />
               </div>
             </div>
-            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
 
-          <!-- Project 3: IMPAACT4HIV (Unitaid) -->
-          <div class="project-card" data-category="ongoing" data-aos="fade-up" data-aos-delay="200">
-            <div>
-              <div class="project-thumb-wrapper">
-                <img src="img/I4HIV pic.jpeg" alt="IMPAACT4HIV (Pediatric AHD)" class="project-thumb-img" />
-                <div class="project-thumb-overlay"></div>
-                <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2024 - 2027)</span>
-                <span class="project-domain-pill"><i class="fa-solid fa-ribbon"></i> Pediatric HIV</span>
+            <!-- Row 02: AEARI -->
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+              <span class="row-num">02</span>
+              <div class="row-text-content">
+                <div class="row-header-meta">
+                  <h3>AEARI Project (Lagos RMNCH)</h3>
+                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2023 - 2026)</span>
+                </div>
+                <p class="row-summary">Accelerating Expanded Adoption of RMNCH Innovations (PPH E-MOTIVE Bundle, GANC & BEmONC) across 20 Lagos State LGAs.</p>
+                <div class="row-meta-tags">
+                  <span class="meta-tag"><i class="fa-solid fa-hand-holding-heart"></i> Gates Foundation & Lagos MoH</span>
+                  <span class="meta-tag"><i class="fa-solid fa-chart-line"></i> 67 Primary Healthcare Centers</span>
+                </div>
               </div>
-              <h3>IMPAACT4HIV (Pediatric AHD)</h3>
-              <p class="summary">Deploying WHO STOP AIDS Toolkit to diagnose and treat Advanced HIV Disease & TB in children & adolescents across 21 facilities.</p>
-              <div class="project-meta-pills">
-                <span class="meta-glass-pill"><i class="fa-solid fa-shield-virus"></i> Unitaid</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-notes-medical"></i> 21 Facilities</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-award"></i> 100% Tx Rate</span>
+              <div class="row-thumb-card">
+                <img src="img/AEARI.jpg" alt="AEARI Project" class="row-thumb-img" />
               </div>
             </div>
-            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
 
-          <!-- Project 4: Accelerating MNCH Innovations -->
-          <div class="project-card" data-category="ongoing" data-aos="fade-up">
-            <div>
-              <div class="project-thumb-wrapper">
-                <img src="img/Newborn.png" alt="Accelerating MNCH Innovations (Newborn Unit)" class="project-thumb-img" />
-                <div class="project-thumb-overlay"></div>
-                <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2024 - 2027)</span>
-                <span class="project-domain-pill"><i class="fa-solid fa-hospital-user"></i> Newborn Care</span>
+            <!-- Row 03: IMPAACT4HIV -->
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+              <span class="row-num">03</span>
+              <div class="row-text-content">
+                <div class="row-header-meta">
+                  <h3>IMPAACT4HIV (Pediatric AHD)</h3>
+                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2024 - 2027)</span>
+                </div>
+                <p class="row-summary">Deploying the WHO STOP AIDS Toolkit to diagnose and treat Advanced HIV Disease and TB in children & adolescents across 21 facilities.</p>
+                <div class="row-meta-tags">
+                  <span class="meta-tag"><i class="fa-solid fa-shield-virus"></i> Unitaid & FMoH&SW</span>
+                  <span class="meta-tag"><i class="fa-solid fa-ribbon"></i> 101 CLHIV Identified (100% Tx)</span>
+                </div>
               </div>
-              <h3>Accelerating MNCH Innovations (Newborn Unit)</h3>
-              <p class="summary">Strengthening national leadership & system readiness for small & sick newborns (SSNs) with the Federal Ministry of Health.</p>
-              <div class="project-meta-pills">
-                <span class="meta-glass-pill"><i class="fa-solid fa-award"></i> BMGF 4th Award</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-building"></i> FMoH&SW</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-book-medical"></i> Protocol Scale</span>
+              <div class="row-thumb-card">
+                <img src="img/I4HIV pic.jpeg" alt="IMPAACT4HIV Project" class="row-thumb-img" />
               </div>
             </div>
-            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
 
-          <!-- Project 5: IRIS -->
-          <div class="project-card" data-category="ongoing" data-aos="fade-up" data-aos-delay="100">
-            <div>
-              <div class="project-thumb-wrapper">
-                <img src="img/iris.JPG" alt="IRIS Project" class="project-thumb-img" />
-                <div class="project-thumb-overlay"></div>
-                <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2022 - 2027)</span>
-                <span class="project-domain-pill"><i class="fa-solid fa-notes-medical"></i> Clinical Care</span>
+            <!-- Row 04: Accelerating MNCH Innovations -->
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+              <span class="row-num">04</span>
+              <div class="row-text-content">
+                <div class="row-header-meta">
+                  <h3>Accelerating MNCH Innovations (Newborn Unit)</h3>
+                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2024 - 2027)</span>
+                </div>
+                <p class="row-summary">Strengthening national leadership and system readiness for small and sick newborns (SSNs) with the Federal Ministry of Health.</p>
+                <div class="row-meta-tags">
+                  <span class="meta-tag"><i class="fa-solid fa-baby"></i> BMGF 4th Grant Award</span>
+                  <span class="meta-tag"><i class="fa-solid fa-hospital-user"></i> FMoH&SW Newborn Unit</span>
+                </div>
               </div>
-              <h3>IRIS Project</h3>
-              <p class="summary">Integrated Regional HIV/AIDS Intervention & Care Support providing comprehensive treatment across supported states.</p>
-              <div class="project-meta-pills">
-                <span class="meta-glass-pill"><i class="fa-solid fa-flag-usa"></i> PEPFAR / CDC</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-map-location-dot"></i> Multi-State</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-hospital"></i> HSS Network</span>
+              <div class="row-thumb-card">
+                <img src="img/Newborn.png" alt="Accelerating MNCH Innovations" class="row-thumb-img" />
               </div>
             </div>
-            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
 
-          <!-- Project 6: TB-LON3 -->
-          <div class="project-card" data-category="ongoing" data-aos="fade-up" data-aos-delay="200">
-            <div>
-              <div class="project-thumb-wrapper">
-                <img src="img/TBLON3.jpg" alt="TB-LON3 Project" class="project-thumb-img" />
-                <div class="project-thumb-overlay"></div>
-                <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2020 - 2025)</span>
-                <span class="project-domain-pill"><i class="fa-solid fa-lungs"></i> Tuberculosis</span>
+            <!-- Row 05: IRIS -->
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+              <span class="row-num">05</span>
+              <div class="row-text-content">
+                <div class="row-header-meta">
+                  <h3>IRIS Project</h3>
+                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2022 - 2027)</span>
+                </div>
+                <p class="row-summary">Integrated Regional HIV/AIDS Intervention & Care Support providing comprehensive clinical care across supported states.</p>
+                <div class="row-meta-tags">
+                  <span class="meta-tag"><i class="fa-solid fa-flag-usa"></i> PEPFAR / CDC</span>
+                  <span class="meta-tag"><i class="fa-solid fa-notes-medical"></i> Clinical Care & HSS Network</span>
+                </div>
               </div>
-              <h3>TB-LON3 Project</h3>
-              <p class="summary">Tuberculosis Local Organizations Network scaling case detection, AI mobile screening, and community diagnostics.</p>
-              <div class="project-meta-pills">
-                <span class="meta-glass-pill"><i class="fa-solid fa-network-wired"></i> TB Network</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-microchip"></i> AI Screening</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-users"></i> Community</span>
+              <div class="row-thumb-card">
+                <img src="img/iris.JPG" alt="IRIS Project" class="row-thumb-img" />
               </div>
             </div>
-            <a href="contact.html" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
 
-          <!-- Project 7: G-ANC -->
-          <div class="project-card" data-category="ongoing" data-aos="fade-up" data-aos-delay="200">
-            <div>
-              <div class="project-thumb-wrapper">
-                <img src="img/GANC.jpg" alt="G-ANC Project" class="project-thumb-img" />
-                <div class="project-thumb-overlay"></div>
-                <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2022 - 2025)</span>
-                <span class="project-domain-pill"><i class="fa-solid fa-people-roof"></i> Antenatal Care</span>
+            <!-- Row 06: TB-LON3 -->
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+              <span class="row-num">06</span>
+              <div class="row-text-content">
+                <div class="row-header-meta">
+                  <h3>TB-LON3 Project</h3>
+                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2020 - 2025)</span>
+                </div>
+                <p class="row-summary">Tuberculosis Local Organizations Network scaling case detection, AI mobile screening, and community diagnostics.</p>
+                <div class="row-meta-tags">
+                  <span class="meta-tag"><i class="fa-solid fa-network-wired"></i> Community TB Network</span>
+                  <span class="meta-tag"><i class="fa-solid fa-microchip"></i> AI Mobile Screening</span>
+                </div>
               </div>
-              <h3>G-ANC Project</h3>
-              <p class="summary">Group Antenatal Care model improving maternal and newborn healthcare outcomes through innovative peer-learning cohorts.</p>
-              <div class="project-meta-pills">
-                <span class="meta-glass-pill"><i class="fa-solid fa-heart-pulse"></i> Maternal Health</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-person-breastfeeding"></i> Newborn Survival</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-users-line"></i> Peer Cohorts</span>
+              <div class="row-thumb-card">
+                <img src="img/TBLON3.jpg" alt="TB-LON3 Project" class="row-thumb-img" />
               </div>
             </div>
-            <a href="#gateway" class="btn-project-glow"><span>Explore Project Brief</span> <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
 
-          <!-- Project 8: SDI-SI -->
-          <div class="project-card" data-category="completed" data-aos="fade-up">
-            <div>
-              <div class="project-thumb-wrapper">
-                <img src="img/Final SDI Report (1).png" alt="SDI-SI Project" class="project-thumb-img" />
-                <div class="project-thumb-overlay"></div>
-                <span class="project-status-badge badge-completed"><i class="fa-solid fa-circle-check"></i> Completed (2022 - 2023)</span>
-                <span class="project-domain-pill"><i class="fa-solid fa-database"></i> Informatics</span>
+            <!-- Row 07: G-ANC -->
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+              <span class="row-num">07</span>
+              <div class="row-text-content">
+                <div class="row-header-meta">
+                  <h3>G-ANC Project</h3>
+                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2022 - 2025)</span>
+                </div>
+                <p class="row-summary">Group Antenatal Care model improving maternal and newborn healthcare outcomes through peer-learning groups.</p>
+                <div class="row-meta-tags">
+                  <span class="meta-tag"><i class="fa-solid fa-people-roof"></i> Maternal & Newborn Care</span>
+                  <span class="meta-tag"><i class="fa-solid fa-users-line"></i> Peer Cohorts Model</span>
+                </div>
               </div>
-              <h3>SDI-SI Project</h3>
-              <p class="summary">Strategic Development Initiative focusing on strategic information systems, EMRs, data analytics & surveillance.</p>
-              <div class="project-meta-pills">
-                <span class="meta-glass-pill"><i class="fa-solid fa-chart-pie"></i> Analytics</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-laptop-medical"></i> EMR Systems</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-file-check"></i> Closeout Done</span>
+              <div class="row-thumb-card">
+                <img src="img/GANC.jpg" alt="G-ANC Project" class="row-thumb-img" />
               </div>
             </div>
-            <a href="#gateway" class="btn-project-glow"><span>Explore Closeout Report</span> <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
 
-          <!-- Project 9: AYP Hub -->
-          <div class="project-card" data-category="ongoing" data-aos="fade-up" data-aos-delay="100">
-            <div>
-              <div class="project-thumb-wrapper">
-                <img src="img/LEOPOD 1.png" alt="AYP Hub & Adolescent Wellness" class="project-thumb-img" />
-                <div class="project-thumb-overlay"></div>
-                <span class="project-status-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active</span>
-                <span class="project-domain-pill"><i class="fa-solid fa-user-graduate"></i> Youth Health</span>
+            <!-- Row 08: SDI-SI -->
+            <div class="editorial-project-row" data-category="completed" data-aos="fade-up">
+              <span class="row-num">08</span>
+              <div class="row-text-content">
+                <div class="row-header-meta">
+                  <h3>SDI-SI Project</h3>
+                  <span class="row-badge badge-completed"><i class="fa-solid fa-circle-check"></i> Completed (2022 - 2023)</span>
+                </div>
+                <p class="row-summary">Strategic Development Initiative focusing on strategic information systems, EMRs, data analytics & surveillance.</p>
+                <div class="row-meta-tags">
+                  <span class="meta-tag"><i class="fa-solid fa-database"></i> Health Informatics & EMR</span>
+                  <span class="meta-tag"><i class="fa-solid fa-file-check"></i> Closeout Report Available</span>
+                </div>
               </div>
-              <h3>AYP Hub & Adolescent Wellness</h3>
-              <p class="summary">Empowering adolescent girls & young people with health education, HIV prevention, and economic self-reliance skills.</p>
-              <div class="project-meta-pills">
-                <span class="meta-glass-pill"><i class="fa-solid fa-seedling"></i> Youth Empower</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
-                <span class="meta-glass-pill"><i class="fa-solid fa-hand-holding-hand"></i> Wellness Hub</span>
+              <div class="row-thumb-card">
+                <img src="img/Final SDI Report (1).png" alt="SDI-SI Project" class="row-thumb-img" />
               </div>
             </div>
-            <a href="#gateway" class="btn-project-glow"><span>Explore Youth Study</span> <i class="fa-solid fa-arrow-right"></i></a>
+
+            <!-- Row 09: AYP Hub -->
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+              <span class="row-num">09</span>
+              <div class="row-text-content">
+                <div class="row-header-meta">
+                  <h3>AYP Hub & Adolescent Wellness</h3>
+                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active</span>
+                </div>
+                <p class="row-summary">Empowering adolescent girls & young people with health education, HIV prevention, and economic self-reliance skills.</p>
+                <div class="row-meta-tags">
+                  <span class="meta-tag"><i class="fa-solid fa-seedling"></i> Youth Empowerment</span>
+                  <span class="meta-tag"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
+                </div>
+              </div>
+              <div class="row-thumb-card">
+                <img src="img/LEOPOD 1.png" alt="AYP Hub" class="row-thumb-img" />
+              </div>
+            </div>
+
           </div>
 
-        </div>
         </div>
 
       </div>
@@ -3489,31 +3421,21 @@
       }
     }
 
-    // Projects Filter
+    // Projects Filter for Editorial Numbered Rows
     function filterProjects(cat) {
-      const cards = document.querySelectorAll('.project-card');
+      const rows = document.querySelectorAll('.editorial-project-row');
       const btns = document.querySelectorAll('.filter-btn');
 
       btns.forEach(b => b.classList.remove('active'));
       event.target.classList.add('active');
 
-      cards.forEach(card => {
-        if (cat === 'all' || card.getAttribute('data-category') === cat) {
-          card.style.display = 'flex';
+      rows.forEach(row => {
+        if (cat === 'all' || row.getAttribute('data-category') === cat) {
+          row.style.display = 'grid';
         } else {
-          card.style.display = 'none';
+          row.style.display = 'none';
         }
       });
-    }
-
-    // Projects Horizontal Carousel Controller
-    function slideProjectsCarousel(direction) {
-      const grid = document.querySelector('.projects-grid');
-      if (!grid) return;
-      const firstCard = grid.querySelector('.project-card');
-      const cardWidth = firstCard ? firstCard.offsetWidth : 380;
-      const scrollAmount = direction === 'left' ? -(cardWidth + 28) : (cardWidth + 28);
-      grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
 
     // Portal Tabs
