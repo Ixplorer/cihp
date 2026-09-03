@@ -1598,11 +1598,19 @@
       background: var(--bg-deep);
     }
 
+    .impact-controls-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 36px;
       align-items: center;
     }
 
@@ -1634,28 +1642,90 @@
       border-color: var(--secondary-green);
     }
 
+    .projects-carousel-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .project-carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      color: var(--primary-blue-dark);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .project-carousel-btn:hover {
+      background: var(--secondary-green);
+      border-color: var(--secondary-green);
+      color: #ffffff;
+      transform: scale(1.08);
+      box-shadow: 0 6px 18px rgba(41, 123, 71, 0.3);
+    }
+
+    .projects-carousel-container {
+      position: relative;
+      width: 100%;
+    }
+
     .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      display: flex;
       gap: 28px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 4px 20px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--secondary-green) rgba(30, 51, 136, 0.08);
+    }
+
+    .projects-grid::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .projects-grid::-webkit-scrollbar-track {
+      background: rgba(30, 51, 136, 0.06);
+      border-radius: 10px;
+    }
+
+    .projects-grid::-webkit-scrollbar-thumb {
+      background: var(--secondary-green);
+      border-radius: 10px;
     }
 
     .project-card {
+      flex: 0 0 380px;
+      scroll-snap-align: start;
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       padding: 32px;
       box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
       border-color: var(--border-hover);
+    }
+
+    @media (max-width: 768px) {
+      .project-card {
+        flex: 0 0 310px;
+      }
     }
 
     .project-status-badge {
@@ -2659,16 +2729,28 @@
           Explore our active and completed project portfolio.
         </p>
 
-        <!-- Filter Bar -->
-        <div class="filter-bar">
-          <span class="filter-label">Filter Portfolio:</span>
-          <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
-          <button class="filter-btn" onclick="filterProjects('ongoing')">Active / Ongoing</button>
-          <button class="filter-btn" onclick="filterProjects('completed')">Completed</button>
+        <!-- Controls Row: Filter Bar & Carousel Arrow Buttons -->
+        <div class="impact-controls-row">
+          <div class="filter-bar">
+            <span class="filter-label">Filter Portfolio:</span>
+            <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('ongoing')">Active / Ongoing</button>
+            <button class="filter-btn" onclick="filterProjects('completed')">Completed</button>
+          </div>
+
+          <div class="projects-carousel-actions">
+            <button class="project-carousel-btn" onclick="slideProjectsCarousel('left')" aria-label="Previous Projects">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="project-carousel-btn" onclick="slideProjectsCarousel('right')" aria-label="Next Projects">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
 
-        <!-- Projects Grid -->
-        <div class="projects-grid">
+        <!-- Projects Single-Row Horizontal Carousel Track -->
+        <div class="projects-carousel-container">
+          <div class="projects-grid">
 
           <!-- Project 1: REACHOUT (EU/EDCTP3) -->
           <div class="project-card" data-category="ongoing" data-aos="fade-up">
@@ -2833,6 +2915,7 @@
               <i class="fa-solid fa-file-pdf"></i></a>
           </div>
 
+        </div>
         </div>
 
       </div>
@@ -3290,6 +3373,16 @@
           card.style.display = 'none';
         }
       });
+    }
+
+    // Projects Horizontal Carousel Controller
+    function slideProjectsCarousel(direction) {
+      const grid = document.querySelector('.projects-grid');
+      if (!grid) return;
+      const firstCard = grid.querySelector('.project-card');
+      const cardWidth = firstCard ? firstCard.offsetWidth : 380;
+      const scrollAmount = direction === 'left' ? -(cardWidth + 28) : (cardWidth + 28);
+      grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
 
     // Portal Tabs
