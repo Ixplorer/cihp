@@ -952,6 +952,33 @@
       animation-play-state: paused;
     }
 
+    .partner-logo-card {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-md);
+      padding: 8px 18px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .partner-logo-card img {
+      height: 42px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .partner-logo-card:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 10px 30px rgba(74, 222, 128, 0.35);
+      border-color: rgba(74, 222, 128, 0.6);
+    }
+
     .partner-logo-pill {
       display: inline-flex;
       align-items: center;
@@ -1481,71 +1508,55 @@
 
             <div class="partner-marquee-track">
               <!-- Set 1 -->
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
-                <span>PEPFAR / CDC</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/pepfar-cdc.svg" alt="PEPFAR / CDC Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
-                <span>European Union (EU / EDCTP3)</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/eu-edctp3.svg" alt="European Union EDCTP3 Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                <span>Unitaid</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/unitaid.svg" alt="Unitaid Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
-                <span>Bill & Melinda Gates Foundation</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/gates-foundation.svg" alt="Bill & Melinda Gates Foundation Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
-                <span>The Global Fund</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/global-fund.svg" alt="The Global Fund Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
-                <span>GAVI (The Vaccine Alliance)</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/gavi.svg" alt="GAVI Vaccine Alliance Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
-                <span>World Health Organization (WHO)</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/who.svg" alt="World Health Organization Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
-                <span>Federal Ministry of Health (FMoH&SW)</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/fmoh-nigeria.svg" alt="Federal Ministry of Health Nigeria Logo" />
               </div>
 
-              <!-- Set 2 -->
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
-                <span>PEPFAR / CDC</span>
+              <!-- Set 2 (Duplicate for Loop) -->
+              <div class="partner-logo-card">
+                <img src="img/partners/pepfar-cdc.svg" alt="PEPFAR / CDC Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
-                <span>European Union (EU / EDCTP3)</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/eu-edctp3.svg" alt="European Union EDCTP3 Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                <span>Unitaid</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/unitaid.svg" alt="Unitaid Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
-                <span>Bill & Melinda Gates Foundation</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/gates-foundation.svg" alt="Bill & Melinda Gates Foundation Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
-                <span>The Global Fund</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/global-fund.svg" alt="The Global Fund Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
-                <span>GAVI (The Vaccine Alliance)</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/gavi.svg" alt="GAVI Vaccine Alliance Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
-                <span>World Health Organization (WHO)</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/who.svg" alt="World Health Organization Logo" />
               </div>
-              <div class="partner-logo-pill">
-                <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
-                <span>Federal Ministry of Health (FMoH&SW)</span>
+              <div class="partner-logo-card">
+                <img src="img/partners/fmoh-nigeria.svg" alt="Federal Ministry of Health Nigeria Logo" />
               </div>
             </div>
           </div>
