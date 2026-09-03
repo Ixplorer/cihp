@@ -202,23 +202,33 @@
     }
 
     /* ==========================================================================
-       1. NAVIGATION BAR
+       1. NAVIGATION BAR (BLENDED OVERLAY & GLASSMORPHISM ON SCROLL)
        ========================================================================== */
 
     .navbar {
-      position: sticky;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: #ffffff;
-      backdrop-filter: blur(16px);
-      border-bottom: 3px solid #1e3388;
+      background: linear-gradient(180deg, rgba(9, 15, 42, 0.88) 0%, rgba(9, 15, 42, 0.4) 65%, transparent 100%);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 44px;
+      padding: 16px 44px;
       z-index: 10000;
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+      transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 3px solid #1e3388;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      padding: 12px 44px;
     }
 
     .brand-logo {
@@ -231,21 +241,24 @@
     .brand-logo img {
       height: 48px;
       display: block;
-      filter: drop-shadow(0 2px 4px rgba(30, 51, 136, 0.12));
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
     }
 
     .presence-badge {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: #f1f5f9;
-      border: 1px solid #cbd5e1;
-      padding: 5px 14px;
-      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 6px 16px;
+      border-radius: 50px;
       font-size: 0.76rem;
       font-weight: 700;
-      color: #1e3388;
+      color: #ffffff;
       letter-spacing: 0.04em;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     }
 
     .nav-links {
@@ -256,19 +269,21 @@
     }
 
     .nav-links a {
-      color: #0f172a;
+      color: #ffffff;
       text-decoration: none;
       font-size: 0.88rem;
       font-weight: 600;
-      transition: color 0.2s ease;
+      transition: color 0.25s ease;
       padding: 6px 0;
       position: relative;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: #1e3388;
+      color: #4ade80;
       font-weight: 700;
+      text-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
     }
 
     .nav-links a::after {
@@ -278,7 +293,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: #1e3388;
+      background: #4ade80;
       transition: width 0.25s ease;
     }
 
@@ -294,7 +309,8 @@
       border-radius: 4px;
       font-weight: 700;
       letter-spacing: 0.02em;
-      box-shadow: 0 4px 12px rgba(41, 123, 71, 0.25);
+      box-shadow: 0 4px 12px rgba(41, 123, 71, 0.35);
+      text-shadow: none;
     }
 
     .nav-links a.btn-nav::after {
@@ -304,32 +320,36 @@
     .nav-links a.btn-nav:hover {
       background: #1b5430;
       color: #ffffff;
+      transform: translateY(-2px);
     }
 
     /* Mobile Nav Hamburger */
     .mobile-menu-toggle {
       display: none;
-      font-size: 1.4rem;
-      color: #0f172a;
+      font-size: 1.5rem;
+      color: #ffffff;
       background: none;
       border: none;
       cursor: pointer;
     }
 
     /* ==========================================================================
-       2. FULL-SCREEN HERO STORYTELLING SLIDER
+       2. FULL-SCREEN HERO STORYTELLING SLIDER (100vw x 100vh)
        ========================================================================== */
     .hero-slider-section {
       position: relative;
-      width: 100%;
-      height: 82vh;
-      min-height: 560px;
-      max-height: 720px;
+      width: 100vw;
+      height: 100vh;
+      min-height: 100vh;
+      min-height: 100dvh;
+      max-height: none;
       display: flex;
       align-items: center;
       overflow: hidden;
-      background: #0f172a;
+      background: #090f2a;
       color: #ffffff;
+      margin: 0;
+      padding: 0;
     }
 
     .hero-slide {
@@ -339,7 +359,8 @@
       width: 100%;
       height: 100%;
       opacity: 0;
-      transition: opacity 1.8s ease-in-out;
+      visibility: hidden;
+      transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
       z-index: 1;
       display: flex;
@@ -348,6 +369,7 @@
 
     .hero-slide.active {
       opacity: 1;
+      visibility: visible;
       pointer-events: auto;
       z-index: 2;
     }
@@ -359,9 +381,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.6) contrast(1.1);
-      transform: scale(1.06);
-      transition: transform 7.5s ease-out;
+      filter: brightness(0.55) contrast(1.15);
+      transform: scale(1.08);
+      transition: transform 7.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     .hero-slide.active .hero-slide-bg {
@@ -374,56 +396,94 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 51, 136, 0.75) 50%, rgba(15, 23, 42, 0.88) 100%);
+      background:
+        radial-gradient(circle at 60% 40%, rgba(30, 51, 136, 0.35) 0%, transparent 60%),
+        linear-gradient(135deg, rgba(9, 15, 42, 0.92) 0%, rgba(15, 23, 42, 0.65) 50%, rgba(9, 15, 42, 0.88) 100%);
       z-index: 2;
     }
 
     .hero-slide-content {
       position: relative;
       z-index: 3;
-      max-width: 880px;
-      padding: 40px 0 80px;
+      max-width: 860px;
+      padding: 120px 0 100px;
+    }
+
+    /* Vertical Text Entrance Animations */
+    .hero-slide-eyebrow,
+    .hero-slide-title,
+    .hero-slide-desc,
+    .hero-slide-cta-group {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-slide.active .hero-slide-eyebrow {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.25s;
+    }
+
+    .hero-slide.active .hero-slide-title {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.4s;
+    }
+
+    .hero-slide.active .hero-slide-desc {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.55s;
+    }
+
+    .hero-slide.active .hero-slide-cta-group {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.7s;
     }
 
     .hero-slide-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.14);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.28);
       color: #38bdf8;
-      padding: 6px 18px;
+      padding: 8px 20px;
       border-radius: 50px;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
 
     .hero-slide-title {
-      font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+      font-size: clamp(2.3rem, 4.8vw, 4.2rem);
       font-weight: 900;
       color: #ffffff;
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-      margin-bottom: 20px;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      margin-bottom: 22px;
+      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.7);
     }
 
     .hero-slide-title .accent-emerald {
       color: #4ade80;
+      text-shadow: 0 0 20px rgba(74, 222, 128, 0.35);
     }
 
     .hero-slide-desc {
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       color: #e2e8f0;
       line-height: 1.7;
-      margin-bottom: 30px;
-      max-width: 760px;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+      margin-bottom: 34px;
+      max-width: 780px;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
     }
 
     .hero-slide-cta-group {
@@ -433,10 +493,10 @@
       align-items: center;
     }
 
-    /* Floating Slider Controls Bar */
+    /* Floating Slider Controls Bar (ECEWS Inspired) */
     .slider-controls-bar {
       position: absolute;
-      bottom: 24px;
+      bottom: 32px;
       left: 0;
       width: 100%;
       z-index: 10;
@@ -448,58 +508,99 @@
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50px;
+      background: rgba(9, 15, 42, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 60px;
       padding: 10px 24px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .slider-dots {
+    .slider-dots-container {
       display: flex;
-      gap: 12px;
       align-items: center;
+      gap: 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
 
-    .slider-dot-btn {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.35);
-      border: 2px solid transparent;
+    .slider-dots-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider-dot-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
       cursor: pointer;
+      padding: 6px 14px;
+      border-radius: 8px;
       transition: all 0.3s ease;
     }
 
-    .slider-dot-btn.active {
-      background: #4ade80;
-      transform: scale(1.3);
-      box-shadow: 0 0 12px #4ade80;
+    .slider-dot-item:hover {
+      background: rgba(255, 255, 255, 0.08);
     }
 
-    .slider-counter {
+    .slider-dot-item .dot-num {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1.05rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #94a3b8;
+      transition: color 0.3s ease;
+    }
+
+    .slider-dot-item .dot-label {
+      font-size: 0.8rem;
       font-weight: 700;
-      color: #ffffff;
-      letter-spacing: 0.1em;
+      color: #cbd5e1;
+      white-space: nowrap;
+      transition: color 0.3s ease;
     }
 
-    .slider-arrows {
-      display: flex;
-      gap: 12px;
+    .slider-dot-item.active .dot-num,
+    .slider-dot-item.active .dot-label {
+      color: #4ade80;
     }
 
-    .slider-arrow-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
+    .dot-progress {
+      width: 100%;
+      height: 3px;
       background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+
+    .dot-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      transition: width 0.1s linear;
+    }
+
+    .slider-dot-item.active .dot-progress-fill {
+      width: 100%;
+    }
+
+    .slider-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .slider-action-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       color: #ffffff;
-      font-size: 1rem;
+      font-size: 0.95rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -507,10 +608,43 @@
       transition: all 0.3s ease;
     }
 
-    .slider-arrow-btn:hover {
+    .slider-action-btn:hover {
       background: #297b47;
       border-color: #4ade80;
+      color: #ffffff;
       transform: scale(1.08);
+      box-shadow: 0 0 16px rgba(74, 222, 128, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 20px;
+      }
+      .navbar.scrolled {
+        padding: 10px 20px;
+      }
+      .presence-badge {
+        display: none;
+      }
+      .hero-slide-content {
+        padding: 100px 0 120px;
+      }
+      .hero-slide-title {
+        font-size: clamp(1.9rem, 7vw, 2.8rem);
+      }
+      .slider-controls-inner {
+        padding: 8px 16px;
+        border-radius: 30px;
+      }
+      .slider-dot-item .dot-label {
+        display: none;
+      }
+      .slider-dot-item {
+        padding: 4px 8px;
+      }
+      .slider-controls-bar {
+        bottom: 20px;
+      }
     }
 
     /* ==========================================================================
@@ -898,56 +1032,126 @@
     }
 
     /* Core Values Matrix */
+    /* ==========================================================================
+       CORE VALUES SECTION (MATCHING PHOTO LAYOUT)
+       ========================================================================== */
+    .core-values-header {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 50px;
+      margin-top: 40px;
+    }
+
+    .core-values-title {
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      color: #1e3a5f;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .core-values-line {
+      flex: 1;
+      height: 2px;
+      background: rgba(30, 58, 95, 0.2);
+    }
+
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 36px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-top: 20px;
+      margin-bottom: 60px;
+      align-items: flex-start;
     }
 
     .value-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 32px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
+      border-radius: 20px;
+      padding: 48px 24px 52px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.14);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #ffffff;
       position: relative;
     }
 
-    .value-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
+    .value-card.card-teal {
+      background: #1c455d;
     }
 
-    .value-badge {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      background: var(--primary-blue);
+    .value-card.card-blue {
+      background: #2563eb;
+    }
+
+    .value-card.card-offset {
+      transform: translateY(36px);
+    }
+
+    .value-card:hover {
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.25);
+    }
+
+    .value-card.card-offset:hover {
+      transform: translateY(24px);
+    }
+
+    .value-card.card-teal:hover {
+      transform: translateY(-8px);
+    }
+
+    .value-card-icon {
+      font-size: 3.4rem;
       color: #ffffff;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.4rem;
-      font-weight: 900;
+      margin-bottom: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(30, 51, 136, 0.2);
+      height: 70px;
+      width: 70px;
     }
 
     .value-card h4 {
-      font-size: 1.15rem;
-      color: var(--primary-blue-dark);
+      font-size: 1.3rem;
       font-weight: 800;
-      margin-bottom: 10px;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     .value-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.96rem;
       line-height: 1.65;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .value-card.card-offset {
+        transform: translateY(0);
+      }
+      .value-card.card-offset:hover,
+      .value-card.card-teal:hover {
+        transform: translateY(-6px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      .core-values-title {
+        font-size: 2.2rem;
+      }
     }
 
     /* ==========================================================================
@@ -1728,6 +1932,55 @@
           </div>
         </div>
       </div>
+    <!-- ECEWS-Style Floating Glassmorphic Controls Bar -->
+    <div class="slider-controls-bar">
+      <div class="container">
+        <div class="slider-controls-inner">
+
+          <!-- Numbered Dots with Animated Timer Line -->
+          <div class="slider-dots-container">
+            <div class="slider-dot-item active" onclick="goToHeroSlide(0)">
+              <span class="dot-num">01</span>
+              <span class="dot-label">Pan-African Horizon</span>
+              <div class="dot-progress"><div class="dot-progress-fill"></div></div>
+            </div>
+            <div class="slider-dot-item" onclick="goToHeroSlide(1)">
+              <span class="dot-num">02</span>
+              <span class="dot-label">WiPHLA Leadership</span>
+              <div class="dot-progress"><div class="dot-progress-fill"></div></div>
+            </div>
+            <div class="slider-dot-item" onclick="goToHeroSlide(2)">
+              <span class="dot-num">03</span>
+              <span class="dot-label">Epidemic Control</span>
+              <div class="dot-progress"><div class="dot-progress-fill"></div></div>
+            </div>
+            <div class="slider-dot-item" onclick="goToHeroSlide(3)">
+              <span class="dot-num">04</span>
+              <span class="dot-label">Maternal Health</span>
+              <div class="dot-progress"><div class="dot-progress-fill"></div></div>
+            </div>
+            <div class="slider-dot-item" onclick="goToHeroSlide(4)">
+              <span class="dot-num">05</span>
+              <span class="dot-label">Youth Empowerment</span>
+              <div class="dot-progress"><div class="dot-progress-fill"></div></div>
+            </div>
+          </div>
+
+          <!-- Controls: Prev/Next & Play/Pause -->
+          <div class="slider-actions">
+            <button class="slider-action-btn" id="prevHeroBtn" aria-label="Previous Slide" onclick="prevHeroSlide()">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slider-action-btn" id="playPauseHeroBtn" aria-label="Pause Auto Slider" onclick="toggleHeroAutoplay()">
+              <i class="fa-solid fa-pause" id="playPauseIcon"></i>
+            </button>
+            <button class="slider-action-btn" id="nextHeroBtn" aria-label="Next Slide" onclick="nextHeroSlide()">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
     </div>
 
   </header>
@@ -1873,41 +2126,40 @@
           </div>
         </div>
 
-        <!-- C-I-H-P Values Matrix -->
-        <div style="margin-top: 60px;">
-          <h3
-            style="font-size: 1.6rem; color: var(--primary-blue-dark); font-weight: 800; text-align: center; margin-bottom: 12px;">
-            The C-I-H-P Core Values Matrix
-          </h3>
-          <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px;">
-            Every public health program, financial decision, and clinical intervention follows our core organizational
-            pillars.
-          </p>
+        <!-- Core Values Section (Adopted Design) -->
+        <div style="margin-top: 70px;">
+          <div class="core-values-header" data-aos="fade-right">
+            <h2 class="core-values-title">Core Values</h2>
+            <div class="core-values-line"></div>
+          </div>
 
           <div class="values-grid">
-            <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-              <div class="value-badge">C</div>
+            <!-- Card 1: Commitment to Excellence -->
+            <div class="value-card card-teal" data-aos="fade-up" data-aos-delay="100">
+              <div class="value-card-icon"><i class="fa-solid fa-award"></i></div>
               <h4>Commitment to Excellence</h4>
-              <p>We set a high bar for people, systems, clinical quality, and rapid programmatic delivery.</p>
+              <p>For close to two decades, we have been relentlessly dedicated to delivering world-class, sustainable health and development outcomes across Africa.</p>
             </div>
 
-            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-              <div class="value-badge" style="background: var(--secondary-green);">I</div>
+            <!-- Card 2: Innovative & Inspiring Leadership -->
+            <div class="value-card card-blue card-offset" data-aos="fade-up" data-aos-delay="200">
+              <div class="value-card-icon"><i class="fa-solid fa-lightbulb"></i></div>
               <h4>Innovative & Inspiring Leadership</h4>
-              <p>We pioneer evidence-based solutions that inspire health workforce capacity and system resilience.</p>
+              <p>We pioneer evidence-based, co-created solutions that set global standards for health system strengthening.</p>
             </div>
 
-            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-              <div class="value-badge" style="background: var(--accent-ochre);">H</div>
+            <!-- Card 3: Honesty & Accountability -->
+            <div class="value-card card-teal" data-aos="fade-up" data-aos-delay="300">
+              <div class="value-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
               <h4>Honesty & Accountability</h4>
-              <p>We maintain absolute transparency, clear data stewardship, and rigorous financial integrity.</p>
+              <p>We operate with uncompromising transparency and accountability to build absolute trust with our funders, partners, and communities.</p>
             </div>
 
-            <div class="value-card" data-aos="fade-up" data-aos-delay="400">
-              <div class="value-badge" style="background: var(--primary-blue-light);">P</div>
-              <h4>Purposeful Partnerships</h4>
-              <p>We collaborate with governments, donors, and communities where shared purpose accelerates sustainable
-                impact.</p>
+            <!-- Card 4: Purpose-driven Partnerships -->
+            <div class="value-card card-blue card-offset" data-aos="fade-up" data-aos-delay="400">
+              <div class="value-card-icon"><i class="fa-solid fa-handshake"></i></div>
+              <h4>Purpose-driven Partnerships</h4>
+              <p>We forge strategic, crossborder alliances that amplify cutting-edge expertise and scale pan-African impact.</p>
             </div>
           </div>
         </div>
@@ -2632,16 +2884,150 @@
       }
     }
 
-    // Pure Automatic Full-Screen Storytelling Banner Slider Engine
-    let currentHeroSlide = 0;
-    const heroSlides = document.querySelectorAll('.hero-slide');
+    // ==========================================
+    // Dynamic Navbar Scroll Glassmorphism Effect
+    // ==========================================
+    const siteNavbar = document.querySelector('.navbar');
+    function handleNavbarScroll() {
+      if (siteNavbar) {
+        if (window.scrollY > 40) {
+          siteNavbar.classList.add('scrolled');
+        } else {
+          siteNavbar.classList.remove('scrolled');
+        }
+      }
+    }
+    window.addEventListener('scroll', handleNavbarScroll);
+    handleNavbarScroll();
 
+    // ==========================================
+    // Full-Screen ECEWS-Style Hero Slider Engine
+    // ==========================================
+    let currentHeroIndex = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.slider-dot-item');
+    const playPauseIcon = document.getElementById('playPauseIcon');
+    let heroTimer = null;
+    let isHeroAutoplay = true;
+    const HERO_SLIDE_DURATION = 6000; // 6 seconds
+
+    function resetHeroProgressBars() {
+      document.querySelectorAll('.dot-progress-fill').forEach(fill => {
+        fill.style.transition = 'none';
+        fill.style.width = '0%';
+      });
+    }
+
+    function startHeroProgressAnimation() {
+      resetHeroProgressBars();
+      if (!isHeroAutoplay) return;
+
+      const activeDot = heroDots[currentHeroIndex];
+      if (!activeDot) return;
+
+      const activeFill = activeDot.querySelector('.dot-progress-fill');
+      if (!activeFill) return;
+
+      setTimeout(() => {
+        activeFill.style.transition = `width ${HERO_SLIDE_DURATION}ms linear`;
+        activeFill.style.width = '100%';
+      }, 50);
+    }
+
+    function goToHeroSlide(index) {
+      if (heroSlides.length === 0) return;
+
+      heroSlides.forEach((slide, idx) => {
+        slide.classList.remove('active');
+        if (heroDots[idx]) heroDots[idx].classList.remove('active');
+      });
+
+      currentHeroIndex = (index + heroSlides.length) % heroSlides.length;
+
+      heroSlides[currentHeroIndex].classList.add('active');
+      if (heroDots[currentHeroIndex]) heroDots[currentHeroIndex].classList.add('active');
+
+      startHeroProgressAnimation();
+
+      if (isHeroAutoplay) {
+        restartHeroTimer();
+      }
+    }
+
+    function nextHeroSlide() {
+      goToHeroSlide(currentHeroIndex + 1);
+    }
+
+    function prevHeroSlide() {
+      goToHeroSlide(currentHeroIndex - 1);
+    }
+
+    function startHeroTimer() {
+      if (heroTimer) clearInterval(heroTimer);
+      heroTimer = setInterval(() => {
+        if (isHeroAutoplay) {
+          nextHeroSlide();
+        }
+      }, HERO_SLIDE_DURATION);
+    }
+
+    function restartHeroTimer() {
+      startHeroTimer();
+    }
+
+    function toggleHeroAutoplay() {
+      isHeroAutoplay = !isHeroAutoplay;
+      if (isHeroAutoplay) {
+        if (playPauseIcon) playPauseIcon.className = 'fa-solid fa-pause';
+        startHeroTimer();
+        startHeroProgressAnimation();
+      } else {
+        if (playPauseIcon) playPauseIcon.className = 'fa-solid fa-play';
+        if (heroTimer) clearInterval(heroTimer);
+        resetHeroProgressBars();
+      }
+    }
+
+    // Initialize Hero Slider Controller
     if (heroSlides.length > 0) {
-      setInterval(function () {
-        heroSlides[currentHeroSlide].classList.remove('active');
-        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-        heroSlides[currentHeroSlide].classList.add('active');
-      }, 6000);
+      goToHeroSlide(0);
+      startHeroTimer();
+
+      // Pause on hover over hero section
+      const heroSection = document.querySelector('.hero-slider-section');
+      if (heroSection) {
+        heroSection.addEventListener('mouseenter', () => {
+          if (isHeroAutoplay && heroTimer) {
+            clearInterval(heroTimer);
+          }
+        });
+        heroSection.addEventListener('mouseleave', () => {
+          if (isHeroAutoplay) {
+            startHeroTimer();
+          }
+        });
+      }
+
+      // Keyboard Arrow Navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextHeroSlide();
+        if (e.key === 'ArrowLeft') prevHeroSlide();
+      });
+
+      // Touch Swipe Gestures
+      let touchStartX = 0;
+      let touchEndX = 0;
+      if (heroSection) {
+        heroSection.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        heroSection.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          if (touchStartX - touchEndX > 50) nextHeroSlide();
+          if (touchEndX - touchStartX > 50) prevHeroSlide();
+        }, { passive: true });
+      }
     }
 
     // Smooth Counter Animation on Viewport Entry
