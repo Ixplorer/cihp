@@ -958,6 +958,86 @@
       background: var(--bg-surface);
     }
 
+    /* About Section 2-Column Grid with Map Graphic */
+    .about-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .about-graphic-card {
+      position: relative;
+    }
+
+    .about-graphic-wrapper {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid rgba(30, 51, 136, 0.12);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-graphic-wrapper:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.14);
+      border-color: rgba(41, 123, 71, 0.35);
+    }
+
+    .about-graphic-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #1e3388;
+      background: rgba(30, 51, 136, 0.08);
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+    }
+
+    .about-reach-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+
+    .about-graphic-footer {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .foot-hub-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #297b47;
+      background: #e8f5ed;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+
+    @media (max-width: 992px) {
+      .about-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
     .footprint-controls {
       display: flex;
       gap: 12px;
@@ -2305,19 +2385,40 @@
 
   <main>
 
-    <!-- ==================== 4. INTERACTIVE FOOTPRINT & PAN-AFRICAN MAP ==================== -->
+    <!-- ==================== 4. ABOUT CIHP ==================== -->
     <section id="about" class="map-footprint-section">
       <div class="container">
-        <span class="section-eyebrow"><i class="fa-solid fa-map-location-dot"></i> About CIHP - Geographic Reach</span>
-        <h2 class="section-title">An African Institution Built <br>on Accountable Delivery</h2>
-        <p class="section-desc">CIHP is a Nigerian-led public health organization with a strong implementation footprint
-          across 19 states and strategic partnerships spanning East Africa, Southern Africa, America, and Europe. By
-          connecting local expertise with regional and global collaboration, we deliver scalable, evidence-driven
-          solutions that strengthen health systems and improve health outcomes. <br><br>
-          CIHP is building on its Nigerian foundation as it grows into a Pan-African public health powerhouse. Our
-          strategic ambition is to establish physical operational footholds in at least 5 African countries over the
-          next three years.
-        </p>
+        <!-- About 2-Column Hero Layout (Text + Graphic Card) -->
+        <div class="about-hero-grid">
+
+          <!-- Left Column: About Text Content -->
+          <div class="about-text-content" data-aos="fade-right">
+            <span class="section-eyebrow"><i class="fa-solid fa-map-location-dot"></i> About CIHP - Centre for Integrated Health Programs</span>
+            <h2 class="section-title">An African Institution Built <br>on Accountable Delivery</h2>
+            <p class="section-desc">CIHP is a Nigerian-led public health organization with a strong implementation footprint
+              across 20 states and strategic partnerships spanning East Africa, Southern Africa, America, and Europe. By
+              connecting local expertise with regional and global collaboration, we deliver scalable, evidence-driven
+              solutions that strengthen health systems and improve health outcomes. <br><br>
+              CIHP is building on its Nigerian foundation as it grows into a Pan-African public health powerhouse. Our
+              strategic ambition is to establish physical operational footholds in at least 5 African countries over the
+              next three years.
+            </p>
+          </div>
+
+          <!-- Right Column: Interactive Reach Map Graphic Card -->
+          <div class="about-graphic-card" data-aos="fade-left">
+            <div class="about-graphic-wrapper">
+              <span class="about-graphic-tag"><i class="fa-solid fa-heart-pulse"></i> 11M+ LIVES REACHED ACROSS NIGERIA</span>
+              <img src="img/nigeria_reach_map.png" alt="CIHP Nigeria Reach Map & Key Hubs (Lagos, Abuja, Kaduna, Kano, Kogi, Rivers)" class="about-reach-img" />
+              <div class="about-graphic-footer">
+                <span class="foot-hub-pill"><i class="fa-solid fa-circle-check"></i> 20 Primary States</span>
+                <span class="foot-hub-pill"><i class="fa-solid fa-hospital-user"></i> 11M+ Beneficiaries</span>
+                <span class="foot-hub-pill"><i class="fa-solid fa-earth-africa"></i> 5 Pan-African Hubs</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
 
         <div class="footprint-controls">
           <button class="tab-btn active" onclick="switchFootprintTab('nigeria')">🇳🇬 Nigeria Footprint (20
@@ -2399,7 +2500,8 @@
           <div class="container" style="position: relative; z-index: 2; width: 100%;">
             <div class="mv-glass-grid">
               <!-- Vision Glass Card (Slides in from Left) -->
-              <div class="mv-glass-card vision-glass" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
+              <div class="mv-glass-card vision-glass" data-aos="fade-right" data-aos-duration="1000"
+                data-aos-once="true">
                 <div>
                   <div class="mv-glass-header">
                     <span class="mv-glass-tag"><i class="fa-solid fa-compass"></i> 2030 Horizon</span>
@@ -2407,7 +2509,8 @@
                   </div>
                   <h3>Our Vision</h3>
                   <p>
-                    Audaciously transforming lives through partnership and value creation for healthier communities and a
+                    Audaciously transforming lives through partnership and value creation for healthier communities and
+                    a
                     thriving Africa.
                   </p>
                 </div>
@@ -2421,7 +2524,8 @@
               </div>
 
               <!-- Mission Glass Card (Slides in from Right) -->
-              <div class="mv-glass-card mission-glass" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+              <div class="mv-glass-card mission-glass" data-aos="fade-left" data-aos-duration="1000"
+                data-aos-once="true">
                 <div>
                   <div class="mv-glass-header">
                     <span class="mv-glass-tag"><i class="fa-solid fa-bullseye"></i> Strategic Mandate</span>
@@ -2429,7 +2533,8 @@
                   </div>
                   <h3>Our Mission</h3>
                   <p>
-                    To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred and
+                    To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred
+                    and
                     sustainable health systems, delivered through strategic partnerships.
                   </p>
                 </div>
