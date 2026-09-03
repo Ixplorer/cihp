@@ -650,75 +650,181 @@
     /* ==========================================================================
        HERO IMPACT STATS BAR (WITH SMOOTH COUNTERS)
        ========================================================================== */
+    /* Glassmorphic Stats Section */
     .hero-stats-banner-section {
-      background-color: #f8fafc;
+      background-color: #090f2a;
       background-image:
-        linear-gradient(rgba(30, 51, 136, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(30, 51, 136, 0.04) 1px, transparent 1px);
-      background-size: 32px 32px;
-      padding: 36px 0;
-      border-bottom: 1px solid var(--border-color);
+        radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      padding: 44px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 5;
     }
 
     .stats-banner-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 24px;
     }
 
     .stat-banner-card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 24px 28px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-      border: 1px solid rgba(226, 232, 240, 0.8);
-      border-left: 5px solid #297b47;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 18px;
+      padding: 28px 24px;
+      color: #ffffff;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
     }
 
     .stat-banner-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+      transform: translateY(-6px);
     }
 
-    .stat-banner-card.accent-blue {
-      border-left-color: #1e3388;
+    /* Card 1: Glass Emerald */
+    .stat-banner-card.glass-card-emerald {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.18) 0%, rgba(15, 23, 42, 0.75) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+    .stat-banner-card.glass-card-emerald:hover {
+      border-color: rgba(52, 211, 153, 0.7);
+      box-shadow: 0 20px 45px rgba(16, 185, 129, 0.25), 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+    .glass-card-emerald .stat-banner-number {
+      color: #34d399;
+      text-shadow: 0 0 20px rgba(52, 211, 153, 0.3);
+    }
+    .glass-card-emerald .stat-card-badge {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+    .glass-card-emerald .stat-card-icon {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
     }
 
-    .stat-banner-card.accent-navy {
-      border-left-color: #0f172a;
+    /* Card 2: Glass Royal Blue */
+    .stat-banner-card.glass-card-blue {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.18) 0%, rgba(15, 23, 42, 0.75) 100%);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+    }
+    .stat-banner-card.glass-card-blue:hover {
+      border-color: rgba(96, 165, 250, 0.7);
+      box-shadow: 0 20px 45px rgba(37, 99, 235, 0.25), 0 0 20px rgba(37, 99, 235, 0.3);
+    }
+    .glass-card-blue .stat-banner-number {
+      color: #60a5fa;
+      text-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+    }
+    .glass-card-blue .stat-card-badge {
+      background: rgba(37, 99, 235, 0.2);
+      color: #60a5fa;
+      border: 1px solid rgba(37, 99, 235, 0.35);
+    }
+    .glass-card-blue .stat-card-icon {
+      background: rgba(37, 99, 235, 0.2);
+      color: #60a5fa;
     }
 
-    .stat-banner-card.accent-amber {
-      border-left-color: #d97706;
+    /* Card 3: Glass Cyan */
+    .stat-banner-card.glass-card-cyan {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.18) 0%, rgba(15, 23, 42, 0.75) 100%);
+      border: 1px solid rgba(14, 165, 233, 0.35);
+    }
+    .stat-banner-card.glass-card-cyan:hover {
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 20px 45px rgba(14, 165, 233, 0.25), 0 0 20px rgba(14, 165, 233, 0.3);
+    }
+    .glass-card-cyan .stat-banner-number {
+      color: #38bdf8;
+      text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+    .glass-card-cyan .stat-card-badge {
+      background: rgba(14, 165, 233, 0.2);
+      color: #38bdf8;
+      border: 1px solid rgba(14, 165, 233, 0.35);
+    }
+    .glass-card-cyan .stat-card-icon {
+      background: rgba(14, 165, 233, 0.2);
+      color: #38bdf8;
+    }
+
+    /* Card 4: Glass Amber */
+    .stat-banner-card.glass-card-amber {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(15, 23, 42, 0.75) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+    .stat-banner-card.glass-card-amber:hover {
+      border-color: rgba(251, 191, 36, 0.7);
+      box-shadow: 0 20px 45px rgba(245, 158, 11, 0.25), 0 0 20px rgba(245, 158, 11, 0.3);
+    }
+    .glass-card-amber .stat-banner-number {
+      color: #fbbf24;
+      text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    }
+    .glass-card-amber .stat-card-badge {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+    .glass-card-amber .stat-card-icon {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+    }
+
+    .stat-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .stat-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+    }
+
+    .stat-card-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 50px;
     }
 
     .stat-banner-number {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       font-weight: 900;
       line-height: 1;
-      margin-bottom: 10px;
-      color: #297b47;
-    }
-
-    .stat-banner-card.accent-blue .stat-banner-number,
-    .stat-banner-card.accent-navy .stat-banner-number {
-      color: #0f172a;
-    }
-
-    .stat-banner-card.accent-amber .stat-banner-number {
-      color: #d97706;
+      margin-bottom: 8px;
     }
 
     .stat-banner-label {
       font-family: 'Inter', sans-serif;
       font-size: 0.78rem;
       font-weight: 800;
-      color: #475569;
+      color: rgba(255, 255, 255, 0.85);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      line-height: 1.35;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
     }
 
     @media (max-width: 992px) {
@@ -2112,22 +2218,38 @@
     <div class="container">
       <div class="stats-banner-grid" data-aos="fade-up">
 
-        <div class="stat-banner-card">
+        <div class="stat-banner-card glass-card-emerald">
+          <div class="stat-card-header">
+            <div class="stat-card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <span class="stat-card-badge">Direct Impact</span>
+          </div>
           <div class="stat-banner-number"><span class="counter-val" data-target="11" data-suffix="M+">0M+</span></div>
           <div class="stat-banner-label">LIVES REACHED WITH CARE</div>
         </div>
 
-        <div class="stat-banner-card accent-blue">
+        <div class="stat-banner-card glass-card-blue">
+          <div class="stat-card-header">
+            <div class="stat-card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+            <span class="stat-card-badge">National Reach</span>
+          </div>
           <div class="stat-banner-number"><span class="counter-val" data-target="20" data-suffix="">0</span></div>
           <div class="stat-banner-label">NIGERIAN STATES COVERED</div>
         </div>
 
-        <div class="stat-banner-card accent-navy">
+        <div class="stat-banner-card glass-card-cyan">
+          <div class="stat-card-header">
+            <div class="stat-card-icon"><i class="fa-solid fa-award"></i></div>
+            <span class="stat-card-badge">Proven Legacy</span>
+          </div>
           <div class="stat-banner-number"><span class="counter-val" data-target="15" data-suffix="+">0+</span></div>
           <div class="stat-banner-label">YEARS LEADERSHIP MASTERY</div>
         </div>
 
-        <div class="stat-banner-card accent-amber">
+        <div class="stat-banner-card glass-card-amber">
+          <div class="stat-card-header">
+            <div class="stat-card-icon"><i class="fa-solid fa-earth-africa"></i></div>
+            <span class="stat-card-badge">Regional Growth</span>
+          </div>
           <div class="stat-banner-number"><span class="counter-val" data-target="5" data-suffix="">0</span></div>
           <div class="stat-banner-label">PAN-AFRICAN TARGET HUBS</div>
         </div>
