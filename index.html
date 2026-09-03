@@ -1639,8 +1639,86 @@
     .filter-pills-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       margin-top: 12px;
+    }
+
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      outline: none;
+    }
+
+    /* All Programs Button Style */
+    .btn-filter-all {
+      background: #f1f5f9;
+      color: #1e3388;
+      border: 1.5px solid rgba(30, 51, 136, 0.2);
+    }
+
+    .btn-filter-all:hover {
+      background: #e2e8f0;
+      border-color: #1e3388;
+      transform: translateY(-2px);
+    }
+
+    .btn-filter-all.active {
+      background: linear-gradient(135deg, #1e3388 0%, #0f1a42 100%);
+      color: #ffffff;
+      border-color: #1e3388;
+      box-shadow: 0 6px 20px rgba(30, 51, 136, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Active / Ongoing Button Style */
+    .btn-filter-ongoing {
+      background: rgba(41, 123, 71, 0.08);
+      color: #297b47;
+      border: 1.5px solid rgba(41, 123, 71, 0.25);
+    }
+
+    .btn-filter-ongoing:hover {
+      background: rgba(41, 123, 71, 0.16);
+      border-color: #297b47;
+      transform: translateY(-2px);
+    }
+
+    .btn-filter-ongoing.active {
+      background: linear-gradient(135deg, #297b47 0%, #15803d 100%);
+      color: #ffffff;
+      border-color: #297b47;
+      box-shadow: 0 6px 20px rgba(41, 123, 71, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Completed Button Style */
+    .btn-filter-completed {
+      background: rgba(2, 132, 199, 0.08);
+      color: #0284c7;
+      border: 1.5px solid rgba(2, 132, 199, 0.25);
+    }
+
+    .btn-filter-completed:hover {
+      background: rgba(2, 132, 199, 0.16);
+      border-color: #0284c7;
+      transform: translateY(-2px);
+    }
+
+    .btn-filter-completed.active {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #ffffff;
+      border-color: #0284c7;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+      transform: translateY(-2px);
     }
 
     .editorial-learn-btn {
@@ -2827,13 +2905,19 @@
               CIHP presents its public health impact with transparent evidence sources, rigorous context, and accountable local ownership across active and completed flagship programs.
             </p>
 
-            <!-- Filter Buttons -->
+            <!-- Filter Buttons (Distinct Styled Real Buttons) -->
             <div class="editorial-filter-bar">
               <span class="filter-label">Filter Portfolio:</span>
               <div class="filter-pills-group">
-                <button class="filter-btn active" onclick="filterProjects('all')">All Programs</button>
-                <button class="filter-btn" onclick="filterProjects('ongoing')">Active / Ongoing</button>
-                <button class="filter-btn" onclick="filterProjects('completed')">Completed</button>
+                <button class="filter-btn btn-filter-all active" onclick="filterProjects('all')">
+                  <i class="fa-solid fa-layer-group"></i> All Programs
+                </button>
+                <button class="filter-btn btn-filter-ongoing" onclick="filterProjects('ongoing')">
+                  <i class="fa-solid fa-spinner fa-spin"></i> Active / Ongoing
+                </button>
+                <button class="filter-btn btn-filter-completed" onclick="filterProjects('completed')">
+                  <i class="fa-solid fa-circle-check"></i> Completed
+                </button>
               </div>
             </div>
 
@@ -3473,7 +3557,9 @@
       const btns = document.querySelectorAll('.filter-btn');
 
       btns.forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
+      
+      const clickedBtn = event ? (event.currentTarget || event.target.closest('.filter-btn')) : null;
+      if (clickedBtn) clickedBtn.classList.add('active');
 
       rows.forEach(row => {
         if (cat === 'all' || row.getAttribute('data-category') === cat) {
