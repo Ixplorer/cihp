@@ -2060,8 +2060,10 @@
     }
 
     .innovations-track .innovation-card {
-      width: 580px;
-      max-width: 82vw;
+      width: 760px;
+      max-width: 88vw;
+      min-height: 380px;
+      aspect-ratio: 2 / 1;
       flex-shrink: 0;
       opacity: 0.45;
       filter: blur(2px) grayscale(40%);
@@ -2069,17 +2071,18 @@
       transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
                   opacity 0.65s ease,
                   filter 0.65s ease,
-                  border-color 0.5s ease,
+                  background 0.65s ease,
                   box-shadow 0.65s ease;
       cursor: pointer;
       border-radius: 26px;
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.12);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
       display: flex;
-      flex-direction: column;
+      flex-direction: row; /* Horizontal 2:1 Rectangle Layout */
+      overflow: hidden;
       position: relative;
     }
 
@@ -2087,7 +2090,7 @@
     .innovations-track .innovation-card.focus-active {
       opacity: 1;
       filter: blur(0px) grayscale(0%);
-      transform: scale(1.12);
+      transform: scale(1.1);
       z-index: 10;
       background: #ffffff !important;
       border-color: #ffffff !important;
@@ -2095,7 +2098,7 @@
     }
 
     .innovations-track .innovation-card.focus-active .innovation-card-overlay {
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.5) 100%) !important;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.02) 0%, rgba(15, 23, 42, 0.35) 100%) !important;
     }
 
     .innovations-track .innovation-card.focus-active .innovation-header h3 {
@@ -2151,7 +2154,7 @@
     .innov-nav-arrow.prev { left: 24px; }
     .innov-nav-arrow.next { right: 24px; }
 
-    /* Pagination Indicator Dots (Matching Image Reference) */
+    /* Pagination Indicator Dots */
     .innov-dots-bar {
       display: flex;
       align-items: center;
@@ -2186,10 +2189,14 @@
       box-shadow: 0 0 14px rgba(56, 189, 248, 0.85);
     }
 
-    /* Top Glowing Neon Accent Line */
+    /* Top Glowing Neon Accent Line Across Entire Top */
     .innov-glow-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 5px;
-      width: 100%;
+      z-index: 15;
       transition: height 0.3s ease;
     }
 
@@ -2213,32 +2220,27 @@
       box-shadow: 0 0 15px rgba(192, 132, 252, 0.6);
     }
 
-    .innovation-card:hover {
-      transform: translateY(-10px) scale(1.015);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    /* LEFT SIDE: Innovation Details (56% width) */
+    .innovation-card-body {
+      width: 56%;
+      padding: 32px 28px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      order: 1;
+      position: relative;
+      z-index: 5;
     }
 
-    .innovation-card:hover .glow-ayp {
-      border-color: rgba(244, 63, 94, 0.5);
-      box-shadow: 0 0 25px rgba(244, 63, 94, 0.9);
-    }
-    .innovation-card:hover .glow-srt {
-      border-color: rgba(56, 189, 248, 0.5);
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.9);
-    }
-    .innovation-card:hover .glow-pub {
-      border-color: rgba(52, 211, 153, 0.5);
-      box-shadow: 0 0 25px rgba(52, 211, 153, 0.9);
-    }
-    .innovation-card:hover .glow-candid {
-      border-color: rgba(192, 132, 252, 0.5);
-      box-shadow: 0 0 25px rgba(192, 132, 252, 0.9);
-    }
-
+    /* RIGHT SIDE: Thumbnail Image Banner (44% width) */
     .innovation-card-banner {
-      height: 200px;
+      width: 44%;
+      height: 100%;
+      min-height: 100%;
       position: relative;
       overflow: hidden;
+      order: 2;
+      border-radius: 0 26px 26px 0;
     }
 
     .innovation-card-banner img {
@@ -2249,13 +2251,53 @@
     }
 
     .innovation-card:hover .innovation-card-banner img {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
     .innovation-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.95) 100%);
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.05) 100%);
+    }
+
+    .innovation-badge-floating {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      left: auto;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 820px) {
+      .innovations-track .innovation-card {
+        width: 88vw;
+        aspect-ratio: auto;
+        min-height: auto;
+        flex-direction: column;
+      }
+      .innovation-card-body {
+        width: 100%;
+        order: 2;
+        padding: 24px 20px;
+      }
+      .innovation-card-banner {
+        width: 100%;
+        height: 200px;
+        order: 1;
+        border-radius: 26px 26px 0 0;
+      }
     }
 
     .innovation-badge-floating {
@@ -3519,13 +3561,8 @@
             <!-- Card 1: AYP Hubs -->
             <div class="innovation-card focus-active" onclick="setInnovationsIndex(0)">
               <div class="innov-glow-bar glow-ayp"></div>
-              <div class="innovation-card-banner">
-                <img src="img/LEOPOD 1.png" alt="AYP Hubs - Adolescent & Young People" loading="lazy" />
-                <div class="innovation-card-overlay"></div>
-                <span class="innovation-badge-floating card-badge-ayp">
-                  <i class="fa-solid fa-seedling"></i> Youth Empowerment
-                </span>
-              </div>
+              
+              <!-- LEFT SIDE: Details & Content -->
               <div class="innovation-card-body">
                 <div>
                   <div class="innovation-header">
@@ -3541,25 +3578,29 @@
                   <div class="innovation-tags">
                     <span class="innov-tag"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
                     <span class="innov-tag"><i class="fa-solid fa-user-graduate"></i> Life Skills Hub</span>
-                    <span class="innov-tag"><span style="color:#fb7185">•</span> Economic Self-Reliance</span>
+                    <span class="innov-tag"><span style="color:#fb7185">•</span> Self-Reliance</span>
                   </div>
                 </div>
                 <a href="contact.html" class="innovation-card-btn btn-ayp">
                   <span>Explore AYP Hubs</span> <i class="fa-solid fa-arrow-right"></i>
                 </a>
               </div>
+
+              <!-- RIGHT SIDE: Thumbnail Image -->
+              <div class="innovation-card-banner">
+                <img src="img/LEOPOD 1.png" alt="AYP Hubs - Adolescent & Young People" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-ayp">
+                  <i class="fa-solid fa-seedling"></i> Youth Empowerment
+                </span>
+              </div>
             </div>
 
             <!-- Card 2: SRT Platform -->
             <div class="innovation-card" onclick="setInnovationsIndex(1)">
               <div class="innov-glow-bar glow-srt"></div>
-              <div class="innovation-card-banner">
-                <img src="img/Final SDI Report (1).png" alt="SRT - Strategic Research & Translation Platform" loading="lazy" />
-                <div class="innovation-card-overlay"></div>
-                <span class="innovation-badge-floating card-badge-srt">
-                  <i class="fa-solid fa-microchip"></i> Digital Intelligence
-                </span>
-              </div>
+              
+              <!-- LEFT SIDE: Details & Content -->
               <div class="innovation-card-body">
                 <div>
                   <div class="innovation-header">
@@ -3575,25 +3616,29 @@
                   <div class="innovation-tags">
                     <span class="innov-tag"><i class="fa-solid fa-database"></i> EMR Facility Integration</span>
                     <span class="innov-tag"><i class="fa-solid fa-chart-pie"></i> Real-time Dashboards</span>
-                    <span class="innov-tag"><span style="color:#38bdf8">•</span> Surveillance Engine</span>
+                    <span class="innov-tag"><span style="color:#38bdf8">•</span> Surveillance</span>
                   </div>
                 </div>
                 <a href="contact.html" class="innovation-card-btn btn-srt">
                   <span>Explore SRT Platform</span> <i class="fa-solid fa-arrow-right"></i>
                 </a>
               </div>
+
+              <!-- RIGHT SIDE: Thumbnail Image -->
+              <div class="innovation-card-banner">
+                <img src="img/Final SDI Report (1).png" alt="SRT - Strategic Research & Translation Platform" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-srt">
+                  <i class="fa-solid fa-microchip"></i> Digital Intelligence
+                </span>
+              </div>
             </div>
 
             <!-- Card 3: Publications -->
             <div class="innovation-card" onclick="setInnovationsIndex(2)">
               <div class="innov-glow-bar glow-pub"></div>
-              <div class="innovation-card-banner">
-                <img src="img/Reachout.png" alt="Publications & Research Repository" loading="lazy" />
-                <div class="innovation-card-overlay"></div>
-                <span class="innovation-badge-floating card-badge-pub">
-                  <i class="fa-solid fa-book-journal-whills"></i> Research & Evidence
-                </span>
-              </div>
+              
+              <!-- LEFT SIDE: Details & Content -->
               <div class="innovation-card-body">
                 <div>
                   <div class="innovation-header">
@@ -3616,18 +3661,22 @@
                   <span>Access Repository</span> <i class="fa-solid fa-arrow-right"></i>
                 </a>
               </div>
+
+              <!-- RIGHT SIDE: Thumbnail Image -->
+              <div class="innovation-card-banner">
+                <img src="img/Reachout.png" alt="Publications & Research Repository" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-pub">
+                  <i class="fa-solid fa-book-journal-whills"></i> Research & Evidence
+                </span>
+              </div>
             </div>
 
             <!-- Card 4: Candid Conversation -->
             <div class="innovation-card" onclick="setInnovationsIndex(3)">
               <div class="innov-glow-bar glow-candid"></div>
-              <div class="innovation-card-banner">
-                <img src="img/IMG_0994.JPG" alt="Candid Conversation - Public Health Dialogue" loading="lazy" />
-                <div class="innovation-card-overlay"></div>
-                <span class="innovation-badge-floating card-badge-candid">
-                  <i class="fa-solid fa-comments"></i> Executive Dialogue
-                </span>
-              </div>
+              
+              <!-- LEFT SIDE: Details & Content -->
               <div class="innovation-card-body">
                 <div>
                   <div class="innovation-header">
@@ -3649,6 +3698,15 @@
                 <a href="contact.html" class="innovation-card-btn btn-candid">
                   <span>Join Conversation</span> <i class="fa-solid fa-arrow-right"></i>
                 </a>
+              </div>
+
+              <!-- RIGHT SIDE: Thumbnail Image -->
+              <div class="innovation-card-banner">
+                <img src="img/IMG_0994.JPG" alt="Candid Conversation - Public Health Dialogue" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-candid">
+                  <i class="fa-solid fa-comments"></i> Executive Dialogue
+                </span>
               </div>
             </div>
 
