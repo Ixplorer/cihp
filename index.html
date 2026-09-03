@@ -2031,27 +2031,134 @@
       color: #94a3b8;
     }
 
-    .innovations-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      margin-top: 50px;
+    /* 3D Focus Expansion Carousel Stage */
+    .innovations-carousel-stage {
       position: relative;
-      z-index: 2;
+      width: 100%;
+      padding: 40px 0 20px 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .innovation-card {
-      border-radius: 24px;
+    .innovations-viewport {
+      width: 100%;
       overflow: hidden;
-      background: rgba(15, 23, 42, 0.65);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      padding: 50px 0;
+    }
+
+    .innovations-track {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .innovations-track .innovation-card {
+      width: 580px;
+      max-width: 82vw;
+      flex-shrink: 0;
+      opacity: 0.45;
+      filter: blur(2px) grayscale(40%);
+      transform: scale(0.84);
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.65s ease,
+                  filter 0.65s ease,
+                  border-color 0.5s ease,
+                  box-shadow 0.65s ease;
+      cursor: pointer;
+      border-radius: 26px;
+      background: rgba(15, 23, 42, 0.7);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.12);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       position: relative;
+    }
+
+    /* CENTER FOCUS ACTIVE CARD (EXPANDS DYNAMICALLY) */
+    .innovations-track .innovation-card.focus-active {
+      opacity: 1;
+      filter: blur(0px) grayscale(0%);
+      transform: scale(1.12);
+      z-index: 10;
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 35px 85px rgba(0, 0, 0, 0.75), 0 0 30px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Floating Navigation Arrow Buttons */
+    .innov-nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      cursor: pointer;
+      z-index: 25;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .innov-nav-arrow:hover {
+      background: #0284c7;
+      border-color: #38bdf8;
+      transform: translateY(-50%) scale(1.12);
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.7);
+    }
+
+    .innov-nav-arrow.prev { left: 24px; }
+    .innov-nav-arrow.next { right: 24px; }
+
+    /* Pagination Indicator Dots (Matching Image Reference) */
+    .innov-dots-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 36px;
+      z-index: 20;
+      padding: 10px 22px;
+      border-radius: 50px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .innov-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .innov-dot:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .innov-dot.active {
+      width: 32px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #38bdf8 0%, #0284c7 100%);
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.85);
     }
 
     /* Top Glowing Neon Accent Line */
@@ -3360,153 +3467,175 @@
         </div>
 
       </div>
-    <!-- ==================== 8. OUR INNOVATIONS & KNOWLEDGE PRODUCTS (FUTURISTIC GLASS SHOWCASE) ==================== -->
+    <!-- ==================== 8. OUR INNOVATIONS & KNOWLEDGE PRODUCTS (3D FOCUS EXPANSION CAROUSEL) ==================== -->
     <section id="innovations" class="innovations-section">
-      <div class="container">
+      <div class="container text-center">
         <span class="section-eyebrow" data-aos="fade-down"><i class="fa-solid fa-lightbulb"></i> Knowledge & Platforms</span>
         <h2 class="section-title" data-aos="fade-up">Our Innovations</h2>
         <p class="section-desc" data-aos="fade-up" data-aos-delay="100">
           Pioneering transformative public health platforms, youth empowerment models, strategic research systems, and executive policy dialogues across Nigeria and Africa.
         </p>
+      </div>
 
-        <div class="innovations-grid">
+      <!-- 3D Focus Expansion Carousel Stage -->
+      <div class="innovations-carousel-stage">
+        
+        <!-- Floating Navigation Arrows -->
+        <button class="innov-nav-arrow prev" onclick="moveInnovationsCarousel(-1)" aria-label="Previous Innovation">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="innov-nav-arrow next" onclick="moveInnovationsCarousel(1)" aria-label="Next Innovation">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
 
-          <!-- Card 1: AYP Hubs -->
-          <div class="innovation-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="innov-glow-bar glow-ayp"></div>
-            <div class="innovation-card-banner">
-              <img src="img/LEOPOD 1.png" alt="AYP Hubs - Adolescent & Young People" loading="lazy" />
-              <div class="innovation-card-overlay"></div>
-              <span class="innovation-badge-floating card-badge-ayp">
-                <i class="fa-solid fa-seedling"></i> Youth Empowerment
-              </span>
-            </div>
-            <div class="innovation-card-body">
-              <div>
-                <div class="innovation-header">
-                  <h3>AYP Hubs</h3>
-                  <p class="innovation-subtitle sub-ayp">Adolescent & Young People Wellness Hubs</p>
-                </div>
-                <p class="innovation-desc">
-                  Safe-space community wellness hubs empowering adolescent girls & young people with health education, HIV prevention, economic self-reliance, and psychosocial support.
-                </p>
-                <div class="innovation-metric-box">
-                  <i class="fa-solid fa-bolt" style="color: #fb7185;"></i> 10,000+ Young Lives Empowered
-                </div>
-                <div class="innovation-tags">
-                  <span class="innov-tag"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
-                  <span class="innov-tag"><i class="fa-solid fa-user-graduate"></i> Life Skills Hub</span>
-                  <span class="innov-tag"><span style="color:#fb7185">•</span> Economic Self-Reliance</span>
-                </div>
+        <div class="innovations-viewport">
+          <div class="innovations-track" id="innovationsTrack">
+
+            <!-- Card 1: AYP Hubs -->
+            <div class="innovation-card focus-active" onclick="setInnovationsIndex(0)">
+              <div class="innov-glow-bar glow-ayp"></div>
+              <div class="innovation-card-banner">
+                <img src="img/LEOPOD 1.png" alt="AYP Hubs - Adolescent & Young People" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-ayp">
+                  <i class="fa-solid fa-seedling"></i> Youth Empowerment
+                </span>
               </div>
-              <a href="contact.html" class="innovation-card-btn btn-ayp">
-                <span>Explore AYP Hubs</span> <i class="fa-solid fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Card 2: SRT Platform -->
-          <div class="innovation-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="innov-glow-bar glow-srt"></div>
-            <div class="innovation-card-banner">
-              <img src="img/Final SDI Report (1).png" alt="SRT - Strategic Research & Translation Platform" loading="lazy" />
-              <div class="innovation-card-overlay"></div>
-              <span class="innovation-badge-floating card-badge-srt">
-                <i class="fa-solid fa-microchip"></i> Digital Intelligence
-              </span>
-            </div>
-            <div class="innovation-card-body">
-              <div>
-                <div class="innovation-header">
-                  <h3>SRT Platform</h3>
-                  <p class="innovation-subtitle sub-srt">Strategic Research & Translation System</p>
+              <div class="innovation-card-body">
+                <div>
+                  <div class="innovation-header">
+                    <h3>AYP Hubs</h3>
+                    <p class="innovation-subtitle sub-ayp">Adolescent & Young People Wellness Hubs</p>
+                  </div>
+                  <p class="innovation-desc">
+                    Safe-space community wellness hubs empowering adolescent girls & young people with health education, HIV prevention, economic self-reliance, and psychosocial support.
+                  </p>
+                  <div class="innovation-metric-box">
+                    <i class="fa-solid fa-bolt" style="color: #fb7185;"></i> 10,000+ Young Lives Empowered
+                  </div>
+                  <div class="innovation-tags">
+                    <span class="innov-tag"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
+                    <span class="innov-tag"><i class="fa-solid fa-user-graduate"></i> Life Skills Hub</span>
+                    <span class="innov-tag"><span style="color:#fb7185">•</span> Economic Self-Reliance</span>
+                  </div>
                 </div>
-                <p class="innovation-desc">
-                  CIHP's cutting-edge strategic surveillance & digital health engine delivering real-time epidemiological dashboards, EMR facility integration, and evidence translation.
-                </p>
-                <div class="innovation-metric-box">
-                  <i class="fa-solid fa-network-wired" style="color: #38bdf8;"></i> 20 States Real-time EMR Sync
-                </div>
-                <div class="innovation-tags">
-                  <span class="innov-tag"><i class="fa-solid fa-database"></i> EMR Facility Integration</span>
-                  <span class="innov-tag"><i class="fa-solid fa-chart-pie"></i> Real-time Dashboards</span>
-                  <span class="innov-tag"><span style="color:#38bdf8">•</span> Surveillance Engine</span>
-                </div>
+                <a href="contact.html" class="innovation-card-btn btn-ayp">
+                  <span>Explore AYP Hubs</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
               </div>
-              <a href="contact.html" class="innovation-card-btn btn-srt">
-                <span>Explore SRT Platform</span> <i class="fa-solid fa-arrow-right"></i>
-              </a>
             </div>
-          </div>
 
-          <!-- Card 3: Publications -->
-          <div class="innovation-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="innov-glow-bar glow-pub"></div>
-            <div class="innovation-card-banner">
-              <img src="img/Reachout.png" alt="Publications & Research Repository" loading="lazy" />
-              <div class="innovation-card-overlay"></div>
-              <span class="innovation-badge-floating card-badge-pub">
-                <i class="fa-solid fa-book-journal-whills"></i> Research & Evidence
-              </span>
-            </div>
-            <div class="innovation-card-body">
-              <div>
-                <div class="innovation-header">
-                  <h3>Publications</h3>
-                  <p class="innovation-subtitle sub-pub">Peer-Reviewed Papers & Technical Briefs</p>
-                </div>
-                <p class="innovation-desc">
-                  Scientific journal publications, clinical implementation guidelines, and policy briefs produced by CIHP researchers in global health journals and repositories.
-                </p>
-                <div class="innovation-metric-box">
-                  <i class="fa-solid fa-award" style="color: #34d399;"></i> 50+ Peer-Reviewed Journals
-                </div>
-                <div class="innovation-tags">
-                  <span class="innov-tag"><i class="fa-solid fa-newspaper"></i> Peer-Reviewed Articles</span>
-                  <span class="innov-tag"><i class="fa-solid fa-file-pdf"></i> Clinical Guidelines</span>
-                  <span class="innov-tag"><span style="color:#34d399">•</span> Policy Briefs</span>
-                </div>
+            <!-- Card 2: SRT Platform -->
+            <div class="innovation-card" onclick="setInnovationsIndex(1)">
+              <div class="innov-glow-bar glow-srt"></div>
+              <div class="innovation-card-banner">
+                <img src="img/Final SDI Report (1).png" alt="SRT - Strategic Research & Translation Platform" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-srt">
+                  <i class="fa-solid fa-microchip"></i> Digital Intelligence
+                </span>
               </div>
-              <a href="contact.html" class="innovation-card-btn btn-pub">
-                <span>Access Repository</span> <i class="fa-solid fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Card 4: Candid Conversation -->
-          <div class="innovation-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="innov-glow-bar glow-candid"></div>
-            <div class="innovation-card-banner">
-              <img src="img/IMG_0994.JPG" alt="Candid Conversation - Public Health Dialogue" loading="lazy" />
-              <div class="innovation-card-overlay"></div>
-              <span class="innovation-badge-floating card-badge-candid">
-                <i class="fa-solid fa-comments"></i> Executive Dialogue
-              </span>
-            </div>
-            <div class="innovation-card-body">
-              <div>
-                <div class="innovation-header">
-                  <h3>Candid Conversation</h3>
-                  <p class="innovation-subtitle sub-candid">Public Health Leadership Forum</p>
+              <div class="innovation-card-body">
+                <div>
+                  <div class="innovation-header">
+                    <h3>SRT Platform</h3>
+                    <p class="innovation-subtitle sub-srt">Strategic Research & Translation System</p>
+                  </div>
+                  <p class="innovation-desc">
+                    CIHP's cutting-edge strategic surveillance & digital health engine delivering real-time epidemiological dashboards, EMR facility integration, and evidence translation.
+                  </p>
+                  <div class="innovation-metric-box">
+                    <i class="fa-solid fa-network-wired" style="color: #38bdf8;"></i> 20 States Real-time EMR Sync
+                  </div>
+                  <div class="innovation-tags">
+                    <span class="innov-tag"><i class="fa-solid fa-database"></i> EMR Facility Integration</span>
+                    <span class="innov-tag"><i class="fa-solid fa-chart-pie"></i> Real-time Dashboards</span>
+                    <span class="innov-tag"><span style="color:#38bdf8">•</span> Surveillance Engine</span>
+                  </div>
                 </div>
-                <p class="innovation-desc">
-                  High-impact leadership dialogue platform bringing together public health experts, government stakeholders, advocates, and community voices for transparent solutions.
-                </p>
-                <div class="innovation-metric-box">
-                  <i class="fa-solid fa-podcast" style="color: #c084fc;"></i> Pan-African Health Policy Forum
-                </div>
-                <div class="innovation-tags">
-                  <span class="innov-tag"><i class="fa-solid fa-headphones"></i> Leadership Podcast</span>
-                  <span class="innov-tag"><i class="fa-solid fa-users"></i> Expert Panels</span>
-                  <span class="innov-tag"><span style="color:#c084fc">•</span> Townhalls</span>
-                </div>
+                <a href="contact.html" class="innovation-card-btn btn-srt">
+                  <span>Explore SRT Platform</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
               </div>
-              <a href="contact.html" class="innovation-card-btn btn-candid">
-                <span>Join Conversation</span> <i class="fa-solid fa-arrow-right"></i>
-              </a>
             </div>
-          </div>
 
+            <!-- Card 3: Publications -->
+            <div class="innovation-card" onclick="setInnovationsIndex(2)">
+              <div class="innov-glow-bar glow-pub"></div>
+              <div class="innovation-card-banner">
+                <img src="img/Reachout.png" alt="Publications & Research Repository" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-pub">
+                  <i class="fa-solid fa-book-journal-whills"></i> Research & Evidence
+                </span>
+              </div>
+              <div class="innovation-card-body">
+                <div>
+                  <div class="innovation-header">
+                    <h3>Publications</h3>
+                    <p class="innovation-subtitle sub-pub">Peer-Reviewed Papers & Technical Briefs</p>
+                  </div>
+                  <p class="innovation-desc">
+                    Scientific journal publications, clinical implementation guidelines, and policy briefs produced by CIHP researchers in global health journals and repositories.
+                  </p>
+                  <div class="innovation-metric-box">
+                    <i class="fa-solid fa-award" style="color: #34d399;"></i> 50+ Peer-Reviewed Journals
+                  </div>
+                  <div class="innovation-tags">
+                    <span class="innov-tag"><i class="fa-solid fa-newspaper"></i> Peer-Reviewed Articles</span>
+                    <span class="innov-tag"><i class="fa-solid fa-file-pdf"></i> Clinical Guidelines</span>
+                    <span class="innov-tag"><span style="color:#34d399">•</span> Policy Briefs</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="innovation-card-btn btn-pub">
+                  <span>Access Repository</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 4: Candid Conversation -->
+            <div class="innovation-card" onclick="setInnovationsIndex(3)">
+              <div class="innov-glow-bar glow-candid"></div>
+              <div class="innovation-card-banner">
+                <img src="img/IMG_0994.JPG" alt="Candid Conversation - Public Health Dialogue" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-candid">
+                  <i class="fa-solid fa-comments"></i> Executive Dialogue
+                </span>
+              </div>
+              <div class="innovation-card-body">
+                <div>
+                  <div class="innovation-header">
+                    <h3>Candid Conversation</h3>
+                    <p class="innovation-subtitle sub-candid">Public Health Leadership Forum</p>
+                  </div>
+                  <p class="innovation-desc">
+                    High-impact leadership dialogue platform bringing together public health experts, government stakeholders, advocates, and community voices for transparent solutions.
+                  </p>
+                  <div class="innovation-metric-box">
+                    <i class="fa-solid fa-podcast" style="color: #c084fc;"></i> Pan-African Health Policy Forum
+                  </div>
+                  <div class="innovation-tags">
+                    <span class="innov-tag"><i class="fa-solid fa-headphones"></i> Leadership Podcast</span>
+                    <span class="innov-tag"><i class="fa-solid fa-users"></i> Expert Panels</span>
+                    <span class="innov-tag"><span style="color:#c084fc">•</span> Townhalls</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="innovation-card-btn btn-candid">
+                  <span>Join Conversation</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pagination Indicator Dots (Matching Uploaded Image Reference) -->
+        <div class="innov-dots-bar" id="innovationsDots">
+          <span class="innov-dot active" onclick="setInnovationsIndex(0)"></span>
+          <span class="innov-dot" onclick="setInnovationsIndex(1)"></span>
+          <span class="innov-dot" onclick="setInnovationsIndex(2)"></span>
+          <span class="innov-dot" onclick="setInnovationsIndex(3)"></span>
         </div>
 
       </div>
@@ -3925,6 +4054,72 @@
 
       projectRows.forEach(row => rowObserver.observe(row));
     }
+
+    // =======================================================
+    // 3D Focus Expansion Carousel Controller for Innovations
+    // =======================================================
+    let currentInnovIndex = 0;
+
+    function updateInnovationsCarousel() {
+      const track = document.getElementById('innovationsTrack');
+      if (!track) return;
+      const cards = track.querySelectorAll('.innovation-card');
+      const dots = document.querySelectorAll('#innovationsDots .innov-dot');
+      const total = cards.length;
+
+      if (total === 0) return;
+
+      // Wrap around index
+      if (currentInnovIndex < 0) currentInnovIndex = total - 1;
+      if (currentInnovIndex >= total) currentInnovIndex = 0;
+
+      // Update Card Active Focus & Blur/Scale States
+      cards.forEach((card, i) => {
+        if (i === currentInnovIndex) {
+          card.classList.add('focus-active');
+        } else {
+          card.classList.remove('focus-active');
+        }
+      });
+
+      // Update Dot Active States
+      dots.forEach((dot, i) => {
+        if (i === currentInnovIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      // Calculate centering offset
+      const targetCard = cards[currentInnovIndex];
+      const viewport = track.parentElement;
+      if (!viewport || !targetCard) return;
+
+      const viewportWidth = viewport.offsetWidth;
+      const cardWidth = targetCard.offsetWidth;
+      const cardLeft = targetCard.offsetLeft;
+
+      // Center calculation: scroll track so target card aligns perfectly with viewport center
+      const centerOffset = (viewportWidth / 2) - (cardLeft + cardWidth / 2);
+      track.style.transform = `translateX(${centerOffset}px)`;
+    }
+
+    function moveInnovationsCarousel(dir) {
+      currentInnovIndex += dir;
+      updateInnovationsCarousel();
+    }
+
+    function setInnovationsIndex(index) {
+      currentInnovIndex = index;
+      updateInnovationsCarousel();
+    }
+
+    // Initialize Innovations Carousel on page load & window resize
+    window.addEventListener('load', () => {
+      setTimeout(updateInnovationsCarousel, 250);
+    });
+    window.addEventListener('resize', updateInnovationsCarousel);
 
     // Portal Tabs
     function switchPortalTab(tabKey) {
