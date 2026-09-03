@@ -1671,13 +1671,15 @@
 
     .editorial-project-row {
       display: grid;
-      grid-template-columns: 60px 1fr 200px;
-      gap: 24px;
+      grid-template-columns: 60px 1fr 200px 42px;
+      gap: 20px;
       align-items: center;
-      padding: 32px 0;
+      padding: 28px 16px;
       border-bottom: 1px solid rgba(30, 51, 136, 0.12);
-      transition: all 0.4s ease;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
+      cursor: pointer;
+      border-radius: 16px;
     }
 
     .editorial-project-row:first-child {
@@ -1685,10 +1687,8 @@
     }
 
     .editorial-project-row:hover {
-      background: rgba(30, 51, 136, 0.02);
-      padding-left: 12px;
-      padding-right: 12px;
-      border-radius: 16px;
+      background: rgba(30, 51, 136, 0.03);
+      transform: translateX(4px);
     }
 
     .row-num {
@@ -1701,7 +1701,8 @@
       transition: opacity 0.3s ease, color 0.3s ease;
     }
 
-    .editorial-project-row:hover .row-num {
+    .editorial-project-row:hover .row-num,
+    .editorial-project-row.active .row-num {
       opacity: 1;
       color: #297b47;
     }
@@ -1799,16 +1800,12 @@
       border-color: rgba(41, 123, 71, 0.3);
     }
 
-    .editorial-project-row.active .row-num {
-      opacity: 1;
-      color: #297b47;
-    }
-
     .row-thumb-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       filter: grayscale(100%) opacity(0.65);
+      will-change: filter, transform;
       transition: filter 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -1816,6 +1813,27 @@
     .editorial-project-row.active .row-thumb-img {
       filter: grayscale(0%) opacity(1);
       transform: scale(1.08);
+    }
+
+    .row-action-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(30, 51, 136, 0.06);
+      color: #1e3388;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .editorial-project-row:hover .row-action-icon,
+    .editorial-project-row.active .row-action-icon {
+      background: #297b47;
+      color: #ffffff;
+      transform: translateX(4px);
+      box-shadow: 0 4px 14px rgba(41, 123, 71, 0.3);
     }
 
     @media (max-width: 1024px) {
@@ -1830,7 +1848,7 @@
       }
 
       .editorial-project-row {
-        grid-template-columns: 50px 1fr 160px;
+        grid-template-columns: 50px 1fr 160px 36px;
         gap: 16px;
       }
 
@@ -1844,11 +1862,17 @@
       .editorial-project-row {
         grid-template-columns: 1fr;
         gap: 16px;
+        padding: 24px 12px;
+      }
+
+      .row-action-icon {
+        display: none;
       }
 
       .row-thumb-card {
         width: 100%;
         height: 200px;
+        order: 3;
       }
     }
 
@@ -2820,7 +2844,7 @@
           <div class="impact-rows-container">
 
             <!-- Row 01: REACHOUT -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up" onclick="window.location.href='contact.html'">
               <span class="row-num">01</span>
               <div class="row-text-content">
                 <div class="row-header-meta">
@@ -2834,12 +2858,13 @@
                 </div>
               </div>
               <div class="row-thumb-card">
-                <img src="img/Reachout.png" alt="REACHOUT Project" class="row-thumb-img" />
+                <img src="img/Reachout.png" alt="REACHOUT Project" class="row-thumb-img" loading="lazy" />
               </div>
+              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
             </div>
 
             <!-- Row 02: AEARI -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up" onclick="window.location.href='contact.html'">
               <span class="row-num">02</span>
               <div class="row-text-content">
                 <div class="row-header-meta">
@@ -2853,12 +2878,13 @@
                 </div>
               </div>
               <div class="row-thumb-card">
-                <img src="img/AEARI.jpg" alt="AEARI Project" class="row-thumb-img" />
+                <img src="img/AEARI.jpg" alt="AEARI Project" class="row-thumb-img" loading="lazy" />
               </div>
+              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
             </div>
 
             <!-- Row 03: IMPAACT4HIV -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up" onclick="window.location.href='contact.html'">
               <span class="row-num">03</span>
               <div class="row-text-content">
                 <div class="row-header-meta">
@@ -2872,12 +2898,13 @@
                 </div>
               </div>
               <div class="row-thumb-card">
-                <img src="img/I4HIV pic.jpeg" alt="IMPAACT4HIV Project" class="row-thumb-img" />
+                <img src="img/I4HIV pic.jpeg" alt="IMPAACT4HIV Project" class="row-thumb-img" loading="lazy" />
               </div>
+              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
             </div>
 
             <!-- Row 04: Accelerating MNCH Innovations -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up" onclick="window.location.href='contact.html'">
               <span class="row-num">04</span>
               <div class="row-text-content">
                 <div class="row-header-meta">
@@ -2891,12 +2918,13 @@
                 </div>
               </div>
               <div class="row-thumb-card">
-                <img src="img/Newborn.png" alt="Accelerating MNCH Innovations" class="row-thumb-img" />
+                <img src="img/Newborn.png" alt="Accelerating MNCH Innovations" class="row-thumb-img" loading="lazy" />
               </div>
+              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
             </div>
 
             <!-- Row 05: IRIS -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up" onclick="window.location.href='contact.html'">
               <span class="row-num">05</span>
               <div class="row-text-content">
                 <div class="row-header-meta">
@@ -2910,12 +2938,13 @@
                 </div>
               </div>
               <div class="row-thumb-card">
-                <img src="img/iris.JPG" alt="IRIS Project" class="row-thumb-img" />
+                <img src="img/iris.JPG" alt="IRIS Project" class="row-thumb-img" loading="lazy" />
               </div>
+              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
             </div>
 
             <!-- Row 06: TB-LON3 -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up" onclick="window.location.href='contact.html'">
               <span class="row-num">06</span>
               <div class="row-text-content">
                 <div class="row-header-meta">
@@ -2929,12 +2958,13 @@
                 </div>
               </div>
               <div class="row-thumb-card">
-                <img src="img/TBLON3.jpg" alt="TB-LON3 Project" class="row-thumb-img" />
+                <img src="img/TBLON3.jpg" alt="TB-LON3 Project" class="row-thumb-img" loading="lazy" />
               </div>
+              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
             </div>
 
             <!-- Row 07: G-ANC -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up" onclick="window.location.href='contact.html'">
               <span class="row-num">07</span>
               <div class="row-text-content">
                 <div class="row-header-meta">
@@ -2948,12 +2978,13 @@
                 </div>
               </div>
               <div class="row-thumb-card">
-                <img src="img/GANC.jpg" alt="G-ANC Project" class="row-thumb-img" />
+                <img src="img/GANC.jpg" alt="G-ANC Project" class="row-thumb-img" loading="lazy" />
               </div>
+              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
             </div>
 
             <!-- Row 08: SDI-SI -->
-            <div class="editorial-project-row" data-category="completed" data-aos="fade-up">
+            <div class="editorial-project-row" data-category="completed" data-aos="fade-up" onclick="window.location.href='contact.html'">
               <span class="row-num">08</span>
               <div class="row-text-content">
                 <div class="row-header-meta">
@@ -2967,12 +2998,13 @@
                 </div>
               </div>
               <div class="row-thumb-card">
-                <img src="img/Final SDI Report (1).png" alt="SDI-SI Project" class="row-thumb-img" />
+                <img src="img/Final SDI Report (1).png" alt="SDI-SI Project" class="row-thumb-img" loading="lazy" />
               </div>
+              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
             </div>
 
             <!-- Row 09: AYP Hub -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up">
+            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up" onclick="window.location.href='contact.html'">
               <span class="row-num">09</span>
               <div class="row-text-content">
                 <div class="row-header-meta">
@@ -2986,8 +3018,9 @@
                 </div>
               </div>
               <div class="row-thumb-card">
-                <img src="img/LEOPOD 1.png" alt="AYP Hub" class="row-thumb-img" />
+                <img src="img/LEOPOD 1.png" alt="AYP Hub" class="row-thumb-img" loading="lazy" />
               </div>
+              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
             </div>
 
           </div>
@@ -3462,7 +3495,10 @@
             entry.target.classList.remove('active');
           }
         });
-      }, { threshold: 0.5 });
+      }, {
+        rootMargin: '-15% 0px -15% 0px',
+        threshold: 0.35
+      });
 
       projectRows.forEach(row => rowObserver.observe(row));
     }
