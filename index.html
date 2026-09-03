@@ -303,7 +303,8 @@
       transition: all 0.2s ease;
     }
 
-    .pub-filter-btn:hover, .pub-filter-btn.active {
+    .pub-filter-btn:hover,
+    .pub-filter-btn.active {
       background: var(--primary-blue);
       color: #ffffff;
       border-color: var(--primary-blue);
@@ -316,8 +317,13 @@
     }
 
     @media (max-width: 768px) {
-      .pub-modal-grid { grid-template-columns: 1fr; }
-      .publications-modal-container { padding: 24px; }
+      .pub-modal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .publications-modal-container {
+        padding: 24px;
+      }
     }
 
     .pub-item-card {
@@ -351,10 +357,25 @@
       border-radius: 4px;
     }
 
-    .tag-journal { background: #e0f2fe; color: #0284c7; }
-    .tag-brief { background: #dcfce7; color: #15803d; }
-    .tag-framework { background: #fef3c7; color: #b45309; }
-    .tag-tech { background: #f3e8ff; color: #6b21a8; }
+    .tag-journal {
+      background: #e0f2fe;
+      color: #0284c7;
+    }
+
+    .tag-brief {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .tag-framework {
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    .tag-tech {
+      background: #f3e8ff;
+      color: #6b21a8;
+    }
 
     .pub-doi {
       font-size: 0.72rem;
@@ -2987,1340 +3008,1385 @@
   </style>
 </head>
 
-  <!-- ==================== STICKY NAVBAR ==================== -->
-  <nav class="navbar">
-    <a href="#home" class="brand-logo">
-      <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo" />
-      <div class="presence-badge mono">
-        <i class="fa-solid fa-earth-africa" style="color: var(--secondary-green);"></i> 20 States | 5 Pan-African
-        Footholds
-      </div>
-    </a>
-
-    <button class="mobile-menu-toggle" aria-label="Toggle navigation">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-
-    <ul class="nav-links">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="about.html">About CIHP</a></li>
-      <li><a href="about.html#leadership">Leadership</a></li>
-      <li><a href="#what-we-do">What We Do</a></li>
-      <li><a href="#impact">Impact & Projects</a></li>
-      <li><a href="#innovations">Innovations</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="news.html">News & Media</a></li>
-      <li><a href="careers.html">Careers & EOI</a></li>
-      <li><a href="contact.html" class="btn-nav">Partner With Us</a></li>
-    </ul>
-  </nav>
-
-  <!-- ==================== 2. FULL-SCREEN STORYTELLING HERO BANNER ==================== -->
-  <header id="home" class="hero-slider-section">
-
-    <!-- Slide 1: Pan-African Vision -->
-    <div class="hero-slide active">
-      <img src="img/Reachout.png" alt="CIHP Pan-African Vision" class="hero-slide-bg" />
-      <div class="hero-slide-overlay"></div>
-      <div class="container">
-        <div class="hero-slide-content">
-          <div class="hero-slide-eyebrow">
-            <i class="fa-solid fa-earth-africa"></i> Story 01 | Pan-African Horizon
-          </div>
-          <h1 class="hero-slide-title">
-            Engineered for <span class="accent-emerald">Pan-African</span> Health Impact.
-          </h1>
-          <p class="hero-slide-desc">
-            Evolving from ICAP Columbia in 2010 into a premier indigenous non-profit delivering evidence-based public
-            health solutions across 20 Nigerian states and expanding into 5 Pan-African strategic footholds.
-          </p>
-          <div class="hero-slide-cta-group">
-            <a href="#about" class="btn-emerald">Explore Our Ambition <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="about.html" class="btn-secondary"
-              style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Our
-              15-Year History</a>
-          </div>
-        </div>
-      </div>
+<!-- ==================== STICKY NAVBAR ==================== -->
+<nav class="navbar">
+  <a href="#home" class="brand-logo">
+    <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo" />
+    <div class="presence-badge mono">
+      <i class="fa-solid fa-earth-africa" style="color: var(--secondary-green);"></i> 20 States | 5 Pan-African
+      Footholds
     </div>
+  </a>
 
-    <!-- Slide 2: Epidemic Control & Diagnostic Networks -->
-    <div class="hero-slide">
-      <img src="img/iris.JPG" alt="CIHP IRIS Project Epidemic Control" class="hero-slide-bg" />
-      <div class="hero-slide-overlay"></div>
-      <div class="container">
-        <div class="hero-slide-content">
-          <div class="hero-slide-eyebrow">
-            <i class="fa-solid fa-microscope"></i> Story 02 | Epidemic Control & Diagnostics
-          </div>
-          <h1 class="hero-slide-title">
-            Pioneering HIV & Tuberculosis <span class="accent-emerald">Epidemic Control</span>.
-          </h1>
-          <p class="hero-slide-desc">
-            Sustaining viral suppression, deploying AI-assisted digital mobile X-ray screenings, and strengthening
-            laboratory diagnostic networks across state health facilities.
-          </p>
-          <div class="hero-slide-cta-group">
-            <a href="#impact" class="btn-emerald">View Active Projects <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="contact.html" class="btn-secondary"
-              style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Procurement
-              & RFPs</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+    <i class="fa-solid fa-bars"></i>
+  </button>
 
-    <!-- Slide 3: Group Antenatal Care (G-ANC) -->
-    <div class="hero-slide">
-      <img src="img/GANC.jpg" alt="CIHP Group Antenatal Care" class="hero-slide-bg" />
-      <div class="hero-slide-overlay"></div>
-      <div class="container">
-        <div class="hero-slide-content">
-          <div class="hero-slide-eyebrow">
-            <i class="fa-solid fa-baby"></i> Story 03 | Maternal & Child Health
-          </div>
-          <h1 class="hero-slide-title">
-            Saving Mothers & Infants Through <span class="accent-emerald">Group Antenatal Mentorship</span>.
-          </h1>
-          <p class="hero-slide-desc">
-            Combining group antenatal consultations, peer support circles, and community PMTCT interventions to
-            dramatically improve survival and health outcomes for mothers and infants.
-          </p>
-          <div class="hero-slide-cta-group">
-            <a href="#what-we-do" class="btn-emerald">Explore MCH Services <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="about.html#leadership" class="btn-secondary"
-              style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Our
-              Values</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="about.html">About CIHP</a></li>
+    <li><a href="about.html#leadership">Leadership</a></li>
+    <li><a href="#what-we-do">What We Do</a></li>
+    <li><a href="#impact">Impact & Projects</a></li>
+    <li><a href="#innovations">Innovations</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="news.html">News & Media</a></li>
+    <li><a href="careers.html">Careers & EOI</a></li>
+    <li><a href="contact.html" class="btn-nav">Partner With Us</a></li>
+  </ul>
+</nav>
 
-    <!-- Slide 4: Youth & Economic Empowerment -->
-    <div class="hero-slide">
-      <img src="img/HEADER.png" alt="CIHP Youth Empowerment" class="hero-slide-bg" />
-      <div class="hero-slide-overlay"></div>
-      <div class="container">
-        <div class="hero-slide-content">
-          <div class="hero-slide-eyebrow">
-            <i class="fa-solid fa-graduation-cap"></i> Story 04 | Youth Empowerment
-          </div>
-          <h1 class="hero-slide-title">
-            Unlocking Potential & <span class="accent-emerald">Economic Independence</span>.
-          </h1>
-          <p class="hero-slide-desc">
-            Empowering adolescents and young women through economic hub initiatives, vocational skills training,
-            financial literacy, and community support networks.
-          </p>
-          <div class="hero-slide-cta-group">
-            <a href="#impact" class="btn-emerald">Read AYP Story <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="contact.html" class="btn-secondary"
-              style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Join
-              Talent Network</a>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- ==================== 2. FULL-SCREEN STORYTELLING HERO BANNER ==================== -->
+<header id="home" class="hero-slider-section">
 
-    <!-- Slide 5: Scientific Round Table (SRT) -->
-    <div class="hero-slide">
-      <img src="img/SRT.jpg" alt="CIHP Scientific Round Table Forum" class="hero-slide-bg" />
-      <div class="hero-slide-overlay"></div>
-      <div class="container">
-        <div class="hero-slide-content">
-          <div class="hero-slide-eyebrow">
-            <i class="fa-solid fa-flask-vial"></i> Story 05 | Research & Evidence Translation
-          </div>
-          <h1 class="hero-slide-title">
-            The Scientific Round Table <span class="accent-emerald">(SRT Forum)</span>.
-          </h1>
-          <p class="hero-slide-desc">
-            CIHP's premier scientific dialogue and evidence translation platform, bringing together public health experts, researchers, and policymakers to bridge global science with frontline healthcare delivery.
-          </p>
-          <div class="hero-slide-cta-group">
-            <a href="publications.html" class="btn-emerald">Explore Research <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="contact.html" class="btn-secondary"
-              style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Partner With Us</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 6: Peer-Reviewed Journals & Scientific Publications -->
-    <div class="hero-slide">
-      <img src="img/library.png" alt="CIHP Scientific Publications & Journals" class="hero-slide-bg" />
-      <div class="hero-slide-overlay"></div>
-      <div class="container">
-        <div class="hero-slide-content">
-          <div class="hero-slide-eyebrow">
-            <i class="fa-solid fa-book-journal-whills"></i> Story 06 | Peer-Reviewed Knowledge
-          </div>
-          <h1 class="hero-slide-title">
-            Advancing Evidence Through <span class="accent-emerald">Global Publications</span>.
-          </h1>
-          <p class="hero-slide-desc">
-            Explore 15+ years of peer-reviewed journal articles, clinical implementation guidelines, and policy monographs produced by CIHP researchers in leading global health repositories.
-          </p>
-          <div class="hero-slide-cta-group">
-            <a href="publications.html" class="btn-emerald">View Publications <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="news.html" class="btn-secondary"
-              style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Newsroom</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ECEWS-Style Floating Glassmorphic Controls Bar -->
-    <div class="slider-controls-bar">
-      <div class="container">
-        <div class="slider-controls-inner">
-
-          <!-- Numbered Dots with Animated Timer Line -->
-          <div class="slider-dots-container">
-            <div class="slider-dot-item active" onclick="goToHeroSlide(0)">
-              <span class="dot-num">01</span>
-              <span class="dot-label">Pan-African Horizon</span>
-              <div class="dot-progress">
-                <div class="dot-progress-fill"></div>
-              </div>
-            </div>
-            <div class="slider-dot-item" onclick="goToHeroSlide(1)">
-              <span class="dot-num">02</span>
-              <span class="dot-label">Epidemic Control</span>
-              <div class="dot-progress">
-                <div class="dot-progress-fill"></div>
-              </div>
-            </div>
-            <div class="slider-dot-item" onclick="goToHeroSlide(2)">
-              <span class="dot-num">03</span>
-              <span class="dot-label">Maternal Health</span>
-              <div class="dot-progress">
-                <div class="dot-progress-fill"></div>
-              </div>
-            </div>
-            <div class="slider-dot-item" onclick="goToHeroSlide(3)">
-              <span class="dot-num">04</span>
-              <span class="dot-label">Youth Empowerment</span>
-              <div class="dot-progress">
-                <div class="dot-progress-fill"></div>
-              </div>
-            </div>
-            <div class="slider-dot-item" onclick="goToHeroSlide(4)">
-              <span class="dot-num">05</span>
-              <span class="dot-label">SRT Forum</span>
-              <div class="dot-progress">
-                <div class="dot-progress-fill"></div>
-              </div>
-            </div>
-            <div class="slider-dot-item" onclick="goToHeroSlide(5)">
-              <span class="dot-num">06</span>
-              <span class="dot-label">Publications</span>
-              <div class="dot-progress">
-                <div class="dot-progress-fill"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Controls: Prev/Next & Play/Pause -->
-          <div class="slider-actions">
-            <button class="slider-action-btn" id="prevHeroBtn" aria-label="Previous Slide" onclick="prevHeroSlide()">
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button class="slider-action-btn" id="playPauseHeroBtn" aria-label="Pause Auto Slider"
-              onclick="toggleHeroAutoplay()">
-              <i class="fa-solid fa-pause" id="playPauseIcon"></i>
-            </button>
-            <button class="slider-action-btn" id="nextHeroBtn" aria-label="Next Slide" onclick="nextHeroSlide()">
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-  </header>
-
-  <!-- ==================== HERO IMPACT STATS BAR ==================== -->
-  <section class="hero-stats-banner-section">
+  <!-- Slide 1: Pan-African Vision -->
+  <div class="hero-slide active">
+    <img src="img/Reachout.png" alt="CIHP Pan-African Vision" class="hero-slide-bg" />
+    <div class="hero-slide-overlay"></div>
     <div class="container">
-      <div class="stats-banner-grid" data-aos="fade-up">
+      <div class="hero-slide-content">
+        <div class="hero-slide-eyebrow">
+          <i class="fa-solid fa-earth-africa"></i> Story 01 | Pan-African Horizon
+        </div>
+        <h1 class="hero-slide-title">
+          Engineered for <span class="accent-emerald">Pan-African</span> Health Impact.
+        </h1>
+        <p class="hero-slide-desc">
+          Evolving from ICAP Columbia in 2010 into a premier indigenous non-profit delivering evidence-based public
+          health solutions across 20 Nigerian states and expanding into 5 Pan-African strategic footholds.
+        </p>
+        <div class="hero-slide-cta-group">
+          <a href="#about" class="btn-emerald">Explore Our Ambition <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="about.html" class="btn-secondary"
+            style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Our
+            15-Year History</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="stat-banner-card glass-card-emerald">
-          <div class="stat-card-header">
-            <div class="stat-card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-            <span class="stat-card-badge">Direct Impact</span>
+  <!-- Slide 2: Epidemic Control & Diagnostic Networks -->
+  <div class="hero-slide">
+    <img src="img/iris.JPG" alt="CIHP IRIS Project Epidemic Control" class="hero-slide-bg" />
+    <div class="hero-slide-overlay"></div>
+    <div class="container">
+      <div class="hero-slide-content">
+        <div class="hero-slide-eyebrow">
+          <i class="fa-solid fa-microscope"></i> Story 02 | Epidemic Control & Diagnostics
+        </div>
+        <h1 class="hero-slide-title">
+          Pioneering HIV & Tuberculosis <span class="accent-emerald">Epidemic Control</span>.
+        </h1>
+        <p class="hero-slide-desc">
+          Sustaining viral suppression, deploying AI-assisted digital mobile X-ray screenings, and strengthening
+          laboratory diagnostic networks across state health facilities.
+        </p>
+        <div class="hero-slide-cta-group">
+          <a href="#impact" class="btn-emerald">View Active Projects <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="contact.html" class="btn-secondary"
+            style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Procurement
+            & RFPs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Group Antenatal Care (G-ANC) -->
+  <div class="hero-slide">
+    <img src="img/GANC.jpg" alt="CIHP Group Antenatal Care" class="hero-slide-bg" />
+    <div class="hero-slide-overlay"></div>
+    <div class="container">
+      <div class="hero-slide-content">
+        <div class="hero-slide-eyebrow">
+          <i class="fa-solid fa-baby"></i> Story 03 | Maternal & Child Health
+        </div>
+        <h1 class="hero-slide-title">
+          Saving Mothers & Infants Through <span class="accent-emerald">Group Antenatal Mentorship</span>.
+        </h1>
+        <p class="hero-slide-desc">
+          Combining group antenatal consultations, peer support circles, and community PMTCT interventions to
+          dramatically improve survival and health outcomes for mothers and infants.
+        </p>
+        <div class="hero-slide-cta-group">
+          <a href="#what-we-do" class="btn-emerald">Explore MCH Services <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="about.html#leadership" class="btn-secondary"
+            style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Our
+            Values</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Youth & Economic Empowerment -->
+  <div class="hero-slide">
+    <img src="img/HEADER.png" alt="CIHP Youth Empowerment" class="hero-slide-bg" />
+    <div class="hero-slide-overlay"></div>
+    <div class="container">
+      <div class="hero-slide-content">
+        <div class="hero-slide-eyebrow">
+          <i class="fa-solid fa-graduation-cap"></i> Story 04 | Youth Empowerment
+        </div>
+        <h1 class="hero-slide-title">
+          Unlocking Potential & <span class="accent-emerald">Economic Independence</span>.
+        </h1>
+        <p class="hero-slide-desc">
+          Empowering adolescents and young women through economic hub initiatives, vocational skills training,
+          financial literacy, and community support networks.
+        </p>
+        <div class="hero-slide-cta-group">
+          <a href="#impact" class="btn-emerald">Read AYP Story <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="contact.html" class="btn-secondary"
+            style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Join
+            Talent Network</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: Scientific Round Table (SRT) -->
+  <div class="hero-slide">
+    <img src="img/SRT.jpg" alt="CIHP Scientific Round Table Forum" class="hero-slide-bg" />
+    <div class="hero-slide-overlay"></div>
+    <div class="container">
+      <div class="hero-slide-content">
+        <div class="hero-slide-eyebrow">
+          <i class="fa-solid fa-flask-vial"></i> Story 05 | Research & Evidence Translation
+        </div>
+        <h1 class="hero-slide-title">
+          The Scientific Round Table <span class="accent-emerald">(SRT Forum)</span>.
+        </h1>
+        <p class="hero-slide-desc">
+          CIHP's premier scientific dialogue and evidence translation platform, bringing together public health experts,
+          researchers, and policymakers to bridge global science with frontline healthcare delivery.
+        </p>
+        <div class="hero-slide-cta-group">
+          <a href="publications.html" class="btn-emerald">Explore Research <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="contact.html" class="btn-secondary"
+            style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Partner
+            With Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: Peer-Reviewed Journals & Scientific Publications -->
+  <div class="hero-slide">
+    <img src="img/library.png" alt="CIHP Scientific Publications & Journals" class="hero-slide-bg" />
+    <div class="hero-slide-overlay"></div>
+    <div class="container">
+      <div class="hero-slide-content">
+        <div class="hero-slide-eyebrow">
+          <i class="fa-solid fa-book-journal-whills"></i> Story 06 | Peer-Reviewed Knowledge
+        </div>
+        <h1 class="hero-slide-title">
+          Advancing Evidence Through <span class="accent-emerald">Global Publications</span>.
+        </h1>
+        <p class="hero-slide-desc">
+          Explore 15+ years of peer-reviewed journal articles, clinical implementation guidelines, and policy monographs
+          produced by CIHP researchers in leading global health repositories.
+        </p>
+        <div class="hero-slide-cta-group">
+          <a href="publications.html" class="btn-emerald">View Publications <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="news.html" class="btn-secondary"
+            style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">Newsroom</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ECEWS-Style Floating Glassmorphic Controls Bar -->
+  <div class="slider-controls-bar">
+    <div class="container">
+      <div class="slider-controls-inner">
+
+        <!-- Numbered Dots with Animated Timer Line -->
+        <div class="slider-dots-container">
+          <div class="slider-dot-item active" onclick="goToHeroSlide(0)">
+            <span class="dot-num">01</span>
+            <span class="dot-label">Pan-African Horizon</span>
+            <div class="dot-progress">
+              <div class="dot-progress-fill"></div>
+            </div>
           </div>
-          <div class="stat-banner-number"><span class="counter-val" data-target="11" data-suffix="M+">0M+</span></div>
-          <div class="stat-banner-label">LIVES REACHED WITH CARE</div>
+          <div class="slider-dot-item" onclick="goToHeroSlide(1)">
+            <span class="dot-num">02</span>
+            <span class="dot-label">Epidemic Control</span>
+            <div class="dot-progress">
+              <div class="dot-progress-fill"></div>
+            </div>
+          </div>
+          <div class="slider-dot-item" onclick="goToHeroSlide(2)">
+            <span class="dot-num">03</span>
+            <span class="dot-label">Maternal Health</span>
+            <div class="dot-progress">
+              <div class="dot-progress-fill"></div>
+            </div>
+          </div>
+          <div class="slider-dot-item" onclick="goToHeroSlide(3)">
+            <span class="dot-num">04</span>
+            <span class="dot-label">Youth Empowerment</span>
+            <div class="dot-progress">
+              <div class="dot-progress-fill"></div>
+            </div>
+          </div>
+          <div class="slider-dot-item" onclick="goToHeroSlide(4)">
+            <span class="dot-num">05</span>
+            <span class="dot-label">SRT Forum</span>
+            <div class="dot-progress">
+              <div class="dot-progress-fill"></div>
+            </div>
+          </div>
+          <div class="slider-dot-item" onclick="goToHeroSlide(5)">
+            <span class="dot-num">06</span>
+            <span class="dot-label">Publications</span>
+            <div class="dot-progress">
+              <div class="dot-progress-fill"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="stat-banner-card glass-card-blue">
-          <div class="stat-card-header">
-            <div class="stat-card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <span class="stat-card-badge">National Reach</span>
-          </div>
-          <div class="stat-banner-number"><span class="counter-val" data-target="20" data-suffix="">0</span></div>
-          <div class="stat-banner-label">NIGERIAN STATES COVERED</div>
+        <!-- Controls: Prev/Next & Play/Pause -->
+        <div class="slider-actions">
+          <button class="slider-action-btn" id="prevHeroBtn" aria-label="Previous Slide" onclick="prevHeroSlide()">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="slider-action-btn" id="playPauseHeroBtn" aria-label="Pause Auto Slider"
+            onclick="toggleHeroAutoplay()">
+            <i class="fa-solid fa-pause" id="playPauseIcon"></i>
+          </button>
+          <button class="slider-action-btn" id="nextHeroBtn" aria-label="Next Slide" onclick="nextHeroSlide()">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
 
-        <div class="stat-banner-card glass-card-cyan">
-          <div class="stat-card-header">
-            <div class="stat-card-icon"><i class="fa-solid fa-award"></i></div>
-            <span class="stat-card-badge">Proven Legacy</span>
-          </div>
-          <div class="stat-banner-number"><span class="counter-val" data-target="15" data-suffix="+">0+</span></div>
-          <div class="stat-banner-label">YEARS LEADERSHIP MASTERY</div>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<!-- ==================== HERO IMPACT STATS BAR ==================== -->
+<section class="hero-stats-banner-section">
+  <div class="container">
+    <div class="stats-banner-grid" data-aos="fade-up">
+
+      <div class="stat-banner-card glass-card-emerald">
+        <div class="stat-card-header">
+          <div class="stat-card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <span class="stat-card-badge">Direct Impact</span>
+        </div>
+        <div class="stat-banner-number"><span class="counter-val" data-target="11" data-suffix="M+">0M+</span></div>
+        <div class="stat-banner-label">LIVES REACHED WITH CARE</div>
+      </div>
+
+      <div class="stat-banner-card glass-card-blue">
+        <div class="stat-card-header">
+          <div class="stat-card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+          <span class="stat-card-badge">National Reach</span>
+        </div>
+        <div class="stat-banner-number"><span class="counter-val" data-target="20" data-suffix="">0</span></div>
+        <div class="stat-banner-label">NIGERIAN STATES COVERED</div>
+      </div>
+
+      <div class="stat-banner-card glass-card-cyan">
+        <div class="stat-card-header">
+          <div class="stat-card-icon"><i class="fa-solid fa-award"></i></div>
+          <span class="stat-card-badge">Proven Legacy</span>
+        </div>
+        <div class="stat-banner-number"><span class="counter-val" data-target="15" data-suffix="+">0+</span></div>
+        <div class="stat-banner-label">YEARS LEADERSHIP MASTERY</div>
+      </div>
+
+      <div class="stat-banner-card glass-card-amber">
+        <div class="stat-card-header">
+          <div class="stat-card-icon"><i class="fa-solid fa-earth-africa"></i></div>
+          <span class="stat-card-badge">Regional Growth</span>
+        </div>
+        <div class="stat-banner-number"><span class="counter-val" data-target="5" data-suffix="">0</span></div>
+        <div class="stat-banner-label">PAN-AFRICAN TARGET HUBS</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<main>
+
+  <!-- ==================== 4. ABOUT CIHP ==================== -->
+  <section id="about" class="map-footprint-section">
+    <div class="container">
+      <!-- About 2-Column Hero Layout (Text + Graphic Card) -->
+      <div class="about-hero-grid">
+
+        <!-- Left Column: About Text Content -->
+        <div class="about-text-content" data-aos="fade-right">
+          <span class="section-eyebrow"><i class="fa-solid fa-map-location-dot"></i> About CIHP - Centre for
+            Integrated Health Programs</span>
+          <h2 class="section-title">An African Institution Built <br>on Accountable Delivery</h2>
+          <p class="section-desc">CIHP is a Nigerian-led public health organization with a strong implementation
+            footprint
+            across 20 states and strategic partnerships spanning East Africa, Southern Africa, America, and Europe. By
+            connecting local expertise with regional and global collaboration, we deliver scalable, evidence-driven
+            solutions that strengthen health systems and improve health outcomes. <br><br>
+            CIHP is building on its Nigerian foundation as it grows into a Pan-African public health powerhouse. Our
+            strategic ambition is to establish physical operational footholds in at least 5 African countries over the
+            next three years.
+          </p>
         </div>
 
-        <div class="stat-banner-card glass-card-amber">
-          <div class="stat-card-header">
-            <div class="stat-card-icon"><i class="fa-solid fa-earth-africa"></i></div>
-            <span class="stat-card-badge">Regional Growth</span>
+        <!-- Right Column: Interactive Reach Map Graphic Card -->
+        <div class="about-graphic-card" data-aos="fade-left">
+          <div class="about-graphic-wrapper">
+            <span class="about-graphic-tag"><i class="fa-solid fa-heart-pulse"></i> 11M+ LIVES REACHED ACROSS
+              NIGERIA</span>
+            <img src="img/nigeria_reach_map.png"
+              alt="CIHP Nigeria Reach Map & Key Hubs (Lagos, Abuja, Kaduna, Kano, Kogi, Rivers)"
+              class="about-reach-img" />
+            <div class="about-graphic-footer">
+              <span class="foot-hub-pill"><i class="fa-solid fa-circle-check"></i> 20 Primary States</span>
+              <span class="foot-hub-pill"><i class="fa-solid fa-hospital-user"></i> 11M+ Beneficiaries</span>
+              <span class="foot-hub-pill"><i class="fa-solid fa-earth-africa"></i> 5 Pan-African Hubs</span>
+            </div>
           </div>
-          <div class="stat-banner-number"><span class="counter-val" data-target="5" data-suffix="">0</span></div>
-          <div class="stat-banner-label">PAN-AFRICAN TARGET HUBS</div>
+        </div>
+
+      </div>
+
+      <div class="footprint-controls">
+        <button class="tab-btn active" onclick="switchFootprintTab('nigeria')">🇳🇬 Nigerian Footprint (20
+          States)</button>
+        <button class="tab-btn" onclick="switchFootprintTab('panafrican')">🌍 Pan-African Horizon (5
+          Footholds)</button>
+      </div>
+
+      <div class="footprint-display-grid">
+
+        <div class="map-interactive-card" id="footprintMapCard">
+          <div>
+            <span class="map-tag" id="mapTagText">OPERATIONAL COVERAGE: 20 NIGERIAN STATES</span>
+            <h3 id="mapCardTitle">Nigerian Operational Core</h3>
+            <p id="mapCardDesc">Providing comprehensive health interventions, HIV/TB care, Maternal & Child Health,
+              and health systems strengthening across 20 state jurisdictions.</p>
+          </div>
+
+          <div class="states-pills-container" id="statesContainer">
+            <span class="state-pill active">Benue State</span>
+            <span class="state-pill">Gombe State</span>
+            <span class="state-pill">Kaduna State</span>
+            <span class="state-pill">Lagos State</span>
+            <span class="state-pill">FCT Abuja</span>
+            <span class="state-pill">Kogi State</span>
+            <span class="state-pill">Kano State</span>
+            <span class="state-pill">Katsina State</span>
+            <span class="state-pill">Rivers State</span>
+            <span class="state-pill">Enugu State</span>
+            <span class="state-pill">Delta State</span>
+            <span class="state-pill">Plateau State</span>
+            <span class="state-pill">+ 8 Additional States</span>
+          </div>
+        </div>
+
+        <div class="footprint-details-card">
+          <h4>Footprint & Accountability Snapshot</h4>
+          <div class="footprint-stat-row">
+            <span class="stat-row-label">Current Primary Base</span>
+            <span class="stat-row-value">20 States in Nigeria</span>
+          </div>
+          <div class="footprint-stat-row">
+            <span class="stat-row-label">3-Year Regional Ambition</span>
+            <span class="stat-row-value">5 African Country Footholds</span>
+          </div>
+          <div class="footprint-stat-row">
+            <span class="stat-row-label">Primary Health Beneficiaries</span>
+            <span class="stat-row-value">11M+ Women, Men & Children</span>
+          </div>
+          <div class="footprint-stat-row">
+            <span class="stat-row-label">Active Technical Projects</span>
+            <span class="stat-row-value">IRIS, TB-LON3, G-ANC, SDI-SI</span>
+          </div>
+          <div class="footprint-stat-row">
+            <span class="stat-row-label">Governance Governance Standard</span>
+            <span class="stat-row-value">Audited & Compliance Validated</span>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
+  <!-- ==================== 5. INSTITUTIONAL IDENTITY & C-I-H-P VALUES MATRIX ==================== -->
+  <section style="background: var(--bg-deep);">
+    <div class="container">
+      <span class="section-eyebrow"><i class="fa-solid fa-compass"></i> Vision, Mission & Guiding Principles</span>
+      <h2 class="section-title">The Foundation of Our Public Health Mandate</h2>
+      <p class="section-desc">
+        CIHP’s work is driven by unwavering values, rigorous evidence, and a deep commitment to transforming lives and
+        building resilient healthcare systems.
+      </p>
 
+      <!-- Option 3: Full-width End-to-End Photographic Backdrop Banner (Vision & Mission) -->
+      <div class="mv-backdrop-banner">
+        <img src="img/HEADER.png" alt="CIHP Public Health Mission Backdrop" class="mv-backdrop-img" />
+        <div class="mv-backdrop-overlay"></div>
 
-  <main>
+        <div class="container" style="position: relative; z-index: 2; width: 100%;">
+          <div class="mv-glass-grid">
+            <!-- Vision Glass Card (Slides in from Left) -->
+            <div class="mv-glass-card vision-glass" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
+              <div>
+                <div class="mv-glass-header">
+                  <span class="mv-glass-tag"><i class="fa-solid fa-compass"></i> 2030 Horizon</span>
+                  <div class="mv-glass-icon"><i class="fa-solid fa-eye"></i></div>
+                </div>
+                <h3>Our Vision</h3>
+                <p>
+                  Audaciously transforming lives through partnership and value creation for healthier communities and
+                  a
+                  thriving Africa.
+                </p>
+              </div>
 
-    <!-- ==================== 4. ABOUT CIHP ==================== -->
-    <section id="about" class="map-footprint-section">
-      <div class="container">
-        <!-- About 2-Column Hero Layout (Text + Graphic Card) -->
-        <div class="about-hero-grid">
+              <div class="mv-glass-pills">
+                <span class="mv-glass-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Audacious
+                  Transformation</span>
+                <span class="mv-glass-pill"><i class="fa-solid fa-handshake-simple"></i> Value Creation</span>
+                <span class="mv-glass-pill"><i class="fa-solid fa-earth-africa"></i> Thriving Africa</span>
+              </div>
+            </div>
 
-          <!-- Left Column: About Text Content -->
-          <div class="about-text-content" data-aos="fade-right">
-            <span class="section-eyebrow"><i class="fa-solid fa-map-location-dot"></i> About CIHP - Centre for
-              Integrated Health Programs</span>
-            <h2 class="section-title">An African Institution Built <br>on Accountable Delivery</h2>
-            <p class="section-desc">CIHP is a Nigerian-led public health organization with a strong implementation
-              footprint
-              across 20 states and strategic partnerships spanning East Africa, Southern Africa, America, and Europe. By
-              connecting local expertise with regional and global collaboration, we deliver scalable, evidence-driven
-              solutions that strengthen health systems and improve health outcomes. <br><br>
-              CIHP is building on its Nigerian foundation as it grows into a Pan-African public health powerhouse. Our
-              strategic ambition is to establish physical operational footholds in at least 5 African countries over the
-              next three years.
-            </p>
-          </div>
+            <!-- Mission Glass Card (Slides in from Right) -->
+            <div class="mv-glass-card mission-glass" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+              <div>
+                <div class="mv-glass-header">
+                  <span class="mv-glass-tag"><i class="fa-solid fa-bullseye"></i> Strategic Mandate</span>
+                  <div class="mv-glass-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                </div>
+                <h3>Our Mission</h3>
+                <p>
+                  To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred
+                  and
+                  sustainable health systems, delivered through strategic partnerships.
+                </p>
+              </div>
 
-          <!-- Right Column: Interactive Reach Map Graphic Card -->
-          <div class="about-graphic-card" data-aos="fade-left">
-            <div class="about-graphic-wrapper">
-              <span class="about-graphic-tag"><i class="fa-solid fa-heart-pulse"></i> 11M+ LIVES REACHED ACROSS
-                NIGERIA</span>
-              <img src="img/nigeria_reach_map.png"
-                alt="CIHP Nigeria Reach Map & Key Hubs (Lagos, Abuja, Kaduna, Kano, Kogi, Rivers)"
-                class="about-reach-img" />
-              <div class="about-graphic-footer">
-                <span class="foot-hub-pill"><i class="fa-solid fa-circle-check"></i> 20 Primary States</span>
-                <span class="foot-hub-pill"><i class="fa-solid fa-hospital-user"></i> 11M+ Beneficiaries</span>
-                <span class="foot-hub-pill"><i class="fa-solid fa-earth-africa"></i> 5 Pan-African Hubs</span>
+              <div class="mv-glass-pills">
+                <span class="mv-glass-pill"><i class="fa-solid fa-heart-pulse"></i> Vulnerable Populations</span>
+                <span class="mv-glass-pill"><i class="fa-solid fa-microscope"></i> Cutting-Edge Solutions</span>
+                <span class="mv-glass-pill"><i class="fa-solid fa-hospital-user"></i> Sustainable Systems</span>
+                <span class="mv-glass-pill"><i class="fa-solid fa-link"></i> Strategic Partnerships</span>
               </div>
             </div>
           </div>
-
-        </div>
-
-        <div class="footprint-controls">
-          <button class="tab-btn active" onclick="switchFootprintTab('nigeria')">🇳🇬 Nigeria Footprint (20
-            States)</button>
-          <button class="tab-btn" onclick="switchFootprintTab('panafrican')">🌍 Pan-African Horizon (5
-            Footholds)</button>
-        </div>
-
-        <div class="footprint-display-grid">
-
-          <div class="map-interactive-card" id="footprintMapCard">
-            <div>
-              <span class="map-tag" id="mapTagText">OPERATIONAL COVERAGE: 20 NIGERIAN STATES</span>
-              <h3 id="mapCardTitle">Nigeria Operational Core</h3>
-              <p id="mapCardDesc">Providing comprehensive health interventions, HIV/TB care, Maternal & Child Health,
-                and health systems strengthening across 20 state jurisdictions.</p>
-            </div>
-
-            <div class="states-pills-container" id="statesContainer">
-              <span class="state-pill active">Benue State</span>
-              <span class="state-pill">Gombe State</span>
-              <span class="state-pill">Kaduna State</span>
-              <span class="state-pill">Lagos State</span>
-              <span class="state-pill">FCT Abuja</span>
-              <span class="state-pill">Kogi State</span>
-              <span class="state-pill">Kano State</span>
-              <span class="state-pill">Katsina State</span>
-              <span class="state-pill">Rivers State</span>
-              <span class="state-pill">Enugu State</span>
-              <span class="state-pill">Delta State</span>
-              <span class="state-pill">Plateau State</span>
-              <span class="state-pill">+ 8 Additional States</span>
-            </div>
-          </div>
-
-          <div class="footprint-details-card">
-            <h4>Footprint & Accountability Snapshot</h4>
-            <div class="footprint-stat-row">
-              <span class="stat-row-label">Current Primary Base</span>
-              <span class="stat-row-value">20 States in Nigeria</span>
-            </div>
-            <div class="footprint-stat-row">
-              <span class="stat-row-label">3-Year Regional Ambition</span>
-              <span class="stat-row-value">5 African Country Footholds</span>
-            </div>
-            <div class="footprint-stat-row">
-              <span class="stat-row-label">Primary Health Beneficiaries</span>
-              <span class="stat-row-value">11M+ Women, Men & Children</span>
-            </div>
-            <div class="footprint-stat-row">
-              <span class="stat-row-label">Active Technical Projects</span>
-              <span class="stat-row-value">IRIS, TB-LON3, G-ANC, SDI-SI</span>
-            </div>
-            <div class="footprint-stat-row">
-              <span class="stat-row-label">Governance Governance Standard</span>
-              <span class="stat-row-value">Audited & Compliance Validated</span>
-            </div>
-          </div>
-
         </div>
       </div>
-    </section>
 
-    <!-- ==================== 5. INSTITUTIONAL IDENTITY & C-I-H-P VALUES MATRIX ==================== -->
-    <section style="background: var(--bg-deep);">
-      <div class="container">
-        <span class="section-eyebrow"><i class="fa-solid fa-compass"></i> Vision, Mission & Guiding Principles</span>
-        <h2 class="section-title">The Foundation of Our Public Health Mandate</h2>
-        <p class="section-desc">
-          CIHP’s work is driven by unwavering values, rigorous evidence, and a deep commitment to transforming lives and
-          building resilient healthcare systems.
-        </p>
-
-        <!-- Option 3: Full-width End-to-End Photographic Backdrop Banner (Vision & Mission) -->
-        <div class="mv-backdrop-banner">
-          <img src="img/HEADER.png" alt="CIHP Public Health Mission Backdrop" class="mv-backdrop-img" />
-          <div class="mv-backdrop-overlay"></div>
-
-          <div class="container" style="position: relative; z-index: 2; width: 100%;">
-            <div class="mv-glass-grid">
-              <!-- Vision Glass Card (Slides in from Left) -->
-              <div class="mv-glass-card vision-glass" data-aos="fade-right" data-aos-duration="1000"
-                data-aos-once="true">
-                <div>
-                  <div class="mv-glass-header">
-                    <span class="mv-glass-tag"><i class="fa-solid fa-compass"></i> 2030 Horizon</span>
-                    <div class="mv-glass-icon"><i class="fa-solid fa-eye"></i></div>
-                  </div>
-                  <h3>Our Vision</h3>
-                  <p>
-                    Audaciously transforming lives through partnership and value creation for healthier communities and
-                    a
-                    thriving Africa.
-                  </p>
-                </div>
-
-                <div class="mv-glass-pills">
-                  <span class="mv-glass-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Audacious
-                    Transformation</span>
-                  <span class="mv-glass-pill"><i class="fa-solid fa-handshake-simple"></i> Value Creation</span>
-                  <span class="mv-glass-pill"><i class="fa-solid fa-earth-africa"></i> Thriving Africa</span>
-                </div>
-              </div>
-
-              <!-- Mission Glass Card (Slides in from Right) -->
-              <div class="mv-glass-card mission-glass" data-aos="fade-left" data-aos-duration="1000"
-                data-aos-once="true">
-                <div>
-                  <div class="mv-glass-header">
-                    <span class="mv-glass-tag"><i class="fa-solid fa-bullseye"></i> Strategic Mandate</span>
-                    <div class="mv-glass-icon"><i class="fa-solid fa-crosshairs"></i></div>
-                  </div>
-                  <h3>Our Mission</h3>
-                  <p>
-                    To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred
-                    and
-                    sustainable health systems, delivered through strategic partnerships.
-                  </p>
-                </div>
-
-                <div class="mv-glass-pills">
-                  <span class="mv-glass-pill"><i class="fa-solid fa-heart-pulse"></i> Vulnerable Populations</span>
-                  <span class="mv-glass-pill"><i class="fa-solid fa-microscope"></i> Cutting-Edge Solutions</span>
-                  <span class="mv-glass-pill"><i class="fa-solid fa-hospital-user"></i> Sustainable Systems</span>
-                  <span class="mv-glass-pill"><i class="fa-solid fa-link"></i> Strategic Partnerships</span>
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- Core Values Section (Adopted Design) -->
+      <div style="margin-top: 70px;">
+        <div class="core-values-header" data-aos="fade-right">
+          <h2 class="core-values-title">Core Values</h2>
+          <div class="core-values-line"></div>
         </div>
 
-        <!-- Core Values Section (Adopted Design) -->
-        <div style="margin-top: 70px;">
-          <div class="core-values-header" data-aos="fade-right">
-            <h2 class="core-values-title">Core Values</h2>
-            <div class="core-values-line"></div>
+        <div class="values-grid">
+          <!-- Card 1: Commitment to Excellence -->
+          <div class="value-card card-teal" data-aos="fade-up" data-aos-delay="100">
+            <div class="value-card-icon"><i class="fa-solid fa-award"></i></div>
+            <h4>Commitment to Excellence</h4>
+            <p>For close to two decades, we have been relentlessly dedicated to delivering world-class, sustainable
+              health and development outcomes across Africa.</p>
           </div>
 
-          <div class="values-grid">
-            <!-- Card 1: Commitment to Excellence -->
-            <div class="value-card card-teal" data-aos="fade-up" data-aos-delay="100">
-              <div class="value-card-icon"><i class="fa-solid fa-award"></i></div>
-              <h4>Commitment to Excellence</h4>
-              <p>For close to two decades, we have been relentlessly dedicated to delivering world-class, sustainable
-                health and development outcomes across Africa.</p>
-            </div>
+          <!-- Card 2: Innovative & Inspiring Leadership -->
+          <div class="value-card card-blue card-offset" data-aos="fade-up" data-aos-delay="200">
+            <div class="value-card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <h4>Innovative & Inspiring Leadership</h4>
+            <p>We pioneer evidence-based, co-created solutions that set global standards for health system
+              strengthening.</p>
+          </div>
 
-            <!-- Card 2: Innovative & Inspiring Leadership -->
-            <div class="value-card card-blue card-offset" data-aos="fade-up" data-aos-delay="200">
-              <div class="value-card-icon"><i class="fa-solid fa-lightbulb"></i></div>
-              <h4>Innovative & Inspiring Leadership</h4>
-              <p>We pioneer evidence-based, co-created solutions that set global standards for health system
-                strengthening.</p>
-            </div>
+          <!-- Card 3: Honesty & Accountability -->
+          <div class="value-card card-teal" data-aos="fade-up" data-aos-delay="300">
+            <div class="value-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4>Honesty & Accountability</h4>
+            <p>We operate with uncompromising transparency and accountability to build absolute trust with our
+              funders, partners, and communities.</p>
+          </div>
 
-            <!-- Card 3: Honesty & Accountability -->
-            <div class="value-card card-teal" data-aos="fade-up" data-aos-delay="300">
-              <div class="value-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-              <h4>Honesty & Accountability</h4>
-              <p>We operate with uncompromising transparency and accountability to build absolute trust with our
-                funders, partners, and communities.</p>
-            </div>
-
-            <!-- Card 4: Purpose-driven Partnerships -->
-            <div class="value-card card-blue card-offset" data-aos="fade-up" data-aos-delay="400">
-              <div class="value-card-icon"><i class="fa-solid fa-handshake"></i></div>
-              <h4>Purpose-driven Partnerships</h4>
-              <p>We forge strategic, crossborder alliances that amplify cutting-edge expertise and scale pan-African
-                impact.</p>
-            </div>
+          <!-- Card 4: Purpose-driven Partnerships -->
+          <div class="value-card card-blue card-offset" data-aos="fade-up" data-aos-delay="400">
+            <div class="value-card-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h4>Purpose-driven Partnerships</h4>
+            <p>We forge strategic, crossborder alliances that amplify cutting-edge expertise and scale pan-African
+              impact.</p>
           </div>
         </div>
-
       </div>
-    </section>
 
-    <!-- ==================== 6. CORE TECHNICAL CAPABILITIES (WHAT WE DO) ==================== -->
-    <section id="what-we-do" class="technical-domains-section">
-      <div class="container">
-        <span class="section-eyebrow"><i class="fa-solid fa-stethoscope"></i> Technical Capabilities</span>
-        <h2 class="section-title">What We Do</h2>
-        <p class="section-desc">
-          CIHP advances equitable, accountable, evidence-based, and people-centered public health interventions across
-          specialized technical domains.
-        </p>
+    </div>
+  </section>
 
-        <!-- Technical Tabs Navigation -->
-        <div class="technical-tabs-nav">
-          <button class="tech-tab-btn active" onclick="switchTechTab('hivtb')">
-            <i class="fa-solid fa-ribbon"></i> HIV/AIDS & TB Programs
-          </button>
-          <button class="tech-tab-btn" onclick="switchTechTab('rmnch')">
-            <i class="fa-solid fa-baby"></i> Maternal & Child Health (RMNCH)
-          </button>
-          <button class="tech-tab-btn" onclick="switchTechTab('hss')">
-            <i class="fa-solid fa-hospital-user"></i> Health Systems Strengthening
-          </button>
-          <button class="tech-tab-btn" onclick="switchTechTab('digital')">
-            <i class="fa-solid fa-chart-line"></i> Surveillance & Digital Health
-          </button>
-        </div>
+  <!-- ==================== 6. CORE TECHNICAL CAPABILITIES (WHAT WE DO) ==================== -->
+  <section id="what-we-do" class="technical-domains-section">
+    <div class="container">
+      <span class="section-eyebrow"><i class="fa-solid fa-stethoscope"></i> Technical Capabilities</span>
+      <h2 class="section-title">What We Do</h2>
+      <p class="section-desc">
+        CIHP advances equitable, accountable, evidence-based, and people-centered public health interventions across
+        specialized technical domains.
+      </p>
 
-        <!-- Technical Content Card Display -->
-        <div class="tech-content-card" id="techContentDisplay">
-          <div class="tech-content-left">
-            <h3 id="techTitle">HIV/AIDS & Tuberculosis Prevention, Care & Treatment</h3>
-            <p id="techDesc">
-              Delivering rapid programmatic design, clinical mentorship, and direct health service delivery for
-              community-based PMTCT, antiretroviral treatment scale-up, and TB case identification.
-            </p>
-            <ul class="tech-feature-list" id="techFeatures">
-              <li><i class="fa-solid fa-circle-check"></i> Integrated Regional HIV/AIDS Intervention & Care (IRIS
-                Project)</li>
-              <li><i class="fa-solid fa-circle-check"></i> Tuberculosis Local Organizations Network (TB-LON3)</li>
-              <li><i class="fa-solid fa-circle-check"></i> Community PMTCT & Adolescent Wellness Hubs (AYP Initiative)
-              </li>
-              <li><i class="fa-solid fa-circle-check"></i> Intensive Clinical Mentorship & Health Workforce Orientation
-              </li>
-            </ul>
-            <a href="#gateway" class="btn-primary">Request Technical Brief <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-
-          <div class="tech-content-right">
-            <img src="img/I4HIV pic.jpeg" id="techImage" alt="CIHP HIV & TB Public Health Intervention" />
-          </div>
-        </div>
-
+      <!-- Technical Tabs Navigation -->
+      <div class="technical-tabs-nav">
+        <button class="tech-tab-btn active" onclick="switchTechTab('hivtb')">
+          <i class="fa-solid fa-ribbon"></i> HIV/AIDS & TB Programs
+        </button>
+        <button class="tech-tab-btn" onclick="switchTechTab('rmnch')">
+          <i class="fa-solid fa-baby"></i> Maternal & Child Health (RMNCH)
+        </button>
+        <button class="tech-tab-btn" onclick="switchTechTab('hss')">
+          <i class="fa-solid fa-hospital-user"></i> Health Systems Strengthening
+        </button>
+        <button class="tech-tab-btn" onclick="switchTechTab('digital')">
+          <i class="fa-solid fa-chart-line"></i> Surveillance & Digital Health
+        </button>
       </div>
-    </section>
 
-    <!-- ==================== 7. EVIDENCE & IMPACT REPOSITORY (FLAGSHIP PROJECTS) ==================== -->
-    <section id="impact" class="impact-projects-section">
-      <div class="container">
-
-        <div class="impact-split-layout">
-
-          <!-- Left Column: Sticky Title & Filter Sidebar (Matching Reference Design) -->
-          <div class="impact-sidebar-sticky" data-aos="fade-right">
-            <span class="section-eyebrow"><i class="fa-solid fa-chart-pie"></i> Flagship Portfolio & Outcomes</span>
-            <h2 class="editorial-main-title">EVIDENCE & <br>IMPACT IN <br>ACTION</h2>
-            <p class="editorial-desc">
-              CIHP presents its public health impact with transparent evidence sources, rigorous context, and
-              accountable local ownership across active and completed flagship programs.
-            </p>
-
-            <!-- Filter Buttons (Distinct Styled Real Buttons) -->
-            <div class="editorial-filter-bar">
-              <span class="filter-label">Filter Portfolio:</span>
-              <div class="filter-pills-group">
-                <button class="filter-btn btn-filter-all active" onclick="filterProjects('all')">
-                  <i class="fa-solid fa-layer-group"></i> All Programs
-                </button>
-                <button class="filter-btn btn-filter-ongoing" onclick="filterProjects('ongoing')">
-                  <i class="fa-solid fa-spinner fa-spin"></i> Active / Ongoing
-                </button>
-                <button class="filter-btn btn-filter-completed" onclick="filterProjects('completed')">
-                  <i class="fa-solid fa-circle-check"></i> Completed
-                </button>
-              </div>
-            </div>
-
-            <a href="contact.html" class="editorial-learn-btn">Request Full Portfolio Brief <i
-                class="fa-solid fa-arrow-right"></i></a>
-          </div>
-
-          <!-- Right Column: Numbered Editorial Stacked Rows (01 - 09) -->
-          <div class="impact-rows-container">
-
-            <!-- Row 01: REACHOUT -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
-              onclick="window.location.href='contact.html'">
-              <span class="row-num">01</span>
-              <div class="row-text-content">
-                <div class="row-header-meta">
-                  <h3>REACHOUT Project (EU / EDCTP3)</h3>
-                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2025 -
-                    2029)</span>
-                </div>
-                <p class="row-summary">Flagship European Union-funded multi-country initiative tackling zero-dose
-                  immunization gaps across Nigeria, Kenya, and Rwanda.</p>
-                <div class="row-meta-tags">
-                  <span class="meta-tag"><i class="fa-solid fa-building-columns"></i> EU EDCTP3 Consortium</span>
-                  <span class="meta-tag"><i class="fa-solid fa-globe"></i> Nigeria, Kenya & Rwanda</span>
-                </div>
-              </div>
-              <div class="row-thumb-card">
-                <img src="img/Reachout.png" alt="REACHOUT Project" class="row-thumb-img" loading="lazy" />
-              </div>
-              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
-            </div>
-
-            <!-- Row 02: AEARI -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
-              onclick="window.location.href='contact.html'">
-              <span class="row-num">02</span>
-              <div class="row-text-content">
-                <div class="row-header-meta">
-                  <h3>AEARI Project (Lagos RMNCH)</h3>
-                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2023 -
-                    2026)</span>
-                </div>
-                <p class="row-summary">Accelerating Expanded Adoption of RMNCH Innovations (PPH E-MOTIVE Bundle, GANC &
-                  BEmONC) across 20 Lagos State LGAs.</p>
-                <div class="row-meta-tags">
-                  <span class="meta-tag"><i class="fa-solid fa-hand-holding-heart"></i> Gates Foundation & Lagos
-                    MoH</span>
-                  <span class="meta-tag"><i class="fa-solid fa-chart-line"></i> 67 Primary Healthcare Centers</span>
-                </div>
-              </div>
-              <div class="row-thumb-card">
-                <img src="img/AEARI.jpg" alt="AEARI Project" class="row-thumb-img" loading="lazy" />
-              </div>
-              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
-            </div>
-
-            <!-- Row 03: IMPAACT4HIV -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
-              onclick="window.location.href='contact.html'">
-              <span class="row-num">03</span>
-              <div class="row-text-content">
-                <div class="row-header-meta">
-                  <h3>IMPAACT4HIV (Pediatric AHD)</h3>
-                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2024 -
-                    2027)</span>
-                </div>
-                <p class="row-summary">Deploying the WHO STOP AIDS Toolkit to diagnose and treat Advanced HIV Disease
-                  and TB in children & adolescents across 21 facilities.</p>
-                <div class="row-meta-tags">
-                  <span class="meta-tag"><i class="fa-solid fa-shield-virus"></i> Unitaid & FMoH&SW</span>
-                  <span class="meta-tag"><i class="fa-solid fa-ribbon"></i> 101 CLHIV Identified (100% Tx)</span>
-                </div>
-              </div>
-              <div class="row-thumb-card">
-                <img src="img/I4HIV pic.jpeg" alt="IMPAACT4HIV Project" class="row-thumb-img" loading="lazy" />
-              </div>
-              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
-            </div>
-
-            <!-- Row 04: Accelerating MNCH Innovations -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
-              onclick="window.location.href='contact.html'">
-              <span class="row-num">04</span>
-              <div class="row-text-content">
-                <div class="row-header-meta">
-                  <h3>Accelerating MNCH Innovations (Newborn Unit)</h3>
-                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2024 -
-                    2027)</span>
-                </div>
-                <p class="row-summary">Strengthening national leadership and system readiness for small and sick
-                  newborns (SSNs) with the Federal Ministry of Health.</p>
-                <div class="row-meta-tags">
-                  <span class="meta-tag"><i class="fa-solid fa-baby"></i> BMGF 4th Grant Award</span>
-                  <span class="meta-tag"><i class="fa-solid fa-hospital-user"></i> FMoH&SW Newborn Unit</span>
-                </div>
-              </div>
-              <div class="row-thumb-card">
-                <img src="img/Newborn.png" alt="Accelerating MNCH Innovations" class="row-thumb-img" loading="lazy" />
-              </div>
-              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
-            </div>
-
-            <!-- Row 05: IRIS -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
-              onclick="window.location.href='contact.html'">
-              <span class="row-num">05</span>
-              <div class="row-text-content">
-                <div class="row-header-meta">
-                  <h3>IRIS Project</h3>
-                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2022 -
-                    2027)</span>
-                </div>
-                <p class="row-summary">Integrated Regional HIV/AIDS Intervention & Care Support providing comprehensive
-                  clinical care across supported states.</p>
-                <div class="row-meta-tags">
-                  <span class="meta-tag"><i class="fa-solid fa-flag-usa"></i> PEPFAR / CDC</span>
-                  <span class="meta-tag"><i class="fa-solid fa-notes-medical"></i> Clinical Care & HSS Network</span>
-                </div>
-              </div>
-              <div class="row-thumb-card">
-                <img src="img/iris.JPG" alt="IRIS Project" class="row-thumb-img" loading="lazy" />
-              </div>
-              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
-            </div>
-
-            <!-- Row 06: TB-LON3 -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
-              onclick="window.location.href='contact.html'">
-              <span class="row-num">06</span>
-              <div class="row-text-content">
-                <div class="row-header-meta">
-                  <h3>TB-LON3 Project</h3>
-                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2020 -
-                    2025)</span>
-                </div>
-                <p class="row-summary">Tuberculosis Local Organizations Network scaling case detection, AI mobile
-                  screening, and community diagnostics.</p>
-                <div class="row-meta-tags">
-                  <span class="meta-tag"><i class="fa-solid fa-network-wired"></i> Community TB Network</span>
-                  <span class="meta-tag"><i class="fa-solid fa-microchip"></i> AI Mobile Screening</span>
-                </div>
-              </div>
-              <div class="row-thumb-card">
-                <img src="img/TBLON3.jpg" alt="TB-LON3 Project" class="row-thumb-img" loading="lazy" />
-              </div>
-              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
-            </div>
-
-            <!-- Row 07: G-ANC -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
-              onclick="window.location.href='contact.html'">
-              <span class="row-num">07</span>
-              <div class="row-text-content">
-                <div class="row-header-meta">
-                  <h3>G-ANC Project</h3>
-                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2022 -
-                    2025)</span>
-                </div>
-                <p class="row-summary">Group Antenatal Care model improving maternal and newborn healthcare outcomes
-                  through peer-learning groups.</p>
-                <div class="row-meta-tags">
-                  <span class="meta-tag"><i class="fa-solid fa-people-roof"></i> Maternal & Newborn Care</span>
-                  <span class="meta-tag"><i class="fa-solid fa-users-line"></i> Peer Cohorts Model</span>
-                </div>
-              </div>
-              <div class="row-thumb-card">
-                <img src="img/GANC.jpg" alt="G-ANC Project" class="row-thumb-img" loading="lazy" />
-              </div>
-              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
-            </div>
-
-            <!-- Row 08: SDI-SI -->
-            <div class="editorial-project-row" data-category="completed" data-aos="fade-up"
-              onclick="window.location.href='contact.html'">
-              <span class="row-num">08</span>
-              <div class="row-text-content">
-                <div class="row-header-meta">
-                  <h3>SDI-SI Project</h3>
-                  <span class="row-badge badge-completed"><i class="fa-solid fa-circle-check"></i> Completed (2022 -
-                    2023)</span>
-                </div>
-                <p class="row-summary">Strategic Development Initiative focusing on strategic information systems, EMRs,
-                  data analytics & surveillance.</p>
-                <div class="row-meta-tags">
-                  <span class="meta-tag"><i class="fa-solid fa-database"></i> Health Informatics & EMR</span>
-                  <span class="meta-tag"><i class="fa-solid fa-file-check"></i> Closeout Report Available</span>
-                </div>
-              </div>
-              <div class="row-thumb-card">
-                <img src="img/Final SDI Report (1).png" alt="SDI-SI Project" class="row-thumb-img" loading="lazy" />
-              </div>
-              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
-            </div>
-
-            <!-- Row 09: AYP Hub -->
-            <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
-              onclick="window.location.href='contact.html'">
-              <span class="row-num">09</span>
-              <div class="row-text-content">
-                <div class="row-header-meta">
-                  <h3>AYP Hub & Adolescent Wellness</h3>
-                  <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active</span>
-                </div>
-                <p class="row-summary">Empowering adolescent girls & young people with health education, HIV prevention,
-                  and economic self-reliance skills.</p>
-                <div class="row-meta-tags">
-                  <span class="meta-tag"><i class="fa-solid fa-seedling"></i> Youth Empowerment</span>
-                  <span class="meta-tag"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
-                </div>
-              </div>
-              <div class="row-thumb-card">
-                <img src="img/LEOPOD 1.png" alt="AYP Hub" class="row-thumb-img" loading="lazy" />
-              </div>
-              <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-      <!-- ==================== 8. OUR INNOVATIONS & KNOWLEDGE PRODUCTS (3D FOCUS EXPANSION CAROUSEL) ==================== -->
-      <section id="innovations" class="innovations-section">
-        <div class="container text-center">
-          <span class="section-eyebrow" data-aos="fade-down"><i class="fa-solid fa-lightbulb"></i> Knowledge &
-            Platforms</span>
-          <h2 class="section-title" data-aos="fade-up">Our Innovations</h2>
-          <p class="section-desc" data-aos="fade-up" data-aos-delay="100">
-            Pioneering transformative public health platforms, youth empowerment models, strategic research systems, and
-            executive policy dialogues across Nigeria and Africa.
+      <!-- Technical Content Card Display -->
+      <div class="tech-content-card" id="techContentDisplay">
+        <div class="tech-content-left">
+          <h3 id="techTitle">HIV/AIDS & Tuberculosis Prevention, Care & Treatment</h3>
+          <p id="techDesc">
+            Delivering rapid programmatic design, clinical mentorship, and direct health service delivery for
+            community-based PMTCT, antiretroviral treatment scale-up, and TB case identification.
           </p>
+          <ul class="tech-feature-list" id="techFeatures">
+            <li><i class="fa-solid fa-circle-check"></i> Integrated Regional HIV/AIDS Intervention & Care (IRIS
+              Project)</li>
+            <li><i class="fa-solid fa-circle-check"></i> Tuberculosis Local Organizations Network (TB-LON3)</li>
+            <li><i class="fa-solid fa-circle-check"></i> Community PMTCT & Adolescent Wellness Hubs (AYP Initiative)
+            </li>
+            <li><i class="fa-solid fa-circle-check"></i> Intensive Clinical Mentorship & Health Workforce Orientation
+            </li>
+          </ul>
+          <a href="#gateway" class="btn-primary">Request Technical Brief <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <!-- 3D Focus Expansion Carousel Stage -->
-        <div class="innovations-carousel-stage">
+        <div class="tech-content-right">
+          <img src="img/I4HIV pic.jpeg" id="techImage" alt="CIHP HIV & TB Public Health Intervention" />
+        </div>
+      </div>
 
-          <!-- Floating Navigation Arrows -->
-          <button class="innov-nav-arrow prev" onclick="moveInnovationsCarousel(-1)" aria-label="Previous Innovation">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button class="innov-nav-arrow next" onclick="moveInnovationsCarousel(1)" aria-label="Next Innovation">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+    </div>
+  </section>
 
-          <div class="innovations-viewport">
-            <div class="innovations-track" id="innovationsTrack">
+  <!-- ==================== 7. EVIDENCE & IMPACT REPOSITORY (FLAGSHIP PROJECTS) ==================== -->
+  <section id="impact" class="impact-projects-section">
+    <div class="container">
 
-              <!-- Card 1: AYP Hubs -->
-              <div class="innovation-card focus-active" onclick="setInnovationsIndex(0)">
-                <div class="innov-glow-bar glow-ayp"></div>
+      <div class="impact-split-layout">
 
-                <!-- LEFT SIDE: Details & Content -->
-                <div class="innovation-card-body">
-                  <div>
-                    <div class="innovation-header">
-                      <h3>AYP Hubs</h3>
-                      <p class="innovation-subtitle sub-ayp">Adolescent & Young People Wellness Hubs</p>
-                    </div>
-                    <p class="innovation-desc">
-                      Safe-space community wellness hubs empowering adolescent girls & young people with health
-                      education, HIV prevention, economic self-reliance, and psychosocial support.
-                    </p>
-                    <div class="innovation-metric-box">
-                      <i class="fa-solid fa-bolt" style="color: #fb7185;"></i> 10,000+ Young Lives Empowered
-                    </div>
-                    <div class="innovation-tags">
-                      <span class="innov-tag"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
-                      <span class="innov-tag"><i class="fa-solid fa-user-graduate"></i> Life Skills Hub</span>
-                      <span class="innov-tag"><span style="color:#fb7185">•</span> Self-Reliance</span>
-                    </div>
+        <!-- Left Column: Sticky Title & Filter Sidebar (Matching Reference Design) -->
+        <div class="impact-sidebar-sticky" data-aos="fade-right">
+          <span class="section-eyebrow"><i class="fa-solid fa-chart-pie"></i> Flagship Portfolio & Outcomes</span>
+          <h2 class="editorial-main-title">EVIDENCE & <br>IMPACT IN <br>ACTION</h2>
+          <p class="editorial-desc">
+            CIHP presents its public health impact with transparent evidence sources, rigorous context, and
+            accountable local ownership across active and completed flagship programs.
+          </p>
+
+          <!-- Filter Buttons (Distinct Styled Real Buttons) -->
+          <div class="editorial-filter-bar">
+            <span class="filter-label">Filter Portfolio:</span>
+            <div class="filter-pills-group">
+              <button class="filter-btn btn-filter-all active" onclick="filterProjects('all')">
+                <i class="fa-solid fa-layer-group"></i> All Programs
+              </button>
+              <button class="filter-btn btn-filter-ongoing" onclick="filterProjects('ongoing')">
+                <i class="fa-solid fa-spinner fa-spin"></i> Active / Ongoing
+              </button>
+              <button class="filter-btn btn-filter-completed" onclick="filterProjects('completed')">
+                <i class="fa-solid fa-circle-check"></i> Completed
+              </button>
+            </div>
+          </div>
+
+          <a href="contact.html" class="editorial-learn-btn">Request Full Portfolio Brief <i
+              class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Right Column: Numbered Editorial Stacked Rows (01 - 09) -->
+        <div class="impact-rows-container">
+
+          <!-- Row 01: REACHOUT -->
+          <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
+            onclick="window.location.href='contact.html'">
+            <span class="row-num">01</span>
+            <div class="row-text-content">
+              <div class="row-header-meta">
+                <h3>REACHOUT Project (EU / EDCTP3)</h3>
+                <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2025 -
+                  2029)</span>
+              </div>
+              <p class="row-summary">Flagship European Union-funded multi-country initiative tackling zero-dose
+                immunization gaps across Nigeria, Kenya, and Rwanda.</p>
+              <div class="row-meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-building-columns"></i> EU EDCTP3 Consortium</span>
+                <span class="meta-tag"><i class="fa-solid fa-globe"></i> Nigeria, Kenya & Rwanda</span>
+              </div>
+            </div>
+            <div class="row-thumb-card">
+              <img src="img/Reachout.png" alt="REACHOUT Project" class="row-thumb-img" loading="lazy" />
+            </div>
+            <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
+          </div>
+
+          <!-- Row 02: AEARI -->
+          <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
+            onclick="window.location.href='contact.html'">
+            <span class="row-num">02</span>
+            <div class="row-text-content">
+              <div class="row-header-meta">
+                <h3>AEARI Project (Lagos RMNCH)</h3>
+                <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2023 -
+                  2026)</span>
+              </div>
+              <p class="row-summary">Accelerating Expanded Adoption of RMNCH Innovations (PPH E-MOTIVE Bundle, GANC &
+                BEmONC) across 20 Lagos State LGAs.</p>
+              <div class="row-meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-hand-holding-heart"></i> Gates Foundation & Lagos
+                  MoH</span>
+                <span class="meta-tag"><i class="fa-solid fa-chart-line"></i> 67 Primary Healthcare Centers</span>
+              </div>
+            </div>
+            <div class="row-thumb-card">
+              <img src="img/AEARI.jpg" alt="AEARI Project" class="row-thumb-img" loading="lazy" />
+            </div>
+            <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
+          </div>
+
+          <!-- Row 03: IMPAACT4HIV -->
+          <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
+            onclick="window.location.href='contact.html'">
+            <span class="row-num">03</span>
+            <div class="row-text-content">
+              <div class="row-header-meta">
+                <h3>IMPAACT4HIV (Pediatric AHD)</h3>
+                <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2024 -
+                  2027)</span>
+              </div>
+              <p class="row-summary">Deploying the WHO STOP AIDS Toolkit to diagnose and treat Advanced HIV Disease
+                and TB in children & adolescents across 21 facilities.</p>
+              <div class="row-meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-shield-virus"></i> Unitaid & FMoH&SW</span>
+                <span class="meta-tag"><i class="fa-solid fa-ribbon"></i> 101 CLHIV Identified (100% Tx)</span>
+              </div>
+            </div>
+            <div class="row-thumb-card">
+              <img src="img/I4HIV pic.jpeg" alt="IMPAACT4HIV Project" class="row-thumb-img" loading="lazy" />
+            </div>
+            <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
+          </div>
+
+          <!-- Row 04: Accelerating MNCH Innovations -->
+          <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
+            onclick="window.location.href='contact.html'">
+            <span class="row-num">04</span>
+            <div class="row-text-content">
+              <div class="row-header-meta">
+                <h3>Accelerating MNCH Innovations (Newborn Unit)</h3>
+                <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2024 -
+                  2027)</span>
+              </div>
+              <p class="row-summary">Strengthening national leadership and system readiness for small and sick
+                newborns (SSNs) with the Federal Ministry of Health.</p>
+              <div class="row-meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-baby"></i> BMGF 4th Grant Award</span>
+                <span class="meta-tag"><i class="fa-solid fa-hospital-user"></i> FMoH&SW Newborn Unit</span>
+              </div>
+            </div>
+            <div class="row-thumb-card">
+              <img src="img/Newborn.png" alt="Accelerating MNCH Innovations" class="row-thumb-img" loading="lazy" />
+            </div>
+            <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
+          </div>
+
+          <!-- Row 05: IRIS -->
+          <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
+            onclick="window.location.href='contact.html'">
+            <span class="row-num">05</span>
+            <div class="row-text-content">
+              <div class="row-header-meta">
+                <h3>IRIS Project</h3>
+                <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2022 -
+                  2027)</span>
+              </div>
+              <p class="row-summary">Integrated Regional HIV/AIDS Intervention & Care Support providing comprehensive
+                clinical care across supported states.</p>
+              <div class="row-meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-flag-usa"></i> PEPFAR / CDC</span>
+                <span class="meta-tag"><i class="fa-solid fa-notes-medical"></i> Clinical Care & HSS Network</span>
+              </div>
+            </div>
+            <div class="row-thumb-card">
+              <img src="img/iris.JPG" alt="IRIS Project" class="row-thumb-img" loading="lazy" />
+            </div>
+            <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
+          </div>
+
+          <!-- Row 06: TB-LON3 -->
+          <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
+            onclick="window.location.href='contact.html'">
+            <span class="row-num">06</span>
+            <div class="row-text-content">
+              <div class="row-header-meta">
+                <h3>TB-LON3 Project</h3>
+                <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2020 -
+                  2025)</span>
+              </div>
+              <p class="row-summary">Tuberculosis Local Organizations Network scaling case detection, AI mobile
+                screening, and community diagnostics.</p>
+              <div class="row-meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-network-wired"></i> Community TB Network</span>
+                <span class="meta-tag"><i class="fa-solid fa-microchip"></i> AI Mobile Screening</span>
+              </div>
+            </div>
+            <div class="row-thumb-card">
+              <img src="img/TBLON3.jpg" alt="TB-LON3 Project" class="row-thumb-img" loading="lazy" />
+            </div>
+            <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
+          </div>
+
+          <!-- Row 07: G-ANC -->
+          <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
+            onclick="window.location.href='contact.html'">
+            <span class="row-num">07</span>
+            <div class="row-text-content">
+              <div class="row-header-meta">
+                <h3>G-ANC Project</h3>
+                <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active (2022 -
+                  2025)</span>
+              </div>
+              <p class="row-summary">Group Antenatal Care model improving maternal and newborn healthcare outcomes
+                through peer-learning groups.</p>
+              <div class="row-meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-people-roof"></i> Maternal & Newborn Care</span>
+                <span class="meta-tag"><i class="fa-solid fa-users-line"></i> Peer Cohorts Model</span>
+              </div>
+            </div>
+            <div class="row-thumb-card">
+              <img src="img/GANC.jpg" alt="G-ANC Project" class="row-thumb-img" loading="lazy" />
+            </div>
+            <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
+          </div>
+
+          <!-- Row 08: SDI-SI -->
+          <div class="editorial-project-row" data-category="completed" data-aos="fade-up"
+            onclick="window.location.href='contact.html'">
+            <span class="row-num">08</span>
+            <div class="row-text-content">
+              <div class="row-header-meta">
+                <h3>SDI-SI Project</h3>
+                <span class="row-badge badge-completed"><i class="fa-solid fa-circle-check"></i> Completed (2022 -
+                  2023)</span>
+              </div>
+              <p class="row-summary">Strategic Development Initiative focusing on strategic information systems, EMRs,
+                data analytics & surveillance.</p>
+              <div class="row-meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-database"></i> Health Informatics & EMR</span>
+                <span class="meta-tag"><i class="fa-solid fa-file-check"></i> Closeout Report Available</span>
+              </div>
+            </div>
+            <div class="row-thumb-card">
+              <img src="img/Final SDI Report (1).png" alt="SDI-SI Project" class="row-thumb-img" loading="lazy" />
+            </div>
+            <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
+          </div>
+
+          <!-- Row 09: AYP Hub -->
+          <div class="editorial-project-row" data-category="ongoing" data-aos="fade-up"
+            onclick="window.location.href='contact.html'">
+            <span class="row-num">09</span>
+            <div class="row-text-content">
+              <div class="row-header-meta">
+                <h3>AYP Hub & Adolescent Wellness</h3>
+                <span class="row-badge badge-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Active</span>
+              </div>
+              <p class="row-summary">Empowering adolescent girls & young people with health education, HIV prevention,
+                and economic self-reliance skills.</p>
+              <div class="row-meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-seedling"></i> Youth Empowerment</span>
+                <span class="meta-tag"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
+              </div>
+            </div>
+            <div class="row-thumb-card">
+              <img src="img/LEOPOD 1.png" alt="AYP Hub" class="row-thumb-img" loading="lazy" />
+            </div>
+            <div class="row-action-icon"><i class="fa-solid fa-arrow-right-long"></i></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <!-- ==================== 8. OUR INNOVATIONS & KNOWLEDGE PRODUCTS (3D FOCUS EXPANSION CAROUSEL) ==================== -->
+    <section id="innovations" class="innovations-section">
+      <div class="container text-center">
+        <span class="section-eyebrow" data-aos="fade-down"><i class="fa-solid fa-lightbulb"></i> Knowledge &
+          Platforms</span>
+        <h2 class="section-title" data-aos="fade-up">Our Innovations</h2>
+        <p class="section-desc" data-aos="fade-up" data-aos-delay="100">
+          Pioneering transformative public health platforms, youth empowerment models, strategic research systems, and
+          executive policy dialogues across Nigeria and Africa.
+        </p>
+      </div>
+
+      <!-- 3D Focus Expansion Carousel Stage -->
+      <div class="innovations-carousel-stage">
+
+        <!-- Floating Navigation Arrows -->
+        <button class="innov-nav-arrow prev" onclick="moveInnovationsCarousel(-1)" aria-label="Previous Innovation">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="innov-nav-arrow next" onclick="moveInnovationsCarousel(1)" aria-label="Next Innovation">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="innovations-viewport">
+          <div class="innovations-track" id="innovationsTrack">
+
+            <!-- Card 1: AYP Hubs -->
+            <div class="innovation-card focus-active" onclick="setInnovationsIndex(0)">
+              <div class="innov-glow-bar glow-ayp"></div>
+
+              <!-- LEFT SIDE: Details & Content -->
+              <div class="innovation-card-body">
+                <div>
+                  <div class="innovation-header">
+                    <h3>AYP Hubs</h3>
+                    <p class="innovation-subtitle sub-ayp">Adolescent & Young People Wellness Hubs</p>
                   </div>
-                  <a href="contact.html" class="innovation-card-btn btn-ayp">
-                    <span>Explore AYP Hubs</span> <i class="fa-solid fa-arrow-right"></i>
-                  </a>
+                  <p class="innovation-desc">
+                    Safe-space community wellness hubs empowering adolescent girls & young people with health
+                    education, HIV prevention, economic self-reliance, and psychosocial support.
+                  </p>
+                  <div class="innovation-metric-box">
+                    <i class="fa-solid fa-bolt" style="color: #fb7185;"></i> 10,000+ Young Lives Empowered
+                  </div>
+                  <div class="innovation-tags">
+                    <span class="innov-tag"><i class="fa-solid fa-ribbon"></i> Adolescent PMTCT</span>
+                    <span class="innov-tag"><i class="fa-solid fa-user-graduate"></i> Life Skills Hub</span>
+                    <span class="innov-tag"><span style="color:#fb7185">•</span> Self-Reliance</span>
+                  </div>
                 </div>
+                <a href="contact.html" class="innovation-card-btn btn-ayp">
+                  <span>Explore AYP Hubs</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
 
-                <!-- RIGHT SIDE: Thumbnail Image -->
-                <div class="innovation-card-banner">
-                  <img src="img/hardware-repair.jpg" alt="AYP Hubs - Adolescent & Young People" loading="lazy" />
-                  <div class="innovation-card-overlay"></div>
-                  <span class="innovation-badge-floating card-badge-ayp">
-                    <i class="fa-solid fa-seedling"></i> Youth Empowerment
-                  </span>
+              <!-- RIGHT SIDE: Thumbnail Image -->
+              <div class="innovation-card-banner">
+                <img src="img/hardware-repair.jpg" alt="AYP Hubs - Adolescent & Young People" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-ayp">
+                  <i class="fa-solid fa-seedling"></i> Youth Empowerment
+                </span>
+              </div>
+            </div>
+
+            <!-- Card 2: SRT Platform -->
+            <div class="innovation-card" onclick="setInnovationsIndex(1)">
+              <div class="innov-glow-bar glow-srt"></div>
+
+              <!-- LEFT SIDE: Details & Content -->
+              <div class="innovation-card-body">
+                <div>
+                  <div class="innovation-header">
+                    <h3>SRT Platform</h3>
+                    <p class="innovation-subtitle sub-srt">Strategic Research & Translation System</p>
+                  </div>
+                  <p class="innovation-desc">
+                    CIHP's cutting-edge strategic surveillance & digital health engine delivering real-time
+                    epidemiological dashboards, EMR facility integration, and evidence translation.
+                  </p>
+                  <div class="innovation-metric-box">
+                    <i class="fa-solid fa-network-wired" style="color: #38bdf8;"></i> 20 States Real-time EMR Sync
+                  </div>
+                  <div class="innovation-tags">
+                    <span class="innov-tag"><i class="fa-solid fa-database"></i> EMR Facility Integration</span>
+                    <span class="innov-tag"><i class="fa-solid fa-chart-pie"></i> Real-time Dashboards</span>
+                    <span class="innov-tag"><span style="color:#38bdf8">•</span> Surveillance</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="innovation-card-btn btn-srt">
+                  <span>Explore SRT Platform</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+
+              <!-- RIGHT SIDE: Thumbnail Image -->
+              <div class="innovation-card-banner">
+                <img src="img/NAT_1415.jpg" alt="SRT - Strategic Research & Translation Platform" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-srt">
+                  <i class="fa-solid fa-microchip"></i> Digital Intelligence
+                </span>
+              </div>
+            </div>
+
+            <!-- Card 3: Publications -->
+            <div class="innovation-card" onclick="setInnovationsIndex(2)">
+              <div class="innov-glow-bar glow-pub"></div>
+
+              <!-- LEFT SIDE: Details & Content -->
+              <div class="innovation-card-body">
+                <div>
+                  <div class="innovation-header">
+                    <h3>Publications</h3>
+                    <p class="innovation-subtitle sub-pub">Peer-Reviewed Papers & Technical Briefs</p>
+                  </div>
+                  <p class="innovation-desc">
+                    Scientific journal publications, clinical implementation guidelines, and policy briefs produced by
+                    CIHP researchers in global health journals and repositories.
+                  </p>
+                  <div class="innovation-metric-box">
+                    <i class="fa-solid fa-award" style="color: #34d399;"></i> 50+ Peer-Reviewed Journals
+                  </div>
+                  <div class="innovation-tags">
+                    <span class="innov-tag"><i class="fa-solid fa-newspaper"></i> Peer-Reviewed Articles</span>
+                    <span class="innov-tag"><i class="fa-solid fa-file-pdf"></i> Clinical Guidelines</span>
+                    <span class="innov-tag"><span style="color:#34d399">•</span> Policy Briefs</span>
+                  </div>
+                </div>
+                <button onclick="openPublicationsModal(event)" class="innovation-card-btn btn-pub"
+                  style="border: none; cursor: pointer;">
+                  <span>Access Research Repository</span> <i class="fa-solid fa-book-open"></i>
+                </button>
+              </div>
+
+              <!-- RIGHT SIDE: Thumbnail Image -->
+              <div class="innovation-card-banner">
+                <img src="img/library.png" alt="Publications & Research Repository" loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-pub">
+                  <i class="fa-solid fa-book-journal-whills"></i> Research & Evidence
+                </span>
+              </div>
+            </div>
+
+            <!-- Card 4: Candid Conversation -->
+            <div class="innovation-card" onclick="setInnovationsIndex(3)">
+              <div class="innov-glow-bar glow-candid"></div>
+
+              <!-- LEFT SIDE: Details & Content -->
+              <div class="innovation-card-body">
+                <div>
+                  <div class="innovation-header">
+                    <h3>Candid Conversation</h3>
+                    <p class="innovation-subtitle sub-candid">Public Health Leadership Forum</p>
+                  </div>
+                  <p class="innovation-desc">
+                    High-impact leadership dialogue platform bringing together public health experts, government
+                    stakeholders, advocates, and community voices for transparent solutions.
+                  </p>
+                  <div class="innovation-metric-box">
+                    <i class="fa-solid fa-podcast" style="color: #c084fc;"></i> Pan-African Health Policy Forum
+                  </div>
+                  <div class="innovation-tags">
+                    <span class="innov-tag"><i class="fa-solid fa-headphones"></i> Leadership Podcast</span>
+                    <span class="innov-tag"><i class="fa-solid fa-users"></i> Expert Panels</span>
+                    <span class="innov-tag"><span style="color:#c084fc">•</span> Townhalls</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="innovation-card-btn btn-candid">
+                  <span>Join Conversation</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+
+              <!-- RIGHT SIDE: Thumbnail Image -->
+              <div class="innovation-card-banner">
+                <img src="img/Candid Conversation.jpg" alt="Candid Conversation - Public Health Dialogue"
+                  loading="lazy" />
+                <div class="innovation-card-overlay"></div>
+                <span class="innovation-badge-floating card-badge-candid">
+                  <i class="fa-solid fa-comments"></i> Executive Dialogue
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pagination Indicator Dots (Matching Uploaded Image Reference) -->
+        <div class="innov-dots-bar" id="innovationsDots">
+          <span class="innov-dot active" onclick="setInnovationsIndex(0)"></span>
+          <span class="innov-dot" onclick="setInnovationsIndex(1)"></span>
+          <span class="innov-dot" onclick="setInnovationsIndex(2)"></span>
+          <span class="innov-dot" onclick="setInnovationsIndex(3)"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 9. NEWS, THOUGHT LEADERSHIP & PRESS CENTER ==================== -->
+    <section id="news" class="news-section">
+      <div class="container">
+        <span class="section-eyebrow"><i class="fa-solid fa-newspaper"></i> Media & Insights</span>
+        <h2 class="section-title">News, Updates & Thought Leadership</h2>
+        <p class="section-desc">
+          Stay informed on CIHP’s recent program milestones, research briefings, and institutional announcements.
+        </p>
+
+        <div class="news-grid">
+          <!-- Featured Story -->
+          <div class="feature-news-card" data-aos="fade-right">
+            <img src="img/edited mother and baby.png" alt="CIHP WiPHLA Unveiling" />
+            <div class="feature-news-content">
+              <span class="news-date">August 2026 | Feature Story</span>
+              <h3>Advancing Women in Public Health Leadership: CIHP at the WiPHLA Unveiling</h3>
+              <p>
+                CIHP continues to promote women in global health leadership, hosting clinical mentorship orientations
+                and policy dialogues to empower female healthcare leaders across Africa.
+              </p>
+              <a href="#gateway" class="btn-primary">Read Full Release <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- News List -->
+          <div class="news-list" data-aos="fade-left">
+            <div class="news-item-mini">
+              <h4>"Baking Her Dreams" into Reality: AYP Hub Helps Manyar Unlock Potential</h4>
+              <p>Discover how community PMTCT and economic empowerment hub initiatives transform lives in local
+                communities.</p>
+            </div>
+
+            <div class="news-item-mini">
+              <h4>A Second Chance at Motherhood: How Community PMTCT Changed Saratu’s Story</h4>
+              <p>Case study on integrating prevention of mother-to-child transmission of HIV into primary healthcare.
+              </p>
+            </div>
+
+            <div class="news-item-mini">
+              <h4>CIHP Strengthens Workforce Capacity Through Intensive Clinical Mentorship</h4>
+              <p>Orientation and training over 500 healthcare workers across state clinical facilities.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ==================== PRE-FOOTER EXECUTIVE PARTNERSHIP & TRUST GATEWAY ==================== -->
+      <section id="gateway" class="prefooter-gateway-section">
+        <div class="container">
+          
+          <div class="text-center" data-aos="fade-down">
+            <span class="section-eyebrow"><i class="fa-solid fa-handshake"></i> Strategic Alignment & Partnership Hub</span>
+            <h2 class="section-title">Partner With CIHP for Pan-African Health Impact</h2>
+            <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+              Connecting international donors, federal & state health ministries, procurement suppliers, and public health talent to co-create sustainable health systems.
+            </p>
+          </div>
+
+          <!-- 4 Persona Pathway Cards -->
+          <div class="partner-pillars-grid">
+
+            <!-- Pillar 1: Donors -->
+            <div class="partner-pillar-card pillar-donor" data-aos="fade-up" data-aos-delay="100">
+              <div>
+                <div class="pillar-icon-box"><i class="fa-solid fa-building-columns"></i></div>
+                <h3 class="pillar-title">Donors & Multilaterals</h3>
+                <p class="pillar-desc">Grants stewardship, 15+ years of PEPFAR/CDC & EU compliance mastery, and verified financial audit standards.</p>
+              </div>
+              <a href="contact.html" class="pillar-action-btn">
+                <span>Grant Stewardship Brief</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+
+            <!-- Pillar 2: Health Ministries -->
+            <div class="partner-pillar-card pillar-gov" data-aos="fade-up" data-aos-delay="200">
+              <div>
+                <div class="pillar-icon-box"><i class="fa-solid fa-earth-africa"></i></div>
+                <h3 class="pillar-title">Health Ministries & State MoHs</h3>
+                <p class="pillar-desc">Direct technical assistance across 20 Nigerian states and 5 Pan-African country footholds for health security.</p>
+              </div>
+              <a href="about.html#footprint" class="pillar-action-btn">
+                <span>Explore 20-State Footprint</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+
+            <!-- Pillar 3: Procurement & Vendors -->
+            <div class="partner-pillar-card pillar-vendor" data-aos="fade-up" data-aos-delay="300">
+              <div>
+                <div class="pillar-icon-box"><i class="fa-solid fa-boxes-packing"></i></div>
+                <h3 class="pillar-title">Suppliers & Open RFPs</h3>
+                <p class="pillar-desc">Transparent procurement portal for equipment suppliers, pharmaceutical vendors, and IT infrastructure tenders.</p>
+              </div>
+              <a href="contact.html" class="pillar-action-btn">
+                <span>Access Vendor Portal</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+
+            <!-- Pillar 4: Talent Network -->
+            <div class="partner-pillar-card pillar-talent" data-aos="fade-up" data-aos-delay="400">
+              <div>
+                <div class="pillar-icon-box"><i class="fa-solid fa-user-doctor"></i></div>
+                <h3 class="pillar-title">Careers & Talent Network</h3>
+                <p class="pillar-desc">Join our multidisciplinary team of public health leaders, clinical mentors, epidemiologists, and data scientists.</p>
+              </div>
+              <a href="careers.html" class="pillar-action-btn">
+                <span>Join Talent Roster</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Executive Conversion Card Banner -->
+          <div class="executive-conversion-card" data-aos="zoom-in">
+            <div class="conversion-card-inner">
+              
+              <div>
+                <div class="conversion-badge mono">
+                  <i class="fa-solid fa-shield-halved"></i> AUDITED & COMPLIANCE VALIDATED INSTITUTION
+                </div>
+                <h3 class="conversion-title">Engineered for Pan-African Health Transformation</h3>
+                <p class="conversion-desc">
+                  Mobilizing 15+ years of indigenous public health delivery, 11M+ beneficiaries reached, and 200+ primary state health facilities supported. Connect with our executive leadership to initiate strategic partnerships.
+                </p>
+                <div class="conversion-contact-chips">
+                  <span class="contact-chip"><i class="fa-solid fa-location-dot"></i> HQ: Plot 112, Gidado Idris St, Wuye, Abuja</span>
+                  <span class="contact-chip"><i class="fa-solid fa-envelope"></i> info@cihpng.org</span>
+                  <span class="contact-chip"><i class="fa-solid fa-phone"></i> +234 (0) 9 291 8000</span>
                 </div>
               </div>
 
-              <!-- Card 2: SRT Platform -->
-              <div class="innovation-card" onclick="setInnovationsIndex(1)">
-                <div class="innov-glow-bar glow-srt"></div>
-
-                <!-- LEFT SIDE: Details & Content -->
-                <div class="innovation-card-body">
-                  <div>
-                    <div class="innovation-header">
-                      <h3>SRT Platform</h3>
-                      <p class="innovation-subtitle sub-srt">Strategic Research & Translation System</p>
-                    </div>
-                    <p class="innovation-desc">
-                      CIHP's cutting-edge strategic surveillance & digital health engine delivering real-time
-                      epidemiological dashboards, EMR facility integration, and evidence translation.
-                    </p>
-                    <div class="innovation-metric-box">
-                      <i class="fa-solid fa-network-wired" style="color: #38bdf8;"></i> 20 States Real-time EMR Sync
-                    </div>
-                    <div class="innovation-tags">
-                      <span class="innov-tag"><i class="fa-solid fa-database"></i> EMR Facility Integration</span>
-                      <span class="innov-tag"><i class="fa-solid fa-chart-pie"></i> Real-time Dashboards</span>
-                      <span class="innov-tag"><span style="color:#38bdf8">•</span> Surveillance</span>
-                    </div>
-                  </div>
-                  <a href="contact.html" class="innovation-card-btn btn-srt">
-                    <span>Explore SRT Platform</span> <i class="fa-solid fa-arrow-right"></i>
-                  </a>
-                </div>
-
-                <!-- RIGHT SIDE: Thumbnail Image -->
-                <div class="innovation-card-banner">
-                  <img src="img/NAT_1415.jpg" alt="SRT - Strategic Research & Translation Platform" loading="lazy" />
-                  <div class="innovation-card-overlay"></div>
-                  <span class="innovation-badge-floating card-badge-srt">
-                    <i class="fa-solid fa-microchip"></i> Digital Intelligence
-                  </span>
-                </div>
-              </div>
-
-              <!-- Card 3: Publications -->
-              <div class="innovation-card" onclick="setInnovationsIndex(2)">
-                <div class="innov-glow-bar glow-pub"></div>
-
-                <!-- LEFT SIDE: Details & Content -->
-                <div class="innovation-card-body">
-                  <div>
-                    <div class="innovation-header">
-                      <h3>Publications</h3>
-                      <p class="innovation-subtitle sub-pub">Peer-Reviewed Papers & Technical Briefs</p>
-                    </div>
-                    <p class="innovation-desc">
-                      Scientific journal publications, clinical implementation guidelines, and policy briefs produced by
-                      CIHP researchers in global health journals and repositories.
-                    </p>
-                    <div class="innovation-metric-box">
-                      <i class="fa-solid fa-award" style="color: #34d399;"></i> 50+ Peer-Reviewed Journals
-                    </div>
-                    <div class="innovation-tags">
-                      <span class="innov-tag"><i class="fa-solid fa-newspaper"></i> Peer-Reviewed Articles</span>
-                      <span class="innov-tag"><i class="fa-solid fa-file-pdf"></i> Clinical Guidelines</span>
-                      <span class="innov-tag"><span style="color:#34d399">•</span> Policy Briefs</span>
-                    </div>
-                  </div>
-                  <button onclick="openPublicationsModal(event)" class="innovation-card-btn btn-pub" style="border: none; cursor: pointer;">
-                    <span>Access Research Repository</span> <i class="fa-solid fa-book-open"></i>
-                  </button>
-                </div>
-
-                <!-- RIGHT SIDE: Thumbnail Image -->
-                <div class="innovation-card-banner">
-                  <img src="img/library.png" alt="Publications & Research Repository" loading="lazy" />
-                  <div class="innovation-card-overlay"></div>
-                  <span class="innovation-badge-floating card-badge-pub">
-                    <i class="fa-solid fa-book-journal-whills"></i> Research & Evidence
-                  </span>
-                </div>
-              </div>
-
-              <!-- Card 4: Candid Conversation -->
-              <div class="innovation-card" onclick="setInnovationsIndex(3)">
-                <div class="innov-glow-bar glow-candid"></div>
-
-                <!-- LEFT SIDE: Details & Content -->
-                <div class="innovation-card-body">
-                  <div>
-                    <div class="innovation-header">
-                      <h3>Candid Conversation</h3>
-                      <p class="innovation-subtitle sub-candid">Public Health Leadership Forum</p>
-                    </div>
-                    <p class="innovation-desc">
-                      High-impact leadership dialogue platform bringing together public health experts, government
-                      stakeholders, advocates, and community voices for transparent solutions.
-                    </p>
-                    <div class="innovation-metric-box">
-                      <i class="fa-solid fa-podcast" style="color: #c084fc;"></i> Pan-African Health Policy Forum
-                    </div>
-                    <div class="innovation-tags">
-                      <span class="innov-tag"><i class="fa-solid fa-headphones"></i> Leadership Podcast</span>
-                      <span class="innov-tag"><i class="fa-solid fa-users"></i> Expert Panels</span>
-                      <span class="innov-tag"><span style="color:#c084fc">•</span> Townhalls</span>
-                    </div>
-                  </div>
-                  <a href="contact.html" class="innovation-card-btn btn-candid">
-                    <span>Join Conversation</span> <i class="fa-solid fa-arrow-right"></i>
-                  </a>
-                </div>
-
-                <!-- RIGHT SIDE: Thumbnail Image -->
-                <div class="innovation-card-banner">
-                  <img src="img/Candid Conversation.jpg" alt="Candid Conversation - Public Health Dialogue"
-                    loading="lazy" />
-                  <div class="innovation-card-overlay"></div>
-                  <span class="innovation-badge-floating card-badge-candid">
-                    <i class="fa-solid fa-comments"></i> Executive Dialogue
-                  </span>
-                </div>
+              <div class="conversion-action-group">
+                <a href="contact.html" class="btn-conversion-emerald">
+                  <i class="fa-solid fa-handshake"></i> Initiate Partnership <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="publications.html" class="btn-conversion-secondary">
+                  <i class="fa-solid fa-book-journal-whills"></i> Download Scientific Briefs
+                </a>
               </div>
 
             </div>
           </div>
 
-          <!-- Pagination Indicator Dots (Matching Uploaded Image Reference) -->
-          <div class="innov-dots-bar" id="innovationsDots">
-            <span class="innov-dot active" onclick="setInnovationsIndex(0)"></span>
-            <span class="innov-dot" onclick="setInnovationsIndex(1)"></span>
-            <span class="innov-dot" onclick="setInnovationsIndex(2)"></span>
-            <span class="innov-dot" onclick="setInnovationsIndex(3)"></span>
+          <!-- Donor & Partner Moving Marquee -->
+          <div class="partner-marquee-container" style="background: transparent; border: none;">
+            <div class="partner-marquee-header" style="margin-bottom: 20px;">
+              <h4 style="color: #94a3b8; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">
+                Trusted by Global Donors, Multilateral Agencies & Strategic Partners
+              </h4>
+            </div>
+
+            <div class="partner-marquee-track">
+              <!-- Set 1 -->
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
+                <span>PEPFAR / CDC</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
+                <span>European Union (EU / EDCTP3)</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <span>Unitaid</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+                <span>Bill & Melinda Gates Foundation</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
+                <span>The Global Fund</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
+                <span>GAVI (The Vaccine Alliance)</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
+                <span>World Health Organization (WHO)</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
+                <span>Federal Ministry of Health (FMoH&SW)</span>
+              </div>
+
+              <!-- Set 2 -->
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
+                <span>PEPFAR / CDC</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
+                <span>European Union (EU / EDCTP3)</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <span>Unitaid</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+                <span>Bill & Melinda Gates Foundation</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
+                <span>The Global Fund</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
+                <span>GAVI (The Vaccine Alliance)</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
+                <span>World Health Organization (WHO)</span>
+              </div>
+              <div class="partner-logo-pill">
+                <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
+                <span>Federal Ministry of Health (FMoH&SW)</span>
+              </div>
+            </div>
           </div>
 
         </div>
       </section>
 
-      <!-- ==================== 9. NEWS, THOUGHT LEADERSHIP & PRESS CENTER ==================== -->
-      <section id="news" class="news-section">
-        <div class="container">
-          <span class="section-eyebrow"><i class="fa-solid fa-newspaper"></i> Media & Insights</span>
-          <h2 class="section-title">News, Updates & Thought Leadership</h2>
-          <p class="section-desc">
-            Stay informed on CIHP’s recent program milestones, research briefings, and institutional announcements.
-          </p>
+</main>
 
-          <div class="news-grid">
-            <!-- Featured Story -->
-            <div class="feature-news-card" data-aos="fade-right">
-              <img src="img/edited mother and baby.png" alt="CIHP WiPHLA Unveiling" />
-              <div class="feature-news-content">
-                <span class="news-date">August 2026 | Feature Story</span>
-                <h3>Advancing Women in Public Health Leadership: CIHP at the WiPHLA Unveiling</h3>
-                <p>
-                  CIHP continues to promote women in global health leadership, hosting clinical mentorship orientations
-                  and policy dialogues to empower female healthcare leaders across Africa.
-                </p>
-                <a href="#gateway" class="btn-primary">Read Full Release <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
+<!-- ==================== FOOTER WITH AFRICAN SAFARI SILHOUETTE ==================== -->
+<div class="footer-safari-silhouette">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"
+    style="display: block; width: 100%; height: 95px;">
+    <defs>
+      <linearGradient id="safariSky" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#d97706" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#0f172a" stop-opacity="1" />
+      </linearGradient>
+    </defs>
+    <!-- Sunset Sky Glow -->
+    <rect width="1200" height="120" fill="url(#safariSky)" />
 
-            <!-- News List -->
-            <div class="news-list" data-aos="fade-left">
-              <div class="news-item-mini">
-                <h4>"Baking Her Dreams" into Reality: AYP Hub Helps Manyar Unlock Potential</h4>
-                <p>Discover how community PMTCT and economic empowerment hub initiatives transform lives in local
-                  communities.</p>
-              </div>
+    <!-- Sunset Horizon Sun -->
+    <circle cx="960" cy="65" r="42" fill="#f59e0b" opacity="0.45" />
 
-              <div class="news-item-mini">
-                <h4>A Second Chance at Motherhood: How Community PMTCT Changed Saratu’s Story</h4>
-                <p>Case study on integrating prevention of mother-to-child transmission of HIV into primary healthcare.
-                </p>
-              </div>
+    <!-- African Acacia Tree (Left) -->
+    <path
+      d="M 120 120 L 122 75 C 122 75, 110 65, 95 62 L 95 58 C 110 60, 120 68, 123 72 C 125 65, 135 55, 155 52 L 155 48 C 132 52, 124 62, 123 70 L 125 120 Z"
+      fill="#0f172a" />
+    <ellipse cx="125" cy="48" rx="45" ry="8" fill="#0f172a" />
+    <ellipse cx="90" cy="58" rx="25" ry="5" fill="#0f172a" />
+    <ellipse cx="155" cy="50" rx="30" ry="6" fill="#0f172a" />
 
-              <div class="news-item-mini">
-                <h4>CIHP Strengthens Workforce Capacity Through Intensive Clinical Mentorship</h4>
-                <p>Orientation and training over 500 healthcare workers across state clinical facilities.</p>
-              </div>
-            </div>
-          </div>
+    <!-- African Acacia Tree (Right) -->
+    <path
+      d="M 1040 120 L 1042 65 C 1042 65, 1025 55, 1005 52 L 1005 48 C 1025 50, 1038 58, 1043 62 C 1046 54, 1060 45, 1085 42 L 1085 38 C 1058 42, 1045 52, 1044 60 L 1045 120 Z"
+      fill="#0f172a" />
+    <ellipse cx="1045" cy="38" rx="55" ry="9" fill="#0f172a" />
+    <ellipse cx="1000" cy="48" rx="30" ry="6" fill="#0f172a" />
+    <ellipse cx="1085" cy="40" rx="35" ry="7" fill="#0f172a" />
 
-        </div>
-        <!-- ==================== 10. DUAL-HUB: PROCUREMENT, CAREERS & CONTACT GATEWAY ==================== -->
-        <section id="gateway" class="gateway-section">
-          <div class="container">
-            <span class="section-eyebrow"><i class="fa-solid fa-paper-plane"></i> Engagement & Contact Portal</span>
-            <h2 class="section-title">Partner, Work & Connect With CIHP</h2>
-            <p class="section-desc">
-              Whether you are a donor agency seeking strategic partnership, a supplier reviewing open RFPs, or a public
-              health specialist exploring careers.
-            </p>
+    <!-- Birds Flying Overhead -->
+    <path d="M 450 35 Q 455 28, 460 35 Q 465 28, 470 35 Q 465 31, 460 37 Q 455 31, 450 35 Z" fill="#0f172a"
+      opacity="0.85" />
+    <path d="M 480 25 Q 484 20, 488 25 Q 492 20, 496 25 Q 492 22, 488 27 Q 484 22, 480 25 Z" fill="#0f172a"
+      opacity="0.85" />
+    <path d="M 510 38 Q 513 34, 516 38 Q 519 34, 522 38 Q 519 36, 516 40 Q 513 36, 510 38 Z" fill="#0f172a"
+      opacity="0.85" />
 
-            <div
-              style="background: linear-gradient(135deg, #1e3388 0%, #0f172a 100%); border-radius: var(--radius-lg); padding: 48px; color: #ffffff; text-align: center; box-shadow: var(--shadow-md);"
-              data-aos="zoom-in">
-              <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 14px;">Access Our Dedicated Engagement
-                Portal
-              </h3>
-              <p style="color: #cbd5e1; max-width: 680px; margin: 0 auto 30px; font-size: 1.05rem;">
-                Submit RFP vendor inquiries, join our public health talent network, or initiate a strategic partnership
-                with CIHP.
-              </p>
-              <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
-                <a href="contact.html" class="btn-emerald">Open Engagement Portal <i
-                    class="fa-solid fa-arrow-right"></i></a>
-                <a href="contact.html" class="btn-secondary"
-                  style="background: transparent; color: #ffffff; border-color: #ffffff;">Contact Our Teams</a>
-              </div>
-            </div>
-          </div>
-        </section>
+    <!-- Rolling Horizon Ground Silhouette -->
+    <path d="M 0 120 Q 200 98, 450 108 T 900 102 T 1200 115 L 1200 120 L 0 120 Z" fill="#0f172a" />
+  </svg>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
 
-        <!-- ==================== DONOR & PARTNER MOVING MARQUEE (JUST BEFORE FOOTER) ==================== -->
-        <section class="partner-marquee-section">
-          <div class="container" style="max-width: 100%; padding: 0;">
-            <div class="partner-marquee-header">
-              <h4>Trusted by Global Donors, Multilateral Agencies & Strategic Partners</h4>
-            </div>
-
-            <div class="partner-marquee-container">
-              <div class="partner-marquee-track">
-                <!-- Set 1 -->
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
-                  <span>PEPFAR / CDC</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
-                  <span>European Union (EU / EDCTP3)</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                  <span>Unitaid</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
-                  <span>Bill & Melinda Gates Foundation</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
-                  <span>The Global Fund</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
-                  <span>GAVI (The Vaccine Alliance)</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
-                  <span>World Health Organization (WHO)</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
-                  <span>Federal Ministry of Health (FMoH&SW)</span>
-                </div>
-
-                <!-- Set 2 (Duplicate for Continuous Loop) -->
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
-                  <span>PEPFAR / CDC</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
-                  <span>European Union (EU / EDCTP3)</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                  <span>Unitaid</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
-                  <span>Bill & Melinda Gates Foundation</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
-                  <span>The Global Fund</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
-                  <span>GAVI (The Vaccine Alliance)</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
-                  <span>World Health Organization (WHO)</span>
-                </div>
-                <div class="partner-logo-pill">
-                  <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
-                  <span>Federal Ministry of Health (FMoH&SW)</span>
-                </div>
-              </div>
-            </div>
-    <!-- ==================== PRE-FOOTER STRATEGIC CTA CONVERSION BANNER ==================== -->
-    <section class="pre-footer-cta-section">
-      <div class="container">
-        <div class="pre-footer-cta-card" data-aos="fade-up">
-          <div class="pre-footer-cta-content">
-            <div class="pre-footer-cta-badge mono">
-              <i class="fa-solid fa-earth-africa"></i> Strategic Partnership & Impact Scaling
-            </div>
-            <h2 class="pre-footer-cta-title">
-              Engineered for Pan-African Health Transformation. <span style="color: #4ade80;">Partner With CIHP</span>.
-            </h2>
-            <p class="pre-footer-cta-desc">
-              Mobilizing 15+ years of indigenous public health excellence across 20 Nigerian states and expanding into 5 Pan-African footholds. Discover how our epidemic control models, health security frameworks, and research innovations can accelerate your institutional health outcomes.
-            </p>
-            <div class="pre-footer-cta-buttons">
-              <a href="contact.html" class="btn-emerald btn-lg">
-                <i class="fa-solid fa-handshake"></i> Partner With Us <i class="fa-solid fa-arrow-right"></i>
-              </a>
-              <a href="news.html" class="btn-secondary btn-lg" style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);">
-                <i class="fa-solid fa-file-pdf"></i> Download Impact Brief
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ==================== FOOTER WITH AFRICAN SAFARI SILHOUETTE ==================== -->
-  <div class="footer-safari-silhouette">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"
-      style="display: block; width: 100%; height: 95px;">
-      <defs>
-        <linearGradient id="safariSky" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#d97706" stop-opacity="0.35" />
-          <stop offset="100%" stop-color="#0f172a" stop-opacity="1" />
-        </linearGradient>
-      </defs>
-      <!-- Sunset Sky Glow -->
-      <rect width="1200" height="120" fill="url(#safariSky)" />
-
-      <!-- Sunset Horizon Sun -->
-      <circle cx="960" cy="65" r="42" fill="#f59e0b" opacity="0.45" />
-
-      <!-- African Acacia Tree (Left) -->
-      <path
-        d="M 120 120 L 122 75 C 122 75, 110 65, 95 62 L 95 58 C 110 60, 120 68, 123 72 C 125 65, 135 55, 155 52 L 155 48 C 132 52, 124 62, 123 70 L 125 120 Z"
-        fill="#0f172a" />
-      <ellipse cx="125" cy="48" rx="45" ry="8" fill="#0f172a" />
-      <ellipse cx="90" cy="58" rx="25" ry="5" fill="#0f172a" />
-      <ellipse cx="155" cy="50" rx="30" ry="6" fill="#0f172a" />
-
-      <!-- African Acacia Tree (Right) -->
-      <path
-        d="M 1040 120 L 1042 65 C 1042 65, 1025 55, 1005 52 L 1005 48 C 1025 50, 1038 58, 1043 62 C 1046 54, 1060 45, 1085 42 L 1085 38 C 1058 42, 1045 52, 1044 60 L 1045 120 Z"
-        fill="#0f172a" />
-      <ellipse cx="1045" cy="38" rx="55" ry="9" fill="#0f172a" />
-      <ellipse cx="1000" cy="48" rx="30" ry="6" fill="#0f172a" />
-      <ellipse cx="1085" cy="40" rx="35" ry="7" fill="#0f172a" />
-
-      <!-- Birds Flying Overhead -->
-      <path d="M 450 35 Q 455 28, 460 35 Q 465 28, 470 35 Q 465 31, 460 37 Q 455 31, 450 35 Z" fill="#0f172a"
-        opacity="0.85" />
-      <path d="M 480 25 Q 484 20, 488 25 Q 492 20, 496 25 Q 492 22, 488 27 Q 484 22, 480 25 Z" fill="#0f172a"
-        opacity="0.85" />
-      <path d="M 510 38 Q 513 34, 516 38 Q 519 34, 522 38 Q 519 36, 516 40 Q 513 36, 510 38 Z" fill="#0f172a"
-        opacity="0.85" />
-
-      <!-- Rolling Horizon Ground Silhouette -->
-      <path d="M 0 120 Q 200 98, 450 108 T 900 102 T 1200 115 L 1200 120 L 0 120 Z" fill="#0f172a" />
-    </svg>
-  </div>
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-
-        <div class="footer-brand">
-          <h3 style="display: flex; align-items: center; gap: 10px;">
-            <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo"
-              style="height: 36px; background: #fff; padding: 4px; border-radius: 4px;" />
-            CIHP
-          </h3>
-          <p>Centre for Integrated Health Programs is a leading indigenous non-profit organization promoting better
-            health outcomes across 20 Nigerian states and expanding into 5 Pan-African strategic footholds.</p>
-          <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--accent-ochre);">
-            <i class="fa-solid fa-location-dot"></i> 1129 Kikuyu Close, Off Nairobi Street, Wuse 2, Abuja, Nigeria
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="about.html">About CIHP</a></li>
-            <li><a href="#what-we-do">What We Do</a></li>
-            <li><a href="#impact">Impact & Projects</a></li>
-            <li><a href="#innovations">Our Innovations</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Programs</h4>
-          <ul class="footer-links">
-            <li><a href="#what-we-do">HIV/AIDS & TB Care</a></li>
-            <li><a href="#what-we-do">Maternal & Child Health</a></li>
-            <li><a href="#what-we-do">Health Systems Strengthening</a></li>
-            <li><a href="#what-we-do">Surveillance & Digital Health</a></li>
-            <li><a href="#what-we-do">AYP Youth Initiative</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contact & Governance</h4>
-          <ul class="footer-links">
-            <li><a href="contact.html">Procurement & RFPs</a></li>
-            <li><a href="contact.html">Careers Portal</a></li>
-            <li><a href="mailto:info@cihpng.org"><i class="fa-solid fa-envelope"></i> info@cihpng.org</a></li>
-            <li><a href="mailto:compliance@cihpng.org"><i class="fa-solid fa-shield"></i> Integrity Hotline</a></li>
-          </ul>
-        </div>
-
+      <div class="footer-brand">
+        <h3 style="display: flex; align-items: center; gap: 10px;">
+          <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo"
+            style="height: 36px; background: #fff; padding: 4px; border-radius: 4px;" />
+          CIHP
+        </h3>
+        <p>Centre for Integrated Health Programs is a leading indigenous non-profit organization promoting better
+          health outcomes across 20 Nigerian states and expanding into 5 Pan-African strategic footholds.</p>
+        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--accent-ochre);">
+          <i class="fa-solid fa-location-dot"></i> 1129 Kikuyu Close, Off Nairobi Street, Wuse 2, Abuja, Nigeria
+        </p>
       </div>
 
-      <div class="footer-bottom">
-        <div>
-          &copy; 2026 Centre for Integrated Health Programs (CIHP). All Rights Reserved.
-        </div>
-        <div class="mono" style="font-size: 0.78rem; color: #94a3b8;">
-          Engineered for Pan-African Health Impact | 20 Nigerian States & 5 Expansion Footholds
-        </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="about.html">About CIHP</a></li>
+          <li><a href="#what-we-do">What We Do</a></li>
+          <li><a href="#impact">Impact & Projects</a></li>
+          <li><a href="#innovations">Our Innovations</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul class="footer-links">
+          <li><a href="#what-we-do">HIV/AIDS & TB Care</a></li>
+          <li><a href="#what-we-do">Maternal & Child Health</a></li>
+          <li><a href="#what-we-do">Health Systems Strengthening</a></li>
+          <li><a href="#what-we-do">Surveillance & Digital Health</a></li>
+          <li><a href="#what-we-do">AYP Youth Initiative</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact & Governance</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Procurement & RFPs</a></li>
+          <li><a href="contact.html">Careers Portal</a></li>
+          <li><a href="mailto:info@cihpng.org"><i class="fa-solid fa-envelope"></i> info@cihpng.org</a></li>
+          <li><a href="mailto:compliance@cihpng.org"><i class="fa-solid fa-shield"></i> Integrity Hotline</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        &copy; 2026 Centre for Integrated Health Programs (CIHP). All Rights Reserved.
+      </div>
+      <div class="mono" style="font-size: 0.78rem; color: #94a3b8;">
+        Engineered for Pan-African Health Impact | 20 Nigerian States & 5 Expansion Footholds
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- AOS Animation Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- AOS Animation Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <script>
-    // Initialize AOS Animation
-    AOS.init({
-      duration: 800,
-      once: true
-    });
+<script>
+  // Initialize AOS Animation
+  AOS.init({
+    duration: 800,
+    once: true
+  });
 
-    // Footprint Interactive Tab Switching
-    function switchFootprintTab(tab) {
-      const cardTitle = document.getElementById('mapCardTitle');
-      const cardDesc = document.getElementById('mapCardDesc');
-      const tagText = document.getElementById('mapTagText');
-      const container = document.getElementById('statesContainer');
-      const btns = document.querySelectorAll('.footprint-controls .tab-btn');
+  // Footprint Interactive Tab Switching
+  function switchFootprintTab(tab) {
+    const cardTitle = document.getElementById('mapCardTitle');
+    const cardDesc = document.getElementById('mapCardDesc');
+    const tagText = document.getElementById('mapTagText');
+    const container = document.getElementById('statesContainer');
+    const btns = document.querySelectorAll('.footprint-controls .tab-btn');
 
-      btns.forEach(b => b.classList.remove('active'));
+    btns.forEach(b => b.classList.remove('active'));
 
-      if (tab === 'nigeria') {
-        btns[0].classList.add('active');
-        tagText.innerText = "OPERATIONAL COVERAGE: 20 NIGERIAN STATES";
-        cardTitle.innerText = "Nigeria Operational Core";
-        cardDesc.innerText = "Providing comprehensive health interventions, HIV/TB care, Maternal & Child Health, and health systems strengthening across 20 state jurisdictions.";
-        container.innerHTML = `
+    if (tab === 'nigeria') {
+      btns[0].classList.add('active');
+      tagText.innerText = "OPERATIONAL COVERAGE: 20 NIGERIAN STATES";
+      cardTitle.innerText = "Nigeria Operational Core";
+      cardDesc.innerText = "Providing comprehensive health interventions, HIV/TB care, Maternal & Child Health, and health systems strengthening across 20 state jurisdictions.";
+      container.innerHTML = `
           <span class="state-pill active">Benue State</span>
           <span class="state-pill">Gombe State</span>
           <span class="state-pill">Kaduna State</span>
@@ -4335,467 +4401,467 @@
           <span class="state-pill">Plateau State</span>
           <span class="state-pill">+ 8 Additional States</span>
         `;
-      } else {
-        btns[1].classList.add('active');
-        tagText.innerText = "3-YEAR STRATEGIC HORIZON: 5 PAN-AFRICAN FOOTHOLDS";
-        cardTitle.innerText = "Pan-African Expansion Footholds";
-        cardDesc.innerText = "Establishing strategic regional presence to strengthen healthcare systems, technical assistance, and epidemiological resilience across West, Central, and East Africa.";
-        container.innerHTML = `
+    } else {
+      btns[1].classList.add('active');
+      tagText.innerText = "3-YEAR STRATEGIC HORIZON: 5 PAN-AFRICAN FOOTHOLDS";
+      cardTitle.innerText = "Pan-African Expansion Footholds";
+      cardDesc.innerText = "Establishing strategic regional presence to strengthen healthcare systems, technical assistance, and epidemiological resilience across West, Central, and East Africa.";
+      container.innerHTML = `
           <span class="state-pill active">Foothold 1 (West Africa Hub)</span>
           <span class="state-pill">Foothold 2 (East Africa Hub)</span>
           <span class="state-pill">Foothold 3 (Central Africa Hub)</span>
           <span class="state-pill">Foothold 4 (Strategic Partnership Zone)</span>
           <span class="state-pill">Foothold 5 (Regional Health System Center)</span>
         `;
-      }
     }
+  }
 
-    // Technical Capabilities Tab Switching
-    function switchTechTab(techKey) {
-      const title = document.getElementById('techTitle');
-      const desc = document.getElementById('techDesc');
-      const features = document.getElementById('techFeatures');
-      const img = document.getElementById('techImage');
-      const btns = document.querySelectorAll('.tech-tab-btn');
+  // Technical Capabilities Tab Switching
+  function switchTechTab(techKey) {
+    const title = document.getElementById('techTitle');
+    const desc = document.getElementById('techDesc');
+    const features = document.getElementById('techFeatures');
+    const img = document.getElementById('techImage');
+    const btns = document.querySelectorAll('.tech-tab-btn');
 
-      btns.forEach(b => b.classList.remove('active'));
+    btns.forEach(b => b.classList.remove('active'));
 
-      if (techKey === 'hivtb') {
-        btns[0].classList.add('active');
-        title.innerText = "HIV/AIDS & Tuberculosis Prevention, Care & Treatment";
-        desc.innerText = "Delivering rapid programmatic design, clinical mentorship, and direct health service delivery for community-based PMTCT, antiretroviral treatment scale-up, and TB case identification.";
-        features.innerHTML = `
+    if (techKey === 'hivtb') {
+      btns[0].classList.add('active');
+      title.innerText = "HIV/AIDS & Tuberculosis Prevention, Care & Treatment";
+      desc.innerText = "Delivering rapid programmatic design, clinical mentorship, and direct health service delivery for community-based PMTCT, antiretroviral treatment scale-up, and TB case identification.";
+      features.innerHTML = `
           <li><i class="fa-solid fa-circle-check"></i> Integrated Regional HIV/AIDS Intervention & Care (IRIS Project)</li>
           <li><i class="fa-solid fa-circle-check"></i> Tuberculosis Local Organizations Network (TB-LON3)</li>
           <li><i class="fa-solid fa-circle-check"></i> Community PMTCT & Adolescent Wellness Hubs (AYP Initiative)</li>
           <li><i class="fa-solid fa-circle-check"></i> Intensive Clinical Mentorship & Health Workforce Orientation</li>
         `;
-        img.src = "img/I4HIV pic.jpeg";
-      } else if (techKey === 'rmnch') {
-        btns[1].classList.add('active');
-        title.innerText = "Reproductive, Maternal, Newborn & Child Health (RMNCH)";
-        desc.innerText = "Accelerating maternal survival and newborn care through innovative group antenatal care models and facility-community integration.";
-        features.innerHTML = `
+      img.src = "img/I4HIV pic.jpeg";
+    } else if (techKey === 'rmnch') {
+      btns[1].classList.add('active');
+      title.innerText = "Reproductive, Maternal, Newborn & Child Health (RMNCH)";
+      desc.innerText = "Accelerating maternal survival and newborn care through innovative group antenatal care models and facility-community integration.";
+      features.innerHTML = `
           <li><i class="fa-solid fa-circle-check"></i> Group Antenatal Care (G-ANC Project)</li>
           <li><i class="fa-solid fa-circle-check"></i> Community Prevention of Mother-to-Child Transmission (PMTCT)</li>
           <li><i class="fa-solid fa-circle-check"></i> Essential Newborn Care & Maternal Mortality Reduction</li>
           <li><i class="fa-solid fa-circle-check"></i> Adolescent & Young People Wellness Centers</li>
         `;
-        img.src = "img/edited mother and baby.png";
-      } else if (techKey === 'hss') {
-        btns[2].classList.add('active');
-        title.innerText = "Health Systems Strengthening (HSS) & Governance";
-        desc.innerText = "Building local institutional capacity, financial resilience, workforce training, and sustainable governance for public health systems.";
-        features.innerHTML = `
+      img.src = "img/edited mother and baby.png";
+    } else if (techKey === 'hss') {
+      btns[2].classList.add('active');
+      title.innerText = "Health Systems Strengthening (HSS) & Governance";
+      desc.innerText = "Building local institutional capacity, financial resilience, workforce training, and sustainable governance for public health systems.";
+      features.innerHTML = `
           <li><i class="fa-solid fa-circle-check"></i> State & Local Ministry of Health Institutional Mentorship</li>
           <li><i class="fa-solid fa-circle-check"></i> Healthcare Workforce Capacity Building & Clinical Orientation</li>
           <li><i class="fa-solid fa-circle-check"></i> Financial Resilience & Grants Stewardship Models</li>
           <li><i class="fa-solid fa-circle-check"></i> Sustainable Community Ownership Frameworks</li>
         `;
-        img.src = "img/IMG_0994.JPG";
-      } else if (techKey === 'digital') {
-        btns[3].classList.add('active');
-        title.innerText = "Surveillance, Strategic Information & Digital Health";
-        desc.innerText = "Deploying cutting-edge health informatics, electronic medical records, and epidemiological surveillance to guide evidence-based decisions.";
-        features.innerHTML = `
+      img.src = "img/IMG_0994.JPG";
+    } else if (techKey === 'digital') {
+      btns[3].classList.add('active');
+      title.innerText = "Surveillance, Strategic Information & Digital Health";
+      desc.innerText = "Deploying cutting-edge health informatics, electronic medical records, and epidemiological surveillance to guide evidence-based decisions.";
+      features.innerHTML = `
           <li><i class="fa-solid fa-circle-check"></i> Strategic Development Initiative (SDI-SI System)</li>
           <li><i class="fa-solid fa-circle-check"></i> Electronic Medical Record (EMR) Facility Deployment</li>
           <li><i class="fa-solid fa-circle-check"></i> Real-time Epidemiological Dashboard & Data Analytics</li>
           <li><i class="fa-solid fa-circle-check"></i> Peer-Reviewed Research & Public Health Publications</li>
         `;
-        img.src = "img/Final SDI Report (1).png";
+      img.src = "img/Final SDI Report (1).png";
+    }
+  }
+
+  // Projects Filter for Editorial Numbered Rows
+  function filterProjects(cat) {
+    const rows = document.querySelectorAll('.editorial-project-row');
+    const btns = document.querySelectorAll('.filter-btn');
+
+    btns.forEach(b => b.classList.remove('active'));
+
+    const clickedBtn = event ? (event.currentTarget || event.target.closest('.filter-btn')) : null;
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    rows.forEach(row => {
+      if (cat === 'all' || row.getAttribute('data-category') === cat) {
+        row.style.display = 'grid';
+      } else {
+        row.style.display = 'none';
       }
-    }
+    });
+  }
 
-    // Projects Filter for Editorial Numbered Rows
-    function filterProjects(cat) {
-      const rows = document.querySelectorAll('.editorial-project-row');
-      const btns = document.querySelectorAll('.filter-btn');
-
-      btns.forEach(b => b.classList.remove('active'));
-
-      const clickedBtn = event ? (event.currentTarget || event.target.closest('.filter-btn')) : null;
-      if (clickedBtn) clickedBtn.classList.add('active');
-
-      rows.forEach(row => {
-        if (cat === 'all' || row.getAttribute('data-category') === cat) {
-          row.style.display = 'grid';
+  // Scroll Active View Observer for Project Rows (Full Color on View / Hover)
+  const projectRows = document.querySelectorAll('.editorial-project-row');
+  if (projectRows.length > 0) {
+    const rowObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
         } else {
-          row.style.display = 'none';
+          entry.target.classList.remove('active');
         }
       });
-    }
+    }, {
+      rootMargin: '-15% 0px -15% 0px',
+      threshold: 0.35
+    });
 
-    // Scroll Active View Observer for Project Rows (Full Color on View / Hover)
-    const projectRows = document.querySelectorAll('.editorial-project-row');
-    if (projectRows.length > 0) {
-      const rowObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          } else {
-            entry.target.classList.remove('active');
-          }
-        });
-      }, {
-        rootMargin: '-15% 0px -15% 0px',
-        threshold: 0.35
-      });
+    projectRows.forEach(row => rowObserver.observe(row));
+  }
 
-      projectRows.forEach(row => rowObserver.observe(row));
-    }
+  // =======================================================
+  // 3D Focus Expansion Carousel Controller for Innovations
+  // =======================================================
+  let currentInnovIndex = 0;
 
-    // =======================================================
-    // 3D Focus Expansion Carousel Controller for Innovations
-    // =======================================================
-    let currentInnovIndex = 0;
+  function updateInnovationsCarousel() {
+    const track = document.getElementById('innovationsTrack');
+    if (!track) return;
+    const cards = track.querySelectorAll('.innovation-card');
+    const dots = document.querySelectorAll('#innovationsDots .innov-dot');
+    const total = cards.length;
 
-    function updateInnovationsCarousel() {
-      const track = document.getElementById('innovationsTrack');
-      if (!track) return;
-      const cards = track.querySelectorAll('.innovation-card');
-      const dots = document.querySelectorAll('#innovationsDots .innov-dot');
-      const total = cards.length;
+    if (total === 0) return;
 
-      if (total === 0) return;
+    // Wrap around index
+    if (currentInnovIndex < 0) currentInnovIndex = total - 1;
+    if (currentInnovIndex >= total) currentInnovIndex = 0;
 
-      // Wrap around index
-      if (currentInnovIndex < 0) currentInnovIndex = total - 1;
-      if (currentInnovIndex >= total) currentInnovIndex = 0;
-
-      // Update Card Active Focus & Blur/Scale States
-      cards.forEach((card, i) => {
-        if (i === currentInnovIndex) {
-          card.classList.add('focus-active');
-        } else {
-          card.classList.remove('focus-active');
-        }
-      });
-
-      // Update Dot Active States
-      dots.forEach((dot, i) => {
-        if (i === currentInnovIndex) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
-        }
-      });
-
-      // Calculate dead-center positioning offset
-      const targetCard = cards[currentInnovIndex];
-      if (!targetCard) return;
-
-      const cardLeft = targetCard.offsetLeft;
-      const cardWidth = targetCard.offsetWidth;
-
-      // Because track has left: 50%, shifting track left by (cardLeft + cardWidth / 2) locks target card center at dead-center (50%) of viewport
-      const centerOffset = - (cardLeft + cardWidth / 2);
-      track.style.transform = `translateX(${centerOffset}px)`;
-    }
-
-    let autoScrollInnovationsTimer = null;
-
-    function startInnovationsAutoScroll() {
-      stopInnovationsAutoScroll();
-      autoScrollInnovationsTimer = setInterval(() => {
-        moveInnovationsCarousel(1);
-      }, 4200); // Auto-scroll every 4.2 seconds
-    }
-
-    function stopInnovationsAutoScroll() {
-      if (autoScrollInnovationsTimer) {
-        clearInterval(autoScrollInnovationsTimer);
-        autoScrollInnovationsTimer = null;
-      }
-    }
-
-    function moveInnovationsCarousel(dir) {
-      currentInnovIndex += dir;
-      updateInnovationsCarousel();
-      // Restart auto-scroll timer on manual navigation
-      startInnovationsAutoScroll();
-    }
-
-    function setInnovationsIndex(index) {
-      currentInnovIndex = index;
-      updateInnovationsCarousel();
-      // Restart auto-scroll timer on manual dot/card selection
-      startInnovationsAutoScroll();
-    }
-
-    // Initialize Innovations Carousel & Auto-Scroll on page load
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        updateInnovationsCarousel();
-        startInnovationsAutoScroll();
-      }, 250);
-
-      // Pause auto-scroll on mouse hover / touch interaction
-      const stage = document.querySelector('.innovations-carousel-stage');
-      if (stage) {
-        stage.addEventListener('mouseenter', stopInnovationsAutoScroll);
-        stage.addEventListener('mouseleave', startInnovationsAutoScroll);
-        stage.addEventListener('touchstart', stopInnovationsAutoScroll, { passive: true });
-        stage.addEventListener('touchend', startInnovationsAutoScroll, { passive: true });
+    // Update Card Active Focus & Blur/Scale States
+    cards.forEach((card, i) => {
+      if (i === currentInnovIndex) {
+        card.classList.add('focus-active');
+      } else {
+        card.classList.remove('focus-active');
       }
     });
 
-    window.addEventListener('resize', updateInnovationsCarousel);
-
-    // Portal Tabs
-    function switchPortalTab(tabKey) {
-      const btns = document.querySelectorAll('.portal-tab-btn');
-      const tabs = document.querySelectorAll('.portal-tab-content');
-
-      btns.forEach(b => b.classList.remove('active'));
-      tabs.forEach(t => t.classList.remove('active'));
-
-      if (tabKey === 'procurement') {
-        btns[0].classList.add('active');
-        document.getElementById('tabProcurement').classList.add('active');
-      } else if (tabKey === 'careers') {
-        btns[1].classList.add('active');
-        document.getElementById('tabCareers').classList.add('active');
-      } else if (tabKey === 'partnership') {
-        btns[2].classList.add('active');
-        document.getElementById('tabPartnership').classList.add('active');
-      }
-    }
-
-    // ==========================================
-    // Dynamic Navbar Scroll Glassmorphism Effect
-    // ==========================================
-    const siteNavbar = document.querySelector('.navbar');
-    function handleNavbarScroll() {
-      if (siteNavbar) {
-        if (window.scrollY > 40) {
-          siteNavbar.classList.add('scrolled');
-        } else {
-          siteNavbar.classList.remove('scrolled');
-        }
-      }
-    }
-    window.addEventListener('scroll', handleNavbarScroll);
-    handleNavbarScroll();
-
-    // ==========================================
-    // Full-Screen ECEWS-Style Hero Slider Engine
-    // ==========================================
-    let currentHeroIndex = 0;
-    const heroSlides = document.querySelectorAll('.hero-slide');
-    const heroDots = document.querySelectorAll('.slider-dot-item');
-    const playPauseIcon = document.getElementById('playPauseIcon');
-    let heroTimer = null;
-    let isHeroAutoplay = true;
-    const HERO_SLIDE_DURATION = 6000; // 6 seconds
-
-    function resetHeroProgressBars() {
-      document.querySelectorAll('.dot-progress-fill').forEach(fill => {
-        fill.style.transition = 'none';
-        fill.style.width = '0%';
-      });
-    }
-
-    function startHeroProgressAnimation() {
-      resetHeroProgressBars();
-      if (!isHeroAutoplay) return;
-
-      const activeDot = heroDots[currentHeroIndex];
-      if (!activeDot) return;
-
-      const activeFill = activeDot.querySelector('.dot-progress-fill');
-      if (!activeFill) return;
-
-      setTimeout(() => {
-        activeFill.style.transition = `width ${HERO_SLIDE_DURATION}ms linear`;
-        activeFill.style.width = '100%';
-      }, 50);
-    }
-
-    function goToHeroSlide(index) {
-      if (heroSlides.length === 0) return;
-
-      heroSlides.forEach((slide, idx) => {
-        slide.classList.remove('active');
-        if (heroDots[idx]) heroDots[idx].classList.remove('active');
-      });
-
-      currentHeroIndex = (index + heroSlides.length) % heroSlides.length;
-
-      heroSlides[currentHeroIndex].classList.add('active');
-      if (heroDots[currentHeroIndex]) heroDots[currentHeroIndex].classList.add('active');
-
-      startHeroProgressAnimation();
-
-      if (isHeroAutoplay) {
-        restartHeroTimer();
-      }
-    }
-
-    function nextHeroSlide() {
-      goToHeroSlide(currentHeroIndex + 1);
-    }
-
-    function prevHeroSlide() {
-      goToHeroSlide(currentHeroIndex - 1);
-    }
-
-    function startHeroTimer() {
-      if (heroTimer) clearInterval(heroTimer);
-      heroTimer = setInterval(() => {
-        if (isHeroAutoplay) {
-          nextHeroSlide();
-        }
-      }, HERO_SLIDE_DURATION);
-    }
-
-    function restartHeroTimer() {
-      startHeroTimer();
-    }
-
-    function toggleHeroAutoplay() {
-      isHeroAutoplay = !isHeroAutoplay;
-      if (isHeroAutoplay) {
-        if (playPauseIcon) playPauseIcon.className = 'fa-solid fa-pause';
-        startHeroTimer();
-        startHeroProgressAnimation();
+    // Update Dot Active States
+    dots.forEach((dot, i) => {
+      if (i === currentInnovIndex) {
+        dot.classList.add('active');
       } else {
-        if (playPauseIcon) playPauseIcon.className = 'fa-solid fa-play';
-        if (heroTimer) clearInterval(heroTimer);
-        resetHeroProgressBars();
+        dot.classList.remove('active');
+      }
+    });
+
+    // Calculate dead-center positioning offset
+    const targetCard = cards[currentInnovIndex];
+    if (!targetCard) return;
+
+    const cardLeft = targetCard.offsetLeft;
+    const cardWidth = targetCard.offsetWidth;
+
+    // Because track has left: 50%, shifting track left by (cardLeft + cardWidth / 2) locks target card center at dead-center (50%) of viewport
+    const centerOffset = - (cardLeft + cardWidth / 2);
+    track.style.transform = `translateX(${centerOffset}px)`;
+  }
+
+  let autoScrollInnovationsTimer = null;
+
+  function startInnovationsAutoScroll() {
+    stopInnovationsAutoScroll();
+    autoScrollInnovationsTimer = setInterval(() => {
+      moveInnovationsCarousel(1);
+    }, 4200); // Auto-scroll every 4.2 seconds
+  }
+
+  function stopInnovationsAutoScroll() {
+    if (autoScrollInnovationsTimer) {
+      clearInterval(autoScrollInnovationsTimer);
+      autoScrollInnovationsTimer = null;
+    }
+  }
+
+  function moveInnovationsCarousel(dir) {
+    currentInnovIndex += dir;
+    updateInnovationsCarousel();
+    // Restart auto-scroll timer on manual navigation
+    startInnovationsAutoScroll();
+  }
+
+  function setInnovationsIndex(index) {
+    currentInnovIndex = index;
+    updateInnovationsCarousel();
+    // Restart auto-scroll timer on manual dot/card selection
+    startInnovationsAutoScroll();
+  }
+
+  // Initialize Innovations Carousel & Auto-Scroll on page load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      updateInnovationsCarousel();
+      startInnovationsAutoScroll();
+    }, 250);
+
+    // Pause auto-scroll on mouse hover / touch interaction
+    const stage = document.querySelector('.innovations-carousel-stage');
+    if (stage) {
+      stage.addEventListener('mouseenter', stopInnovationsAutoScroll);
+      stage.addEventListener('mouseleave', startInnovationsAutoScroll);
+      stage.addEventListener('touchstart', stopInnovationsAutoScroll, { passive: true });
+      stage.addEventListener('touchend', startInnovationsAutoScroll, { passive: true });
+    }
+  });
+
+  window.addEventListener('resize', updateInnovationsCarousel);
+
+  // Portal Tabs
+  function switchPortalTab(tabKey) {
+    const btns = document.querySelectorAll('.portal-tab-btn');
+    const tabs = document.querySelectorAll('.portal-tab-content');
+
+    btns.forEach(b => b.classList.remove('active'));
+    tabs.forEach(t => t.classList.remove('active'));
+
+    if (tabKey === 'procurement') {
+      btns[0].classList.add('active');
+      document.getElementById('tabProcurement').classList.add('active');
+    } else if (tabKey === 'careers') {
+      btns[1].classList.add('active');
+      document.getElementById('tabCareers').classList.add('active');
+    } else if (tabKey === 'partnership') {
+      btns[2].classList.add('active');
+      document.getElementById('tabPartnership').classList.add('active');
+    }
+  }
+
+  // ==========================================
+  // Dynamic Navbar Scroll Glassmorphism Effect
+  // ==========================================
+  const siteNavbar = document.querySelector('.navbar');
+  function handleNavbarScroll() {
+    if (siteNavbar) {
+      if (window.scrollY > 40) {
+        siteNavbar.classList.add('scrolled');
+      } else {
+        siteNavbar.classList.remove('scrolled');
       }
     }
+  }
+  window.addEventListener('scroll', handleNavbarScroll);
+  handleNavbarScroll();
 
-    // Initialize Hero Slider Controller
-    if (heroSlides.length > 0) {
-      goToHeroSlide(0);
+  // ==========================================
+  // Full-Screen ECEWS-Style Hero Slider Engine
+  // ==========================================
+  let currentHeroIndex = 0;
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('.slider-dot-item');
+  const playPauseIcon = document.getElementById('playPauseIcon');
+  let heroTimer = null;
+  let isHeroAutoplay = true;
+  const HERO_SLIDE_DURATION = 6000; // 6 seconds
+
+  function resetHeroProgressBars() {
+    document.querySelectorAll('.dot-progress-fill').forEach(fill => {
+      fill.style.transition = 'none';
+      fill.style.width = '0%';
+    });
+  }
+
+  function startHeroProgressAnimation() {
+    resetHeroProgressBars();
+    if (!isHeroAutoplay) return;
+
+    const activeDot = heroDots[currentHeroIndex];
+    if (!activeDot) return;
+
+    const activeFill = activeDot.querySelector('.dot-progress-fill');
+    if (!activeFill) return;
+
+    setTimeout(() => {
+      activeFill.style.transition = `width ${HERO_SLIDE_DURATION}ms linear`;
+      activeFill.style.width = '100%';
+    }, 50);
+  }
+
+  function goToHeroSlide(index) {
+    if (heroSlides.length === 0) return;
+
+    heroSlides.forEach((slide, idx) => {
+      slide.classList.remove('active');
+      if (heroDots[idx]) heroDots[idx].classList.remove('active');
+    });
+
+    currentHeroIndex = (index + heroSlides.length) % heroSlides.length;
+
+    heroSlides[currentHeroIndex].classList.add('active');
+    if (heroDots[currentHeroIndex]) heroDots[currentHeroIndex].classList.add('active');
+
+    startHeroProgressAnimation();
+
+    if (isHeroAutoplay) {
+      restartHeroTimer();
+    }
+  }
+
+  function nextHeroSlide() {
+    goToHeroSlide(currentHeroIndex + 1);
+  }
+
+  function prevHeroSlide() {
+    goToHeroSlide(currentHeroIndex - 1);
+  }
+
+  function startHeroTimer() {
+    if (heroTimer) clearInterval(heroTimer);
+    heroTimer = setInterval(() => {
+      if (isHeroAutoplay) {
+        nextHeroSlide();
+      }
+    }, HERO_SLIDE_DURATION);
+  }
+
+  function restartHeroTimer() {
+    startHeroTimer();
+  }
+
+  function toggleHeroAutoplay() {
+    isHeroAutoplay = !isHeroAutoplay;
+    if (isHeroAutoplay) {
+      if (playPauseIcon) playPauseIcon.className = 'fa-solid fa-pause';
       startHeroTimer();
-
-      // Pause on hover over hero section
-      const heroSection = document.querySelector('.hero-slider-section');
-      if (heroSection) {
-        heroSection.addEventListener('mouseenter', () => {
-          if (isHeroAutoplay && heroTimer) {
-            clearInterval(heroTimer);
-          }
-        });
-        heroSection.addEventListener('mouseleave', () => {
-          if (isHeroAutoplay) {
-            startHeroTimer();
-          }
-        });
-      }
-
-      // Keyboard Arrow Navigation
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') nextHeroSlide();
-        if (e.key === 'ArrowLeft') prevHeroSlide();
-      });
-
-      // Touch Swipe Gestures
-      let touchStartX = 0;
-      let touchEndX = 0;
-      if (heroSection) {
-        heroSection.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        heroSection.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          if (touchStartX - touchEndX > 50) nextHeroSlide();
-          if (touchEndX - touchStartX > 50) prevHeroSlide();
-        }, { passive: true });
-      }
+      startHeroProgressAnimation();
+    } else {
+      if (playPauseIcon) playPauseIcon.className = 'fa-solid fa-play';
+      if (heroTimer) clearInterval(heroTimer);
+      resetHeroProgressBars();
     }
+  }
 
-    // Smooth Counter Animation on Viewport Entry
-    let hasCounted = false;
-    const statsSection = document.querySelector('.hero-stats-banner-section');
+  // Initialize Hero Slider Controller
+  if (heroSlides.length > 0) {
+    goToHeroSlide(0);
+    startHeroTimer();
 
-    function animateCounters() {
-      const counters = document.querySelectorAll('.counter-val');
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const suffix = counter.getAttribute('data-suffix') || '';
-        let start = 0;
-        const duration = 2200; // 2.2 seconds smooth counting
-        const startTime = performance.now();
-
-        function updateCounter(currentTime) {
-          const elapsedTime = currentTime - startTime;
-          const progress = Math.min(elapsedTime / duration, 1);
-          // Ease-out cubic function for smooth slowing count
-          const easeProgress = 1 - Math.pow(1 - progress, 3);
-          const currentVal = Math.floor(easeProgress * target);
-
-          counter.textContent = currentVal + suffix;
-
-          if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.textContent = target + suffix;
-          }
+    // Pause on hover over hero section
+    const heroSection = document.querySelector('.hero-slider-section');
+    if (heroSection) {
+      heroSection.addEventListener('mouseenter', () => {
+        if (isHeroAutoplay && heroTimer) {
+          clearInterval(heroTimer);
         }
-
-        requestAnimationFrame(updateCounter);
+      });
+      heroSection.addEventListener('mouseleave', () => {
+        if (isHeroAutoplay) {
+          startHeroTimer();
+        }
       });
     }
 
-    if (statsSection) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !hasCounted) {
-            hasCounted = true;
-            animateCounters();
-          }
-        });
-      }, { threshold: 0.2 });
+    // Keyboard Arrow Navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextHeroSlide();
+      if (e.key === 'ArrowLeft') prevHeroSlide();
+    });
 
-      observer.observe(statsSection);
+    // Touch Swipe Gestures
+    let touchStartX = 0;
+    let touchEndX = 0;
+    if (heroSection) {
+      heroSection.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      heroSection.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) nextHeroSlide();
+        if (touchEndX - touchStartX > 50) prevHeroSlide();
+      }, { passive: true });
     }
+  }
 
-    /* ==========================================
-       TECHNICAL PUBLICATIONS MODAL & FOOTPRINT JS
-       ========================================== */
-    const stateDataMap = {
-      'Benue State': { facilities: '185 Facilities', projects: 'IRIS Core, PMTCT, TB-LON3', focus: 'Epidemic Control & Community PMTCT', impact: '1.2M+ Patients Supported' },
-      'Gombe State': { facilities: '145 Facilities', projects: 'G-ANC, Maternal Health', focus: 'Group Antenatal Care & Primary Health Integration', impact: '850K+ Women & Children' },
-      'Kaduna State': { facilities: '160 Facilities', projects: 'TB-LON3, Diagnostic Lab Net', focus: 'Tuberculosis Screening & AI Diagnostics', impact: '980K+ Screenings' },
-      'Lagos State': { facilities: '210 Facilities', projects: 'IRIS Urban Hub, AYP Hubs', focus: 'Adolescent Empowerment & Urban Key Populations', impact: '2.1M+ Urban Lives' },
-      'FCT Abuja': { facilities: '95 Facilities', projects: 'WiPHLA, Executive Headquarters', focus: 'National Policy Governance & Strategic Research', impact: '500K+ Beneficiaries' },
-      'Kogi State': { facilities: '120 Facilities', projects: 'IRIS, Reproductive Health', focus: 'Primary Care Capacity & Health Worker Mentorship', impact: '650K+ Patients' },
-      'Kano State': { facilities: '175 Facilities', projects: 'Pediatric HIV, TB-LON3', focus: 'Pediatric Care & Community Case Finding', impact: '1.4M+ Patients' },
-      'Katsina State': { facilities: '115 Facilities', projects: 'TB-LON3, Immunization Support', focus: 'Community TB Screening & Local Health Strengthening', impact: '550K+ Screenings' },
-      'Rivers State': { facilities: '150 Facilities', projects: 'Coastal Riverine Outreach', focus: 'Hard-to-Reach Population Health Integration', impact: '920K+ Beneficiaries' },
-      'Enugu State': { facilities: '95 Facilities', projects: 'Maternal & Adolescent Care', focus: 'Youth Hubs & Reproductive Health', impact: '480K+ Patients' },
-      'Delta State': { facilities: '130 Facilities', projects: 'SDI-SI, EMR Analytics', focus: 'Health Informatics & Supply Chain Logistics', impact: '750K+ Patients' },
-      'Plateau State': { facilities: '110 Facilities', projects: 'Community Mentorship', focus: 'Frontline Healthcare Mentorship & Training', impact: '600K+ Patients' },
-      'Kenya / East Africa': { facilities: 'East Africa Foothold', projects: 'Digital Health Research', focus: 'Regional Health Systems & Data Innovation', impact: 'Pan-African Expansion' },
-      'South Africa / Southern Africa': { facilities: 'Southern Africa Foothold', projects: 'Global Health Security', focus: 'Diagnostic Network Interoperability', impact: 'Pan-African Expansion' },
-      'Ghana / West Africa': { facilities: 'West Africa Hub', projects: 'AYP Regional Network', focus: 'Adolescent & Young Women Economic Hubs', impact: 'Pan-African Expansion' },
-      'Rwanda': { facilities: 'East Africa Hub', projects: 'Laboratory Capacity', focus: 'Diagnostic Infrastructure & Health Security', impact: 'Pan-African Expansion' },
-      'Uganda': { facilities: 'East Africa Hub', projects: 'WiPHLA Nurse Mentorship', focus: 'Female Leadership & Clinical Mentorship', impact: 'Pan-African Expansion' }
-    };
+  // Smooth Counter Animation on Viewport Entry
+  let hasCounted = false;
+  const statsSection = document.querySelector('.hero-stats-banner-section');
 
-    function selectStateFootprint(element, stateName) {
-      document.querySelectorAll('.state-pill').forEach(pill => pill.classList.remove('active'));
-      element.classList.add('active');
-      const info = stateDataMap[stateName] || { facilities: '100+ Facilities', projects: 'Integrated Health Programs', focus: 'Comprehensive Care & Health Systems', impact: 'Verified Impact' };
-      document.getElementById('mapCardTitle').innerText = stateName;
-      document.getElementById('mapCardDesc').innerHTML = `<strong>Supported Facilities:</strong> ${info.facilities} | <strong>Key Focus:</strong> ${info.focus}<br><strong>Active Initiatives:</strong> ${info.projects} (${info.impact})`;
-    }
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter-val');
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const suffix = counter.getAttribute('data-suffix') || '';
+      let start = 0;
+      const duration = 2200; // 2.2 seconds smooth counting
+      const startTime = performance.now();
 
-    function switchFootprintTab(tabType) {
-      const container = document.getElementById('statesContainer');
-      const buttons = document.querySelectorAll('.footprint-controls .tab-btn');
-      buttons.forEach(b => b.classList.remove('active'));
-      
-      if (tabType === 'nigeria') {
-        buttons[0].classList.add('active');
-        document.getElementById('mapTagText').innerText = 'OPERATIONAL COVERAGE: 20 NIGERIAN STATES';
-        document.getElementById('mapCardTitle').innerText = 'Nigeria Operational Core';
-        document.getElementById('mapCardDesc').innerText = 'Providing comprehensive health interventions, HIV/TB care, Maternal & Child Health, and health systems strengthening across 20 state jurisdictions.';
-        container.innerHTML = `
+      function updateCounter(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1);
+        // Ease-out cubic function for smooth slowing count
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const currentVal = Math.floor(easeProgress * target);
+
+        counter.textContent = currentVal + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target + suffix;
+        }
+      }
+
+      requestAnimationFrame(updateCounter);
+    });
+  }
+
+  if (statsSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasCounted) {
+          hasCounted = true;
+          animateCounters();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(statsSection);
+  }
+
+  /* ==========================================
+     TECHNICAL PUBLICATIONS MODAL & FOOTPRINT JS
+     ========================================== */
+  const stateDataMap = {
+    'Benue State': { facilities: '185 Facilities', projects: 'IRIS Core, PMTCT, TB-LON3', focus: 'Epidemic Control & Community PMTCT', impact: '1.2M+ Patients Supported' },
+    'Gombe State': { facilities: '145 Facilities', projects: 'G-ANC, Maternal Health', focus: 'Group Antenatal Care & Primary Health Integration', impact: '850K+ Women & Children' },
+    'Kaduna State': { facilities: '160 Facilities', projects: 'TB-LON3, Diagnostic Lab Net', focus: 'Tuberculosis Screening & AI Diagnostics', impact: '980K+ Screenings' },
+    'Lagos State': { facilities: '210 Facilities', projects: 'IRIS Urban Hub, AYP Hubs', focus: 'Adolescent Empowerment & Urban Key Populations', impact: '2.1M+ Urban Lives' },
+    'FCT Abuja': { facilities: '95 Facilities', projects: 'WiPHLA, Executive Headquarters', focus: 'National Policy Governance & Strategic Research', impact: '500K+ Beneficiaries' },
+    'Kogi State': { facilities: '120 Facilities', projects: 'IRIS, Reproductive Health', focus: 'Primary Care Capacity & Health Worker Mentorship', impact: '650K+ Patients' },
+    'Kano State': { facilities: '175 Facilities', projects: 'Pediatric HIV, TB-LON3', focus: 'Pediatric Care & Community Case Finding', impact: '1.4M+ Patients' },
+    'Katsina State': { facilities: '115 Facilities', projects: 'TB-LON3, Immunization Support', focus: 'Community TB Screening & Local Health Strengthening', impact: '550K+ Screenings' },
+    'Rivers State': { facilities: '150 Facilities', projects: 'Coastal Riverine Outreach', focus: 'Hard-to-Reach Population Health Integration', impact: '920K+ Beneficiaries' },
+    'Enugu State': { facilities: '95 Facilities', projects: 'Maternal & Adolescent Care', focus: 'Youth Hubs & Reproductive Health', impact: '480K+ Patients' },
+    'Delta State': { facilities: '130 Facilities', projects: 'SDI-SI, EMR Analytics', focus: 'Health Informatics & Supply Chain Logistics', impact: '750K+ Patients' },
+    'Plateau State': { facilities: '110 Facilities', projects: 'Community Mentorship', focus: 'Frontline Healthcare Mentorship & Training', impact: '600K+ Patients' },
+    'Kenya / East Africa': { facilities: 'East Africa Foothold', projects: 'Digital Health Research', focus: 'Regional Health Systems & Data Innovation', impact: 'Pan-African Expansion' },
+    'South Africa / Southern Africa': { facilities: 'Southern Africa Foothold', projects: 'Global Health Security', focus: 'Diagnostic Network Interoperability', impact: 'Pan-African Expansion' },
+    'Ghana / West Africa': { facilities: 'West Africa Hub', projects: 'AYP Regional Network', focus: 'Adolescent & Young Women Economic Hubs', impact: 'Pan-African Expansion' },
+    'Rwanda': { facilities: 'East Africa Hub', projects: 'Laboratory Capacity', focus: 'Diagnostic Infrastructure & Health Security', impact: 'Pan-African Expansion' },
+    'Uganda': { facilities: 'East Africa Hub', projects: 'WiPHLA Nurse Mentorship', focus: 'Female Leadership & Clinical Mentorship', impact: 'Pan-African Expansion' }
+  };
+
+  function selectStateFootprint(element, stateName) {
+    document.querySelectorAll('.state-pill').forEach(pill => pill.classList.remove('active'));
+    element.classList.add('active');
+    const info = stateDataMap[stateName] || { facilities: '100+ Facilities', projects: 'Integrated Health Programs', focus: 'Comprehensive Care & Health Systems', impact: 'Verified Impact' };
+    document.getElementById('mapCardTitle').innerText = stateName;
+    document.getElementById('mapCardDesc').innerHTML = `<strong>Supported Facilities:</strong> ${info.facilities} | <strong>Key Focus:</strong> ${info.focus}<br><strong>Active Initiatives:</strong> ${info.projects} (${info.impact})`;
+  }
+
+  function switchFootprintTab(tabType) {
+    const container = document.getElementById('statesContainer');
+    const buttons = document.querySelectorAll('.footprint-controls .tab-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+
+    if (tabType === 'nigeria') {
+      buttons[0].classList.add('active');
+      document.getElementById('mapTagText').innerText = 'OPERATIONAL COVERAGE: 20 NIGERIAN STATES';
+      document.getElementById('mapCardTitle').innerText = 'Nigeria Operational Core';
+      document.getElementById('mapCardDesc').innerText = 'Providing comprehensive health interventions, HIV/TB care, Maternal & Child Health, and health systems strengthening across 20 state jurisdictions.';
+      container.innerHTML = `
           <span class="state-pill active" onclick="selectStateFootprint(this, 'Benue State')">Benue State</span>
           <span class="state-pill" onclick="selectStateFootprint(this, 'Gombe State')">Gombe State</span>
           <span class="state-pill" onclick="selectStateFootprint(this, 'Kaduna State')">Kaduna State</span>
@@ -4809,135 +4875,145 @@
           <span class="state-pill" onclick="selectStateFootprint(this, 'Delta State')">Delta State</span>
           <span class="state-pill" onclick="selectStateFootprint(this, 'Plateau State')">Plateau State</span>
         `;
-      } else {
-        buttons[1].classList.add('active');
-        document.getElementById('mapTagText').innerText = '3-YEAR STRATEGIC AMBITION: 5 PAN-AFRICAN FOOTHOLDS';
-        document.getElementById('mapCardTitle').innerText = 'Pan-African Growth Strategy';
-        document.getElementById('mapCardDesc').innerText = 'Expanding CIHP’s indigenous public health delivery models into key East, West, and Southern African healthcare systems.';
-        container.innerHTML = `
+    } else {
+      buttons[1].classList.add('active');
+      document.getElementById('mapTagText').innerText = '3-YEAR STRATEGIC AMBITION: 5 PAN-AFRICAN FOOTHOLDS';
+      document.getElementById('mapCardTitle').innerText = 'Pan-African Growth Strategy';
+      document.getElementById('mapCardDesc').innerText = 'Expanding CIHP’s indigenous public health delivery models into key East, West, and Southern African healthcare systems.';
+      container.innerHTML = `
           <span class="state-pill active" onclick="selectStateFootprint(this, 'Kenya / East Africa')">🇰🇪 Kenya (East Africa)</span>
           <span class="state-pill" onclick="selectStateFootprint(this, 'South Africa / Southern Africa')">🇿🇦 South Africa (Southern Africa)</span>
           <span class="state-pill" onclick="selectStateFootprint(this, 'Ghana / West Africa')">🇬🇭 Ghana (West Africa)</span>
           <span class="state-pill" onclick="selectStateFootprint(this, 'Rwanda')">🇷🇼 Rwanda (East Africa)</span>
           <span class="state-pill" onclick="selectStateFootprint(this, 'Uganda')">🇺🇬 Uganda (East Africa)</span>
         `;
+    }
+  }
+
+  function openPublicationsModal(event) {
+    if (event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+    document.getElementById('publicationsModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePublicationsModal(event) {
+    if (event) event.stopPropagation();
+    document.getElementById('publicationsModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function filterPublications(cat, btn) {
+    document.querySelectorAll('.pub-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.pub-item-card').forEach(card => {
+      if (cat === 'all' || card.getAttribute('data-category') === cat) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
       }
-    }
+    });
+  }
+</script>
 
-    function openPublicationsModal(event) {
-      if (event) {
-        event.stopPropagation();
-        event.preventDefault();
-      }
-      document.getElementById('publicationsModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
+<!-- ==================== TECHNICAL PUBLICATIONS & RESEARCH REPOSITORY MODAL ==================== -->
+<div class="publications-modal-overlay" id="publicationsModal" onclick="closePublicationsModal(event)">
+  <div class="publications-modal-container" onclick="event.stopPropagation()">
 
-    function closePublicationsModal(event) {
-      if (event) event.stopPropagation();
-      document.getElementById('publicationsModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function filterPublications(cat, btn) {
-      document.querySelectorAll('.pub-filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.pub-item-card').forEach(card => {
-        if (cat === 'all' || card.getAttribute('data-category') === cat) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
-
-  <!-- ==================== TECHNICAL PUBLICATIONS & RESEARCH REPOSITORY MODAL ==================== -->
-  <div class="publications-modal-overlay" id="publicationsModal" onclick="closePublicationsModal(event)">
-    <div class="publications-modal-container" onclick="event.stopPropagation()">
-      
-      <!-- Modal Header -->
-      <div class="pub-modal-header">
-        <div>
-          <div class="pub-modal-eyebrow mono"><i class="fa-solid fa-book-journal-whills"></i> CIHP SCIENTIFIC REPOSITORY</div>
-          <h2 class="pub-modal-title">Peer-Reviewed Publications & Technical Briefs</h2>
-          <p class="pub-modal-sub">Explore scientific articles, clinical implementation guidelines, and policy frameworks published by CIHP researchers.</p>
+    <!-- Modal Header -->
+    <div class="pub-modal-header">
+      <div>
+        <div class="pub-modal-eyebrow mono"><i class="fa-solid fa-book-journal-whills"></i> CIHP SCIENTIFIC REPOSITORY
         </div>
-        <button class="pub-modal-close-btn" onclick="closePublicationsModal()" aria-label="Close Modal">&times;</button>
+        <h2 class="pub-modal-title">Peer-Reviewed Publications & Technical Briefs</h2>
+        <p class="pub-modal-sub">Explore scientific articles, clinical implementation guidelines, and policy frameworks
+          published by CIHP researchers.</p>
+      </div>
+      <button class="pub-modal-close-btn" onclick="closePublicationsModal()" aria-label="Close Modal">&times;</button>
+    </div>
+
+    <!-- Filter Category Bar -->
+    <div class="pub-modal-filter-bar">
+      <button class="pub-filter-btn active" onclick="filterPublications('all', this)">All Research</button>
+      <button class="pub-filter-btn" onclick="filterPublications('epidemic', this)">HIV & Epidemic Control</button>
+      <button class="pub-filter-btn" onclick="filterPublications('maternal', this)">Maternal & Child Health</button>
+      <button class="pub-filter-btn" onclick="filterPublications('wiphla', this)">WiPHLA Gender Briefs</button>
+      <button class="pub-filter-btn" onclick="filterPublications('informatics', this)">Health Informatics & SRT</button>
+    </div>
+
+    <!-- Publications List Grid -->
+    <div class="pub-modal-grid">
+
+      <!-- Item 1 -->
+      <div class="pub-item-card" data-category="epidemic">
+        <div class="pub-card-top">
+          <span class="pub-type-tag tag-journal"><i class="fa-solid fa-newspaper"></i> Journal Article (2025)</span>
+          <span class="pub-doi mono">DOI: 10.1016/j.glohealth.2025</span>
+        </div>
+        <h3 class="pub-card-title">Integrated Community PMTCT Models: Sustaining Maternal-Child HIV Transmission
+          Reduction Across 20 Nigerian States</h3>
+        <p class="pub-card-abstract">Evaluates 15 years of CIHP frontline implementation integrating prevention of
+          mother-to-child HIV transmission into primary healthcare infrastructure.</p>
+        <div class="pub-card-footer">
+          <span class="pub-authors"><i class="fa-solid fa-users"></i> Dr. Bolanle Oyeledun, et al.</span>
+          <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
+        </div>
       </div>
 
-      <!-- Filter Category Bar -->
-      <div class="pub-modal-filter-bar">
-        <button class="pub-filter-btn active" onclick="filterPublications('all', this)">All Research</button>
-        <button class="pub-filter-btn" onclick="filterPublications('epidemic', this)">HIV & Epidemic Control</button>
-        <button class="pub-filter-btn" onclick="filterPublications('maternal', this)">Maternal & Child Health</button>
-        <button class="pub-filter-btn" onclick="filterPublications('wiphla', this)">WiPHLA Gender Briefs</button>
-        <button class="pub-filter-btn" onclick="filterPublications('informatics', this)">Health Informatics & SRT</button>
+      <!-- Item 2 -->
+      <div class="pub-item-card" data-category="epidemic">
+        <div class="pub-card-top">
+          <span class="pub-type-tag tag-brief"><i class="fa-solid fa-file-lines"></i> Technical Brief</span>
+          <span class="pub-doi mono">Ref: CIHP-TB-2025-04</span>
+        </div>
+        <h3 class="pub-card-title">Scaling AI-Driven Mobile Diagnostic Networks for Community Tuberculosis Active Case
+          Finding</h3>
+        <p class="pub-card-abstract">Field report on TB-LON3 project deploying ultra-portable digital X-rays and
+          computer-aided detection software in high-density urban and rural LGAs.</p>
+        <div class="pub-card-footer">
+          <span class="pub-authors"><i class="fa-solid fa-microchip"></i> CIHP Research & TB-LON3 Team</span>
+          <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
+        </div>
       </div>
 
-      <!-- Publications List Grid -->
-      <div class="pub-modal-grid">
-
-        <!-- Item 1 -->
-        <div class="pub-item-card" data-category="epidemic">
-          <div class="pub-card-top">
-            <span class="pub-type-tag tag-journal"><i class="fa-solid fa-newspaper"></i> Journal Article (2025)</span>
-            <span class="pub-doi mono">DOI: 10.1016/j.glohealth.2025</span>
-          </div>
-          <h3 class="pub-card-title">Integrated Community PMTCT Models: Sustaining Maternal-Child HIV Transmission Reduction Across 20 Nigerian States</h3>
-          <p class="pub-card-abstract">Evaluates 15 years of CIHP frontline implementation integrating prevention of mother-to-child HIV transmission into primary healthcare infrastructure.</p>
-          <div class="pub-card-footer">
-            <span class="pub-authors"><i class="fa-solid fa-users"></i> Dr. Bolanle Oyeledun, et al.</span>
-            <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
-          </div>
+      <!-- Item 3 -->
+      <div class="pub-item-card" data-category="wiphla">
+        <div class="pub-card-top">
+          <span class="pub-type-tag tag-framework"><i class="fa-solid fa-award"></i> Policy Framework</span>
+          <span class="pub-doi mono">WiPHLA Monograph Series</span>
         </div>
-
-        <!-- Item 2 -->
-        <div class="pub-item-card" data-category="epidemic">
-          <div class="pub-card-top">
-            <span class="pub-type-tag tag-brief"><i class="fa-solid fa-file-lines"></i> Technical Brief</span>
-            <span class="pub-doi mono">Ref: CIHP-TB-2025-04</span>
-          </div>
-          <h3 class="pub-card-title">Scaling AI-Driven Mobile Diagnostic Networks for Community Tuberculosis Active Case Finding</h3>
-          <p class="pub-card-abstract">Field report on TB-LON3 project deploying ultra-portable digital X-rays and computer-aided detection software in high-density urban and rural LGAs.</p>
-          <div class="pub-card-footer">
-            <span class="pub-authors"><i class="fa-solid fa-microchip"></i> CIHP Research & TB-LON3 Team</span>
-            <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
-          </div>
+        <h3 class="pub-card-title">Women in Public Health Leadership in Africa (WiPHLA): Executive Nursing & Mentorship
+          Model</h3>
+        <p class="pub-card-abstract">Operational framework for clinical mentorship, gender-transformative dialogue, and
+          executive capacity development in sub-Saharan African health systems.</p>
+        <div class="pub-card-footer">
+          <span class="pub-authors"><i class="fa-solid fa-user-nurse"></i> WiPHLA Governance Council</span>
+          <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
         </div>
+      </div>
 
-        <!-- Item 3 -->
-        <div class="pub-item-card" data-category="wiphla">
-          <div class="pub-card-top">
-            <span class="pub-type-tag tag-framework"><i class="fa-solid fa-award"></i> Policy Framework</span>
-            <span class="pub-doi mono">WiPHLA Monograph Series</span>
-          </div>
-          <h3 class="pub-card-title">Women in Public Health Leadership in Africa (WiPHLA): Executive Nursing & Mentorship Model</h3>
-          <p class="pub-card-abstract">Operational framework for clinical mentorship, gender-transformative dialogue, and executive capacity development in sub-Saharan African health systems.</p>
-          <div class="pub-card-footer">
-            <span class="pub-authors"><i class="fa-solid fa-user-nurse"></i> WiPHLA Governance Council</span>
-            <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
-          </div>
+      <!-- Item 4 -->
+      <div class="pub-item-card" data-category="informatics">
+        <div class="pub-card-top">
+          <span class="pub-type-tag tag-tech"><i class="fa-solid fa-database"></i> Systems Whitepaper</span>
+          <span class="pub-doi mono">Ref: CIHP-SRT-2024</span>
         </div>
-
-        <!-- Item 4 -->
-        <div class="pub-item-card" data-category="informatics">
-          <div class="pub-card-top">
-            <span class="pub-type-tag tag-tech"><i class="fa-solid fa-database"></i> Systems Whitepaper</span>
-            <span class="pub-doi mono">Ref: CIHP-SRT-2024</span>
-          </div>
-          <h3 class="pub-card-title">The SRT Engine: Interoperable EMR Data Surveillance and Automated Quality Analytics in Resource-Limited Settings</h3>
-          <p class="pub-card-abstract">Technical overview of CIHP’s Strategic Research & Translation platform enabling real-time facility-to-national data synchronization.</p>
-          <div class="pub-card-footer">
-            <span class="pub-authors"><i class="fa-solid fa-network-wired"></i> CIHP Informatics Directorate</span>
-            <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
-          </div>
+        <h3 class="pub-card-title">The SRT Engine: Interoperable EMR Data Surveillance and Automated Quality Analytics
+          in Resource-Limited Settings</h3>
+        <p class="pub-card-abstract">Technical overview of CIHP’s Strategic Research & Translation platform enabling
+          real-time facility-to-national data synchronization.</p>
+        <div class="pub-card-footer">
+          <span class="pub-authors"><i class="fa-solid fa-network-wired"></i> CIHP Informatics Directorate</span>
+          <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
         </div>
-
       </div>
 
     </div>
+
   </div>
+</div>
 </body>
 
 </html>
