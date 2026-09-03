@@ -267,8 +267,211 @@
       font-weight: 700;
     }
 
-    .top-eyebrow-highlight:hover {
-      color: #fbbf24;
+    /* Technical Publications Modal Styling */
+    .publications-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(9, 15, 42, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .publications-modal-overlay.active {
+      display: flex;
+    }
+
+    .publications-modal-container {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      max-width: 960px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(30, 51, 136, 0.2);
+      padding: 40px;
+      position: relative;
+    }
+
+    .pub-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+
+    .pub-modal-eyebrow {
+      color: var(--secondary-green);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .pub-modal-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--primary-blue-dark);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .pub-modal-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .pub-modal-close-btn {
+      background: #f1f5f9;
+      border: none;
+      font-size: 1.8rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .pub-modal-close-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .pub-modal-filter-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .pub-filter-btn {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pub-filter-btn:hover, .pub-filter-btn.active {
+      background: var(--primary-blue);
+      color: #ffffff;
+      border-color: var(--primary-blue);
+    }
+
+    .pub-modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .pub-modal-grid { grid-template-columns: 1fr; }
+      .publications-modal-container { padding: 24px; }
+    }
+
+    .pub-item-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pub-item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(30, 51, 136, 0.08);
+      border-color: rgba(30, 51, 136, 0.3);
+    }
+
+    .pub-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .pub-type-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .tag-journal { background: #e0f2fe; color: #0284c7; }
+    .tag-brief { background: #dcfce7; color: #15803d; }
+    .tag-framework { background: #fef3c7; color: #b45309; }
+    .tag-tech { background: #f3e8ff; color: #6b21a8; }
+
+    .pub-doi {
+      font-size: 0.72rem;
+      color: #94a3b8;
+    }
+
+    .pub-card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-blue-dark);
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .pub-card-abstract {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+
+    .pub-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.8rem;
+    }
+
+    .pub-authors {
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .pub-download-btn {
+      background: var(--secondary-green);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      transition: background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pub-download-btn:hover {
+      background: var(--secondary-green-dark);
     }
 
     /* Pre-Footer Strategic CTA Section */
@@ -3864,9 +4067,9 @@
                       <span class="innov-tag"><span style="color:#34d399">•</span> Policy Briefs</span>
                     </div>
                   </div>
-                  <a href="contact.html" class="innovation-card-btn btn-pub">
-                    <span>Access Repository</span> <i class="fa-solid fa-arrow-right"></i>
-                  </a>
+                  <button onclick="openPublicationsModal(event)" class="innovation-card-btn btn-pub" style="border: none; cursor: pointer;">
+                    <span>Access Research Repository</span> <i class="fa-solid fa-book-open"></i>
+                  </button>
                 </div>
 
                 <!-- RIGHT SIDE: Thumbnail Image -->
@@ -4680,7 +4883,191 @@
 
       observer.observe(statsSection);
     }
+
+    /* ==========================================
+       TECHNICAL PUBLICATIONS MODAL & FOOTPRINT JS
+       ========================================== */
+    const stateDataMap = {
+      'Benue State': { facilities: '185 Facilities', projects: 'IRIS Core, PMTCT, TB-LON3', focus: 'Epidemic Control & Community PMTCT', impact: '1.2M+ Patients Supported' },
+      'Gombe State': { facilities: '145 Facilities', projects: 'G-ANC, Maternal Health', focus: 'Group Antenatal Care & Primary Health Integration', impact: '850K+ Women & Children' },
+      'Kaduna State': { facilities: '160 Facilities', projects: 'TB-LON3, Diagnostic Lab Net', focus: 'Tuberculosis Screening & AI Diagnostics', impact: '980K+ Screenings' },
+      'Lagos State': { facilities: '210 Facilities', projects: 'IRIS Urban Hub, AYP Hubs', focus: 'Adolescent Empowerment & Urban Key Populations', impact: '2.1M+ Urban Lives' },
+      'FCT Abuja': { facilities: '95 Facilities', projects: 'WiPHLA, Executive Headquarters', focus: 'National Policy Governance & Strategic Research', impact: '500K+ Beneficiaries' },
+      'Kogi State': { facilities: '120 Facilities', projects: 'IRIS, Reproductive Health', focus: 'Primary Care Capacity & Health Worker Mentorship', impact: '650K+ Patients' },
+      'Kano State': { facilities: '175 Facilities', projects: 'Pediatric HIV, TB-LON3', focus: 'Pediatric Care & Community Case Finding', impact: '1.4M+ Patients' },
+      'Katsina State': { facilities: '115 Facilities', projects: 'TB-LON3, Immunization Support', focus: 'Community TB Screening & Local Health Strengthening', impact: '550K+ Screenings' },
+      'Rivers State': { facilities: '150 Facilities', projects: 'Coastal Riverine Outreach', focus: 'Hard-to-Reach Population Health Integration', impact: '920K+ Beneficiaries' },
+      'Enugu State': { facilities: '95 Facilities', projects: 'Maternal & Adolescent Care', focus: 'Youth Hubs & Reproductive Health', impact: '480K+ Patients' },
+      'Delta State': { facilities: '130 Facilities', projects: 'SDI-SI, EMR Analytics', focus: 'Health Informatics & Supply Chain Logistics', impact: '750K+ Patients' },
+      'Plateau State': { facilities: '110 Facilities', projects: 'Community Mentorship', focus: 'Frontline Healthcare Mentorship & Training', impact: '600K+ Patients' },
+      'Kenya / East Africa': { facilities: 'East Africa Foothold', projects: 'Digital Health Research', focus: 'Regional Health Systems & Data Innovation', impact: 'Pan-African Expansion' },
+      'South Africa / Southern Africa': { facilities: 'Southern Africa Foothold', projects: 'Global Health Security', focus: 'Diagnostic Network Interoperability', impact: 'Pan-African Expansion' },
+      'Ghana / West Africa': { facilities: 'West Africa Hub', projects: 'AYP Regional Network', focus: 'Adolescent & Young Women Economic Hubs', impact: 'Pan-African Expansion' },
+      'Rwanda': { facilities: 'East Africa Hub', projects: 'Laboratory Capacity', focus: 'Diagnostic Infrastructure & Health Security', impact: 'Pan-African Expansion' },
+      'Uganda': { facilities: 'East Africa Hub', projects: 'WiPHLA Nurse Mentorship', focus: 'Female Leadership & Clinical Mentorship', impact: 'Pan-African Expansion' }
+    };
+
+    function selectStateFootprint(element, stateName) {
+      document.querySelectorAll('.state-pill').forEach(pill => pill.classList.remove('active'));
+      element.classList.add('active');
+      const info = stateDataMap[stateName] || { facilities: '100+ Facilities', projects: 'Integrated Health Programs', focus: 'Comprehensive Care & Health Systems', impact: 'Verified Impact' };
+      document.getElementById('mapCardTitle').innerText = stateName;
+      document.getElementById('mapCardDesc').innerHTML = `<strong>Supported Facilities:</strong> ${info.facilities} | <strong>Key Focus:</strong> ${info.focus}<br><strong>Active Initiatives:</strong> ${info.projects} (${info.impact})`;
+    }
+
+    function switchFootprintTab(tabType) {
+      const container = document.getElementById('statesContainer');
+      const buttons = document.querySelectorAll('.footprint-controls .tab-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      
+      if (tabType === 'nigeria') {
+        buttons[0].classList.add('active');
+        document.getElementById('mapTagText').innerText = 'OPERATIONAL COVERAGE: 20 NIGERIAN STATES';
+        document.getElementById('mapCardTitle').innerText = 'Nigeria Operational Core';
+        document.getElementById('mapCardDesc').innerText = 'Providing comprehensive health interventions, HIV/TB care, Maternal & Child Health, and health systems strengthening across 20 state jurisdictions.';
+        container.innerHTML = `
+          <span class="state-pill active" onclick="selectStateFootprint(this, 'Benue State')">Benue State</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Gombe State')">Gombe State</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Kaduna State')">Kaduna State</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Lagos State')">Lagos State</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'FCT Abuja')">FCT Abuja</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Kogi State')">Kogi State</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Kano State')">Kano State</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Katsina State')">Katsina State</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Rivers State')">Rivers State</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Enugu State')">Enugu State</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Delta State')">Delta State</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Plateau State')">Plateau State</span>
+        `;
+      } else {
+        buttons[1].classList.add('active');
+        document.getElementById('mapTagText').innerText = '3-YEAR STRATEGIC AMBITION: 5 PAN-AFRICAN FOOTHOLDS';
+        document.getElementById('mapCardTitle').innerText = 'Pan-African Growth Strategy';
+        document.getElementById('mapCardDesc').innerText = 'Expanding CIHP’s indigenous public health delivery models into key East, West, and Southern African healthcare systems.';
+        container.innerHTML = `
+          <span class="state-pill active" onclick="selectStateFootprint(this, 'Kenya / East Africa')">🇰🇪 Kenya (East Africa)</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'South Africa / Southern Africa')">🇿🇦 South Africa (Southern Africa)</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Ghana / West Africa')">🇬🇭 Ghana (West Africa)</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Rwanda')">🇷🇼 Rwanda (East Africa)</span>
+          <span class="state-pill" onclick="selectStateFootprint(this, 'Uganda')">🇺🇬 Uganda (East Africa)</span>
+        `;
+      }
+    }
+
+    function openPublicationsModal(event) {
+      if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+      document.getElementById('publicationsModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePublicationsModal(event) {
+      if (event) event.stopPropagation();
+      document.getElementById('publicationsModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function filterPublications(cat, btn) {
+      document.querySelectorAll('.pub-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.pub-item-card').forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
   </script>
+
+  <!-- ==================== TECHNICAL PUBLICATIONS & RESEARCH REPOSITORY MODAL ==================== -->
+  <div class="publications-modal-overlay" id="publicationsModal" onclick="closePublicationsModal(event)">
+    <div class="publications-modal-container" onclick="event.stopPropagation()">
+      
+      <!-- Modal Header -->
+      <div class="pub-modal-header">
+        <div>
+          <div class="pub-modal-eyebrow mono"><i class="fa-solid fa-book-journal-whills"></i> CIHP SCIENTIFIC REPOSITORY</div>
+          <h2 class="pub-modal-title">Peer-Reviewed Publications & Technical Briefs</h2>
+          <p class="pub-modal-sub">Explore scientific articles, clinical implementation guidelines, and policy frameworks published by CIHP researchers.</p>
+        </div>
+        <button class="pub-modal-close-btn" onclick="closePublicationsModal()" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <!-- Filter Category Bar -->
+      <div class="pub-modal-filter-bar">
+        <button class="pub-filter-btn active" onclick="filterPublications('all', this)">All Research</button>
+        <button class="pub-filter-btn" onclick="filterPublications('epidemic', this)">HIV & Epidemic Control</button>
+        <button class="pub-filter-btn" onclick="filterPublications('maternal', this)">Maternal & Child Health</button>
+        <button class="pub-filter-btn" onclick="filterPublications('wiphla', this)">WiPHLA Gender Briefs</button>
+        <button class="pub-filter-btn" onclick="filterPublications('informatics', this)">Health Informatics & SRT</button>
+      </div>
+
+      <!-- Publications List Grid -->
+      <div class="pub-modal-grid">
+
+        <!-- Item 1 -->
+        <div class="pub-item-card" data-category="epidemic">
+          <div class="pub-card-top">
+            <span class="pub-type-tag tag-journal"><i class="fa-solid fa-newspaper"></i> Journal Article (2025)</span>
+            <span class="pub-doi mono">DOI: 10.1016/j.glohealth.2025</span>
+          </div>
+          <h3 class="pub-card-title">Integrated Community PMTCT Models: Sustaining Maternal-Child HIV Transmission Reduction Across 20 Nigerian States</h3>
+          <p class="pub-card-abstract">Evaluates 15 years of CIHP frontline implementation integrating prevention of mother-to-child HIV transmission into primary healthcare infrastructure.</p>
+          <div class="pub-card-footer">
+            <span class="pub-authors"><i class="fa-solid fa-users"></i> Dr. Bolanle Oyeledun, et al.</span>
+            <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="pub-item-card" data-category="epidemic">
+          <div class="pub-card-top">
+            <span class="pub-type-tag tag-brief"><i class="fa-solid fa-file-lines"></i> Technical Brief</span>
+            <span class="pub-doi mono">Ref: CIHP-TB-2025-04</span>
+          </div>
+          <h3 class="pub-card-title">Scaling AI-Driven Mobile Diagnostic Networks for Community Tuberculosis Active Case Finding</h3>
+          <p class="pub-card-abstract">Field report on TB-LON3 project deploying ultra-portable digital X-rays and computer-aided detection software in high-density urban and rural LGAs.</p>
+          <div class="pub-card-footer">
+            <span class="pub-authors"><i class="fa-solid fa-microchip"></i> CIHP Research & TB-LON3 Team</span>
+            <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="pub-item-card" data-category="wiphla">
+          <div class="pub-card-top">
+            <span class="pub-type-tag tag-framework"><i class="fa-solid fa-award"></i> Policy Framework</span>
+            <span class="pub-doi mono">WiPHLA Monograph Series</span>
+          </div>
+          <h3 class="pub-card-title">Women in Public Health Leadership in Africa (WiPHLA): Executive Nursing & Mentorship Model</h3>
+          <p class="pub-card-abstract">Operational framework for clinical mentorship, gender-transformative dialogue, and executive capacity development in sub-Saharan African health systems.</p>
+          <div class="pub-card-footer">
+            <span class="pub-authors"><i class="fa-solid fa-user-nurse"></i> WiPHLA Governance Council</span>
+            <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="pub-item-card" data-category="informatics">
+          <div class="pub-card-top">
+            <span class="pub-type-tag tag-tech"><i class="fa-solid fa-database"></i> Systems Whitepaper</span>
+            <span class="pub-doi mono">Ref: CIHP-SRT-2024</span>
+          </div>
+          <h3 class="pub-card-title">The SRT Engine: Interoperable EMR Data Surveillance and Automated Quality Analytics in Resource-Limited Settings</h3>
+          <p class="pub-card-abstract">Technical overview of CIHP’s Strategic Research & Translation platform enabling real-time facility-to-national data synchronization.</p>
+          <div class="pub-card-footer">
+            <span class="pub-authors"><i class="fa-solid fa-network-wired"></i> CIHP Informatics Directorate</span>
+            <a href="news.html" class="pub-download-btn"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 </body>
 
 </html>
