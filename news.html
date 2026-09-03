@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News & Media — Centre for Integrated Health Programs (CIHP)</title>
+  <meta name="description" content="Official CIHP News, Press Releases, Field Stories, and Technical Insights. Discover how CIHP is shaping public health across 20 Nigerian states and Pan-African footholds." />
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CIHP BRAND DESIGN SYSTEM & DESIGN TOKENS
+       ========================================================================== */
+    :root {
+      --primary-blue: #1e3388;
+      --primary-blue-dark: #0f172a;
+      --primary-blue-light: #253fa8;
+      --secondary-green: #297b47;
+      --secondary-green-dark: #1b5430;
+      --secondary-green-light: #e8f5ed;
+      --accent-ochre: #d97706;
+      --accent-ochre-light: #fffbe6;
+      
+      --bg-deep: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-muted: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-dark: #090f2a;
+
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --text-white: #ffffff;
+
+      --border-color: rgba(30, 51, 136, 0.12);
+      --border-hover: rgba(41, 123, 71, 0.35);
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 10px 25px rgba(30, 51, 136, 0.08);
+      --shadow-lg: 0 20px 40px rgba(30, 51, 136, 0.12);
+      
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      background-image:
+        radial-gradient(circle at 5% 5%, rgba(30, 51, 136, 0.03) 0%, transparent 35%),
+        radial-gradient(circle at 95% 95%, rgba(41, 123, 71, 0.03) 0%, transparent 35%);
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(30, 51, 136, 0.22);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(30, 51, 136, 0.35);
+      background: linear-gradient(135deg, #162668, var(--primary-blue));
+    }
+
+    .btn-emerald {
+      background: var(--secondary-green);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(41, 123, 71, 0.25);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-emerald:hover {
+      background: var(--secondary-green-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--primary-blue);
+      border: 2px solid var(--primary-blue);
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(30, 51, 136, 0.06);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      backdrop-filter: blur(16px);
+      border-bottom: 3px solid #1e3388;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 44px;
+      z-index: 10000;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+
+    .brand-logo img {
+      height: 48px;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(30, 51, 136, 0.12));
+    }
+
+    .presence-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 5px 14px;
+      border-radius: 4px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #1e3388;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #0f172a;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      padding: 6px 0;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #1e3388;
+      font-weight: 700;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1e3388;
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a.btn-nav {
+      background: #297b47;
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 4px 12px rgba(41, 123, 71, 0.25);
+    }
+
+    .nav-links a.btn-nav::after {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #0f172a;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       HERO BANNER SECTION
+       ========================================================================== */
+    .news-hero-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3388 60%, #090f2a 100%);
+      color: #ffffff;
+      padding: 70px 0 60px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--secondary-green);
+    }
+
+    .news-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .news-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #38bdf8;
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 auto;
+    }
+
+    .news-hero-title {
+      font-size: clamp(2.3rem, 4.5vw, 3.6rem);
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .news-hero-desc {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Search & Filter Controls */
+    .news-search-box {
+      max-width: 640px;
+      margin: 20px auto 0;
+      position: relative;
+    }
+
+    .news-search-input {
+      width: 100%;
+      padding: 16px 24px 16px 54px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      color: #ffffff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .news-search-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .news-search-input:focus {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: #38bdf8;
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.3);
+    }
+
+    .news-search-icon {
+      position: absolute;
+      left: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #38bdf8;
+      font-size: 1.1rem;
+    }
+
+    /* Category Filter Pills */
+    .category-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .cat-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e2e8f0;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .cat-btn:hover,
+    .cat-btn.active {
+      background: var(--secondary-green);
+      color: #ffffff;
+      border-color: var(--secondary-green);
+      box-shadow: 0 4px 14px rgba(41, 123, 71, 0.35);
+    }
+
+    /* ==========================================================================
+       FEATURED ARTICLE BANNER
+       ========================================================================== */
+    .featured-story-section {
+      padding: 60px 0 40px;
+    }
+
+    .featured-card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .featured-img-wrap {
+      position: relative;
+      min-height: 380px;
+      overflow: hidden;
+    }
+
+    .featured-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .featured-card:hover .featured-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--secondary-green);
+      color: #ffffff;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .featured-content {
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .meta-line {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.84rem;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .meta-line i {
+      color: var(--primary-blue);
+    }
+
+    .featured-title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--primary-blue-dark);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .featured-excerpt {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    /* ==========================================================================
+       BLOG CARDS GRID
+       ========================================================================== */
+    .blog-section {
+      padding: 40px 0 90px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .blog-card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-hover);
+    }
+
+    .blog-card-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .blog-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .blog-card:hover .blog-card-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .blog-tag {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      color: #38bdf8;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .blog-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .blog-card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .blog-card-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary-blue-dark);
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .blog-card-excerpt {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .blog-card-footer {
+      border-top: 1px solid var(--bg-muted);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .read-more-btn {
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+
+    .blog-card:hover .read-more-btn {
+      gap: 10px;
+      color: var(--secondary-green);
+    }
+
+    /* Media Kit & Newsletter Banner */
+    .press-kit-box {
+      background: linear-gradient(135deg, #1e3388 0%, #0f172a 100%);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 44px;
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 30px;
+      align-items: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .press-kit-box h3 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .press-kit-box p {
+      color: #cbd5e1;
+      font-size: 0.96rem;
+    }
+
+    .press-kit-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Partner Marquee */
+    .partner-marquee-section {
+      background: #ffffff;
+      padding: 50px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .marquee-track-container {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 40px;
+      animation: marquee 25s linear infinite;
+    }
+
+    .partner-logo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-muted);
+      border: 1px solid var(--border-color);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--primary-blue-dark);
+    }
+
+    .partner-logo-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Footer & Silhouette */
+    footer {
+      background: linear-gradient(180deg, var(--primary-blue-dark) 0%, #060a1c 100%);
+      color: #ffffff;
+      padding: 80px 0 40px;
+      border-top: 5px solid var(--secondary-green);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.05rem;
+      color: #ffffff;
+      font-weight: 800;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background: var(--secondary-green);
+      border-radius: 2px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .footer-safari-silhouette {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      background: #0f172a;
+    }
+
+    @media (max-width: 992px) {
+      .featured-card {
+        grid-template-columns: 1fr;
+      }
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .press-kit-box {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 14px 20px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== STICKY EXECUTIVE NAVBAR ==================== -->
+  <nav class="navbar">
+    <a href="index.html" class="brand-logo">
+      <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo" />
+      <div class="presence-badge mono">
+        <i class="fa-solid fa-earth-africa" style="color: var(--secondary-green);"></i> 20 States | 5 Pan-African Footholds
+      </div>
+    </a>
+
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About CIHP</a></li>
+      <li><a href="index.html#what-we-do">What We Do</a></li>
+      <li><a href="index.html#impact">Impact & Projects</a></li>
+      <li><a href="about.html#leadership">Leadership</a></li>
+      <li><a href="news.html" class="active">News & Media</a></li>
+      <li><a href="careers.html">Careers & EOI</a></li>
+      <li><a href="contact.html" class="btn-nav">Partner With Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- ==================== HERO BANNER SECTION ==================== -->
+  <section class="news-hero-section">
+    <div class="container">
+      <div class="news-hero-grid" data-aos="fade-up">
+        <div class="news-eyebrow">
+          <i class="fa-solid fa-newspaper"></i> Official CIHP Newsroom & Field Updates
+        </div>
+        <h1 class="news-hero-title">
+          Stories of Impact, Innovation & Pan-African Renewal
+        </h1>
+        <p class="news-hero-desc">
+          Explore current press releases, project updates, frontline health worker insights, and research publications across our portfolio in sub-Saharan Africa.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="news-search-box">
+          <i class="fa-solid fa-magnifying-glass news-search-icon"></i>
+          <input type="text" id="newsSearchInput" class="news-search-input" placeholder="Search news, topics, or projects (e.g., REACHOUT, Unitaid, Lagos, Gates)..." onkeyup="filterNews()" />
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-filter-bar">
+          <button class="cat-btn active" onclick="setCategoryFilter('all', this)">All Updates</button>
+          <button class="cat-btn" onclick="setCategoryFilter('consortium', this)">Consortia & Research</button>
+          <button class="cat-btn" onclick="setCategoryFilter('press', this)">Press Releases</button>
+          <button class="cat-btn" onclick="setCategoryFilter('field', this)">Field Impact</button>
+          <button class="cat-btn" onclick="setCategoryFilter('health-security', this)">Global Health Security</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT AREA ==================== -->
+  <main>
+
+    <!-- FEATURED STORY -->
+    <section class="featured-story-section">
+      <div class="container">
+        <div class="featured-card" data-aos="fade-up" data-category="consortium health-security">
+          <div class="featured-img-wrap">
+            <img src="img/Reachout.png" alt="CIHP REACHOUT Project European Union" />
+            <span class="featured-badge"><i class="fa-solid fa-star"></i> Featured Consortium Story</span>
+          </div>
+
+          <div class="featured-content">
+            <div class="meta-line">
+              <span><i class="fa-solid fa-calendar-day"></i> August 28, 2026</span>
+              <span>•</span>
+              <span><i class="fa-solid fa-clock"></i> 5 min read</span>
+              <span>•</span>
+              <span style="color: var(--secondary-green); font-weight: 700;">Global Health Security</span>
+            </div>
+
+            <h2 class="featured-title">
+              CIHP Leads European Union-Funded REACHOUT Consortium Tackling Zero-Dose Immunization Gaps
+            </h2>
+
+            <p class="featured-excerpt">
+              The Centre for Integrated Health Programs (CIHP) officially rollouts the REACHOUT Project—a flagship four-year implementation research partnership funded by the European Union (Global Health EDCTP3). Working across Nigeria, Kenya, and Rwanda alongside 6 European and African research institutions, REACHOUT is translating science into precision health solutions for underserved communities.
+            </p>
+
+            <div>
+              <a href="contact.html" class="btn-emerald">Read Full Press Release <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG CARDS GRID -->
+    <section class="blog-section">
+      <div class="container">
+        <div class="blog-grid" id="blogGrid">
+
+          <!-- Card 1: IMPAACT4HIV -->
+          <article class="blog-card" data-category="consortium" data-aos="fade-up">
+            <div class="blog-card-img-wrap">
+              <img src="img/I4HIV pic.jpeg" alt="IMPAACT4HIV Project Unitaid" />
+              <span class="blog-tag">Consortia & Research</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-solid fa-calendar"></i> Aug 15, 2026</span>
+                <span>Unitaid Initiative</span>
+              </div>
+              <h3 class="blog-card-title">
+                Deploying WHO STOP AIDS Toolkit Across 21 Health Facilities in Nigeria
+              </h3>
+              <p class="blog-card-excerpt">
+                Funded by Unitaid, the IMPAACT4HIV project achieves a 100% treatment link rate for pediatric Advanced HIV Disease (AHD) and Tuberculosis across Gombe, Kano, Lagos, and Rivers States.
+              </p>
+              <div class="blog-card-footer">
+                <a href="contact.html" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: WiPHLA -->
+          <article class="blog-card" data-category="field" data-aos="fade-up" data-aos-delay="100">
+            <div class="blog-card-img-wrap">
+              <img src="img/wiphla.JPG" alt="WiPHLA Leadership Dialogue" />
+              <span class="blog-tag">Field Impact</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-solid fa-calendar"></i> Jul 30, 2026</span>
+                <span>Executive Mentorship</span>
+              </div>
+              <h3 class="blog-card-title">
+                WiPHLA Initiative: Empowering Female Public Health Leaders Across Africa
+              </h3>
+              <p class="blog-card-excerpt">
+                Championing gender equity, executive mentorship, and clinical capacity development to prepare women to lead resilient, sustainable health systems.
+              </p>
+              <div class="blog-card-footer">
+                <a href="contact.html" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: AEARI Lagos -->
+          <article class="blog-card" data-category="field" data-aos="fade-up" data-aos-delay="200">
+            <div class="blog-card-img-wrap">
+              <img src="img/G-ANC picture.png" alt="AEARI Lagos State RMNCH" />
+              <span class="blog-tag">Field Impact</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-solid fa-calendar"></i> Jul 12, 2026</span>
+                <span>Gates Foundation</span>
+              </div>
+              <h3 class="blog-card-title">
+                AEARI Project Trains 400 Healthcare Workers on PPH E-MOTIVE Bundle
+              </h3>
+              <p class="blog-card-excerpt">
+                Scaling postpartum hemorrhage early detection and GANC models across 20 Lagos State LGAs, recording 37% competency gains in clinical emergency triage.
+              </p>
+              <div class="blog-card-footer">
+                <a href="contact.html" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: AI TB Mobile X-Ray -->
+          <article class="blog-card" data-category="press health-security" data-aos="fade-up">
+            <div class="blog-card-img-wrap">
+              <img src="img/iris.JPG" alt="AI Mobile X-Ray TB Screening" />
+              <span class="blog-tag">Press Release</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-solid fa-calendar"></i> Jun 22, 2026</span>
+                <span>Digital Health</span>
+              </div>
+              <h3 class="blog-card-title">
+                Pioneering AI Mobile X-Ray Screenings for Community Tuberculosis Response
+              </h3>
+              <p class="blog-card-excerpt">
+                Integrating digital health surveillance and artificial intelligence with community outreach vans to accelerate active case finding and rapid treatment initiation.
+              </p>
+              <div class="blog-card-footer">
+                <a href="contact.html" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: MNCH Innovations -->
+          <article class="blog-card" data-category="consortium" data-aos="fade-up" data-aos-delay="100">
+            <div class="blog-card-img-wrap">
+              <img src="img/IMG_0994.JPG" alt="Accelerating MNCH Innovations" />
+              <span class="blog-tag">Consortia & Research</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-solid fa-calendar"></i> Jun 05, 2026</span>
+                <span>4th Gates Award</span>
+              </div>
+              <h3 class="blog-card-title">
+                Accelerating MNCH Innovations: Support to the Newborn Unit of FMoH&SW
+              </h3>
+              <p class="blog-card-excerpt">
+                Strengthening national readiness for small and sick newborns (SSNs) through technical working groups, rapid evidence synthesis, and updated clinical protocols.
+              </p>
+              <div class="blog-card-footer">
+                <a href="contact.html" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6: Pan-African Expansion -->
+          <article class="blog-card" data-category="press" data-aos="fade-up" data-aos-delay="200">
+            <div class="blog-card-img-wrap">
+              <img src="img/IMG_1003.JPG" alt="CIHP Pan African Ambition" />
+              <span class="blog-tag">Press Release</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-solid fa-calendar"></i> May 18, 2026</span>
+                <span>Strategic Vision</span>
+              </div>
+              <h3 class="blog-card-title">
+                CIHP Outlines 3-Year Strategic Ambition for 5 Pan-African Operational Footholds
+              </h3>
+              <p class="blog-card-excerpt">
+                Leveraging 15+ years of Nigerian public health systems strengthening to build regional partnerships and deliver sustainable health solutions across Africa.
+              </p>
+              <div class="blog-card-footer">
+                <a href="contact.html" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Press Kit & Newsletter Download Box -->
+        <div class="press-kit-box" data-aos="fade-up">
+          <div>
+            <h3>Media Relations & Press Resources</h3>
+            <p>Access official media kits, brand guidelines, institutional fact sheets, and executive profiles for journalistic inquiries.</p>
+          </div>
+          <div class="press-kit-actions">
+            <a href="contact.html" class="btn-emerald"><i class="fa-solid fa-download"></i> Download 2025/2026 Report</a>
+            <a href="contact.html" class="btn-secondary" style="background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.3);"><i class="fa-solid fa-envelope"></i> Media Relations Desk</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== PARTNER MOVING MARQUEE ==================== -->
+    <section class="partner-marquee-section">
+      <div class="container" style="margin-bottom: 20px; text-align: center;">
+        <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">Global Strategic Donors & Research Consortia</span>
+      </div>
+
+      <div class="marquee-track-container">
+        <div class="marquee-track">
+          <!-- Set 1 -->
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
+            <span>PEPFAR / CDC</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
+            <span>European Union (EU / EDCTP3)</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <span>Unitaid</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+            <span>Bill & Melinda Gates Foundation</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
+            <span>The Global Fund</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
+            <span>GAVI (The Vaccine Alliance)</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
+            <span>World Health Organization (WHO)</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
+            <span>Federal Ministry of Health (FMoH&SW)</span>
+          </div>
+
+          <!-- Set 2 (Duplicate for Loop) -->
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
+            <span>PEPFAR / CDC</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
+            <span>European Union (EU / EDCTP3)</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <span>Unitaid</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+            <span>Bill & Melinda Gates Foundation</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
+            <span>The Global Fund</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
+            <span>GAVI (The Vaccine Alliance)</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
+            <span>World Health Organization (WHO)</span>
+          </div>
+          <div class="partner-logo-pill">
+            <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
+            <span>Federal Ministry of Health (FMoH&SW)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER WITH AFRICAN SAFARI SILHOUETTE ==================== -->
+  <div class="footer-safari-silhouette">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 95px;">
+      <defs>
+        <linearGradient id="safariSky" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#d97706" stop-opacity="0.35" />
+          <stop offset="100%" stop-color="#0f172a" stop-opacity="1" />
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="120" fill="url(#safariSky)" />
+      <circle cx="960" cy="65" r="42" fill="#f59e0b" opacity="0.45" />
+
+      <!-- Acacia Tree 1 -->
+      <path d="M 180 120 L 180 85 Q 165 75 130 72 L 130 68 Q 170 65 180 80 L 180 75 Q 195 62 235 60 L 235 55 Q 190 52 180 70 L 180 120 Z" fill="#0f172a" />
+      <ellipse cx="130" cy="68" rx="38" ry="8" fill="#0f172a" />
+      <ellipse cx="235" cy="56" rx="46" ry="10" fill="#0f172a" />
+      <ellipse cx="180" cy="46" rx="55" ry="12" fill="#0f172a" />
+
+      <!-- Giraffes -->
+      <path d="M 520 120 L 522 92 L 526 82 L 530 65 L 534 67 L 530 84 L 535 90 L 537 120 Z" fill="#0f172a" />
+      <path d="M 550 120 L 551 98 L 554 90 L 557 76 L 560 78 L 557 91 L 561 96 L 562 120 Z" fill="#0f172a" />
+
+      <!-- Birds -->
+      <path d="M 320 35 Q 326 28 332 35 Q 338 28 344 35" stroke="#0f172a" stroke-width="2" fill="none" />
+      <path d="M 350 42 Q 355 36 360 42 Q 365 36 370 42" stroke="#0f172a" stroke-width="2" fill="none" />
+      <path d="M 780 30 Q 786 23 792 30 Q 798 23 804 30" stroke="#0f172a" stroke-width="2" fill="none" />
+
+      <path d="M 0 120 Q 200 108 450 114 T 900 110 T 1200 115 L 1200 120 Z" fill="#0f172a" />
+    </svg>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Centre for Integrated Health Programs</h3>
+          <p>
+            An indigenous non-governmental organization committed to implementing high-quality, sustainable public health interventions across Nigeria and sub-Saharan Africa.
+          </p>
+          <div style="color: var(--secondary-green); font-weight: 800; font-size: 0.88rem; font-family: 'JetBrains Mono', monospace;">
+            PEOPLE | PARTNERSHIPS | SYSTEMS
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About CIHP</a></li>
+            <li><a href="index.html#what-we-do">What We Do</a></li>
+            <li><a href="index.html#impact">Impact & Projects</a></li>
+            <li><a href="news.html">News & Media</a></li>
+            <li><a href="contact.html">Partner With Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Key Interventions</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#impact">REACHOUT (EU/EDCTP3)</a></li>
+            <li><a href="index.html#impact">IRIS Project</a></li>
+            <li><a href="index.html#impact">TB-LON3 Project</a></li>
+            <li><a href="index.html#impact">IMPAACT4HIV (Unitaid)</a></li>
+            <li><a href="index.html#impact">AEARI (Gates Foundation)</a></li>
+            <li><a href="index.html#impact">G-ANC Initiative</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Headquarters</h4>
+          <p style="color: #94a3b8; font-size: 0.88rem; margin-bottom: 12px; line-height: 1.6;">
+            Plot 1129, Cadastral Zone B06, Mabushi, Abuja, FCT, Nigeria.
+          </p>
+          <p style="color: #94a3b8; font-size: 0.88rem; line-height: 1.6;">
+            <strong>Email:</strong> info@cihpng.org<br />
+            <strong>Media:</strong> media@cihpng.org
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <?php echo date('Y'); ?> Centre for Integrated Health Programs (CIHP). All Rights Reserved.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="contact.html" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+          <a href="contact.html" style="color: #64748b; text-decoration: none;">Terms of Use</a>
+          <a href="contact.html" style="color: #64748b; text-decoration: none;">Compliance Hotline</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    let currentCategory = 'all';
+
+    function setCategoryFilter(category, btnElement) {
+      currentCategory = category;
+      const btns = document.querySelectorAll('.cat-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+      filterNews();
+    }
+
+    function filterNews() {
+      const searchVal = document.getElementById('newsSearchInput').value.toLowerCase();
+      const articles = document.querySelectorAll('.blog-card');
+
+      articles.forEach(card => {
+        const cat = card.getAttribute('data-category') || '';
+        const title = card.querySelector('.blog-card-title').textContent.toLowerCase();
+        const excerpt = card.querySelector('.blog-card-excerpt').textContent.toLowerCase();
+
+        const matchesCat = (currentCategory === 'all') || cat.includes(currentCategory);
+        const matchesSearch = title.includes(searchVal) || excerpt.includes(searchVal);
+
+        if (matchesCat && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
