@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Recruitment & Shortlisting Dashboard — CIHP</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-blue: #1e3388;
+      --primary-blue-dark: #0f172a;
+      --secondary-green: #297b47;
+      --secondary-green-light: #e8f5ed;
+      --accent-ochre: #d97706;
+      --bg-deep: #f8fafc;
+      --border-color: rgba(30, 51, 136, 0.12);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-deep); color: var(--text-main); line-height: 1.6; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .header-bar {
+      background: var(--primary-blue-dark);
+      color: #ffffff;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid var(--secondary-green);
+    }
+    .header-title { display: flex; align-items: center; gap: 14px; }
+    .header-title img { height: 40px; background: #ffffff; padding: 4px 8px; border-radius: 4px; }
+
+    .dashboard-container { max-width: 1340px; margin: 30px auto; padding: 0 20px; }
+
+    .action-alert {
+      background: var(--secondary-green-light);
+      border: 1px solid var(--secondary-green);
+      color: var(--secondary-green-dark);
+      padding: 14px 20px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .metric-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    .metric-num { font-size: 1.9rem; font-weight: 900; line-height: 1; color: var(--primary-blue); }
+    .metric-label { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-top: 6px; }
+
+    .dashboard-tabs {
+      display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 24px;
+    }
+    .dash-tab-btn {
+      padding: 12px 24px; border: none; background: none; font-weight: 700; font-size: 0.92rem;
+      color: var(--text-muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px;
+    }
+    .dash-tab-btn.active { color: var(--primary-blue); border-bottom-color: var(--primary-blue); }
+
+    .table-card {
+      background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px;
+      overflow: hidden; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    .table-toolbar {
+      padding: 18px 24px; background: #ffffff; border-bottom: 1px solid #e2e8f0;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .data-table th { background: #f8fafc; padding: 14px 18px; text-align: left; font-weight: 800; color: var(--primary-blue-dark); border-bottom: 2px solid #e2e8f0; }
+    .data-table td { padding: 14px 18px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+    .data-table tr:hover { background: #f8fafc; }
+
+    .status-badge { display: inline-block; padding: 4px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
+    .status-applied { background: #e0f2fe; color: #0369a1; }
+    .status-under-review { background: #fef3c7; color: #b45309; }
+    .status-shortlisted { background: #dcfce7; color: #15803d; }
+    .status-interview-scheduled { background: #f3e8ff; color: #6b21a8; }
+    .status-selected { background: #297b47; color: #ffffff; }
+    .status-regretted { background: #ffe4e6; color: #be123c; }
+    .status-active { background: #dcfce7; color: #15803d; }
+    .status-inactive { background: #fee2e2; color: #991b1b; }
+
+    .skill-chip { display: inline-block; background: #f1f5f9; color: var(--text-main); font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; font-weight: 600; margin: 2px; }
+
+    .btn-sm { padding: 6px 12px; font-size: 0.78rem; border-radius: 4px; font-weight: 700; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+    .btn-sm-primary { background: var(--primary-blue); color: #ffffff; }
+    .btn-sm-emerald { background: var(--secondary-green); color: #ffffff; }
+    .btn-sm-danger { background: #e11d48; color: #ffffff; }
+
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px);
+      z-index: 99999; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease; padding: 20px;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-card {
+      background: #ffffff; border-radius: 14px; max-width: 700px; width: 100%;
+      padding: 32px; box-shadow: 0 25px 60px rgba(0,0,0,0.4); position: relative; max-height: 90vh; overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header-bar">
+    <div class="header-title">
+      <img src="img/cihp logo vector transparent coloured (1).png" alt="CIHP Logo" />
+      <div>
+        <h2 style="font-size: 1.25rem; font-weight: 900;">HR Recruitment & Candidate Portal</h2>
+        <div style="font-size: 0.78rem; color: rgba(255,255,255,0.75);" class="mono">Centre for Integrated Health Programs</div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <a href="careers.html" style="color: #ffffff; text-decoration: none; font-size: 0.85rem; font-weight: 700;"><i class="fa-solid fa-globe"></i> View Careers Site</a>
+      <span style="background: rgba(255,255,255,0.15); padding: 5px 14px; border-radius: 4px; font-size: 0.78rem;" class="mono"><i class="fa-solid fa-user-shield"></i> <?php echo htmlspecialchars($currentAdminName); ?></span>
+      <a href="hr_logout.php" style="background: #ef4444; color: #ffffff; padding: 6px 14px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-decoration: none;"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+
+    <?php if (!empty($actionMessage)): ?>
+      <div class="action-alert">
+        <i class="fa-solid fa-circle-check"></i> <?php echo htmlspecialchars($actionMessage); ?>
+      </div>
+    <?php endif; ?>
+
+    <!-- METRICS OVERVIEW -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-num"><?php echo $totalApps; ?></div>
+        <div class="metric-label">Total Applicants</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" style="color: #b45309;"><?php echo $countReview; ?></div>
+        <div class="metric-label">Under Review</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" style="color: var(--secondary-green);"><?php echo $countShortlisted; ?></div>
+        <div class="metric-label">Shortlisted</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" style="color: #6b21a8;"><?php echo $countInterview; ?></div>
+        <div class="metric-label">Interview Scheduled</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" style="color: #15803d;"><?php echo $countSelected; ?></div>
+        <div class="metric-label">Hired / Selected</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" style="color: var(--primary-blue);"><?php echo $countSTTA; ?></div>
+        <div class="metric-label">STTA Experts</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" style="color: var(--accent-ochre);"><?php echo count($eoiSubmissions); ?></div>
+        <div class="metric-label">EOI Vendors</div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="dashboard-tabs">
+      <button class="dash-tab-btn active" onclick="switchTab('candidatesTab', this)"><i class="fa-solid fa-users"></i> Candidates & STTA Roster (<?php echo $totalApps; ?>)</button>
+      <button class="dash-tab-btn" onclick="switchTab('eoiTab', this)"><i class="fa-solid fa-file-contract"></i> EOI Vendor Submissions (<?php echo count($eoiSubmissions); ?>)</button>
+      <button class="dash-tab-btn" onclick="switchTab('jobsTab', this)"><i class="fa-solid fa-folder-plus"></i> Job Vacancies Manager (<?php echo count($jobs); ?>)</button>
+    </div>
+
+    <!-- TAB 1: CANDIDATES PROCESSING -->
+    <div id="candidatesTab">
+      <div class="table-card">
+        <div class="table-toolbar">
+          <div style="display: flex; gap: 12px; align-items: center; flex: 1;">
+            <input type="text" id="candSearch" placeholder="Search applicant, skills, email, or Ref ID..." onkeyup="filterCandidatesTable()" style="padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.88rem; width: 340px;" />
+            <select id="candStatusFilter" onchange="filterCandidatesTable()" style="padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.88rem;">
+              <option value="">All Application Statuses</option>
+              <option value="Applied">Applied</option>
+              <option value="Under Review">Under Review</option>
+              <option value="Shortlisted">Shortlisted</option>
+              <option value="Interview Scheduled">Interview Scheduled</option>
+              <option value="Selected">Selected</option>
+              <option value="Regretted">Regretted</option>
+            </select>
+          </div>
+        </div>
+
+        <table class="data-table" id="candidatesTable">
+          <thead>
+            <tr>
+              <th>Ref ID</th>
+              <th>Applicant Name</th>
+              <th>Target Role / Expertise</th>
+              <th>Qualification</th>
+              <th>Skills Indexing</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($applications as $app): 
+              $stClass = strtolower(str_replace(' ', '-', $app['status']));
+              $tags = isset($app['skill_tags']) && is_array($app['skill_tags']) ? $app['skill_tags'] : [];
+            ?>
+              <tr>
+                <td class="mono" style="font-weight: 700; color: var(--primary-blue);"><?php echo htmlspecialchars($app['reference_id']); ?></td>
+                <td>
+                  <strong><?php echo htmlspecialchars($app['applicant_name']); ?></strong><br/>
+                  <span style="font-size: 0.78rem; color: var(--text-muted);"><?php echo htmlspecialchars($app['email']); ?></span>
+                </td>
+                <td><?php echo htmlspecialchars($app['job_title']); ?></td>
+                <td><?php echo htmlspecialchars($app['qualification']); ?> (<?php echo htmlspecialchars($app['experience_years']); ?>)</td>
+                <td>
+                  <?php if (!empty($tags)): ?>
+                    <?php foreach ($tags as $tag): ?>
+                      <span class="skill-chip"><?php echo htmlspecialchars($tag); ?></span>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <span style="font-size: 0.78rem; color: #94a3b8;">General</span>
+                  <?php endif; ?>
+                </td>
+                <td>
+                  <span class="status-badge status-<?php echo $stClass; ?>"><?php echo htmlspecialchars($app['status']); ?></span>
+                </td>
+                <td>
+                  <button class="btn-sm btn-sm-primary" onclick="openReviewModal('<?php echo htmlspecialchars($app['reference_id']); ?>')"><i class="fa-solid fa-sliders"></i> Action</button>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 2: EOI VENDORS -->
+    <div id="eoiTab" style="display: none;">
+      <div class="table-card">
+        <div class="table-toolbar">
+          <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary-blue-dark);"><i class="fa-solid fa-shield-halved"></i> Insurance Pre-Qualification EOI Submissions</h3>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Ref ID</th>
+              <th>Company Name</th>
+              <th>Official Email</th>
+              <th>Bidding Category</th>
+              <th>Submission Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php if (empty($eoiSubmissions)): ?>
+              <tr>
+                <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 30px;">No EOI vendor applications recorded yet. Submissions from <code>eoi.html</code> will appear here.</td>
+              </tr>
+            <?php else: ?>
+              <?php foreach ($eoiSubmissions as $eoi): ?>
+                <tr>
+                  <td class="mono" style="font-weight: 700; color: var(--primary-blue);"><?php echo htmlspecialchars($eoi['reference_id']); ?></td>
+                  <td><strong><?php echo htmlspecialchars($eoi['company_name']); ?></strong></td>
+                  <td><?php echo htmlspecialchars($eoi['official_email']); ?></td>
+                  <td><?php echo htmlspecialchars($eoi['categories']); ?></td>
+                  <td class="mono"><?php echo htmlspecialchars($eoi['date'] ?? '2026-08-31'); ?></td>
+                  <td><span class="status-badge status-shortlisted">Received</span></td>
+                </tr>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3: JOBS MANAGER (EDIT & UNPUBLISH CAPABILITIES) -->
+    <div id="jobsTab" style="display: none;">
+      <div style="margin-bottom: 20px; display: flex; justify-content: flex-end;">
+        <button class="btn-sm btn-sm-emerald" onclick="openAddJobModal()" style="padding: 10px 18px; font-size: 0.9rem;"><i class="fa-solid fa-plus"></i> Post New Vacancy / Opportunity</button>
+      </div>
+
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Job Code</th>
+              <th>Title</th>
+              <th>Department</th>
+              <th>Contract Type</th>
+              <th>Duty Station</th>
+              <th>Closing Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($jobs as $job): 
+              $isInactive = ($job['status'] ?? 'Active') === 'Inactive';
+            ?>
+              <tr>
+                <td class="mono" style="font-weight: 700;"><?php echo htmlspecialchars($job['id']); ?></td>
+                <td><strong><?php echo htmlspecialchars($job['title']); ?></strong></td>
+                <td><span class="mono" style="font-size: 0.78rem; background: var(--secondary-green-light); padding: 2px 8px; border-radius: 4px;"><?php echo htmlspecialchars($job['department']); ?></span></td>
+                <td><span style="font-size: 0.8rem; font-weight: 700; color: #0369a1;"><?php echo htmlspecialchars($job['type']); ?></span></td>
+                <td><?php echo htmlspecialchars($job['location']); ?></td>
+                <td><?php echo htmlspecialchars($job['closing_date']); ?></td>
+                <td>
+                  <?php if ($isInactive): ?>
+                    <span class="status-badge status-inactive"><i class="fa-solid fa-circle-xmark"></i> Inactive</span>
+                  <?php else: ?>
+                    <span class="status-badge status-active"><i class="fa-solid fa-circle-check"></i> Active</span>
+                  <?php endif; ?>
+                </td>
+                <td>
+                  <div style="display: flex; gap: 6px;">
+                    <button class="btn-sm btn-sm-primary" onclick="openEditJobModal('<?php echo htmlspecialchars($job['id']); ?>')"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                    
+                    <form method="POST" action="hr_dashboard.php" style="display: inline;">
+                      <input type="hidden" name="action" value="toggle_job_status" />
+                      <input type="hidden" name="job_id" value="<?php echo htmlspecialchars($job['id']); ?>" />
+                      <input type="hidden" name="new_job_status" value="<?php echo $isInactive ? 'Active' : 'Inactive'; ?>" />
+                      <?php if ($isInactive): ?>
+                        <button type="submit" class="btn-sm btn-sm-emerald"><i class="fa-solid fa-toggle-on"></i> Activate</button>
+                      <?php else: ?>
+                        <button type="submit" class="btn-sm btn-sm-danger"><i class="fa-solid fa-toggle-off"></i> Deactivate</button>
+                      <?php endif; ?>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- CANDIDATE REVIEW & ACTION MODAL -->
+  <div class="modal-overlay" id="reviewModal">
+    <div class="modal-card">
+      <button onclick="closeModal('reviewModal')" style="position: absolute; top: 16px; right: 16px; border: none; background: #f1f5f9; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;"><i class="fa-solid fa-xmark"></i></button>
+
+      <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--primary-blue-dark);" id="modalCandName">Candidate Name</h3>
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;" id="modalCandRef">REF: CIHP-APP-2026-XXXX</div>
+
+      <div style="background: var(--bg-deep); padding: 16px; border-radius: 8px; margin-bottom: 20px; font-size: 0.88rem; line-height: 1.7;">
+        <div><strong>Position Applied:</strong> <span id="modalCandJob">-</span></div>
+        <div><strong>Email / Phone:</strong> <span id="modalCandContact">-</span></div>
+        <div><strong>Qualification:</strong> <span id="modalCandQual">-</span></div>
+        <div><strong>Skill Tags:</strong> <span id="modalCandSkills">-</span></div>
+        <div><strong>Cover Statement:</strong> <p style="font-style: italic; color: var(--text-muted); margin-top: 4px;" id="modalCandCover"></p></div>
+        <div style="margin-top: 12px;"><a href="#" id="modalCandCVLink" target="_blank" style="color: var(--primary-blue); font-weight: 700;"><i class="fa-solid fa-file-pdf"></i> Download Candidate CV/Resume PDF</a></div>
+      </div>
+
+      <form method="POST" action="hr_dashboard.php">
+        <input type="hidden" name="action" value="update_status" />
+        <input type="hidden" name="reference_id" id="formRefId" />
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Update Candidate Status & Trigger Notification Email</label>
+          <select name="new_status" id="formStatusSelect" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; font-weight: 700;">
+            <option value="Under Review">Under Review</option>
+            <option value="Shortlisted">Shortlisted</option>
+            <option value="Interview Scheduled">Interview Scheduled</option>
+            <option value="Selected">Selected / Offer Issued</option>
+            <option value="Regretted">Regretted (Send Regret Email)</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">HR Panel Evaluation Notes</label>
+          <textarea name="hr_notes" id="formHrNotes" rows="3" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1;" placeholder="Add internal panel notes, OSCE score, or interview feedback..."></textarea>
+        </div>
+
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+          <button type="button" class="btn-sm" onclick="closeModal('reviewModal')" style="background: #cbd5e1; color: var(--text-main);">Cancel</button>
+          <button type="submit" class="btn-sm btn-sm-emerald"><i class="fa-solid fa-paper-plane"></i> Save Status & Send Candidate Email</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADD JOB MODAL -->
+  <div class="modal-overlay" id="addJobModal">
+    <div class="modal-card">
+      <button onclick="closeModal('addJobModal')" style="position: absolute; top: 16px; right: 16px; border: none; background: #f1f5f9; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--primary-blue-dark); margin-bottom: 16px;">Publish New Vacancy or STTA Opportunity</h3>
+
+      <form method="POST" action="hr_dashboard.php">
+        <input type="hidden" name="action" value="add_job" />
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.82rem; font-weight: 700;">Job Title *</label>
+          <input type="text" name="title" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Department *</label>
+            <input type="text" name="department" placeholder="e.g. Clinical Care & ART" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Contract Type *</label>
+            <select name="type" style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;">
+              <option value="Full-Time">Full-Time</option>
+              <option value="Fixed-Term (Grant-Funded)">Fixed-Term (Grant-Funded)</option>
+              <option value="Consultancy / STTA">Consultancy / STTA</option>
+              <option value="Fellowship / Internship">Fellowship / Internship</option>
+            </select>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Duty Station / Location *</label>
+            <input type="text" name="location" placeholder="e.g. Abuja HQ" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Reporting Line</label>
+            <input type="text" name="reporting_line" placeholder="e.g. Director of Clinical Services" style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Experience Years *</label>
+            <input type="text" name="experience_years" placeholder="e.g. 5+ Years" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Closing Date *</label>
+            <input type="text" name="closing_date" placeholder="e.g. October 15, 2026" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+          </div>
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.82rem; font-weight: 700;">Qualification Summary *</label>
+          <input type="text" name="qualification" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.82rem; font-weight: 700;">Technical Competencies (comma separated)</label>
+          <input type="text" name="competencies" placeholder="e.g. AHD Guidelines, CQI Mentorship, DHIS2" style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.82rem; font-weight: 700;">Role Summary *</label>
+          <textarea name="summary" rows="2" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;"></textarea>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.82rem; font-weight: 700;">Responsibilities (1 per line)</label>
+          <textarea name="responsibilities" rows="3" style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;"></textarea>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+          <button type="button" class="btn-sm" onclick="closeModal('addJobModal')" style="background: #cbd5e1;">Cancel</button>
+          <button type="submit" class="btn-sm btn-sm-primary">Publish Opportunity</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- EDIT JOB MODAL -->
+  <div class="modal-overlay" id="editJobModal">
+    <div class="modal-card">
+      <button onclick="closeModal('editJobModal')" style="position: absolute; top: 16px; right: 16px; border: none; background: #f1f5f9; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--primary-blue-dark); margin-bottom: 16px;">Edit Job Posting (<span id="editJobCode">JOB-XXXX</span>)</h3>
+
+      <form method="POST" action="hr_dashboard.php">
+        <input type="hidden" name="action" value="edit_job" />
+        <input type="hidden" name="job_id" id="editJobId" />
+
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.82rem; font-weight: 700;">Job Title *</label>
+          <input type="text" name="title" id="editTitle" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Department *</label>
+            <input type="text" name="department" id="editDepartment" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Contract Type *</label>
+            <select name="type" id="editType" style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;">
+              <option value="Full-Time">Full-Time</option>
+              <option value="Fixed-Term (Grant-Funded)">Fixed-Term (Grant-Funded)</option>
+              <option value="Consultancy / STTA">Consultancy / STTA</option>
+              <option value="Fellowship / Internship">Fellowship / Internship</option>
+            </select>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Duty Station / Location *</label>
+            <input type="text" name="location" id="editLocation" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Reporting Line</label>
+            <input type="text" name="reporting_line" id="editReportingLine" style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Experience Years *</label>
+            <input type="text" name="experience_years" id="editExperienceYears" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 700;">Closing Date *</label>
+            <input type="text" name="closing_date" id="editClosingDate" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+          </div>
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.82rem; font-weight: 700;">Qualification Summary *</label>
+          <input type="text" name="qualification" id="editQualification" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.82rem; font-weight: 700;">Technical Competencies (comma separated)</label>
+          <input type="text" name="competencies" id="editCompetencies" style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;" />
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.82rem; font-weight: 700;">Role Summary *</label>
+          <textarea name="summary" id="editSummary" rows="2" required style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;"></textarea>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.82rem; font-weight: 700;">Responsibilities (1 per line)</label>
+          <textarea name="responsibilities" id="editResponsibilities" rows="3" style="width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px;"></textarea>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+          <button type="button" class="btn-sm" onclick="closeModal('editJobModal')" style="background: #cbd5e1;">Cancel</button>
+          <button type="submit" class="btn-sm btn-sm-primary"><i class="fa-solid fa-floppy-disk"></i> Save Job Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const appsData = <?php echo json_encode($applications); ?>;
+    const jobsData = <?php echo json_encode($jobs); ?>;
+
+    function switchTab(tabId, btn) {
+      document.getElementById('candidatesTab').style.display = 'none';
+      document.getElementById('eoiTab').style.display = 'none';
+      document.getElementById('jobsTab').style.display = 'none';
+
+      document.querySelectorAll('.dash-tab-btn').forEach(b => b.classList.remove('active'));
+
+      document.getElementById(tabId).style.display = 'block';
+      btn.classList.add('active');
+    }
+
+    function openReviewModal(refId) {
+      const app = appsData.find(a => a.reference_id === refId);
+      if (!app) return;
+
+      document.getElementById('modalCandName').innerText = app.applicant_name;
+      document.getElementById('modalCandRef').innerText = 'REF: ' + app.reference_id;
+      document.getElementById('modalCandJob').innerText = app.job_title;
+      document.getElementById('modalCandContact').innerText = `${app.email} • ${app.phone}`;
+      document.getElementById('modalCandQual').innerText = `${app.qualification} (${app.experience_years})`;
+      document.getElementById('modalCandCover').innerText = app.cover_letter || 'No cover letter submitted.';
+      
+      const tags = (app.skill_tags && Array.isArray(app.skill_tags)) ? app.skill_tags.join(', ') : 'None specified';
+      document.getElementById('modalCandSkills').innerText = tags;
+
+      document.getElementById('modalCandCVLink').href = app.cv_path || '#';
+      document.getElementById('formRefId').value = app.reference_id;
+      document.getElementById('formStatusSelect').value = app.status;
+      document.getElementById('formHrNotes').value = app.hr_notes || '';
+
+      document.getElementById('reviewModal').classList.add('active');
+    }
+
+    function openAddJobModal() {
+      document.getElementById('addJobModal').classList.add('active');
+    }
+
+    function openEditJobModal(jobId) {
+      const job = jobsData.find(j => j.id === jobId);
+      if (!job) return;
+
+      document.getElementById('editJobId').value = job.id;
+      document.getElementById('editJobCode').innerText = job.id;
+      document.getElementById('editTitle').value = job.title;
+      document.getElementById('editDepartment').value = job.department;
+      document.getElementById('editType').value = job.type;
+      document.getElementById('editLocation').value = job.location;
+      document.getElementById('editReportingLine').value = job.reporting_line || 'Project Director';
+      document.getElementById('editExperienceYears').value = job.experience_years;
+      document.getElementById('editClosingDate').value = job.closing_date;
+      document.getElementById('editQualification').value = job.qualification;
+      document.getElementById('editCompetencies').value = job.competencies ? job.competencies.join(', ') : '';
+      document.getElementById('editSummary').value = job.summary;
+      document.getElementById('editResponsibilities').value = job.responsibilities ? job.responsibilities.join('\n') : '';
+
+      document.getElementById('editJobModal').classList.add('active');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    function filterCandidatesTable() {
+      const q = document.getElementById('candSearch').value.toLowerCase();
+      const st = document.getElementById('candStatusFilter').value.toLowerCase();
+      const rows = document.querySelectorAll('#candidatesTable tbody tr');
+
+      rows.forEach(tr => {
+        const text = tr.innerText.toLowerCase();
+        const matchesQ = !q || text.includes(q);
+        const matchesSt = !st || text.includes(st);
+        tr.style.display = (matchesQ && matchesSt) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+
+</html>

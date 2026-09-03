@@ -131,7 +131,7 @@ $activeJobsServer = array_values(array_filter($allJobsRaw, function($j) {
       <li><a href="index.html#what-we-do">What We Do</a></li>
       <li><a href="news.html">News & Media</a></li>
       <li><a href="careers.html" class="active">Careers & EOI</a></li>
-      <li><a href="hr_login.php" style="color: var(--accent-ochre); font-weight: 700;"><i class="fa-solid fa-lock"></i> HR Admin</a></li>
+      <li><a href="hr_login.html" style="color: var(--accent-ochre); font-weight: 700;"><i class="fa-solid fa-lock"></i> HR Admin</a></li>
       <li><a href="contact.html" class="btn-primary" style="padding: 8px 18px;">Partner With Us</a></li>
     </ul>
   </nav>
