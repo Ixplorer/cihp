@@ -1752,21 +1752,56 @@
       grid-template-columns: 60px 1fr 200px 42px;
       gap: 20px;
       align-items: center;
-      padding: 28px 16px;
+      padding: 28px 20px;
       border-bottom: 1px solid rgba(30, 51, 136, 0.12);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       cursor: pointer;
-      border-radius: 16px;
+      border-radius: 18px;
+      background: transparent;
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
     }
 
     .editorial-project-row:first-child {
       border-top: 1px solid rgba(30, 51, 136, 0.12);
     }
 
-    .editorial-project-row:hover {
-      background: rgba(30, 51, 136, 0.03);
-      transform: translateX(4px);
+    /* Left Morphing Glowing Indicator Bar */
+    .editorial-project-row::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 0%;
+      background: linear-gradient(180deg, #1e3388 0%, #297b47 100%);
+      border-radius: 4px;
+      opacity: 0;
+      transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    }
+
+    /* MORPHED GLASS HOVER & ACTIVE STATE */
+    .editorial-project-row:hover,
+    .editorial-project-row.active {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-color: rgba(41, 123, 71, 0.35);
+      box-shadow: 
+        0 20px 45px rgba(30, 51, 136, 0.12),
+        0 4px 12px rgba(41, 123, 71, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.95),
+        inset 0 -1px 2px rgba(30, 51, 136, 0.06);
+      transform: translateY(-3px) scale(1.008);
+      border-radius: 22px 14px 22px 14px;
+    }
+
+    .editorial-project-row:hover::before,
+    .editorial-project-row.active::before {
+      height: 70%;
+      opacity: 1;
     }
 
     .row-num {
@@ -1776,13 +1811,14 @@
       color: #1e3388;
       opacity: 0.35;
       line-height: 1;
-      transition: opacity 0.3s ease, color 0.3s ease;
+      transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
 
     .editorial-project-row:hover .row-num,
     .editorial-project-row.active .row-num {
       opacity: 1;
       color: #297b47;
+      transform: scale(1.05);
     }
 
     .row-text-content {
@@ -1871,11 +1907,6 @@
       border: 1px solid rgba(30, 51, 136, 0.1);
       position: relative;
       flex-shrink: 0;
-    }
-
-    .editorial-project-row.active {
-      background: rgba(30, 51, 136, 0.025);
-      border-color: rgba(41, 123, 71, 0.3);
     }
 
     .row-thumb-img {
