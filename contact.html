@@ -1353,7 +1353,36 @@
         document.getElementById('tabPartnership').classList.add('active');
       }
     }
+
+    // Back to Top button functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const backToTopBtn = document.getElementById('backToTop');
+      if (backToTopBtn) {
+        const toggleBackToTop = () => {
+          if (window.scrollY > 300) {
+            backToTopBtn.classList.add('active');
+          } else {
+            backToTopBtn.classList.remove('active');
+          }
+        };
+
+        window.addEventListener('scroll', toggleBackToTop, { passive: true });
+        toggleBackToTop();
+
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
   </script>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" aria-label="Back to Top" title="Back to Top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
 </body>
 
 </html>
