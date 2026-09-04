@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CIHP - Next-Gen Health Systems</title>
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ---------- CIHP Brand Blue & Soft-White Theme ---------- */
+    :root {
+      --bg-deep: #f4f7fa;
+      /* Soft, eye-pleasing ice-white background */
+      --bg-card: #ffffff;
+      /* Pure white crisp cards */
+      --bg-card-hover: #ffffff;
+      /* Card hover state */
+      --border-color: rgba(30, 51, 136, 0.12);
+      /* Subtle CIHP Blue Border */
+      --border-hover: rgba(41, 123, 71, 0.4);
+      /* Savannah Emerald Hover Border */
+      --primary-blue: #1e3388;
+      /* Signature CIHP Brand Blue */
+      --brand-blue: #1e3388;
+      /* Signature CIHP Brand Blue */
+      --secondary-green: #297b47;
+      /* Savannah Health Emerald */
+      --accent-ochre: #d97706;
+      /* Terracotta Ochre Gold */
+      --accent-terracotta: #c25e00;
+      /* Rich Clay Earth */
+      --text-main: #1e293b;
+      /* Soft Dark Slate Text */
+      --text-muted: #64748b;
+      /* Muted Slate Text */
+    }
+
+    /* ---------- Base & Reset ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(30, 51, 136, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(41, 123, 71, 0.03) 0%, transparent 40%);
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ---------- Animated Medical Particles ---------- */
+    #medical-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .med-particle {
+      position: absolute;
+      bottom: -60px;
+      animation: floatUp 16s infinite linear;
+      filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.3));
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.25;
+      }
+
+      85% {
+        opacity: 0.25;
+      }
+
+      100% {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* ---------- Cultural Motif Accents ---------- */
+    .cultural-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px;
+      background: rgba(217, 119, 6, 0.1);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      border-radius: 50px;
+      color: var(--accent-ochre);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .cultural-pattern-line {
+      display: inline-block;
+      width: 16px;
+      height: 8px;
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='8' viewBox='0 0 16 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4L4 0L8 4L12 0L16 4L12 8L8 4L4 8Z' fill='%23d97706'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+    }
+
+    /* ---------- System Boot Preloader ---------- */
+    body.locked {
+      overflow: hidden;
+    }
+
+    #system-preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #f4f7f9;
+      background-image:
+        linear-gradient(rgba(30, 51, 136, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 51, 136, 0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    #system-preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .preloader-content {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 0 20px;
+    }
+
+    .preloader-logo {
+      height: 50px;
+      margin-bottom: 30px;
+      animation: pulseLogo 2s infinite ease-in-out;
+    }
+
+    .loading-bar-container {
+      width: 100%;
+      height: 3px;
+      background: rgba(30, 51, 136, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .loading-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background: var(--secondary-green);
+      animation: loadProgress 3s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+    }
+
+    .loading-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--primary-blue);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      animation: blinkText 1.5s infinite;
+    }
+
+    @keyframes pulseLogo {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes loadProgress {
+      0% {
+        width: 0%;
+      }
+
+      40% {
+        width: 45%;
+      }
+
+      70% {
+        width: 80%;
+      }
+
+      100% {
+        width: 100%;
+      }
+    }
+
+    @keyframes blinkText {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    /* ---------- Navigation Bar (Sticky) ---------- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(244, 247, 250, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 2px solid rgba(30, 51, 136, 0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      z-index: 9999;
+    }
+
+    .brand img {
+      height: 40px;
+      filter: drop-shadow(0 2px 8px rgba(30, 51, 136, 0.12));
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #1e293b;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      text-transform: capitalize;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-blue);
+    }
+
+    /* ---------- Modern Soft-White CIHP Hero Section ---------- */
+    .clean-hero {
+      position: relative;
+      padding: 120px 20px 100px;
+      text-align: center;
+      background-color: #eef3f8;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(30, 51, 136, 0.08) 0%, transparent 65%),
+        linear-gradient(135deg, rgba(41, 123, 71, 0.03) 0%, rgba(30, 51, 136, 0.03) 100%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3388' fill-opacity='0.05'%3E%3Cpath d='M30 0l15 15-15 15L15 15zM30 30l15 15-15 15-15-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      border-bottom: 2px solid rgba(30, 51, 136, 0.12);
+      margin-bottom: 80px;
+    }
+
+    .hero-logo {
+      height: 65px;
+      margin: 0 auto 25px;
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(30, 51, 136, 0.12));
+    }
+
+    .clean-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 900;
+      color: var(--primary-blue);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .clean-hero h1 .highlight-green {
+      color: var(--secondary-green);
+      position: relative;
+    }
+
+    .clean-hero h1 .highlight-green::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--secondary-green), var(--primary-blue));
+      border-radius: 2px;
+    }
+
+    .clean-hero p.subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      font-weight: 500;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 80px;
+    }
+
+    .btn-solid {
+      background: linear-gradient(135deg, #1e3388, #2a43a3);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(30, 51, 136, 0.2);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(30, 51, 136, 0.3);
+    }
+
+    .btn-solid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(30, 51, 136, 0.35);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.9);
+      color: #1e3388;
+      border: 2px solid #1e3388;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(30, 51, 136, 0.08);
+      color: #1e3388;
+    }
+
+    /* ---------- CIHP Brand Clean Stats Row ---------- */
+    .clean-stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .clean-stat-card {
+      background: #ffffff;
+      padding: 28px 32px;
+      border-radius: 12px;
+      border-top: 4px solid var(--primary-blue);
+      border-left: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 8px 30px rgba(30, 51, 136, 0.06);
+      text-align: left;
+      flex: 1;
+      min-width: 220px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .clean-stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--secondary-green), var(--primary-blue));
+    }
+
+    .clean-stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(30, 51, 136, 0.12);
+      border-color: var(--border-hover);
+    }
+
+    .clean-stat-card h3 {
+      color: var(--primary-blue);
+      font-size: 2.3rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+
+    .clean-stat-card p {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.9px;
+      margin: 0;
+    }
+
+    /* ---------- Container ---------- */
+    .wrap {
+      width: 90%;
+      max-width: 1300px;
+      margin: 0 auto 100px;
+    }
+
+    /* ---------- Asymmetric Mission/Vision Layout ---------- */
+    .mission-vision-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+
+    .mv-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 42px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(30, 51, 136, 0.05);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .mv-card::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 100px;
+      height: 100px;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0l10 10-10 10-10-10z' fill='%231e3388' fill-opacity='0.04'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      pointer-events: none;
+    }
+
+    .mv-card:hover {
+      border-color: var(--primary-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(30, 51, 136, 0.1);
+    }
+
+    .mv-card.highlight {
+      background: linear-gradient(135deg, rgba(30, 51, 136, 0.04) 0%, rgba(41, 123, 71, 0.04) 50%, #ffffff 100%);
+      border-color: rgba(30, 51, 136, 0.2);
+    }
+
+    .mv-icon {
+      font-size: 1.8rem;
+      color: var(--secondary-green);
+      margin-bottom: 20px;
+      display: inline-flex;
+      padding: 16px;
+      background: rgba(41, 123, 71, 0.08);
+      border: 1.5px solid rgba(30, 51, 136, 0.2);
+      border-radius: 12px;
+    }
+
+    .mv-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin-bottom: 14px;
+    }
+
+    .mv-card h2,
+    .mv-card p {
+      color: var(--text-main);
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    /* ---------- Core Values Matrix ---------- */
+    .core-values-container {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 48px;
+      margin-bottom: 80px;
+      box-shadow: 0 12px 35px rgba(30, 51, 136, 0.05);
+      position: relative;
+    }
+
+    .section-title-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--secondary-green);
+      font-weight: 800;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title-tag::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 0L12 6L6 12L0 6Z' fill='%23297b47'/%3E%3C/svg%3E");
+    }
+
+    .core-values-container h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--primary-blue);
+      margin-bottom: 35px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .value-box {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .value-box:hover {
+      background: #ffffff;
+      border-color: var(--primary-blue);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(30, 51, 136, 0.08);
+    }
+
+    .value-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(30, 51, 136, 0.12), rgba(41, 123, 71, 0.12));
+      border: 2px solid var(--primary-blue);
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--primary-blue);
+      margin-bottom: 16px;
+    }
+
+    .value-box h4 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin-bottom: 10px;
+    }
+
+    .value-box p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    /* ---------- Interactive Timeline ---------- */
+    .timeline-wrap {
+      margin: 80px 0 60px;
+    }
+
+    .section-heading-center {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-heading-center h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      letter-spacing: -0.03em;
+    }
+
+    .horizontal-timeline {
+      position: relative;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0 40px;
+      overflow-x: auto;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 38px;
+      height: 3px;
+      background: var(--border-color);
+      z-index: 0;
+    }
+
+    .timeline-item {
+      position: relative;
+      flex: 1;
+      z-index: 2;
+      text-align: left;
+      min-width: 200px;
+      cursor: pointer;
+    }
+
+    .timeline-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      border: 2px solid #fff;
+      margin-bottom: 16px;
+      position: relative;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-item.active .timeline-dot,
+    .timeline-item:hover .timeline-dot {
+      background: var(--secondary-green);
+      border-color: #fff;
+      box-shadow: 0 0 15px rgba(40, 122, 60, 0.4);
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(16, 43, 133, 0.03);
+      transition: all 0.25s ease;
+    }
+
+    .timeline-item:hover .timeline-card,
+    .timeline-item.active .timeline-card {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(16, 43, 133, 0.08);
+    }
+
+    .timeline-card h4 {
+      color: var(--primary-blue);
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .timeline-card p {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* ---------- Projects Matrix ---------- */
+    h2.section {
+      color: var(--primary-blue);
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 60px 0 24px;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2.section::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 24px;
+      background: var(--secondary-green);
+      border-radius: 2px;
+    }
+
+    .project {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 35px;
+      margin-bottom: 30px;
+      display: flex;
+      gap: 35px;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(16, 43, 133, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    .project:hover {
+      border-color: rgba(40, 122, 60, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(16, 43, 133, 0.08);
+    }
+
+    .project.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .project .media {
+      width: 45%;
+      min-width: 280px;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      flex-shrink: 0;
+    }
+
+    .project .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .project .media:hover img {
+      transform: scale(1.03);
+    }
+
+    .project .content {
+      flex: 1;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: rgba(40, 122, 60, 0.1);
+      border: 1px solid rgba(40, 122, 60, 0.3);
+      color: var(--secondary-green);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .project-tag.completed {
+      background: rgba(100, 116, 139, 0.1);
+      border-color: rgba(100, 116, 139, 0.3);
+      color: var(--text-muted);
+    }
+
+    .project h3 {
+      color: var(--primary-blue);
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .project h5 {
+      color: var(--accent-orange);
+      margin: 0 0 16px 0;
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .project p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ---------- Fraud Warning Alert Banner ---------- */
+    .fraud-warning {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 60px 0;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.05);
+    }
+
+    .fraud-warning i {
+      font-size: 1.5rem;
+      color: #d97706;
+      margin-top: 2px;
+    }
+
+    .fraud-warning h4 {
+      color: #b45309;
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .fraud-warning p {
+      color: #78350f;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ---------- Footer & Edge Landscape Silhouettes ---------- */
+    .edge-landscape-left,
+    .edge-landscape-right {
+      position: fixed;
+      bottom: 0;
+      width: 150px;
+      height: 400px;
+      pointer-events: none;
+      z-index: 9;
+      opacity: 0.15;
+      transition: opacity 0.3s ease;
+    }
+
+    .edge-landscape-left {
+      left: 0;
+      background: url("data:image/svg+xml,%3Csvg width='150' height='400' viewBox='0 0 150 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 400 L0 140 Q30 190 55 230 C65 210 75 180 65 150 C85 160 105 150 115 130' stroke='%231a2340' stroke-width='3'/%3E%3Cellipse cx='60' cy='140' rx='45' ry='12' fill='%231a2340'/%3E%3Cellipse cx='110' cy='125' rx='35' ry='10' fill='%231a2340'/%3E%3Cpath d='M0 400 L0 270 Q40 250 80 290 T150 400 Z' fill='%231a2340'/%3E%3C/svg%3E") no-repeat bottom left;
+    }
+
+    .edge-landscape-right {
+      right: 0;
+      background: url("data:image/svg+xml,%3Csvg width='150' height='400' viewBox='0 0 150 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M150 400 L150 140 Q120 190 95 230 C85 210 75 180 85 150 C65 160 45 150 35 130' stroke='%231a2340' stroke-width='3'/%3E%3Cellipse cx='90' cy='140' rx='45' ry='12' fill='%231a2340'/%3E%3Cellipse cx='40' cy='125' rx='35' ry='10' fill='%231a2340'/%3E%3Cpath d='M150 400 L150 270 Q110 250 70 290 T0 400 Z' fill='%231a2340'/%3E%3C/svg%3E") no-repeat bottom right;
+    }
+
+    .footer-landscape-wrap {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      background: transparent;
+      margin-top: 40px;
+    }
+
+    .footer-landscape-svg {
+      width: 100%;
+      height: 200px;
+      display: block;
+    }
+
+    footer {
+      background: linear-gradient(180deg, var(--primary-blue) 0%, #0f1629 100%);
+      color: #fff;
+      padding: 50px 20px 45px;
+      text-align: center;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--secondary-green), var(--accent-ochre), var(--accent-terracotta));
+    }
+
+    footer h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: #fff;
+      font-size: 1.2rem;
+      opacity: 0.8;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    @media(max-width: 950px) {
+      .nav-links {
+        display: none;
+      }
+
+      .clean-stats-row {
+        flex-direction: column;
+        padding: 0 20px;
+      }
+
+      .mission-vision-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        flex-direction: column !important;
+      }
+
+      .project .media {
+        width: 100%;
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="locked">
+
+  <!-- FLOATING MEDICAL PARTICLES OVERLAY -->
+  <div id="medical-particles"></div>
+
+  <!-- SYSTEM BOOT PRELOADER -->
+  <div id="system-preloader">
+    <div class="preloader-content">
+      <img src="Original-CIHP-logo-1-removebg-preview.png" alt="CIHP Logo" class="preloader-logo">
+      <div class="loading-bar-container">
+        <div class="loading-bar"></div>
+      </div>
+      <div class="loading-text">Initializing Systems...</div>
+    </div>
+  </div>
+
+  <!-- STICKY NAVIGATION BAR -->
+  <nav class="navbar">
+    <a href="#" class="brand">
+      <img src="Original-CIHP-logo-1-removebg-preview.png" alt="CIHP logo" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#partnerships">Partnerships</a></li>
+      <li><a href="#srt">The SRT</a></li>
+      <li><a href="#wellness">Adolescent Wellness initiatives</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#contact" style="color: var(--secondary-green);">Contact us</a></li>
+    </ul>
+  </nav>
+
+  <!-- MODERN AFRICAN HERO SECTION -->
+  <header class="clean-hero">
+    <img src="Original-CIHP-logo-1-removebg-preview.png" alt="CIHP" class="hero-logo" data-aos="fade-down" />
+
+    <div class="cultural-badge" data-aos="fade-down" data-aos-delay="50">
+      <span class="cultural-pattern-line"></span>
+      <span>AFRICAN HEALTH SYSTEM INNOVATION</span>
+      <span class="cultural-pattern-line"></span>
+    </div>
+
+    <h1 data-aos="fade-up">
+      Engineered for <br>
+      <span class="highlight-green">Pan-African</span> Health Impact
+    </h1>
+
+    <p class="subtitle" data-aos="fade-up" data-aos-delay="100">
+      CIHP is a Nigerian-led public health organization with a strong implementation footprint across 19 states and
+      strategic partnerships spanning East Africa, Southern Africa, America, and Europe. By connecting local expertise
+      with regional and global collaboration, we deliver scalable, evidence-driven solutions that strengthen health
+      systems and improve health outcomes.
+    </p>
+
+    <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
+      <a href="#projects" class="btn-solid">Our Footprints</a>
+      <a href="#about" class="btn-outline">Our Core Values</a>
+    </div>
+
+    <!-- CLEAN STATS CARDS -->
+    <div class="clean-stats-row" data-aos="fade-up" data-aos-delay="300">
+      <!-- <div class="clean-stat-card">
+        <h3 id="stat-states">0</h3>
+        <p>Sub-National Operational Regions</p>
+        <span class="mono" style="font-size: 0.72rem; color: var(--text-muted); display: block; margin-top: 2px;">19
+          States &amp; FCT</span>
+      </div> -->
+      <!-- <div class="clean-stat-card">
+        <h3 id="stat-projects">0</h3>
+        <p>Strategic Programs</p>
+      </div> -->
+      <div class="clean-stat-card">
+        <h3 id="stat-facilities">0</h3>
+        <p>Health Facilities Supported</p>
+      </div>
+      <div class="clean-stat-card">
+        <h3 id="stat-beneficiaries">0</h3>
+        <p>Lives Impacted</p>
+      </div>
+      <div class="clean-stat-card">
+        <h3 id="stat-years">0</h3>
+        <p>Years of Execution</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <!-- MISSION & VISION ASYMMETRIC GRID -->
+    <section id="about" class="mission-vision-grid">
+      <div class="mv-card" data-aos="fade-left">
+        <div class="mv-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <span class="section-title-tag">Our Vision</span>
+        <h3>Vision Statement</h3>
+        <h2 id="vision-text">Audaciously transforming lives, creating value for healthier communities and a thriving
+          Africa.</h2>
+      </div>
+
+      <div class="mv-card highlight" data-aos="fade-right">
+        <div class="mv-icon"><i class="fa-solid fa-notes-medical"></i></div>
+        <span class="section-title-tag">Our Mission</span>
+        <h3>Mission Statement</h3>
+        <h2>To reduce vulnerabilities and impact lives through cutting edge solutions, people-centred
+          approaches and
+          sustainable health systems, delivered through strategic partnerships.</h2>
+      </div>
+    </section>
+
+    <!-- CORE VALUES MATRIX -->
+    <section class="core-values-container" data-aos="fade-up">
+      <span class="section-title-tag">Foundational Principles</span>
+      <h2>Our Core Values</h2>
+      <div class="values-grid">
+        <div class="value-box">
+          <span class="value-letter mono">C</span>
+          <h4>Commitment to Excellence</h4>
+          <p>For close to two decades, we have been relentlessly dedicated to delivering world-class, sustainable health
+            and development outcomes across Africa.</p>
+        </div>
+        <div class="value-box">
+          <span class="value-letter mono">I</span>
+          <h4>Innovative & Inspiring Leadership</h4>
+          <p>We pioneer evidence-based, co-created solutions that set global standards for health system strengthening.
+          </p>
+        </div>
+        <div class="value-box">
+          <span class="value-letter mono">H</span>
+          <h4>Honesty & Accountability</h4>
+          <p>We operate with uncompromising transparency and accountability to build absolute trust with our funders,
+            partners, and communities.</p>
+        </div>
+        <div class="value-box">
+          <span class="value-letter mono">P</span>
+          <h4>Purpose-driven Partnerships</h4>
+          <p>We forge strategic, cross-border alliances that amplify cutting-edge expertise and scale pan-African
+            impact.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FIXED LANDSCAPE EDGE ACCENTS -->
+  <div class="edge-landscape-left"></div>
+  <div class="edge-landscape-right"></div>
+
+  <!-- FOOTER LANDSCAPE SILHOUETTE TRANSITION -->
+  <div class="footer-landscape-wrap">
+    <svg class="footer-landscape-svg" viewBox="0 0 1440 220" fill="none" xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="savannahSky" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#faf7f2" stop-opacity="0" />
+          <stop offset="60%" stop-color="#d97706" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="#1a2340" stop-opacity="1" />
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="220" fill="url(#savannahSky)" />
+
+      <!-- Distant Mountain Ranges (Kilimanjaro/Savannah Ridges) -->
+      <path d="M0 160 Q 200 90 400 135 T 800 100 T 1200 125 T 1440 85 L 1440 220 L 0 220 Z" fill="#141c33"
+        fill-opacity="0.55" />
+      <path d="M0 140 Q 280 75 560 115 T 1120 65 T 1440 105 L 1440 220 L 0 220 Z" fill="#182038" fill-opacity="0.75" />
+
+      <!-- Midground Hills, Acacia Trees & Birds -->
+      <g fill="#1a2340">
+        <!-- Birds taking flight -->
+        <path d="M 320 50 Q 325 45 330 50 Q 335 45 340 50 Q 335 52 330 48 Q 325 52 320 50 Z" opacity="0.8" />
+        <path d="M 350 65 Q 354 61 358 65 Q 362 61 366 65 Q 362 67 358 63 Q 354 67 350 65 Z" opacity="0.8" />
+        <path d="M 290 75 Q 293 72 296 75 Q 299 72 302 75 Q 299 77 296 73 Q 293 77 290 75 Z" opacity="0.7" />
+
+        <!-- Acacia Tree 1 (Left Side) -->
+        <path
+          d="M 120 180 C 122 150 115 130 110 115 C 105 100 95 90 85 85 C 80 82 75 80 70 82 M 110 115 C 118 102 130 92 145 88 M 115 130 C 125 120 138 115 155 112"
+          stroke="#1a2340" stroke-width="4" />
+        <ellipse cx="75" cy="80" rx="36" ry="10" />
+        <ellipse cx="145" cy="85" rx="42" ry="11" />
+        <ellipse cx="160" cy="110" rx="32" ry="8" />
+        <ellipse cx="110" cy="72" rx="48" ry="12" />
+
+        <!-- Acacia Tree 2 (Center-Right Side) -->
+        <path
+          d="M 1080 180 C 1082 150 1075 130 1070 115 C 1065 100 1055 90 1045 85 M 1070 115 C 1078 102 1090 92 1105 88"
+          stroke="#1a2340" stroke-width="4" />
+        <ellipse cx="1035" cy="80" rx="36" ry="10" />
+        <ellipse cx="1105" cy="85" rx="42" ry="11" />
+        <ellipse cx="1070" cy="72" rx="48" ry="12" />
+
+        <!-- Acacia Tree 3 (Far Right Side) -->
+        <path
+          d="M 1340 180 C 1338 152 1345 132 1350 118 C 1355 102 1365 92 1375 87 M 1350 118 C 1342 105 1330 95 1315 90"
+          stroke="#1a2340" stroke-width="4" />
+        <ellipse cx="1380" cy="82" rx="38" ry="10" />
+        <ellipse cx="1310" cy="87" rx="35" ry="9" />
+        <ellipse cx="1345" cy="74" rx="48" ry="12" />
+
+        <!-- Giraffe Silhouette Walking Across Savannah -->
+        <path
+          d="M 780 148 L 782 118 L 784 110 Q 787 105 790 110 L 788 120 L 795 138 L 795 158 L 793 158 L 792 142 L 788 142 L 787 158 L 785 158 L 786 142 L 783 142 L 781 158 L 779 158 Z" />
+
+        <!-- Foreground Terrain Base -->
+        <path d="M 0 165 Q 360 125 720 155 T 1440 135 L 1440 220 L 0 220 Z" />
+      </g>
+    </svg>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <h3>Centre for Integrated Health Programs (CIHP)</h3>
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p class="mono" style="font-size:0.85rem; opacity:0.9;">
+      Plot 1129 Kikuyu Close, Off Nairobi Street, Wuse 2, Abuja // info@cihpng.org
+    </p>
+    <p style="font-size: 0.8rem; margin-top: 20px;">&copy; <span id="year"></span> CIHP. All Rights Reserved.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Preloader Logic
+    window.addEventListener('DOMContentLoaded', () => {
+      const preloader = document.getElementById('system-preloader');
+      const body = document.body;
+
+      // Set to 3000 (3 seconds). If you genuinely want 30 seconds, change to 30000.
+      const loadingTime = 3000;
+
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+        body.classList.remove('locked');
+
+        // Init Animations after preloader disappears
+        setTimeout(() => {
+          AOS.init({ duration: 800, once: true, easing: 'ease-out-quad' });
+        }, 100);
+
+      }, loadingTime);
+    });
+
+    // Animated Counters
+    (function () {
+      const counters = [
+        { id: 'stat-states', end: 20 },
+        { id: 'stat-projects', end: 12 },
+        { id: 'stat-facilities', end: 2010 },
+        { id: 'stat-beneficiaries', end: 13, suffix: ' Million+' },
+        { id: 'stat-years', end: 15 }
+      ];
+
+      function animate(el, end, suffix = '', duration = 1500) {
+        let start = 0;
+        const stepTime = 16;
+        const steps = Math.max(1, Math.floor(duration / stepTime));
+        const increment = end / steps;
+        function step() {
+          start += increment;
+          if (start < end) {
+            const val = end > 1000 ? Math.floor(start).toLocaleString() : Math.floor(start);
+            el.textContent = val + suffix;
+            requestAnimationFrame(step);
+          } else {
+            const val = end > 1000 ? end.toLocaleString() : end;
+            el.textContent = val + suffix;
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      const obs = new IntersectionObserver((entries, o) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            counters.forEach(c => {
+              const el = document.getElementById(c.id);
+              if (el && !el.dataset.started) {
+                el.dataset.started = '1';
+                animate(el, c.end, c.suffix || '');
+              }
+            });
+            o.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+
+      const statsEl = document.querySelector('.clean-stats-row');
+      if (statsEl) obs.observe(statsEl);
+    })();
+
+    // Timeline interactivity
+    (function () {
+      const items = Array.from(document.querySelectorAll('.horizontal-timeline .timeline-item'));
+      const projectMap = new Map();
+      items.forEach(it => {
+        const target = it.dataset.target;
+        if (target) projectMap.set(target, document.getElementById(target));
+        it.addEventListener('click', () => {
+          if (target && document.getElementById(target)) {
+            document.getElementById(target).scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+
+      const projIds = Array.from(projectMap.keys());
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          const id = e.target.id;
+          const matching = items.find(it => it.dataset.target === id);
+          if (matching) {
+            if (e.isIntersecting) matching.classList.add('active');
+            else matching.classList.remove('active');
+          }
+        });
+      }, { threshold: 0.4 });
+
+      projIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) io.observe(el);
+      });
+    })();
+
+    // Vision Statement Typewriter Effect (Slow speed)
+    (function () {
+      const visionEl = document.getElementById('vision-text');
+      if (!visionEl) return;
+
+      const fullText = visionEl.textContent.replace(/\s+/g, ' ').trim();
+      visionEl.textContent = '';
+
+      const textSpan = document.createElement('span');
+      textSpan.className = 'typewriter-text';
+
+      const cursorSpan = document.createElement('span');
+      cursorSpan.className = 'typewriter-cursor';
+
+      visionEl.appendChild(textSpan);
+      visionEl.appendChild(cursorSpan);
+
+      let hasTyped = false;
+      let charIndex = 0;
+      const speed = 55; // Slow typing speed per character in ms
+
+      function typeWriter() {
+        if (charIndex < fullText.length) {
+          textSpan.textContent += fullText.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeWriter, speed);
+        } else {
+          setTimeout(() => {
+            cursorSpan.style.transition = 'opacity 0.5s ease';
+            cursorSpan.style.opacity = '0';
+            setTimeout(() => cursorSpan.remove(), 500);
+          }, 3000);
+        }
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasTyped) {
+            hasTyped = true;
+            typeWriter();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      observer.observe(visionEl);
+    })();
+    (function () {
+      const container = document.getElementById('medical-particles');
+      if (!container) return;
+      const icons = [
+        'fa-heart-pulse', 'fa-dna', 'fa-capsules', 'fa-stethoscope',
+        'fa-shield-halved', 'fa-notes-medical', 'fa-user-doctor', 'fa-hospital'
+      ];
+      const particleCount = 24;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('i');
+        const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+        particle.className = `fa-solid ${randomIcon} med-particle`;
+
+        const size = Math.random() * 18 + 14;
+        const left = Math.random() * 98;
+        const delay = Math.random() * 14;
+        const duration = Math.random() * 10 + 14;
+        const opacity = Math.random() * 0.16 + 0.08;
+
+        particle.style.fontSize = `${size}px`;
+        particle.style.left = `${left}%`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.color = Math.random() > 0.4 ? `rgba(96, 165, 250, ${opacity})` : `rgba(52, 211, 153, ${opacity})`;
+
+        container.appendChild(particle);
+      }
+    })();
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
