@@ -70,21 +70,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <style>
     :root {
-      --primary-blue: #1e3388;
-      --primary-blue-dark: #0f172a;
-      --secondary-green: #297b47;
-      --secondary-green-light: #e8f5ed;
-      --accent-ochre: #d97706;
-      --bg-deep: #090f2a;
+      --primary-blue: #1A54A0;
+      --primary-blue-dark: #0B2F3A;
+      --secondary-green: #2F924A;
+      --secondary-green-light: #EBF7EE;
+      --accent-lime: #8BED01;
+      --accent-ochre: #8BED01;
+      --bg-deep: #0B2F3A;
       --border-color: rgba(255, 255, 255, 0.12);
-      --text-main: #0f172a;
-      --text-muted: #64748b;
+      --text-main: #0B2F3A;
+      --text-muted: #385966;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top right, #1e3388, #090f2a 80%);
+      background: radial-gradient(circle at top right, #1A54A0, #0B2F3A 80%);
       color: #ffffff;
       min-height: 100vh;
       display: flex;
@@ -124,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       gap: 8px;
       background: rgba(41, 123, 71, 0.2);
       border: 1px solid var(--secondary-green);
-      color: #4ade80;
+      color: var(--accent-lime);
       padding: 5px 14px;
       border-radius: 50px;
       font-size: 0.76rem;
@@ -149,14 +150,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     .form-input:focus {
       outline: none;
-      border-color: #38bdf8;
+      border-color: var(--accent-lime);
       background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+      box-shadow: 0 0 15px rgba(139, 237, 1, 0.2);
     }
 
     .btn-login {
       width: 100%;
-      background: linear-gradient(135deg, var(--secondary-green), #15803d);
+      background: linear-gradient(135deg, var(--secondary-green), var(--primary-blue));
       color: #ffffff;
       padding: 14px;
       border-radius: 8px;
@@ -201,9 +202,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .demo-credentials-box strong { color: #ffffff; }
 
     .quick-fill-btn {
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
-      border: 1px solid rgba(56, 189, 248, 0.4);
+      background: rgba(139, 237, 1, 0.15);
+      color: var(--accent-lime);
+      border: 1px solid rgba(139, 237, 1, 0.4);
       padding: 4px 10px;
       border-radius: 4px;
       font-size: 0.72rem;

@@ -31,21 +31,22 @@ $activeJobsServer = array_values(array_filter($allJobsRaw, function($j) {
 
   <style>
     :root {
-      --primary-blue: #1e3388;
-      --primary-blue-dark: #0f172a;
-      --primary-blue-light: #253fa8;
-      --secondary-green: #297b47;
-      --secondary-green-dark: #1b5430;
-      --secondary-green-light: #e8f5ed;
-      --accent-ochre: #d97706;
+      --primary-blue: #1A54A0;
+      --primary-blue-dark: #0B2F3A;
+      --primary-blue-light: #256bbd;
+      --secondary-green: #2F924A;
+      --secondary-green-dark: #216934;
+      --secondary-green-light: #EBF7EE;
+      --accent-ochre: #8BED01;
 
-      --bg-deep: #f8fafc;
+      --bg-deep: #F4F1EA;
       --bg-surface: #ffffff;
-      --bg-muted: #f1f5f9;
-      --border-color: rgba(30, 51, 136, 0.12);
+      --bg-muted: #F4F1EA;
+      --border-color: rgba(26, 84, 160, 0.12);
 
-      --text-main: #0f172a;
-      --text-muted: #475569;
+      --text-main: #0B2F3A;
+      --text-muted: #385966;
+      --text-light: #527583;
 
       --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
       --shadow-md: 0 10px 25px rgba(30, 51, 136, 0.08);

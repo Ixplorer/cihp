@@ -27,27 +27,27 @@
        CIHP BRAND DESIGN SYSTEM & DESIGN TOKENS
        ========================================================================== */
     :root {
-      --primary-blue: #1e3388;
-      --primary-blue-dark: #0f172a;
-      --primary-blue-light: #253fa8;
-      --secondary-green: #297b47;
-      --secondary-green-dark: #1b5430;
-      --secondary-green-light: #e8f5ed;
-      --accent-ochre: #d97706;
-      --accent-ochre-light: #fffbe6;
+      --primary-blue: #1A54A0;
+      --primary-blue-dark: #0B2F3A;
+      --primary-blue-light: #256bbd;
+      --secondary-green: #2F924A;
+      --secondary-green-dark: #216934;
+      --secondary-green-light: #EBF7EE;
+      --accent-ochre: #8BED01;
+      --accent-ochre-light: #f7ffe6;
       
-      --bg-deep: #f8fafc;
+      --bg-deep: #F4F1EA;
       --bg-surface: #ffffff;
-      --bg-muted: #f1f5f9;
+      --bg-muted: #F4F1EA;
       --bg-card: #ffffff;
-      --bg-dark: #090f2a;
+      --bg-dark: #0B2F3A;
 
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --text-light: #64748b;
+      --text-main: #0B2F3A;
+      --text-muted: #385966;
+      --text-light: #527583;
       --text-white: #ffffff;
 
-      --border-color: rgba(30, 51, 136, 0.12);
+      --border-color: rgba(26, 84, 160, 0.12);
       --border-hover: rgba(41, 123, 71, 0.35);
       --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
       --shadow-md: 0 10px 25px rgba(30, 51, 136, 0.08);
@@ -167,7 +167,7 @@
       width: 100%;
       background: #ffffff;
       backdrop-filter: blur(16px);
-      border-bottom: 3px solid #1e3388;
+      border-bottom: 3px solid var(--primary-blue);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -199,7 +199,7 @@
       border-radius: 4px;
       font-size: 0.76rem;
       font-weight: 700;
-      color: #1e3388;
+      color: var(--primary-blue);
       letter-spacing: 0.04em;
     }
 
@@ -222,7 +222,7 @@
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: #1e3388;
+      color: var(--primary-blue);
       font-weight: 700;
     }
 
@@ -233,7 +233,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: #1e3388;
+      background: var(--primary-blue);
       transition: width 0.25s ease;
     }
 
@@ -269,7 +269,7 @@
        HERO BANNER SECTION
        ========================================================================== */
     .news-hero-section {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3388 60%, #090f2a 100%);
+      background: linear-gradient(135deg, var(--neutral-dark) 0%, var(--primary-blue) 60%, var(--neutral-dark) 100%);
       color: #ffffff;
       padding: 70px 0 60px;
       position: relative;
@@ -293,7 +293,7 @@
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #38bdf8;
+      color: var(--accent-lime);
       padding: 6px 20px;
       border-radius: 50px;
       font-size: 0.8rem;
@@ -345,8 +345,8 @@
 
     .news-search-input:focus {
       background: rgba(255, 255, 255, 0.25);
-      border-color: #38bdf8;
-      box-shadow: 0 0 24px rgba(56, 189, 248, 0.3);
+      border-color: var(--accent-lime);
+      box-shadow: 0 0 24px rgba(139, 237, 1, 0.3);
     }
 
     .news-search-icon {
@@ -354,7 +354,7 @@
       left: 22px;
       top: 50%;
       transform: translateY(-50%);
-      color: #38bdf8;
+      color: var(--accent-lime);
       font-size: 1.1rem;
     }
 
@@ -531,7 +531,7 @@
       left: 14px;
       background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(8px);
-      color: #38bdf8;
+      color: var(--accent-lime);
       padding: 4px 12px;
       border-radius: 50px;
       font-size: 0.72rem;
@@ -598,7 +598,7 @@
 
     /* Media Kit & Newsletter Banner */
     .press-kit-box {
-      background: linear-gradient(135deg, #1e3388 0%, #0f172a 100%);
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--neutral-dark) 100%);
       color: #ffffff;
       border-radius: 16px;
       padding: 44px;
@@ -1139,29 +1139,29 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 95px;">
       <defs>
         <linearGradient id="safariSky" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#d97706" stop-opacity="0.35" />
-          <stop offset="100%" stop-color="#0f172a" stop-opacity="1" />
+          <stop offset="0%" stop-color="#8BED01" stop-opacity="0.35" />
+          <stop offset="100%" stop-color="#0B2F3A" stop-opacity="1" />
         </linearGradient>
       </defs>
       <rect width="1200" height="120" fill="url(#safariSky)" />
-      <circle cx="960" cy="65" r="42" fill="#f59e0b" opacity="0.45" />
+      <circle cx="960" cy="65" r="42" fill="#8BED01" opacity="0.45" />
 
       <!-- Acacia Tree 1 -->
-      <path d="M 180 120 L 180 85 Q 165 75 130 72 L 130 68 Q 170 65 180 80 L 180 75 Q 195 62 235 60 L 235 55 Q 190 52 180 70 L 180 120 Z" fill="#0f172a" />
-      <ellipse cx="130" cy="68" rx="38" ry="8" fill="#0f172a" />
-      <ellipse cx="235" cy="56" rx="46" ry="10" fill="#0f172a" />
-      <ellipse cx="180" cy="46" rx="55" ry="12" fill="#0f172a" />
+      <path d="M 180 120 L 180 85 Q 165 75 130 72 L 130 68 Q 170 65 180 80 L 180 75 Q 195 62 235 60 L 235 55 Q 190 52 180 70 L 180 120 Z" fill="#0B2F3A" />
+      <ellipse cx="130" cy="68" rx="38" ry="8" fill="#0B2F3A" />
+      <ellipse cx="235" cy="56" rx="46" ry="10" fill="#0B2F3A" />
+      <ellipse cx="180" cy="46" rx="55" ry="12" fill="#0B2F3A" />
 
       <!-- Giraffes -->
-      <path d="M 520 120 L 522 92 L 526 82 L 530 65 L 534 67 L 530 84 L 535 90 L 537 120 Z" fill="#0f172a" />
-      <path d="M 550 120 L 551 98 L 554 90 L 557 76 L 560 78 L 557 91 L 561 96 L 562 120 Z" fill="#0f172a" />
+      <path d="M 520 120 L 522 92 L 526 82 L 530 65 L 534 67 L 530 84 L 535 90 L 537 120 Z" fill="#0B2F3A" />
+      <path d="M 550 120 L 551 98 L 554 90 L 557 76 L 560 78 L 557 91 L 561 96 L 562 120 Z" fill="#0B2F3A" />
 
       <!-- Birds -->
-      <path d="M 320 35 Q 326 28 332 35 Q 338 28 344 35" stroke="#0f172a" stroke-width="2" fill="none" />
-      <path d="M 350 42 Q 355 36 360 42 Q 365 36 370 42" stroke="#0f172a" stroke-width="2" fill="none" />
-      <path d="M 780 30 Q 786 23 792 30 Q 798 23 804 30" stroke="#0f172a" stroke-width="2" fill="none" />
+      <path d="M 320 35 Q 326 28 332 35 Q 338 28 344 35" stroke="#0B2F3A" stroke-width="2" fill="none" />
+      <path d="M 350 42 Q 355 36 360 42 Q 365 36 370 42" stroke="#0B2F3A" stroke-width="2" fill="none" />
+      <path d="M 780 30 Q 786 23 792 30 Q 798 23 804 30" stroke="#0B2F3A" stroke-width="2" fill="none" />
 
-      <path d="M 0 120 Q 200 108 450 114 T 900 110 T 1200 115 L 1200 120 Z" fill="#0f172a" />
+      <path d="M 0 120 Q 200 108 450 114 T 900 110 T 1200 115 L 1200 120 Z" fill="#0B2F3A" />
     </svg>
   </div>
 

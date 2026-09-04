@@ -144,15 +144,16 @@ foreach ($applications as $a) {
 
   <style>
     :root {
-      --primary-blue: #1e3388;
-      --primary-blue-dark: #0f172a;
-      --secondary-green: #297b47;
-      --secondary-green-light: #e8f5ed;
-      --accent-ochre: #d97706;
-      --bg-deep: #f8fafc;
-      --border-color: rgba(30, 51, 136, 0.12);
-      --text-main: #0f172a;
-      --text-muted: #475569;
+      --primary-blue: #1A54A0;
+      --primary-blue-dark: #0B2F3A;
+      --secondary-green: #2F924A;
+      --secondary-green-light: #EBF7EE;
+      --accent-lime: #8BED01;
+      --accent-ochre: #8BED01;
+      --bg-deep: #F4F1EA;
+      --border-color: rgba(26, 84, 160, 0.12);
+      --text-main: #0B2F3A;
+      --text-muted: #385966;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -225,13 +226,13 @@ foreach ($applications as $a) {
     .data-table tr:hover { background: #f8fafc; }
 
     .status-badge { display: inline-block; padding: 4px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
-    .status-applied { background: #e0f2fe; color: #0369a1; }
-    .status-under-review { background: #fef3c7; color: #b45309; }
-    .status-shortlisted { background: #dcfce7; color: #15803d; }
-    .status-interview-scheduled { background: #f3e8ff; color: #6b21a8; }
-    .status-selected { background: #297b47; color: #ffffff; }
+    .status-applied { background: rgba(26, 84, 160, 0.12); color: var(--primary-blue); }
+    .status-under-review { background: rgba(139, 237, 1, 0.2); color: var(--neutral-dark); }
+    .status-shortlisted { background: rgba(47, 146, 74, 0.15); color: var(--secondary-green); }
+    .status-interview-scheduled { background: rgba(26, 84, 160, 0.12); color: var(--primary-blue); }
+    .status-selected { background: var(--secondary-green); color: #ffffff; }
     .status-regretted { background: #ffe4e6; color: #be123c; }
-    .status-active { background: #dcfce7; color: #15803d; }
+    .status-active { background: rgba(47, 146, 74, 0.15); color: var(--secondary-green); }
     .status-inactive { background: #fee2e2; color: #991b1b; }
 
     .skill-chip { display: inline-block; background: #f1f5f9; color: var(--text-main); font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; font-weight: 600; margin: 2px; }
@@ -295,11 +296,11 @@ foreach ($applications as $a) {
         <div class="metric-label">Shortlisted</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #6b21a8;"><?php echo $countInterview; ?></div>
+        <div class="metric-num" style="color: var(--primary-blue);"><?php echo $countInterview; ?></div>
         <div class="metric-label">Interview Scheduled</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #15803d;"><?php echo $countSelected; ?></div>
+        <div class="metric-num" style="color: var(--secondary-green);"><?php echo $countSelected; ?></div>
         <div class="metric-label">Hired / Selected</div>
       </div>
       <div class="metric-card">

@@ -170,13 +170,13 @@
       width: 100%;
       background: #ffffff;
       backdrop-filter: blur(16px);
-      border-bottom: 3px solid #1e3388;
+      border-bottom: 3px solid var(--primary-blue);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 14px 44px;
       z-index: 10000;
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 4px 20px rgba(11, 47, 58, 0.06);
     }
 
     .brand-logo {
@@ -189,20 +189,20 @@
     .brand-logo img {
       height: 48px;
       display: block;
-      filter: drop-shadow(0 2px 4px rgba(30, 51, 136, 0.12));
+      filter: drop-shadow(0 2px 4px rgba(26, 84, 160, 0.12));
     }
 
     .presence-badge {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: #f1f5f9;
-      border: 1px solid #cbd5e1;
+      background: var(--neutral-light);
+      border: 1px solid var(--border-color);
       padding: 5px 14px;
       border-radius: 4px;
       font-size: 0.76rem;
       font-weight: 700;
-      color: #1e3388;
+      color: var(--primary-blue);
       letter-spacing: 0.04em;
     }
 
@@ -214,7 +214,7 @@
     }
 
     .nav-links a {
-      color: #0f172a;
+      color: var(--text-main);
       text-decoration: none;
       font-size: 0.88rem;
       font-weight: 600;
@@ -225,7 +225,7 @@
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: #1e3388;
+      color: var(--primary-blue);
       font-weight: 700;
     }
 
@@ -236,7 +236,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: #1e3388;
+      background: var(--primary-blue);
       transition: width 0.25s ease;
     }
 
@@ -246,13 +246,13 @@
     }
 
     .nav-links a.btn-nav {
-      background: #297b47;
+      background: var(--secondary-green);
       color: #ffffff;
       padding: 10px 22px;
       border-radius: 4px;
       font-weight: 700;
       letter-spacing: 0.02em;
-      box-shadow: 0 4px 12px rgba(41, 123, 71, 0.25);
+      box-shadow: 0 4px 12px rgba(47, 146, 74, 0.25);
     }
 
     .nav-links a.btn-nav::after {
@@ -264,7 +264,7 @@
       background: none;
       border: none;
       font-size: 1.5rem;
-      color: #0f172a;
+      color: var(--text-main);
       cursor: pointer;
     }
 
@@ -272,7 +272,7 @@
        HERO BANNER SECTION
        ========================================================================== */
     .news-hero-section {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3388 60%, #090f2a 100%);
+      background: linear-gradient(135deg, var(--neutral-dark) 0%, var(--primary-blue) 60%, var(--neutral-dark) 100%);
       color: #ffffff;
       padding: 70px 0 60px;
       position: relative;
@@ -293,10 +293,10 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(139, 237, 1, 0.15);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #38bdf8;
+      border: 1px solid rgba(139, 237, 1, 0.35);
+      color: var(--accent-lime);
       padding: 6px 20px;
       border-radius: 50px;
       font-size: 0.8rem;
@@ -316,7 +316,7 @@
 
     .news-hero-desc {
       font-size: 1.15rem;
-      color: #cbd5e1;
+      color: var(--neutral-light);
       line-height: 1.7;
       max-width: 780px;
       margin: 0 auto;
@@ -348,8 +348,8 @@
 
     .news-search-input:focus {
       background: rgba(255, 255, 255, 0.25);
-      border-color: #38bdf8;
-      box-shadow: 0 0 24px rgba(56, 189, 248, 0.3);
+      border-color: var(--accent-lime);
+      box-shadow: 0 0 24px rgba(139, 237, 1, 0.3);
     }
 
     .news-search-icon {
@@ -357,7 +357,7 @@
       left: 22px;
       top: 50%;
       transform: translateY(-50%);
-      color: #38bdf8;
+      color: var(--accent-lime);
       font-size: 1.1rem;
     }
 
@@ -534,7 +534,7 @@
       left: 14px;
       background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(8px);
-      color: #38bdf8;
+      color: var(--accent-lime);
       padding: 4px 12px;
       border-radius: 50px;
       font-size: 0.72rem;
@@ -601,7 +601,7 @@
 
     /* Media Kit & Newsletter Banner */
     .press-kit-box {
-      background: linear-gradient(135deg, #1e3388 0%, #0f172a 100%);
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--neutral-dark) 100%);
       color: #ffffff;
       border-radius: 16px;
       padding: 44px;
@@ -683,7 +683,7 @@
     /* Pre-Footer Strategic Gateway & Trust Hub */
     .prefooter-gateway-section {
       padding: 60px 0 20px;
-      background: linear-gradient(180deg, var(--bg-surface) 0%, #060a1c 100%);
+      background: linear-gradient(180deg, var(--bg-surface) 0%, var(--neutral-dark) 100%);
       position: relative;
       overflow: hidden;
     }
@@ -731,10 +731,10 @@
       transition: height 0.3s ease;
     }
 
-    .pillar-donor::before { background: linear-gradient(90deg, #1e3388, #2563eb); }
-    .pillar-gov::before { background: linear-gradient(90deg, #297b47, #10b981); }
-    .pillar-vendor::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
-    .pillar-talent::before { background: linear-gradient(90deg, #8b5cf6, #6366f1); }
+    .pillar-donor::before { background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-light)); }
+    .pillar-gov::before { background: linear-gradient(90deg, var(--secondary-green), var(--accent-lime)); }
+    .pillar-vendor::before { background: linear-gradient(90deg, var(--accent-lime), var(--secondary-green)); }
+    .pillar-talent::before { background: linear-gradient(90deg, var(--primary-blue), var(--secondary-green)); }
 
     .partner-pillar-card:hover {
       transform: translateY(-6px);
@@ -757,10 +757,10 @@
       margin-bottom: 18px;
     }
 
-    .pillar-donor .pillar-icon-box { background: #eff6ff; color: #2563eb; }
-    .pillar-gov .pillar-icon-box { background: #ecfdf5; color: #059669; }
-    .pillar-vendor .pillar-icon-box { background: #fffbeb; color: #d97706; }
-    .pillar-talent .pillar-icon-box { background: #f5f3ff; color: #7c3aed; }
+    .pillar-donor .pillar-icon-box { background: rgba(26, 84, 160, 0.1); color: var(--primary-blue); }
+    .pillar-gov .pillar-icon-box { background: rgba(47, 146, 74, 0.1); color: var(--secondary-green); }
+    .pillar-vendor .pillar-icon-box { background: rgba(139, 237, 1, 0.15); color: var(--neutral-dark); }
+    .pillar-talent .pillar-icon-box { background: rgba(26, 84, 160, 0.1); color: var(--primary-blue); }
 
     .pillar-title {
       font-size: 1.12rem;
@@ -795,7 +795,7 @@
 
     /* Executive Conversion Card Banner */
     .executive-conversion-card {
-      background: linear-gradient(135deg, #0b132b 0%, #1e3388 65%, #0f172a 100%);
+      background: linear-gradient(135deg, var(--neutral-dark) 0%, var(--primary-blue) 65%, var(--neutral-dark) 100%);
       border: 1px solid rgba(74, 222, 128, 0.35);
       border-radius: var(--radius-lg);
       padding: 56px 44px;
@@ -839,7 +839,7 @@
       gap: 8px;
       background: rgba(74, 222, 128, 0.15);
       border: 1px solid rgba(74, 222, 128, 0.35);
-      color: #4ade80;
+      color: var(--accent-lime);
       padding: 6px 16px;
       border-radius: 50px;
       font-size: 0.8rem;
@@ -877,7 +877,7 @@
     }
 
     .contact-chip i {
-      color: #4ade80;
+      color: var(--accent-lime);
     }
 
     .conversion-action-group {
@@ -1019,7 +1019,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #4ade80;
+      color: var(--accent-lime);
       font-size: 0.95rem;
     }
 
@@ -1034,7 +1034,7 @@
 
     /* Footer & Silhouette */
     footer {
-      background: linear-gradient(180deg, var(--primary-blue-dark) 0%, #060a1c 100%);
+      background: linear-gradient(180deg, var(--primary-blue-dark) 0%, var(--neutral-dark) 100%);
       color: #ffffff;
       padding: 40px 0 40px;
       border-top: 5px solid var(--secondary-green);
@@ -1114,7 +1114,7 @@
       width: 100%;
       overflow: hidden;
       line-height: 0;
-      background: #060a1c;
+      background: var(--neutral-dark);
     }
 
     @media (max-width: 992px) {
@@ -1585,20 +1585,20 @@
       preserveAspectRatio="none" style="display: block; width: 100%; height: 120px;">
       <defs>
         <linearGradient id="savannahSky" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#060a1c" />
-          <stop offset="60%" stop-color="#d97706" stop-opacity="0.3" />
-          <stop offset="100%" stop-color="#060a1c" />
+          <stop offset="0%" stop-color="#0B2F3A" />
+          <stop offset="60%" stop-color="#8BED01" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#0B2F3A" />
         </linearGradient>
       </defs>
       <rect width="1440" height="220" fill="url(#savannahSky)" />
 
       <!-- Distant Mountain Ranges (Kilimanjaro/Savannah Ridges) -->
-      <path d="M0 160 Q 200 90 400 135 T 800 100 T 1200 125 T 1440 85 L 1440 220 L 0 220 Z" fill="#0d1538"
+      <path d="M0 160 Q 200 90 400 135 T 800 100 T 1200 125 T 1440 85 L 1440 220 L 0 220 Z" fill="#134453"
         fill-opacity="0.65" />
-      <path d="M0 140 Q 280 75 560 115 T 1120 65 T 1440 105 L 1440 220 L 0 220 Z" fill="#080d1f" fill-opacity="0.85" />
+      <path d="M0 140 Q 280 75 560 115 T 1120 65 T 1440 105 L 1440 220 L 0 220 Z" fill="#0e3845" fill-opacity="0.85" />
 
       <!-- Midground Hills, Acacia Trees & Birds -->
-      <g fill="#060a1c">
+      <g fill="#0B2F3A">
         <!-- Birds taking flight -->
         <path d="M 320 50 Q 325 45 330 50 Q 335 45 340 50 Q 335 52 330 48 Q 325 52 320 50 Z" opacity="0.9" />
         <path d="M 350 65 Q 354 61 358 65 Q 362 61 366 65 Q 362 67 358 63 Q 354 67 350 65 Z" opacity="0.9" />
@@ -1607,7 +1607,7 @@
         <!-- Acacia Tree 1 (Left Side) -->
         <path
           d="M 120 180 C 122 150 115 130 110 115 C 105 100 95 90 85 85 C 80 82 75 80 70 82 M 110 115 C 118 102 130 92 145 88 M 115 130 C 125 120 138 115 155 112"
-          stroke="#060a1c" stroke-width="4" />
+          stroke="#0B2F3A" stroke-width="4" />
         <ellipse cx="75" cy="80" rx="36" ry="10" />
         <ellipse cx="145" cy="85" rx="42" ry="11" />
         <ellipse cx="160" cy="110" rx="32" ry="8" />
@@ -1616,7 +1616,7 @@
         <!-- Acacia Tree 2 (Center-Right Side) -->
         <path
           d="M 1080 180 C 1082 150 1075 130 1070 115 C 1065 100 1055 90 1045 85 M 1070 115 C 1078 102 1090 92 1105 88"
-          stroke="#060a1c" stroke-width="4" />
+          stroke="#0B2F3A" stroke-width="4" />
         <ellipse cx="1035" cy="80" rx="36" ry="10" />
         <ellipse cx="1105" cy="85" rx="42" ry="11" />
         <ellipse cx="1070" cy="72" rx="48" ry="12" />
@@ -1624,7 +1624,7 @@
         <!-- Acacia Tree 3 (Far Right Side) -->
         <path
           d="M 1340 180 C 1338 152 1345 132 1350 118 C 1355 102 1365 92 1375 87 M 1350 118 C 1342 105 1330 95 1315 90"
-          stroke="#060a1c" stroke-width="4" />
+          stroke="#0B2F3A" stroke-width="4" />
         <ellipse cx="1380" cy="82" rx="38" ry="10" />
         <ellipse cx="1310" cy="87" rx="35" ry="9" />
         <ellipse cx="1345" cy="74" rx="48" ry="12" />
