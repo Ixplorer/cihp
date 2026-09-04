@@ -1290,78 +1290,61 @@
 
   <!-- ==================== FOOTER WITH AFRICAN SAFARI SILHOUETTE ==================== -->
   <div class="footer-safari-silhouette">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 90px;">
+    <svg class="footer-landscape-svg" viewBox="0 0 1440 220" fill="none" xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none" style="display: block; width: 100%; height: 120px;">
       <defs>
-        <!-- African Sunset Sky Gradient -->
-        <linearGradient id="safariSkyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <linearGradient id="savannahSky" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#060a1c" />
-          <stop offset="25%" stop-color="#3b1304" />
-          <stop offset="55%" stop-color="#9a3412" />
-          <stop offset="78%" stop-color="#d97706" />
-          <stop offset="92%" stop-color="#f59e0b" />
+          <stop offset="60%" stop-color="#d97706" stop-opacity="0.3" />
           <stop offset="100%" stop-color="#060a1c" />
         </linearGradient>
-
-        <!-- Setting Sun Radial Glow -->
-        <radialGradient id="sunGlowGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#fffbeb" stop-opacity="1" />
-          <stop offset="35%" stop-color="#fde047" stop-opacity="0.9" />
-          <stop offset="70%" stop-color="#f59e0b" stop-opacity="0.4" />
-          <stop offset="100%" stop-color="#d97706" stop-opacity="0" />
-        </radialGradient>
       </defs>
+      <rect width="1440" height="220" fill="url(#savannahSky)" />
 
-      <!-- Sunset Sky Background -->
-      <rect width="1400" height="120" fill="url(#safariSkyGrad)" />
+      <!-- Distant Mountain Ranges (Kilimanjaro/Savannah Ridges) -->
+      <path d="M0 160 Q 200 90 400 135 T 800 100 T 1200 125 T 1440 85 L 1440 220 L 0 220 Z" fill="#0d1538"
+        fill-opacity="0.65" />
+      <path d="M0 140 Q 280 75 560 115 T 1120 65 T 1440 105 L 1440 220 L 0 220 Z" fill="#080d1f" fill-opacity="0.85" />
 
-      <!-- Setting Sun Horizon -->
-      <circle cx="1120" cy="72" r="75" fill="url(#sunGlowGrad)" />
-      <circle cx="1120" cy="72" r="32" fill="#fffbeb" opacity="0.9" />
-
-      <!-- Birds Flying across Sunset Sky in V-Formation -->
-      <g fill="#060a1c" opacity="0.95">
-        <path d="M 680 28 Q 687 20 694 28 Q 701 20 708 28 Q 701 24 694 30 Q 687 24 680 28 Z" />
-        <path d="M 650 36 Q 656 29 662 36 Q 668 29 674 36 Q 668 33 662 38 Q 656 33 650 36 Z" />
-        <path d="M 715 34 Q 721 28 727 34 Q 733 28 739 34 Q 733 31 727 36 Q 721 31 715 34 Z" />
-        <path d="M 620 44 Q 625 38 630 44 Q 635 38 640 44 Q 635 41 630 46 Q 625 41 620 44 Z" />
-        <path d="M 748 42 Q 753 36 758 42 Q 763 36 768 42 Q 763 39 758 44 Q 753 39 748 42 Z" />
-        <path d="M 590 52 Q 594 47 598 52 Q 602 47 606 52 Q 602 49 598 54 Q 594 49 590 52 Z" />
-      </g>
-
-      <!-- Left Large African Acacia Tree -->
+      <!-- Midground Hills, Acacia Trees & Birds -->
       <g fill="#060a1c">
-        <path d="M 120 120 L 123 78 Q 105 68 85 64 L 85 60 Q 106 62 124 72 Q 128 62 145 52 L 145 48 Q 128 54 125 70 Q 138 60 168 56 L 168 52 Q 138 54 127 75 L 128 120 Z" />
-        <ellipse cx="130" cy="46" rx="55" ry="9" />
-        <ellipse cx="80" cy="58" rx="32" ry="6" />
-        <ellipse cx="170" cy="50" rx="38" ry="7" />
-        <ellipse cx="145" cy="40" rx="28" ry="5" />
+        <!-- Birds taking flight -->
+        <path d="M 320 50 Q 325 45 330 50 Q 335 45 340 50 Q 335 52 330 48 Q 325 52 320 50 Z" opacity="0.9" />
+        <path d="M 350 65 Q 354 61 358 65 Q 362 61 366 65 Q 362 67 358 63 Q 354 67 350 65 Z" opacity="0.9" />
+        <path d="M 290 75 Q 293 72 296 75 Q 299 72 302 75 Q 299 77 296 73 Q 293 77 290 75 Z" opacity="0.8" />
+
+        <!-- Acacia Tree 1 (Left Side) -->
+        <path
+          d="M 120 180 C 122 150 115 130 110 115 C 105 100 95 90 85 85 C 80 82 75 80 70 82 M 110 115 C 118 102 130 92 145 88 M 115 130 C 125 120 138 115 155 112"
+          stroke="#060a1c" stroke-width="4" />
+        <ellipse cx="75" cy="80" rx="36" ry="10" />
+        <ellipse cx="145" cy="85" rx="42" ry="11" />
+        <ellipse cx="160" cy="110" rx="32" ry="8" />
+        <ellipse cx="110" cy="72" rx="48" ry="12" />
+
+        <!-- Acacia Tree 2 (Center-Right Side) -->
+        <path
+          d="M 1080 180 C 1082 150 1075 130 1070 115 C 1065 100 1055 90 1045 85 M 1070 115 C 1078 102 1090 92 1105 88"
+          stroke="#060a1c" stroke-width="4" />
+        <ellipse cx="1035" cy="80" rx="36" ry="10" />
+        <ellipse cx="1105" cy="85" rx="42" ry="11" />
+        <ellipse cx="1070" cy="72" rx="48" ry="12" />
+
+        <!-- Acacia Tree 3 (Far Right Side) -->
+        <path
+          d="M 1340 180 C 1338 152 1345 132 1350 118 C 1355 102 1365 92 1375 87 M 1350 118 C 1342 105 1330 95 1315 90"
+          stroke="#060a1c" stroke-width="4" />
+        <ellipse cx="1380" cy="82" rx="38" ry="10" />
+        <ellipse cx="1310" cy="87" rx="35" ry="9" />
+        <ellipse cx="1345" cy="74" rx="48" ry="12" />
+
+        <!-- Giraffe Silhouette Walking Across Savannah -->
+        <path
+          d="M 780 148 L 782 118 L 784 110 Q 787 105 790 110 L 788 120 L 795 138 L 795 158 L 793 158 L 792 142 L 788 142 L 787 158 L 785 158 L 786 142 L 783 142 L 781 158 L 779 158 Z" />
+
+        <!-- Foreground Terrain Base -->
+        <path d="M 0 165 Q 360 125 720 155 T 1440 135 L 1440 220 L 0 220 Z" />
       </g>
-
-      <!-- African Wildlife Silhouettes: Elephants & Giraffes -->
-      <g fill="#060a1c">
-        <!-- Mother Elephant -->
-        <path d="M 370 92 Q 365 74 382 70 Q 398 66 412 72 Q 422 76 426 84 C 434 82, 442 84, 440 90 C 438 94, 432 94, 430 90 L 424 92 C 424 98, 422 104, 416 104 L 412 104 L 414 94 C 408 96, 400 96, 394 96 L 392 104 L 386 104 L 388 96 C 380 96, 374 94, 370 92 Z" />
-        <path d="M 426 84 Q 436 78 438 72 Q 442 66 438 62 Q 434 66 432 72 Z" />
-
-        <!-- Baby Elephant -->
-        <path d="M 334 94 Q 330 84 340 80 Q 350 78 358 84 L 364 80 L 362 88 L 356 88 L 355 98 L 351 98 L 352 90 L 344 90 L 343 98 L 339 98 L 340 90 Z" />
-
-        <!-- Tall Giraffe -->
-        <path d="M 1030 94 L 1032 78 C 1030 74 1036 64 1042 52 L 1048 30 Q 1052 28 1056 30 L 1052 34 L 1047 54 C 1044 64 1044 72 1040 78 L 1044 94 L 1040 94 L 1037 84 L 1034 84 L 1032 94 Z" />
-        <!-- Younger Giraffe -->
-        <path d="M 1070 94 L 1072 82 C 1070 78 1075 70 1080 60 L 1085 42 Q 1088 40 1091 42 L 1088 45 L 1084 62 C 1082 70 1082 76 1078 82 L 1082 94 L 1078 94 L 1076 86 L 1074 86 L 1072 94 Z" />
-      </g>
-
-      <!-- Right Acacia Tree near Sun -->
-      <g fill="#060a1c">
-        <path d="M 1190 120 L 1192 75 Q 1175 66 1155 62 L 1155 58 Q 1176 60 1193 68 Q 1198 58 1218 50 L 1218 46 Q 1198 52 1194 65 Q 1208 56 1238 52 L 1238 48 Q 1208 50 1196 70 L 1197 120 Z" />
-        <ellipse cx="1195" cy="44" rx="48" ry="8" />
-        <ellipse cx="1150" cy="56" rx="28" ry="5" />
-        <ellipse cx="1235" cy="48" rx="32" ry="6" />
-      </g>
-
-      <!-- Savanna Horizon Ground Line -->
-      <path d="M 0 120 L 0 92 Q 250 86, 500 94 T 950 88 T 1400 92 L 1400 120 Z" fill="#060a1c" />
     </svg>
   </div>
   <footer>
