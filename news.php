@@ -1055,78 +1055,79 @@
 
     <!-- ==================== PARTNER MOVING MARQUEE ==================== -->
     <section class="partner-marquee-section">
-      <div class="container" style="margin-bottom: 20px; text-align: center;">
-        <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">Global Strategic Donors & Research Consortia</span>
-      </div>
+      <div class="container">
+        <div class="partner-marquee-header">
+          <div class="partner-marquee-badge">
+            <i class="fa-solid fa-handshake-angle"></i> Global Strategic Network
+          </div>
+          <p class="partner-marquee-title">
+            Trusted by World-Class Donors, Multilateral Agencies & Strategic Partners
+          </p>
+        </div>
 
-      <div class="marquee-track-container">
-        <div class="marquee-track">
-          <!-- Set 1 -->
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
-            <span>PEPFAR / CDC</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
-            <span>European Union (EU / EDCTP3)</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-            <span>Unitaid</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
-            <span>Bill & Melinda Gates Foundation</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
-            <span>The Global Fund</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
-            <span>GAVI (The Vaccine Alliance)</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
-            <span>World Health Organization (WHO)</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
-            <span>Federal Ministry of Health (FMoH&SW)</span>
-          </div>
+        <div class="partner-marquee-container">
+          <div class="partner-marquee-track">
+            <!-- Set 1 -->
+            <div class="partner-logo-card" title="PEPFAR">
+              <img src="img/partners/pepfar.jfif" alt="PEPFAR Logo" />
+            </div>
+            <div class="partner-logo-card" title="European Union">
+              <img src="img/partners/European Union.png" alt="European Union Logo" />
+            </div>
+            <div class="partner-logo-card" title="Unitaid">
+              <img src="img/partners/unitaid.png" alt="Unitaid Logo" />
+            </div>
+            <div class="partner-logo-card" title="Bill & Melinda Gates Foundation">
+              <img src="img/partners/gate foundation.png" alt="Bill & Melinda Gates Foundation Logo" />
+            </div>
+            <div class="partner-logo-card" title="The Global Fund">
+              <img src="img/partners/The-Global-Fund-Fighting-against-AIDS-tuberculosis-and-malaria.png"
+                alt="The Global Fund Logo" />
+            </div>
+            <div class="partner-logo-card" title="GAVI Vaccine Alliance">
+              <img src="img/partners/gavi.png" alt="GAVI Vaccine Alliance Logo" />
+            </div>
+            <div class="partner-logo-card" title="World Health Organization">
+              <img src="img/partners/who.png" alt="World Health Organization Logo" />
+            </div>
+            <div class="partner-logo-card" title="Federal Ministry of Health Nigeria">
+              <img src="img/partners/federal ministry of health.png"
+                alt="Federal Ministry of Health Nigeria Logo" />
+            </div>
+            <div class="partner-logo-card" title="NACA Nigeria">
+              <img src="img/partners/NACA.jpg" alt="NACA Logo" />
+            </div>
 
-          <!-- Set 2 (Duplicate for Loop) -->
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-flag-usa"></i></div>
-            <span>PEPFAR / CDC</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-earth-europe"></i></div>
-            <span>European Union (EU / EDCTP3)</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-            <span>Unitaid</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
-            <span>Bill & Melinda Gates Foundation</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-globe"></i></div>
-            <span>The Global Fund</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-syringe"></i></div>
-            <span>GAVI (The Vaccine Alliance)</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
-            <span>World Health Organization (WHO)</span>
-          </div>
-          <div class="partner-logo-pill">
-            <div class="partner-logo-icon"><i class="fa-solid fa-hospital-user"></i></div>
-            <span>Federal Ministry of Health (FMoH&SW)</span>
+            <!-- Set 2 (Duplicate for Seamless Loop) -->
+            <div class="partner-logo-card" title="PEPFAR">
+              <img src="img/partners/pepfar.jfif" alt="PEPFAR Logo" />
+            </div>
+            <div class="partner-logo-card" title="European Union">
+              <img src="img/partners/European Union.png" alt="European Union Logo" />
+            </div>
+            <div class="partner-logo-card" title="Unitaid">
+              <img src="img/partners/unitaid.png" alt="Unitaid Logo" />
+            </div>
+            <div class="partner-logo-card" title="Bill & Melinda Gates Foundation">
+              <img src="img/partners/gate foundation.png" alt="Bill & Melinda Gates Foundation Logo" />
+            </div>
+            <div class="partner-logo-card" title="The Global Fund">
+              <img src="img/partners/The-Global-Fund-Fighting-against-AIDS-tuberculosis-and-malaria.png"
+                alt="The Global Fund Logo" />
+            </div>
+            <div class="partner-logo-card" title="GAVI Vaccine Alliance">
+              <img src="img/partners/gavi.png" alt="GAVI Vaccine Alliance Logo" />
+            </div>
+            <div class="partner-logo-card" title="World Health Organization">
+              <img src="img/partners/who.png" alt="World Health Organization Logo" />
+            </div>
+            <div class="partner-logo-card" title="Federal Ministry of Health Nigeria">
+              <img src="img/partners/federal ministry of health.png"
+                alt="Federal Ministry of Health Nigeria Logo" />
+            </div>
+            <div class="partner-logo-card" title="NACA Nigeria">
+              <img src="img/partners/NACA.jpg" alt="NACA Logo" />
+            </div>
           </div>
         </div>
       </div>

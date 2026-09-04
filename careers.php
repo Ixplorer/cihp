@@ -197,6 +197,83 @@ $activeJobsServer = array_values(array_filter($allJobsRaw, function($j) {
           </div>
           <a href="eoi.html" class="btn-emerald">Apply For EOI Online <i class="fa-solid fa-arrow-right"></i></a>
         </div>
+    <!-- Donor & Partner Moving Marquee Carousel -->
+    <section class="partner-marquee-section">
+      <div class="container">
+        <div class="partner-marquee-header">
+          <div class="partner-marquee-badge">
+            <i class="fa-solid fa-handshake-angle"></i> Global Strategic Network
+          </div>
+          <p class="partner-marquee-title">
+            Trusted by World-Class Donors, Multilateral Agencies & Strategic Partners
+          </p>
+        </div>
+
+        <div class="partner-marquee-container">
+          <div class="partner-marquee-track">
+            <!-- Set 1 -->
+            <div class="partner-logo-card" title="PEPFAR">
+              <img src="img/partners/pepfar.jfif" alt="PEPFAR Logo" />
+            </div>
+            <div class="partner-logo-card" title="European Union">
+              <img src="img/partners/European Union.png" alt="European Union Logo" />
+            </div>
+            <div class="partner-logo-card" title="Unitaid">
+              <img src="img/partners/unitaid.png" alt="Unitaid Logo" />
+            </div>
+            <div class="partner-logo-card" title="Bill & Melinda Gates Foundation">
+              <img src="img/partners/gate foundation.png" alt="Bill & Melinda Gates Foundation Logo" />
+            </div>
+            <div class="partner-logo-card" title="The Global Fund">
+              <img src="img/partners/The-Global-Fund-Fighting-against-AIDS-tuberculosis-and-malaria.png"
+                alt="The Global Fund Logo" />
+            </div>
+            <div class="partner-logo-card" title="GAVI Vaccine Alliance">
+              <img src="img/partners/gavi.png" alt="GAVI Vaccine Alliance Logo" />
+            </div>
+            <div class="partner-logo-card" title="World Health Organization">
+              <img src="img/partners/who.png" alt="World Health Organization Logo" />
+            </div>
+            <div class="partner-logo-card" title="Federal Ministry of Health Nigeria">
+              <img src="img/partners/federal ministry of health.png"
+                alt="Federal Ministry of Health Nigeria Logo" />
+            </div>
+            <div class="partner-logo-card" title="NACA Nigeria">
+              <img src="img/partners/NACA.jpg" alt="NACA Logo" />
+            </div>
+
+            <!-- Set 2 (Duplicate for Seamless Loop) -->
+            <div class="partner-logo-card" title="PEPFAR">
+              <img src="img/partners/pepfar.jfif" alt="PEPFAR Logo" />
+            </div>
+            <div class="partner-logo-card" title="European Union">
+              <img src="img/partners/European Union.png" alt="European Union Logo" />
+            </div>
+            <div class="partner-logo-card" title="Unitaid">
+              <img src="img/partners/unitaid.png" alt="Unitaid Logo" />
+            </div>
+            <div class="partner-logo-card" title="Bill & Melinda Gates Foundation">
+              <img src="img/partners/gate foundation.png" alt="Bill & Melinda Gates Foundation Logo" />
+            </div>
+            <div class="partner-logo-card" title="The Global Fund">
+              <img src="img/partners/The-Global-Fund-Fighting-against-AIDS-tuberculosis-and-malaria.png"
+                alt="The Global Fund Logo" />
+            </div>
+            <div class="partner-logo-card" title="GAVI Vaccine Alliance">
+              <img src="img/partners/gavi.png" alt="GAVI Vaccine Alliance Logo" />
+            </div>
+            <div class="partner-logo-card" title="World Health Organization">
+              <img src="img/partners/who.png" alt="World Health Organization Logo" />
+            </div>
+            <div class="partner-logo-card" title="Federal Ministry of Health Nigeria">
+              <img src="img/partners/federal ministry of health.png"
+                alt="Federal Ministry of Health Nigeria Logo" />
+            </div>
+            <div class="partner-logo-card" title="NACA Nigeria">
+              <img src="img/partners/NACA.jpg" alt="NACA Logo" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>

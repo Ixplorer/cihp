@@ -1090,49 +1090,108 @@
     }
 
     .partner-marquee-section {
-      background: #ffffff;
-      padding: 50px 0;
+      padding: 60px 0;
+      background: var(--bg-surface);
+      position: relative;
+      overflow: hidden;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
-      overflow: hidden;
     }
 
     .partner-marquee-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
-    .partner-marquee-header h4 {
-      font-size: 0.9rem;
-      font-weight: 800;
+    .partner-marquee-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26, 84, 160, 0.08);
+      border: 1px solid rgba(26, 84, 160, 0.18);
       color: var(--primary-blue);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
       font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .partner-marquee-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0;
     }
 
     .partner-marquee-container {
-      display: flex;
+      width: 100%;
       overflow: hidden;
+      position: relative;
+      padding: 10px 0;
       user-select: none;
-      mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
     }
 
     .partner-marquee-track {
       display: flex;
       align-items: center;
-      gap: 24px;
-      animation: marqueeScroll 26s linear infinite;
-      white-space: nowrap;
-      flex-shrink: 0;
+      width: max-content;
+      gap: 28px;
+      animation: partnerMarqueeScroll 30s linear infinite;
     }
 
-    .partner-marquee-container:hover .partner-marquee-track {
+    .partner-marquee-container:hover .partner-marquee-track,
+    .partner-marquee-track:hover {
       animation-play-state: paused;
     }
 
-    @keyframes marqueeScroll {
+    .partner-logo-card {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1.5px solid rgba(26, 84, 160, 0.12);
+      border-radius: 14px;
+      padding: 14px 28px;
+      min-width: 180px;
+      height: 84px;
+      box-shadow: 0 4px 18px rgba(11, 47, 58, 0.05);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .partner-logo-card img {
+      max-height: 52px;
+      max-width: 135px;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: grayscale(15%) opacity(0.92);
+      transition: all 0.35s ease;
+    }
+
+    .partner-logo-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      background: #ffffff;
+      border-color: var(--secondary-green);
+      box-shadow: 0 12px 30px rgba(47, 146, 74, 0.18);
+    }
+
+    .partner-logo-card:hover img {
+      filter: grayscale(0%) opacity(1);
+      transform: scale(1.05);
+    }
+
+    @keyframes partnerMarqueeScroll {
       0% {
         transform: translateX(0);
       }
@@ -3170,59 +3229,7 @@
       border-color: #ffffff;
     }
 
-    /* Partner Marquee Continuous Slider */
-    .partner-marquee-container {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-      padding: 24px 0;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .partner-marquee-header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .partner-marquee-track {
-      display: flex;
-      width: max-content;
-      gap: 20px;
-      animation: marqueeScroll 35s linear infinite;
-    }
-
-    .partner-marquee-track:hover {
-      animation-play-state: paused;
-    }
-
-    .partner-logo-card {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: var(--radius-md);
-      padding: 8px 18px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .partner-logo-card img {
-      height: 42px;
-      width: auto;
-      display: block;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-    }
-
-    .partner-logo-card:hover {
-      transform: translateY(-4px) scale(1.04);
-      box-shadow: 0 10px 30px rgba(139, 237, 1, 0.35);
-      border-color: rgba(139, 237, 1, 0.6);
-    }
+    /* Partner Marquee Continuous Slider overrides cleaned */
 
     .partner-logo-pill {
       display: inline-flex;
