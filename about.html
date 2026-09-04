@@ -780,56 +780,7 @@
       line-height: 1.7;
     }
 
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 36px;
-    }
 
-    .value-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 32px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
-    }
-
-    .value-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .value-badge {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      background: var(--primary-blue);
-      color: #ffffff;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.4rem;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(30, 51, 136, 0.2);
-    }
-
-    .value-card h4 {
-      font-size: 1.15rem;
-      color: var(--primary-blue-dark);
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .value-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
 
     /* ==========================================================================
        EXECUTIVE LEADERSHIP SPOTLIGHT
@@ -1186,36 +1137,68 @@
           </div>
         </div>
 
-        <!-- Values Matrix -->
-        <div style="margin-top: 60px;">
-          <h3
-            style="font-size: 1.6rem; color: var(--primary-blue-dark); font-weight: 800; text-align: center; margin-bottom: 12px;">
-            The C-I-H-P Values Matrix
-          </h3>
+        <!-- Core Values Section (Adopted Photo Layout) -->
+        <div style="margin-top: 70px;">
+          <div class="core-values-header" data-aos="fade-right">
+            <h2 class="core-values-title">Core Values</h2>
+            <div class="core-values-line"></div>
+          </div>
+
           <div class="values-grid">
-            <div class="value-card" data-aos="fade-up">
-              <div class="value-badge">C</div>
+            <!-- Card 1: Commitment to Excellence -->
+            <div class="value-card card-teal" data-aos="fade-up" data-aos-delay="100">
+              <div class="value-card-icon">
+                <svg width="60" height="60" viewBox="0 0 64 64" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="32" cy="24" r="13"/>
+                  <polygon points="32 17 34.2 21.5 39 22.2 35.5 25.6 36.3 30.5 32 28.2 27.7 30.5 28.5 25.6 25 22.2 29.8 21.5"/>
+                  <path d="M22 34L17 52L32 45L47 52L42 34"/>
+                </svg>
+              </div>
               <h4>Commitment to Excellence</h4>
-              <p>We set a high bar for people, systems, clinical quality, and rapid programmatic delivery.</p>
+              <p>For close to two decades, we have been relentlessly dedicated to delivering world-class, sustainable health and development outcomes across Africa.</p>
             </div>
 
-            <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-              <div class="value-badge" style="background: var(--secondary-green);">I</div>
+            <!-- Card 2: Innovative & Inspiring Leadership -->
+            <div class="value-card card-blue card-offset" data-aos="fade-up" data-aos-delay="200">
+              <div class="value-card-icon">
+                <svg width="60" height="60" viewBox="0 0 64 64" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 28C22 20 26.5 14 32 14C37.5 14 42 20 42 28C42 33 39 37 36 40V44H28V40C25 37 22 33 22 28Z"/>
+                  <line x1="28" y1="48" x2="36" y2="48"/>
+                  <line x1="30" y1="52" x2="34" y2="52"/>
+                  <circle cx="32" cy="27" r="4"/>
+                  <path d="M32 18V20M32 34V36M23 27H25M39 27H41"/>
+                </svg>
+              </div>
               <h4>Innovative & Inspiring Leadership</h4>
-              <p>We pioneer evidence-based solutions that inspire health workforce capacity and system resilience.</p>
+              <p>We pioneer evidence-based, co-created solutions that set global standards for health system strengthening.</p>
             </div>
 
-            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-              <div class="value-badge" style="background: var(--accent-ochre);">H</div>
+            <!-- Card 3: Honesty & Accountability -->
+            <div class="value-card card-teal" data-aos="fade-up" data-aos-delay="300">
+              <div class="value-card-icon">
+                <svg width="60" height="60" viewBox="0 0 64 64" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M32 12L46 17V29C46 39.5 39 46.5 32 50C25 46.5 18 39.5 18 29V17L32 12Z"/>
+                  <path d="M27 29L30.5 32.5L37 25.5"/>
+                  <path d="M14 42C18 38 23 38 27 44M50 44C46 38 41 38 39 42"/>
+                </svg>
+              </div>
               <h4>Honesty & Accountability</h4>
-              <p>We maintain absolute transparency, clear data stewardship, and rigorous financial integrity.</p>
+              <p>We operate with uncompromising transparency and accountability to build absolute trust with our funders, partners, and communities.</p>
             </div>
 
-            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-              <div class="value-badge" style="background: var(--primary-blue-light);">P</div>
-              <h4>Purposeful Partnerships</h4>
-              <p>We collaborate with governments, donors, and communities where shared purpose accelerates sustainable
-                impact.</p>
+            <!-- Card 4: Purpose-driven Partnerships -->
+            <div class="value-card card-blue card-offset" data-aos="fade-up" data-aos-delay="400">
+              <div class="value-card-icon">
+                <svg width="60" height="60" viewBox="0 0 64 64" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 34L27 23C29 21 32 21 34 23L37 26L29 34"/>
+                  <path d="M48 34L37 23C35 21 32 21 30 23L27 26L35 34"/>
+                  <path d="M29 34L33 38L29 42L25 38Z"/>
+                  <path d="M35 34L39 38L35 42L31 38"/>
+                  <path d="M19 37L12 30M45 37L52 30"/>
+                </svg>
+              </div>
+              <h4>Purpose-driven Partnerships</h4>
+              <p>We forge strategic, cross-border alliances that amplify cutting-edge expertise and scale pan-African impact.</p>
             </div>
           </div>
         </div>

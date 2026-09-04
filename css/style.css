@@ -1759,6 +1759,12 @@
       width: 70px;
     }
 
+    .value-card-icon svg {
+      width: 56px;
+      height: 56px;
+      stroke: #ffffff;
+    }
+
     .value-card h4 {
       font-size: 1.3rem;
       font-weight: 800;
