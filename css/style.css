@@ -1548,6 +1548,30 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     }
 
+    /* Word-by-Word Typewriter Effect for Vision & Mission */
+    .typewriter-text {
+      min-height: 3.8em;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    .typewriter-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.15em;
+      background-color: #4ade80;
+      margin-left: 4px;
+      vertical-align: sub;
+      border-radius: 1px;
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.9);
+      animation: typewriterCursorBlink 0.75s infinite ease-in-out;
+    }
+
+    @keyframes typewriterCursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
     .mv-glass-pills {
       display: flex;
       flex-wrap: wrap;

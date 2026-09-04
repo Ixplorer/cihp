@@ -469,10 +469,8 @@
                     <div class="mv-glass-icon"><i class="fa-solid fa-eye"></i></div>
                   </div>
                   <h3>Our Vision</h3>
-                  <p>
-                    Audaciously transforming lives through partnership and value creation for healthier communities and
-                    a
-                    thriving Africa.
+                  <p class="typewriter-text" data-text="Audaciously transforming lives through partnership and value creation for healthier communities and a thriving Africa.">
+                    Audaciously transforming lives through partnership and value creation for healthier communities and a thriving Africa.
                   </p>
                 </div>
 
@@ -493,10 +491,8 @@
                     <div class="mv-glass-icon"><i class="fa-solid fa-crosshairs"></i></div>
                   </div>
                   <h3>Our Mission</h3>
-                  <p>
-                    To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred
-                    and
-                    sustainable health systems, delivered through strategic partnerships.
+                  <p class="typewriter-text" data-text="To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred and sustainable health systems, delivered through strategic partnerships.">
+                    To transform lives, especially the most vulnerable, through cutting-edge solutions, people-centred and sustainable health systems, delivered through strategic partnerships.
                   </p>
                 </div>
 
@@ -2141,7 +2137,74 @@
           });
         });
       }
+
+      // Word-by-Word Typewriter Effect for Vision & Mission
+      initWordTypewriter();
     });
+
+    function initWordTypewriter() {
+      const typewriterElements = document.querySelectorAll('.typewriter-text');
+      if (!typewriterElements.length) return;
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            typeWordByWord(el);
+            obs.unobserve(el);
+          }
+        });
+      }, observerOptions);
+
+      typewriterElements.forEach(el => {
+        if (!el.getAttribute('data-text')) {
+          const originalText = el.textContent.trim().replace(/\s+/g, ' ');
+          el.setAttribute('data-text', originalText);
+        }
+        el.textContent = '';
+        observer.observe(el);
+      });
+    }
+
+    function typeWordByWord(element) {
+      const fullText = element.getAttribute('data-text') || '';
+      if (!fullText) return;
+
+      const words = fullText.split(' ');
+      element.textContent = '';
+
+      const cursor = document.createElement('span');
+      cursor.className = 'typewriter-cursor';
+      cursor.setAttribute('aria-hidden', 'true');
+      element.appendChild(cursor);
+
+      let wordIndex = 0;
+      const wordDelay = 110;
+
+      function addNextWord() {
+        if (wordIndex < words.length) {
+          const space = wordIndex > 0 ? ' ' : '';
+          const textNode = document.createTextNode(space + words[wordIndex]);
+          element.insertBefore(textNode, cursor);
+          wordIndex++;
+          setTimeout(addNextWord, wordDelay);
+        } else {
+          setTimeout(() => {
+            cursor.style.transition = 'opacity 0.6s ease';
+            cursor.style.opacity = '0';
+            setTimeout(() => cursor.remove(), 600);
+          }, 2000);
+        }
+      }
+
+      setTimeout(addNextWord, 200);
+    }
   </script>
 
   <!-- Back to Top Button -->
