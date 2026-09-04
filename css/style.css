@@ -2979,17 +2979,78 @@
        PRE-FOOTER EXECUTIVE PARTNERSHIP & TRUST GATEWAY
        ========================================================================== */
     .prefooter-gateway-section {
-      padding: 60px 0 0;
-      background: linear-gradient(180deg, var(--bg-surface) 0%, #060a1c 100%);
+      padding: 80px 0 40px;
+      background: linear-gradient(135deg, #0B2F3A 0%, #134453 50%, #0B2F3A 100%);
       position: relative;
       overflow: hidden;
+      color: #ffffff;
+    }
+
+    .prefooter-gateway-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(26, 84, 160, 0.3) 0%, rgba(26, 84, 160, 0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .prefooter-gateway-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(47, 146, 74, 0.25) 0%, rgba(47, 146, 74, 0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .prefooter-gateway-section .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .prefooter-gateway-section .section-eyebrow {
+      background: rgba(139, 237, 1, 0.12);
+      border: 1px solid rgba(139, 237, 1, 0.35);
+      color: #8BED01;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .prefooter-gateway-section .section-title {
+      color: #ffffff;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .prefooter-gateway-section .section-desc {
+      color: #A3C2CB;
+      font-size: 1.05rem;
+      max-width: 720px;
+      line-height: 1.6;
     }
 
     .partner-pillars-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-      margin: 40px 0 50px;
+      gap: 24px;
+      margin: 50px 0 50px;
     }
 
     @media (max-width: 1024px) {
@@ -3006,16 +3067,16 @@
 
     .partner-pillar-card {
       background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 28px 24px;
+      border-radius: 16px;
+      padding: 32px 26px 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+      transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .partner-pillar-card::before {
@@ -3024,70 +3085,135 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 4px;
+      height: 5px;
       transition: height 0.3s ease;
     }
 
-    .pillar-donor::before { background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-light)); }
-    .pillar-gov::before { background: linear-gradient(90deg, var(--secondary-green), var(--accent-lime)); }
-    .pillar-vendor::before { background: linear-gradient(90deg, var(--accent-lime), var(--secondary-green)); }
-    .pillar-talent::before { background: linear-gradient(90deg, var(--primary-blue), var(--secondary-green)); }
+    .pillar-donor::before { background: linear-gradient(90deg, #1A54A0, #3B82F6); }
+    .pillar-gov::before { background: linear-gradient(90deg, #2F924A, #8BED01); }
+    .pillar-vendor::before { background: linear-gradient(90deg, #8BED01, #2F924A); }
+    .pillar-talent::before { background: linear-gradient(90deg, #0B2F3A, #1A54A0); }
 
     .partner-pillar-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(26, 84, 160, 0.3);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
     }
 
     .partner-pillar-card:hover::before {
-      height: 6px;
+      height: 7px;
     }
 
+    .pillar-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .pillar-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .pillar-donor .pillar-badge { background: rgba(26, 84, 160, 0.1); color: #1A54A0; }
+    .pillar-gov .pillar-badge { background: rgba(47, 146, 74, 0.12); color: #2F924A; }
+    .pillar-vendor .pillar-badge { background: rgba(139, 237, 1, 0.2); color: #134453; }
+    .pillar-talent .pillar-badge { background: rgba(11, 47, 58, 0.12); color: #0B2F3A; }
+
     .pillar-icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 18px;
+      font-size: 1.35rem;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+      transition: transform 0.3s ease;
     }
 
-    .pillar-donor .pillar-icon-box { background: rgba(26, 84, 160, 0.1); color: var(--primary-blue); }
-    .pillar-gov .pillar-icon-box { background: rgba(47, 146, 74, 0.1); color: var(--secondary-green); }
-    .pillar-vendor .pillar-icon-box { background: rgba(139, 237, 1, 0.18); color: var(--neutral-dark); }
-    .pillar-talent .pillar-icon-box { background: rgba(11, 47, 58, 0.12); color: var(--neutral-dark); }
+    .partner-pillar-card:hover .pillar-icon-box {
+      transform: scale(1.08) rotate(-3deg);
+    }
+
+    .pillar-donor .pillar-icon-box { background: linear-gradient(135deg, rgba(26, 84, 160, 0.12), rgba(26, 84, 160, 0.25)); color: #1A54A0; }
+    .pillar-gov .pillar-icon-box { background: linear-gradient(135deg, rgba(47, 146, 74, 0.12), rgba(47, 146, 74, 0.25)); color: #2F924A; }
+    .pillar-vendor .pillar-icon-box { background: linear-gradient(135deg, rgba(139, 237, 1, 0.25), rgba(47, 146, 74, 0.25)); color: #0B2F3A; }
+    .pillar-talent .pillar-icon-box { background: linear-gradient(135deg, rgba(11, 47, 58, 0.12), rgba(26, 84, 160, 0.2)); color: #0B2F3A; }
 
     .pillar-title {
-      font-size: 1.12rem;
+      font-size: 1.2rem;
       font-weight: 800;
-      color: var(--primary-blue-dark);
-      margin-bottom: 8px;
+      color: #0B2F3A;
+      margin-bottom: 10px;
       line-height: 1.3;
     }
 
     .pillar-desc {
       font-size: 0.88rem;
-      color: var(--text-muted);
+      color: #4A607A;
       line-height: 1.6;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+    }
+
+    .pillar-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+
+    .pillar-chip {
+      font-size: 0.73rem;
+      font-weight: 600;
+      color: #2F4056;
+      background: #F4F6F9;
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid #E2E8F0;
+    }
+
+    .pillar-chip i {
+      color: #2F924A;
+      font-size: 0.68rem;
     }
 
     .pillar-action-btn {
-      color: var(--primary-blue);
+      width: 100%;
+      background: #F4F6F9;
+      color: #0B2F3A;
       text-decoration: none;
       font-weight: 700;
       font-size: 0.85rem;
+      padding: 12px 18px;
+      border-radius: 10px;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: gap 0.2s ease, color 0.2s ease;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      border: 1px solid #E2E8F0;
     }
 
-    .pillar-action-btn:hover {
-      gap: 10px;
-      color: var(--secondary-green);
+    .partner-pillar-card:hover .pillar-action-btn {
+      background: #0B2F3A;
+      color: #8BED01;
+      border-color: #0B2F3A;
+      box-shadow: 0 4px 12px rgba(11, 47, 58, 0.25);
+    }
+
+    .pillar-action-btn i {
+      transition: transform 0.25s ease;
+    }
+
+    .partner-pillar-card:hover .pillar-action-btn i {
+      transform: translateX(5px);
     }
 
     /* Executive Conversion Card Banner */

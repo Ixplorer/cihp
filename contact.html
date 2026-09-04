@@ -441,118 +441,7 @@
       min-height: 130px;
     }
 
-    /* Pre-Footer Strategic Gateway & Trust Hub */
-    .prefooter-gateway-section {
-      padding: 60px 0 20px;
-      background: linear-gradient(180deg, var(--bg-surface) 0%, #060a1c 100%);
-      position: relative;
-      overflow: hidden;
-    }
 
-    .partner-pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-      margin: 40px 0 50px;
-    }
-
-    @media (max-width: 1024px) {
-      .partner-pillars-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .partner-pillars-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .partner-pillar-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .partner-pillar-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      transition: height 0.3s ease;
-    }
-
-    .pillar-donor::before { background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-light)); }
-    .pillar-gov::before { background: linear-gradient(90deg, var(--secondary-green), var(--accent-lime)); }
-    .pillar-vendor::before { background: linear-gradient(90deg, var(--accent-lime), var(--secondary-green)); }
-    .pillar-talent::before { background: linear-gradient(90deg, var(--primary-blue), var(--secondary-green)); }
-
-    .partner-pillar-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(26, 84, 160, 0.3);
-    }
-
-    .partner-pillar-card:hover::before {
-      height: 6px;
-    }
-
-    .pillar-icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 18px;
-    }
-
-    .pillar-donor .pillar-icon-box { background: rgba(26, 84, 160, 0.1); color: var(--primary-blue); }
-    .pillar-gov .pillar-icon-box { background: rgba(47, 146, 74, 0.1); color: var(--secondary-green); }
-    .pillar-vendor .pillar-icon-box { background: rgba(139, 237, 1, 0.18); color: var(--neutral-dark); }
-    .pillar-talent .pillar-icon-box { background: rgba(11, 47, 58, 0.12); color: var(--neutral-dark); }
-
-    .pillar-title {
-      font-size: 1.12rem;
-      font-weight: 800;
-      color: var(--primary-blue-dark);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .pillar-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .pillar-action-btn {
-      color: var(--primary-blue);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.2s ease, color 0.2s ease;
-    }
-
-    .pillar-action-btn:hover {
-      gap: 10px;
-      color: var(--secondary-green);
-    }
 
     /* Executive Conversion Card Banner */
     .executive-conversion-card {
@@ -1089,9 +978,16 @@
             <!-- Pillar 1: Donors -->
             <div class="partner-pillar-card pillar-donor" data-aos="fade-up" data-aos-delay="100">
               <div>
-                <div class="pillar-icon-box"><i class="fa-solid fa-building-columns"></i></div>
+                <div class="pillar-card-header">
+                  <div class="pillar-icon-box"><i class="fa-solid fa-building-columns"></i></div>
+                  <span class="pillar-badge">Grants & Stewardship</span>
+                </div>
                 <h3 class="pillar-title">Donors & Multilaterals</h3>
-                <p class="pillar-desc">Grants stewardship, 15+ years of PEPFAR/CDC & EU compliance mastery, and verified financial audit standards.</p>
+                <p class="pillar-desc">Institutional funding stewardship backed by 15+ years of PEPFAR/CDC & EU compliance mastery and verified financial audit standards.</p>
+                <div class="pillar-chips">
+                  <span class="pillar-chip"><i class="fa-solid fa-check-circle"></i> PEPFAR / CDC</span>
+                  <span class="pillar-chip"><i class="fa-solid fa-check-circle"></i> EU Audited</span>
+                </div>
               </div>
               <a href="contact.html" class="pillar-action-btn">
                 <span>Grant Stewardship Brief</span> <i class="fa-solid fa-arrow-right"></i>
@@ -1101,21 +997,35 @@
             <!-- Pillar 2: Health Ministries -->
             <div class="partner-pillar-card pillar-gov" data-aos="fade-up" data-aos-delay="200">
               <div>
-                <div class="pillar-icon-box"><i class="fa-solid fa-earth-africa"></i></div>
-                <h3 class="pillar-title">Health Ministries & State MoHs</h3>
-                <p class="pillar-desc">Direct technical assistance across 20 Nigerian states and 5 Pan-African country footholds for health security.</p>
+                <div class="pillar-card-header">
+                  <div class="pillar-icon-box"><i class="fa-solid fa-earth-africa"></i></div>
+                  <span class="pillar-badge">State & Regional MoH</span>
+                </div>
+                <h3 class="pillar-title">Health Ministries & MoHs</h3>
+                <p class="pillar-desc">Direct technical assistance, health infrastructure reinforcement, and systems strengthening across 20 Nigerian states and Pan-Africa.</p>
+                <div class="pillar-chips">
+                  <span class="pillar-chip"><i class="fa-solid fa-check-circle"></i> 20 States</span>
+                  <span class="pillar-chip"><i class="fa-solid fa-check-circle"></i> Pan-African</span>
+                </div>
               </div>
               <a href="about.html#footprint" class="pillar-action-btn">
-                <span>Explore 20-State Footprint</span> <i class="fa-solid fa-arrow-right"></i>
+                <span>Explore Footprint</span> <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
 
             <!-- Pillar 3: Procurement & Vendors -->
             <div class="partner-pillar-card pillar-vendor" data-aos="fade-up" data-aos-delay="300">
               <div>
-                <div class="pillar-icon-box"><i class="fa-solid fa-boxes-packing"></i></div>
+                <div class="pillar-card-header">
+                  <div class="pillar-icon-box"><i class="fa-solid fa-boxes-packing"></i></div>
+                  <span class="pillar-badge">Open Procurement</span>
+                </div>
                 <h3 class="pillar-title">Suppliers & Open RFPs</h3>
-                <p class="pillar-desc">Transparent procurement portal for equipment suppliers, pharmaceutical vendors, and IT infrastructure tenders.</p>
+                <p class="pillar-desc">Transparent procurement portal for medical equipment suppliers, pharmaceutical vendors, and IT infrastructure tenders.</p>
+                <div class="pillar-chips">
+                  <span class="pillar-chip"><i class="fa-solid fa-check-circle"></i> Transparent Tenders</span>
+                  <span class="pillar-chip"><i class="fa-solid fa-check-circle"></i> ISO Standard</span>
+                </div>
               </div>
               <a href="contact.html" class="pillar-action-btn">
                 <span>Access Vendor Portal</span> <i class="fa-solid fa-arrow-right"></i>
@@ -1125,9 +1035,16 @@
             <!-- Pillar 4: Talent Network -->
             <div class="partner-pillar-card pillar-talent" data-aos="fade-up" data-aos-delay="400">
               <div>
-                <div class="pillar-icon-box"><i class="fa-solid fa-user-doctor"></i></div>
+                <div class="pillar-card-header">
+                  <div class="pillar-icon-box"><i class="fa-solid fa-user-doctor"></i></div>
+                  <span class="pillar-badge">Global Roster</span>
+                </div>
                 <h3 class="pillar-title">Careers & Talent Network</h3>
-                <p class="pillar-desc">Join our multidisciplinary team of public health leaders, clinical mentors, epidemiologists, and data scientists.</p>
+                <p class="pillar-desc">Join our multidisciplinary team of public health leaders, clinical mentors, epidemiologists, and biomedical data scientists.</p>
+                <div class="pillar-chips">
+                  <span class="pillar-chip"><i class="fa-solid fa-check-circle"></i> Public Health</span>
+                  <span class="pillar-chip"><i class="fa-solid fa-check-circle"></i> Clinical Roster</span>
+                </div>
               </div>
               <a href="careers.html" class="pillar-action-btn">
                 <span>Join Talent Roster</span> <i class="fa-solid fa-arrow-right"></i>
